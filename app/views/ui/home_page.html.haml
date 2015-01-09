@@ -4,11 +4,11 @@
     %div{id: "logo"}
       %span{class: 'image avatar48'}
         =image_tag('avatar.jpg')
-        %h1{id: 'title'}
-          Jane Doe
-        %p Hyperspace Engineer
+      %h1{id: 'title'}
+        Jane Doe
+      %p Hyperspace Engineer
     / Nav
-    %div{id: 'nav'}
+    %nav{id: 'nav'}
       /
       /
       / Prologue's nav expects links in one of two formats:
@@ -39,29 +39,29 @@
           %a{href: "#contact", id: "contact-link", class: "skel-layers-ignoreHref"}
             %span{class: "icon fa-envelope"}
               Contact
-      %div{class: "bottom"}
-      / Social Icons
-      %ul{class: "icons"}
-        %li
-          %a{href: "#", class: "icon fa-twitter"}
-            %span{class: "label"}
-              Twitter
-        %li
-          %a{href: "#", class: "icon fa-facebook"}
-            %span{class: "label"}
-              Facebook
-        %li
-          %a{href: "#", class: "icon fa-github"}
-            %span{class: "label"}
-              Github
-        %li
-          %a{href: "#", class: "icon fa-dribbble"}
-            %span{class: "label"}
-              Dribbble
-        %li
-          %a{href: "#", class: "icon fa-envelope"}
-            %span{class: "label"}
-              Email
+  %div{class: "bottom"}
+    / Social Icons
+    %ul{class: "icons"}
+      %li
+        %a{href: "#", class: "icon fa-twitter"}
+          %span{class: "label"}
+            Twitter
+      %li
+        %a{href: "#", class: "icon fa-facebook"}
+          %span{class: "label"}
+            Facebook
+      %li
+        %a{href: "#", class: "icon fa-github"}
+          %span{class: "label"}
+            Github
+      %li
+        %a{href: "#", class: "icon fa-dribbble"}
+          %span{class: "label"}
+            Dribbble
+      %li
+        %a{href: "#", class: "icon fa-envelope"}
+          %span{class: "label"}
+            Email
 %div{id: "main"}
   / Intro
   %section{id: "top", class: "one dark cover"}
