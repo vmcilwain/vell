@@ -1,0 +1,168 @@
+%div{id: 'header', class: 'skel-layers-fixed'}
+  %div{class: 'top'}
+    / Logo
+    %div{id: "logo"}
+      %span{class: 'image avatar48'}
+        =image_tag('avatar.jpg')
+        %h1{id: 'title'}
+          Jane Doe
+        %p Hyperspace Engineer
+    / Nav
+    %div{id: 'nav'}
+      /
+      /
+      / Prologue's nav expects links in one of two formats:
+      /
+      / 1. Hash link (scrolls to a different section within the page)
+      /
+      /    <li><a href="#foobar" id="foobar-link" class="icon fa-whatever-icon-you-want skel-layers-ignoreHref"><span class="label">Foobar</span></a></li>
+      /
+      / 2. Standard link (sends the user to another page/site)
+      /
+      /    <li><a href="http://foobar.tld" id="foobar-link" class="icon fa-whatever-icon-you-want"><span class="label">Foobar</span></a></li>
+      /
+      /
+      %ul
+        %li
+          %a{id: 'top-link', class: 'skel-layers-ignoreHref', href: '#top'}
+            %span{class: 'icon fa-home'}
+              Intro
+        %li
+          %a{href: "#portfolio", id: "portfolio-link", class: "skel-layers-ignoreHref"}
+            %span{class: "icon fa-th"}
+              Portfolio
+        %li
+          %a{href: "#about", id: "about-link", class: "skel-layers-ignoreHref"}
+            %span{class: "icon fa-user"}
+              About Me
+        %li
+          %a{href: "#contact", id: "contact-link", class: "skel-layers-ignoreHref"}
+            %span{class: "icon fa-envelope"}
+              Contact
+      %div{class: "bottom"}
+      / Social Icons
+      %ul{class: "icons"}
+        %li
+          %a{href: "#", class: "icon fa-twitter"}
+            %span{class: "label"}
+              Twitter
+        %li
+          %a{href: "#", class: "icon fa-facebook"}
+            %span{class: "label"}
+              Facebook
+        %li
+          %a{href: "#", class: "icon fa-github"}
+            %span{class: "label"}
+              Github
+        %li
+          %a{href: "#", class: "icon fa-dribbble"}
+            %span{class: "label"}
+              Dribbble
+        %li
+          %a{href: "#", class: "icon fa-envelope"}
+            %span{class: "label"}
+              Email
+%div{id: "main"}
+  / Intro
+  %section{id: "top", class: "one dark cover"}
+    %div{class: "container"}
+      %header
+        %h2{class: "alt"}
+          Hi! I'm
+          %strong Prologue, a 
+          %a{href: "http://html5up.net/license"} free responsive
+          %br site template designed by
+          %a{href: "http://html5up.net"} HTML5 UP.
+          %p Ligula scelerisque justo sem accumsan diam quis
+          %br vitae natoque dictum sollicitudin elementum.
+      %footer
+        %a{href: "#portfolio", class: "button scrolly"} Magna Aliquam	
+  / Portfolio
+  %section{id: "portfolio", class: "two"}
+    %div{class: "container"}
+      %header
+        %h2 Portfolio
+        %p 
+        Vitae natoque dictum etiam semper magnis enim feugiat convallis convallis
+        egestas rhoncus ridiculus in quis risus amet curabitur tempor orci penatibus.
+        Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis 
+        fusce hendrerit lacus ridiculus.</p>
+
+    %div{class: "row"}
+      %div{class: "4u"}
+        %article{class: "item"}
+          %a{href: "#", class: "image fit"}
+            =image_tag("pic02.jpg")
+          %header
+            %h3 Ipsum Feugiat
+        %article{class: "item"}
+          %a{href: "#", class: "image fit"}
+            =image_tag("pic03.jpg")
+          %header
+            %h3 Rhoncus Semper
+      %div{class: "4u"}
+        %article{class: "item"}
+          %a{href: "#", class: "image fit"}
+            =image_tag("pic04.jpg")
+          %header
+            %h3 Magna Nullam
+        %article{class: "item"}
+          %a{href: "#", class: "image fit"}
+            =image_tag("pic05.jpg")
+          %header
+            %h3 Natoque Vitae
+      %div{class: "4u"}
+        %article{class: "item"}
+          %a{href: "#", class: "image fit"}
+            =image_tag("pic06.jpg")
+          %header
+            %h3 Dolor Penatibus
+        %article{class: "item"}
+          %a{href: "#", class: "image fit"}
+            =image_tag("pic07.jpg")
+          %header
+            %h3 Orci Convallis
+  / About Me
+  %section{id: "about", class: "three"}
+    %div{class: "container"}
+      %header
+        %h2 About Me
+      %a{href: "#", class: "image featured"}
+        =image_tag("pic08.jpg")
+      %p
+        Tincidunt eu elit diam magnis pretium accumsan etiam id urna. Ridiculus 
+        ultricies curae quis et rhoncus velit. Lobortis elementum aliquet nec vitae 
+        laoreet eget cubilia quam non etiam odio tincidunt montes. Elementum sem 
+        parturient nulla quam placerat viverra mauris non cum elit tempus ullamcorper 
+        dolor. Libero rutrum ut lacinia donec curae mus vel quisque sociis nec 
+        ornare iaculis.</p>
+  / Contact
+  %section{id: "contact", class: "four"}
+    %div{class: "container"}
+      %header
+        %h2 Contact
+      %p
+        Elementum sem parturient nulla quam placerat viverra 
+        mauris non cum elit tempus ullamcorper dolor. Libero rutrum ut lacinia 
+        donec curae mus. Eleifend id porttitor ac ultricies lobortis sem nunc 
+        orci ridiculus faucibus a consectetur. Porttitor curae mauris urna mi dolor.
+      %form{method: "post", action: "#"}
+        %div{class: "row 50%"}
+          %div{class: "6u"}
+            %input{type: "text", name: "name", placeholder: "Name"}
+          %div{class: "6u"}
+            %input{type: "text", name: "email", placeholder: "Email"}
+        %div{class: "row 50%"}
+          %div{class: "12u"}
+            %textarea{name: "message", placeholder: "Message"}
+        %div{class: "row"}
+          %div{class: "12u"}
+            %input{type: "submit", value: "Send Message"}
+%div{id: "footer"}
+  / Copyright
+  %ul{class: "copyright"}
+    %li
+      &copy; Untitled. All rights reserved.
+    %li
+      Design:
+      %a{href: "http://html5up.net"} HTML5 UP

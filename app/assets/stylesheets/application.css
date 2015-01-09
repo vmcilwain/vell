@@ -10,6 +10,11 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require skel.css.scss
+ *= require style.css.scss
+ *= require style-wide.css.scss
+ *= require style-normal.css.scss
+ *= require style-narrow.css.scss
  *= require_tree .
  *= require_self
  */
