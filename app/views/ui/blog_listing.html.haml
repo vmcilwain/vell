@@ -1,0 +1,21 @@
+%div{class: 'container'}
+  %h1 Blog Listing
+  %a{href: '#'} New Blog
+  %hr
+  -8.times do
+    %div
+      =link_to Faker::Lorem.words(5).join("\s"), '#' 
+      %p
+        =Faker::Lorem.paragraphs(1).join("\s")
+        &nbsp;
+        %a{href: '#'} Read More
+        %span
+          %br
+          Posted:  
+          =Date.today
+          |
+          Comments: 
+          %a{href: '#'} 0
+          |
+          Attachments: 
+          %a{href: '#'} 0
