@@ -1,12 +1,11 @@
 %h1 
   Blog Categories
+%a{href: '#'} New Category
 %hr
 %ul
   -8.times do
     %li 
       =link_to Faker::Lorem.words(1).join("\s"), '#'
-      [
       %a{href: '#'} Edit
       |
       %a{href: '#'} Delete
-      ]
