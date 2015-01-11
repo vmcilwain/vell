@@ -4,4 +4,9 @@
 %ul
   -8.times do
     %li 
-      =Faker::Lorem.words(3).join("\s")
+      =link_to Faker::Lorem.words(1).join("\s"), '#'
+      [
+      %a{href: '#'} Edit
+      |
+      %a{href: '#'} Delete
+      ]
