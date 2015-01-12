@@ -21,5 +21,5 @@
 //= require_tree .
 
 $(function(){
-  $("textarea").jqte();
+  $(".textarea").jqte({placeholder: "Please, write your post"});
 })

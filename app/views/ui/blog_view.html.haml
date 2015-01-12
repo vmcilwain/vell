@@ -1,0 +1,20 @@
+%div{class: 'container'}
+  %div{class: 'master_links'}
+    %a{href: '#'} Back to Listing
+  %h1
+    =Faker::Lorem.words(5).join("\s") + " - Option1"
+  %hr
+  =Faker::Lorem.paragraphs(4).join("\s")
+  %br
+  %br
+  =Faker::Lorem.paragraphs(4).join("\s")
+  %br
+  %br
+  %div{id: 'comments_section'}
+  %h1 Comments
+  %form
+    %textarea{rows: 5}
+    %br
+    %div{class: 'actions'}
+      %input{type: 'submit', value: 'Post'}
+      =link_to 'Cancel', '#'

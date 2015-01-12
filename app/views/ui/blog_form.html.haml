@@ -1,12 +1,16 @@
-%h1 Create / Edit Blog
-%hr
 %div{class: 'container'}
+  %h1 Create / Edit Blog
+  %hr
   %form
-    %input{type: 'text', name: 'headline', size: '18', placeholder: 'Enter Headline'}
+    %select
+      %option{value: ''} Please Select
+      %option{value: 'option1'} Option1
+      %option{value: 'option2'} Option2
+      %option{value: 'option3'} Option3
     %br
-    %textarea{cols: "50", rows: "10", name: 'body', placeholder: 'Enter Details'}
+    %input{type: 'text', name: 'headline', size: '18', placeholder: 'Enter Headline'}
+    %textarea{class: 'textarea', name: 'body', placeholder: 'Enter Details'}
     %br
     %div{class: 'actions'}
       %input{type: "submit", value: "Submit"}
       =link_to 'Cancel', '#'
-%br
