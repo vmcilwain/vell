@@ -11,7 +11,7 @@
   %br
   %br
   %div{id: 'comments_section'}
-  %h1 Comments
+  %h1 Enter your comment
   %form
     %input{type: 'text', placeholder: 'Enter Your Name'}
     %textarea{rows: 5, placeholder: 'Enter Comment'}
@@ -20,6 +20,7 @@
       %input{type: 'submit', value: 'Post'}
       =link_to 'Cancel', '#'
   %br
+  %h1 Comments
   -8.times do
     %div{id: 'comments_listing'}
       #{Faker::Name.name} wrote on #{Date.today}:
