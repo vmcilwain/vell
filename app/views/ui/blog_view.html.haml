@@ -13,8 +13,17 @@
   %div{id: 'comments_section'}
   %h1 Comments
   %form
-    %textarea{rows: 5}
+    %input{type: 'text', placeholder: 'Enter Your Name'}
+    %textarea{rows: 5, placeholder: 'Enter Comment'}
     %br
     %div{class: 'actions'}
       %input{type: 'submit', value: 'Post'}
       =link_to 'Cancel', '#'
+  %br
+  -8.times do
+    %div{id: 'comments_listing'}
+      #{Faker::Name.name} wrote on #{Date.today}:
+      %br
+      =Faker::Lorem.words(5).join("\s")
+      %hr
+    
