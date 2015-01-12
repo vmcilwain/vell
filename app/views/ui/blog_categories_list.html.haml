@@ -1,12 +1,13 @@
 %div{class: 'container'}
   %h1 
     Blog Categories
-  %a{href: '#'} New Category
+    %div{class: 'master_links'}
+      %a{href: '#'} New Category
   %hr
-  %ul
-    -8.times do
-      %li 
+  -8.times do
+    %div{class: 'blog_category_listing'} 
+      %span
         =link_to Faker::Lorem.words(1).join("\s"), '#'
-        %a{href: '#'} Edit
-        |
-        %a{href: '#'} Delete
+      =link_to 'Edit', '#'
+      |
+      =link_to 'Delete', '#'
