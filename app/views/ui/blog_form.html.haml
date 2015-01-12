@@ -1,0 +1,12 @@
+%h1 Create / Edit Blog
+%hr
+%div{class: 'container'}
+  %form
+    %input{type: 'text', name: 'headline', size: '18', placeholder: 'Enter Headline'}
+    %br
+    %textarea{cols: "50", rows: "10", name: 'body', placeholder: 'Enter Details'}
+    %br
+    %div{class: 'actions'}
+      %input{type: "submit", value: "Submit"}
+      =link_to 'Cancel', '#'
+%br

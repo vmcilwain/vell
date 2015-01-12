@@ -19,3 +19,7 @@
 //= require init.js
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+  $("textarea").jqte();
+})
