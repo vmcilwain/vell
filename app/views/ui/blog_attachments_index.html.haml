@@ -2,6 +2,18 @@
   %div{class: 'master_links'}
     =link_to 'Blog Listing', '#'
   %h1{class: 'title'} Blog Attachment Listing
+  %div{class: 'search_form'}
+    %h1 Search Blog Attachments
+    %form
+      %input{type: 'text', placeholder: 'Blog Title'}
+      %br
+      %input{type: 'text', placeholder: 'Name'}
+      %br
+      %input{type: 'text', placeholder: 'Description'}
+      %br
+      %div{class: 'actions'}
+        %input{type: 'submit', name: 'Search'} #{link_to 'Cancel', '#', class: 'cancel_search_form_link'}
+  =link_to 'Search Attachments', '#', class: 'search_form_link'
   %hr
   -5.times do
     %div{class: 'listing'}

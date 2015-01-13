@@ -22,4 +22,16 @@
 
 $(function(){
   $(".textarea").jqte({placeholder: "Please, write your post"});
+  
+  $('.search_form').hide();
+  
+  $('.search_form_link').click(function(){
+    $('.search_form').slideDown('slow');
+    $('.search_form_link').fadeOut('slow');
+  });
+  
+  $('.cancel_search_form_link').click(function(){
+    $('.search_form').slideUp('slow');
+    $('.search_form_link').fadeIn('slow');
+  });
 })

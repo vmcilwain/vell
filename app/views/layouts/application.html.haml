@@ -71,12 +71,4 @@
               Email
 %div{id: "main"}
   =yield
-
-%div{id: "footer"}
-  / Copyright
-  %ul{class: "copyright"}
-    %li
-      &copy; Untitled. All rights reserved.
-    %li
-      Design:
-      %a{href: "http://html5up.net"} HTML5 UP
+= render partial: 'layouts/footer'
