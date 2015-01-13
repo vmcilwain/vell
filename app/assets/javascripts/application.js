@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.scrolly.min.js
 //= require jquery.scrollzer.min.js
