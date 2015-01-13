@@ -1,4 +1,13 @@
-%div{clas: 'container'}
-  =link_to 'Blog Listing', '#'
-  %h1 Blog Attachments Listing
+%div{class: 'container'}
+  %div{class: 'master_links'}
+    =link_to 'Blog Listing', '#'
+  %h1 Blog Attachment Listing
   %hr
+  -5.times do
+    %div{class: 'listing'}
+      %h1 #{link_to Faker::Lorem.words(4).join("\s"), '#'}
+      #{link_to Faker::Lorem.words(1).first, '#', title: 'view/download file'} - 
+      %span{class: 'photo_description'}
+        #{Faker::Lorem.paragraphs(1).first}
+      %div{class: 'master_links'}
+        #{link_to 'Edit', '#'} | #{link_to 'Destroy', '#'}

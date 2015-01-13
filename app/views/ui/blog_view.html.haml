@@ -10,6 +10,13 @@
   =Faker::Lorem.paragraphs(4).join("\s")
   %br
   %br
+  %div{class: 'listing'}
+    %h1 Attachments
+    -3.times do
+      %div
+        #{link_to Faker::Lorem.words(1).first, '#'} - #{Faker::Lorem.words(8).join("\s")}
+  %br
+  %br
   %div{class: 'comments_section'}
     %h1 Enter your comment
     %form
