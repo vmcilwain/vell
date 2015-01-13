@@ -1,0 +1,14 @@
+%div{class: 'container'}
+  %div{class: 'master_links'}
+    =link_to 'Blog Listing', '#'
+  %h1 Blog Comment Listing
+  %hr
+  -10.times do
+    %div{class: 'listing'}
+      %h1 #{link_to Faker::Lorem.words(4).join("\s"), '#'}
+      %p
+        #{Faker::Name.name} wrote on #{Date.today}:
+        %br
+        =Faker::Lorem.words(5).join("\s")
+        %div{class: 'master_links'}
+          #{link_to 'Edit', '#'} |  #{link_to 'Destroy', '#'}

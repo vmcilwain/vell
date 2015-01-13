@@ -54,3 +54,12 @@
   font-size: 30px;
   font-weight: bold;
 }
+
+.listing h1 {
+  font-weight: bold;
+}
+
+.listing p {
+  font-size: 16px;
+  line-height: 30px;
+}
