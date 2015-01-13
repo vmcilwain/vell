@@ -63,3 +63,8 @@
   font-size: 16px;
   line-height: 30px;
 }
+
+.title {
+  font-weight: bold;
+  font-size: 40px;
+}

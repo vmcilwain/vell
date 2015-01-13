@@ -1,0 +1,13 @@
+%div{class: 'container'}
+  %div{class: 'master_links'}
+    =link_to 'Back to Photo Albums', '#'
+  %h1{class: 'title'} Photos Listing
+  %hr
+  -5.times do
+    %div{class: 'photos_listing'}
+      =link_to image_tag('http://media.animevice.com/uploads/0/72/24116-mai_shiranui_6.jpg', width: '100px'), title: 'click to view comments'
+      %span{class: 'photo_description'}
+        &nbsp; #{Faker::Lorem.paragraphs(1).join("\s")}
+        %div{class: 'master_links'}
+          #{link_to 'View Album', '#'} | Comments: #{link_to '0', '#'} | #{link_to 'Edit', '#'} | #{link_to 'Destroy', '#'}
+      %br

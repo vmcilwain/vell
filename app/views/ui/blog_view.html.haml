@@ -1,8 +1,7 @@
 %div{class: 'container'}
   %div{class: 'master_links'}
     %a{href: '#'} Back to Listing
-  %h1
-    =Faker::Lorem.words(5).join("\s") + " - Option1"
+  %h1{class: 'title'} #{Faker::Lorem.words(5).join("\s").titleize} - Option1
   %hr
   =Faker::Lorem.paragraphs(4).join("\s")
   %br

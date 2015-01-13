@@ -14,7 +14,7 @@
 	<key>BackgroundGraphic</key>
 	<dict>
 		<key>Bounds</key>
-		<string>{{0, 0}, {1152, 1466}}</string>
+		<string>{{0, 0}, {1152, 733}}</string>
 		<key>Class</key>
 		<string>SolidGraphic</string>
 		<key>ID</key>
@@ -46,14 +46,14 @@
 	<key>Creator</key>
 	<string>Vell Mcilwain</string>
 	<key>DisplayScale</key>
-	<string>1 0/72 in = 1 0/72 in</string>
+	<string>1 0/72 in = 1.0000 in</string>
 	<key>GraphDocumentVersion</key>
 	<integer>8</integer>
 	<key>GraphicsList</key>
 	<array>
 		<dict>
 			<key>Bounds</key>
-			<string>{{212.3217842349608, 683.49996964396973}, {126, 56}}</string>
+			<string>{{213.8613881579615, 664.0296356205655}, {126, 56}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -93,8 +93,9 @@
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
 \f0\b\fs24 \cf0 Things to think about:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\b0 \
+\b0 \cf0 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
 \cf0 Testimonials\
 Contact Form}</string>
@@ -161,7 +162,7 @@ Contact Form}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{17.500002653572388, 697.49998793215411}, {179, 14}}</string>
+			<string>{{17.500002653572388, 678.52970507714963}, {179, 14}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -1498,8 +1499,8 @@ updated_at :datetime}</string>
 			<integer>38</integer>
 			<key>Points</key>
 			<array>
-				<string>{559.63126095303778, 316.31949572990743}</string>
-				<string>{617.55632446336301, 274.08018402928485}</string>
+				<string>{559.63139613385135, 316.31956497271369}</string>
+				<string>{617.55638462131401, 274.08063047479027}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1552,7 +1553,7 @@ updated_at :datetime}</string>
 			<key>Points</key>
 			<array>
 				<string>{353.86177752620858, 177.28875244271589}</string>
-				<string>{382.83333979494546, 300.72062875647072}</string>
+				<string>{382.83333979494546, 300.72062875647066}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -2639,7 +2640,7 @@ updated_at :datetime}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2014-12-11 13:32:57 +0000</string>
+	<string>2015-01-13 01:18:41 +0000</string>
 	<key>Modifier</key>
 	<string>Vell Mcilwain</string>
 	<key>NotesVisible</key>
@@ -2707,7 +2708,7 @@ updated_at :datetime}</string>
 	<key>UseEntirePage</key>
 	<false/>
 	<key>VPages</key>
-	<integer>2</integer>
+	<integer>1</integer>
 	<key>WindowInfo</key>
 	<dict>
 		<key>CurrentSheet</key>
@@ -2720,7 +2721,7 @@ updated_at :datetime}</string>
 			</dict>
 		</array>
 		<key>Frame</key>
-		<string>{{427, 23}, {758, 852}}</string>
+		<string>{{427, 25}, {758, 852}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>
@@ -2734,7 +2735,7 @@ updated_at :datetime}</string>
 		<key>SidebarWidth</key>
 		<integer>120</integer>
 		<key>VisibleRegion</key>
-		<string>{{0, 29.702970577494654}, {616.83168899263899, 702.97030366737351}}</string>
+		<string>{{344.55445869893799, 12.871287250247684}, {616.83168899263899, 691.08911543637566}}</string>
 		<key>Zoom</key>
 		<real>1.0099999904632568</real>
 		<key>ZoomValues</key>
