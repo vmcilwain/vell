@@ -41,6 +41,13 @@ gem 'spring',        group: :development
 
 gem "haml-rails"
 gem "thin"
+gem 'jquery-turbolinks'
+gem "ransack"
+gem 'figaro'
+gem 'twitter'
+
+gem 'letter_opener', group: [:development]
+
 group :test do
   gem "rspec-rails"
   gem "rails-erd"

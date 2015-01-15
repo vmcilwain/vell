@@ -5,14 +5,16 @@
   %div{class: 'search_form'}
     %h1 Search Blog Attachments
     %form
-      %input{type: 'text', placeholder: 'Blog Title'}
+      %input{type: 'text', placeholder: 'Blog Headline'}
       %br
       %input{type: 'text', placeholder: 'Name'}
       %br
       %input{type: 'text', placeholder: 'Description'}
       %br
+      %input{type: 'text', placeholder: 'Created On'}
+      %br
       %div{class: 'actions'}
-        %input{type: 'submit', name: 'Search'} #{link_to 'Cancel', '#', class: 'cancel_search_form_link'}
+        %input{type: 'submit', value: 'Search'} #{link_to 'Cancel', '#', class: 'cancel_search_form_link'}
   =link_to 'Search Attachments', '#', class: 'search_form_link'
   %hr
   -5.times do
