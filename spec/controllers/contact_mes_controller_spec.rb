@@ -20,14 +20,19 @@ describe ContactMesController do
       end
       
       describe 'successfully created contact me' do
-        before {post :create, contact_me: {email: Faker::Internet.email, name: Faker::Name.name, body: Faker::Lorem.words(5).join("\s")}
-  }
+        before {post :create, contact_me: {email: Faker::Internet.email, name: Faker::Name.name, body: Faker::Lorem.words(5).join("\s")}}
+        
+        after {clear_mailbox}
         it 'sets flash[:success]' do
           expect(flash[:success]).to_not be_nil
         end
         
         it 'redirects to root path' do
           expect(response).to redirect_to root_path
+        end
+        
+        it 'sends an email' do
+          expect(mailbox.count).to eq 1
         end
       end
       
