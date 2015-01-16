@@ -1,10 +1,10 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/vmcilwain/Desktop/vextranet/spec/support/hooks.rb": [
+      "/Users/vmcilwain/rails/vextranet/spec/support/hooks.rb": [
 
       ],
-      "/Users/vmcilwain/Desktop/vextranet/spec/support/mailer.rb": [
+      "/Users/vmcilwain/rails/vextranet/spec/support/mailer.rb": [
         1,
         1,
         null,
@@ -13,12 +13,12 @@
         15,
         null
       ],
-      "/Users/vmcilwain/Desktop/vextranet/spec/support/objects.rb": [
+      "/Users/vmcilwain/rails/vextranet/spec/support/objects.rb": [
         1,
         0,
         null
       ],
-      "/Users/vmcilwain/Desktop/vextranet/app/controllers/contact_mes_controller.rb": [
+      "/Users/vmcilwain/rails/vextranet/app/controllers/contact_mes_controller.rb": [
         1,
         1,
         2,
@@ -49,14 +49,14 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/vextranet/app/controllers/application_controller.rb": [
+      "/Users/vmcilwain/rails/vextranet/app/controllers/application_controller.rb": [
         1,
         null,
         null,
         1,
         null
       ],
-      "/Users/vmcilwain/Desktop/vextranet/spec/controllers/home_controller_spec.rb": [
+      "/Users/vmcilwain/rails/vextranet/spec/controllers/home_controller_spec.rb": [
         1,
         null,
         1,
@@ -68,14 +68,14 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/vextranet/app/controllers/home_controller.rb": [
+      "/Users/vmcilwain/rails/vextranet/app/controllers/home_controller.rb": [
         1,
         1,
         5,
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/vextranet/spec/features/contact_me.new_http_spec.rb": [
+      "/Users/vmcilwain/rails/vextranet/spec/features/contact_me.new_http_spec.rb": [
         1,
         null,
         1,
@@ -93,7 +93,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/vextranet/spec/features/contact_me.new_xhr_spec.rb": [
+      "/Users/vmcilwain/rails/vextranet/spec/features/contact_me.new_xhr_spec.rb": [
         1,
         null,
         1,
@@ -109,26 +109,27 @@
         null,
         0,
         null,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/vextranet/spec/features/contact_me_show_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        1,
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/vextranet/spec/models/contact_me_spec.rb": [
+      "/Users/vmcilwain/rails/vextranet/spec/features/contact_me_show_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vextranet/spec/models/contact_me_spec.rb": [
         1,
         null,
         1,
@@ -137,19 +138,19 @@
         2,
         null
       ],
-      "/Users/vmcilwain/Desktop/vextranet/app/models/contact_me.rb": [
+      "/Users/vmcilwain/rails/vextranet/app/models/contact_me.rb": [
         1,
         1,
         null
       ],
-      "/Users/vmcilwain/Desktop/vextranet/spec/fabricators/contact_me.rb": [
+      "/Users/vmcilwain/rails/vextranet/spec/fabricators/contact_me.rb": [
         1,
         1,
         1,
         1,
         null
       ],
-      "/Users/vmcilwain/Desktop/vextranet/app/mailers/notify.rb": [
+      "/Users/vmcilwain/rails/vextranet/app/mailers/notify.rb": [
         1,
         1,
         8,
@@ -157,7 +158,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/vextranet/app/mailers/application_mailer.rb": [
+      "/Users/vmcilwain/rails/vextranet/app/mailers/application_mailer.rb": [
         1,
         1,
         1,
@@ -165,6 +166,6 @@
         null
       ]
     },
-    "timestamp": 1421439810
+    "timestamp": 1421446653
   }
 }

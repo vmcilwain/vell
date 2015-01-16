@@ -12,5 +12,6 @@ feature 'create contact me', js: true do
     expect(page).to have_content "Your message has been sent."
     
     clear_mailbox
+
   end
 end
