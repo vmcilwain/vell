@@ -9,5 +9,7 @@ feature 'viewing contact me' do
     
     click_link contact_me.id
     expect(page).to have_text "this is a new contact me!"
+    
+    clear_mailbox
   end
 end
