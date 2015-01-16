@@ -23,11 +23,19 @@ describe ContactMeController do
       it 'sets flash[:success]' do
         expect(flash[:success]).to_not be_nil
       end
-      it 'redirects to root path'
+      it 'redirects to root path' do
+        expect(response).to redirect_to root_path
+      end
     end
     describe 'unsuccessfully created contact me' do
-      it 'sets flash[:error]'
-      it 'redirects to root path'
+      before {post :create, contact_me: {name: Faker::Name.name, body: Faker::Lorem.words(5).join("\s")}
+}
+      it 'sets flash[:error]' do
+        expect(flash[:error]).to_not be_nil
+      end
+      it 'redirects to root path' do
+        expect(response).to redirect_to root_path
+      end
     end
   end
 end

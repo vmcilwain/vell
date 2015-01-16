@@ -5,8 +5,15 @@ class ContactMeController < ApplicationController
   
   def create
     @contact_me = ContactMe.new(contact_me_params)
-    flash[:success] = "Your message has been sent."
-    redirect_to root_path
+    respond_to do |format|
+      if @contact_me.save
+        flash[:success] = "Your message has been sent."
+        format.html {redirect_to root_path}
+      else
+        flash[:error] = "There was a problem with your message."
+        format.html {redirect_to root_path}
+      end
+    end
   end
   
   private
