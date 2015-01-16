@@ -1,0 +1,54 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/vmcilwain/rails/vextranet/app/controllers/contact_me_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        2,
+        2,
+        2,
+        null,
+        null,
+        1,
+        null,
+        1,
+        2,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vextranet/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "/Users/vmcilwain/rails/vextranet/spec/models/contact_me_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        2,
+        2,
+        null
+      ],
+      "/Users/vmcilwain/rails/vextranet/app/models/contact_me.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/vmcilwain/rails/vextranet/spec/fabricators/contact_me.rb": [
+        1,
+        1,
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1421368249
+  }
+}
