@@ -14,7 +14,7 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-01-15T19:43:47-05:00">2015-01-15T19:43:47-05:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-01-16T08:25:12-05:00">2015-01-16T08:25:12-05:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.1
+         2.87
        </span>
     </span> hits/line)
   </h2>
@@ -51,7 +51,7 @@
     <tbody>
       
       <tr>
-        <td class="strong"><a href="#ed80f65c1b09adb6908cc1af7c74e631dec9d5b0" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
+        <td class="strong"><a href="#61e18f625ffa0ad0f067b8de24ad03bece3ed615" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>5</td>
         <td>2</td>
@@ -61,17 +61,17 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#348a0454567bc7f93190a730b0905e176d0dfede" class="src_link" title="app/controllers/contact_me_controller.rb">app/controllers/contact_me_controller.rb</a></td>
+        <td class="strong"><a href="#23feb08519464ca1fceb596b81725a793a8b7c67" class="src_link" title="app/controllers/contact_me_controller.rb">app/controllers/contact_me_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>24</td>
         <td>14</td>
         <td>14</td>
         <td>0</td>
-        <td>2.9</td>
+        <td>4.4</td>
       </tr>
       
       <tr>
-        <td class="strong"><a href="#a0fa53550d8970c16d9142cd7ce0742199658679" class="src_link" title="app/models/contact_me.rb">app/models/contact_me.rb</a></td>
+        <td class="strong"><a href="#4a04053e11dd371e1e07733ad88a74e93f262bad" class="src_link" title="app/models/contact_me.rb">app/models/contact_me.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>3</td>
         <td>2</td>
@@ -81,7 +81,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#89956bf24f0f23076f98a3ad7933ef1259d252c5" class="src_link" title="spec/fabricators/contact_me.rb">spec/fabricators/contact_me.rb</a></td>
+        <td class="strong"><a href="#d28a97c24ab0b93645e2d411455bc17afaab33b6" class="src_link" title="spec/fabricators/contact_me.rb">spec/fabricators/contact_me.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>5</td>
         <td>4</td>
@@ -91,7 +91,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#16de8542e21c0662bd94d7c1b2dddd4e7c87e671" class="src_link" title="spec/models/contact_me_spec.rb">spec/models/contact_me_spec.rb</a></td>
+        <td class="strong"><a href="#3fc42eeeb6718b13bb42444e0d33b2a1f2051a75" class="src_link" title="spec/models/contact_me_spec.rb">spec/models/contact_me_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>7</td>
         <td>5</td>
@@ -116,7 +116,7 @@
     
       <div class="source_files">
       
-        <div class="source_table" id="ed80f65c1b09adb6908cc1af7c74e631dec9d5b0">
+        <div class="source_table" id="61e18f625ffa0ad0f067b8de24ad03bece3ed615">
   <div class="header">
     <h3>app/controllers/application_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
@@ -164,7 +164,7 @@
   </pre>
 </div>
       
-        <div class="source_table" id="348a0454567bc7f93190a730b0905e176d0dfede">
+        <div class="source_table" id="23feb08519464ca1fceb596b81725a793a8b7c67">
   <div class="header">
     <h3>app/controllers/contact_me_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
@@ -214,32 +214,32 @@
           <code class="ruby">  def create</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="7">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="8" data-linenumber="7">
+          <span class="hits">8</span>
           
           <code class="ruby">    @contact_me = ContactMe.new(contact_me_params)</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="8">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="8" data-linenumber="8">
+          <span class="hits">8</span>
           
           <code class="ruby">    respond_to do |format|</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="9">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="8" data-linenumber="9">
+          <span class="hits">8</span>
           
           <code class="ruby">      if @contact_me.save</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="10">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="5" data-linenumber="10">
+          <span class="hits">5</span>
           
           <code class="ruby">        flash[:success] = &quot;Your message has been sent.&quot;</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="11">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="10" data-linenumber="11">
+          <span class="hits">10</span>
           
           <code class="ruby">        format.html {redirect_to root_path}</code>
         </li>
@@ -250,14 +250,14 @@
           <code class="ruby">      else</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="13">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="13">
+          <span class="hits">3</span>
           
           <code class="ruby">        flash[:error] = &quot;There was a problem with your message.&quot;</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="14">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="6" data-linenumber="14">
+          <span class="hits">6</span>
           
           <code class="ruby">        format.html {redirect_to root_path}</code>
         </li>
@@ -304,8 +304,8 @@
           <code class="ruby">  def contact_me_params</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="22">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="8" data-linenumber="22">
+          <span class="hits">8</span>
           
           <code class="ruby">    params.require(:contact_me).permit(:name, :email, :body)</code>
         </li>
@@ -326,7 +326,7 @@
   </pre>
 </div>
       
-        <div class="source_table" id="a0fa53550d8970c16d9142cd7ce0742199658679">
+        <div class="source_table" id="4a04053e11dd371e1e07733ad88a74e93f262bad">
   <div class="header">
     <h3>app/models/contact_me.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
@@ -362,7 +362,7 @@
   </pre>
 </div>
       
-        <div class="source_table" id="89956bf24f0f23076f98a3ad7933ef1259d252c5">
+        <div class="source_table" id="d28a97c24ab0b93645e2d411455bc17afaab33b6">
   <div class="header">
     <h3>spec/fabricators/contact_me.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
@@ -410,7 +410,7 @@
   </pre>
 </div>
       
-        <div class="source_table" id="16de8542e21c0662bd94d7c1b2dddd4e7c87e671">
+        <div class="source_table" id="3fc42eeeb6718b13bb42444e0d33b2a1f2051a75">
   <div class="header">
     <h3>spec/models/contact_me_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>

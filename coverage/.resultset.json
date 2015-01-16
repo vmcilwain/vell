@@ -1,40 +1,40 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/vmcilwain/rails/vextranet/app/controllers/contact_me_controller.rb": [
+      "/Users/vmcilwain/Desktop/vextranet/app/controllers/contact_me_controller.rb": [
         1,
         1,
         1,
         null,
         null,
         1,
+        8,
+        8,
+        8,
         5,
-        5,
-        5,
+        10,
+        null,
         3,
         6,
         null,
-        2,
-        4,
-        null,
         null,
         null,
         null,
         1,
         null,
         1,
-        5,
+        8,
         null,
         null
       ],
-      "/Users/vmcilwain/rails/vextranet/app/controllers/application_controller.rb": [
+      "/Users/vmcilwain/Desktop/vextranet/app/controllers/application_controller.rb": [
         1,
         null,
         null,
         1,
         null
       ],
-      "/Users/vmcilwain/rails/vextranet/spec/models/contact_me_spec.rb": [
+      "/Users/vmcilwain/Desktop/vextranet/spec/models/contact_me_spec.rb": [
         1,
         null,
         1,
@@ -43,12 +43,12 @@
         2,
         null
       ],
-      "/Users/vmcilwain/rails/vextranet/app/models/contact_me.rb": [
+      "/Users/vmcilwain/Desktop/vextranet/app/models/contact_me.rb": [
         1,
         1,
         null
       ],
-      "/Users/vmcilwain/rails/vextranet/spec/fabricators/contact_me.rb": [
+      "/Users/vmcilwain/Desktop/vextranet/spec/fabricators/contact_me.rb": [
         1,
         1,
         1,
@@ -56,6 +56,6 @@
         null
       ]
     },
-    "timestamp": 1421369027
+    "timestamp": 1421414712
   }
 }
