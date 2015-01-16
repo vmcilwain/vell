@@ -23,6 +23,7 @@ describe ContactMesController do
         before {post :create, contact_me: {email: Faker::Internet.email, name: Faker::Name.name, body: Faker::Lorem.words(5).join("\s")}}
         
         after {clear_mailbox}
+        
         it 'sets flash[:success]' do
           expect(flash[:success]).to_not be_nil
         end
@@ -49,7 +50,7 @@ describe ContactMesController do
       end
     end
     
-    context 'xhr request' do
+    context 'xhr request', js: true do
       it 'sets @contact_me' do
         xhr :post, :create, contact_me: {email: Faker::Internet.email, name: Faker::Name.name, body: Faker::Lorem.words(5).join("\s")}
         expect(assigns[:contact_me]).to be_instance_of ContactMe
