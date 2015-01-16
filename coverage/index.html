@@ -14,7 +14,7 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-01-16T08:25:12-05:00">2015-01-16T08:25:12-05:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-01-16T09:29:13-05:00">2015-01-16T09:29:13-05:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.87
+         2.76
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>5</b> files in total.
-    <b>27</b> relevant lines. 
-    <span class="green"><b>27</b> lines covered</span> and
+    <b>29</b> relevant lines. 
+    <span class="green"><b>29</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -61,13 +61,13 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#23feb08519464ca1fceb596b81725a793a8b7c67" class="src_link" title="app/controllers/contact_me_controller.rb">app/controllers/contact_me_controller.rb</a></td>
+        <td class="strong"><a href="#2aad13dea9cdd33a4a9ce1aada0254340e2649e8" class="src_link" title="app/controllers/contact_mes_controller.rb">app/controllers/contact_mes_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>24</td>
-        <td>14</td>
-        <td>14</td>
+        <td>28</td>
+        <td>16</td>
+        <td>16</td>
         <td>0</td>
-        <td>4.4</td>
+        <td>4.0</td>
       </tr>
       
       <tr>
@@ -164,13 +164,13 @@
   </pre>
 </div>
       
-        <div class="source_table" id="23feb08519464ca1fceb596b81725a793a8b7c67">
+        <div class="source_table" id="2aad13dea9cdd33a4a9ce1aada0254340e2649e8">
   <div class="header">
-    <h3>app/controllers/contact_me_controller.rb</h3>
+    <h3>app/controllers/contact_mes_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>14</b> relevant lines. 
-      <span class="green"><b>14</b> lines covered</span> and
+      <b>16</b> relevant lines. 
+      <span class="green"><b>16</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -181,7 +181,7 @@
         <li class="covered" data-hits="1" data-linenumber="1">
           <span class="hits">1</span>
           
-          <code class="ruby">class ContactMeController &lt; ApplicationController</code>
+          <code class="ruby">class ContactMesController &lt; ApplicationController</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="2">
@@ -289,34 +289,58 @@
         <li class="covered" data-hits="1" data-linenumber="19">
           <span class="hits">1</span>
           
-          <code class="ruby">  private</code>
+          <code class="ruby">  def show</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="20">
-          
-          
-          <code class="ruby">  </code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="21">
+        <li class="covered" data-hits="1" data-linenumber="20">
           <span class="hits">1</span>
           
-          <code class="ruby">  def contact_me_params</code>
+          <code class="ruby">    @contact_me = ContactMe.find(params[:id])</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="22">
-          <span class="hits">8</span>
-          
-          <code class="ruby">    params.require(:contact_me).permit(:name, :email, :body)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="23">
+        <li class="never" data-hits="" data-linenumber="21">
           
           
           <code class="ruby">  end</code>
         </li>
       
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="23">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  private</code>
+        </li>
+      
         <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def contact_me_params</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="26">
+          <span class="hits">8</span>
+          
+          <code class="ruby">    params.require(:contact_me).permit(:name, :email, :body)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
           
           
           <code class="ruby">end</code>

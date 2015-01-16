@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/vmcilwain/Desktop/vextranet/app/controllers/contact_me_controller.rb": [
+      "/Users/vmcilwain/Desktop/vextranet/app/controllers/contact_mes_controller.rb": [
         1,
         1,
         1,
@@ -18,6 +18,10 @@
         6,
         null,
         null,
+        null,
+        null,
+        1,
+        1,
         null,
         null,
         1,
@@ -56,6 +60,6 @@
         null
       ]
     },
-    "timestamp": 1421414712
+    "timestamp": 1421418553
   }
 }
