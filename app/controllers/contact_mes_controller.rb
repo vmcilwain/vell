@@ -10,9 +10,11 @@ class ContactMesController < ApplicationController
         flash[:success] = "Your message has been sent."
         Notify.send_contact_me(@contact_me).deliver_now
         format.html {redirect_to root_path}
+        format.js {}
       else
         flash[:error] = "There was a problem with your message."
         format.html {redirect_to root_path}
+        format.js {}
       end
     end
   end

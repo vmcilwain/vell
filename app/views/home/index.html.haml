@@ -81,7 +81,8 @@
       mauris non cum elit tempus ullamcorper dolor. Libero rutrum ut lacinia 
       donec curae mus. Eleifend id porttitor ac ultricies lobortis sem nunc 
       orci ridiculus faucibus a consectetur. Porttitor curae mauris urna mi dolor.
-    =flash[:success]
+    %div{class: 'notice'}
+      =flash[:success]
     =form_for @contact_me, remote: true do |f|
       %div{class: "row 50%"}
         %div{class: "6u"}
