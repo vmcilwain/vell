@@ -62,20 +62,6 @@ describe ContactMesController do
         xhr :post, :create, contact_me: {email: Faker::Internet.email, name: Faker::Name.name, body: Faker::Lorem.words(5).join("\s")}
         expect(assigns[:contact_me]).to be_instance_of ContactMe
       end
-
-      describe 'successfully created contact me' do
-        it 'sets flash[:success]' do
-          xhr :post, :create, contact_me: {email: Faker::Internet.email, name: Faker::Name.name, body: Faker::Lorem.words(5).join("\s")}
-          expect(flash[:success]).to_not be_nil
-        end
-      end
-
-      describe 'successfully created contact me' do
-        it 'sets flash[:success]' do
-          xhr :post, :create, contact_me: {email: Faker::Internet.email, body: Faker::Lorem.words(5).join("\s")}
-          expect(flash[:error]).to_not be_nil
-        end
-      end
     end
   end
 

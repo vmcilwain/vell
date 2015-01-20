@@ -10,8 +10,10 @@ feature 'create contact me', js: true do
     click_button 'Send Message'
     
     expect(page).to have_content "Your message has been sent."
+    expect(page).to_not have_content 'John Rambo'
+    expect(page).to_not have_content 'jrambo@example.com'
+    expect(page).to_not have_content 'This is the body of a contact me'
     
     clear_mailbox
-
   end
 end
