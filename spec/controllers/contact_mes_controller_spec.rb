@@ -50,6 +50,10 @@ describe ContactMesController do
         it 'sets flash[:error]' do
           expect(flash[:error]).to_not be_nil
         end
+        
+        it 'sets flash[:contact_me_errors]' do
+          expect(flash[:error]).to_not be_nil
+        end
 
         it 'redirects to root path' do
           expect(response).to redirect_to root_path
