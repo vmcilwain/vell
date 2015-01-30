@@ -1,12 +1,12 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/vmcilwain/rails/vextranet/spec/support/hooks.rb": [
+      "/home/vmcilwain/rails/vextranet/spec/support/hooks.rb": [
         1,
         0,
         null
       ],
-      "/Users/vmcilwain/rails/vextranet/spec/support/mailer.rb": [
+      "/home/vmcilwain/rails/vextranet/spec/support/mailer.rb": [
         1,
         0,
         null,
@@ -15,20 +15,79 @@
         0,
         null
       ],
-      "/Users/vmcilwain/rails/vextranet/spec/support/objects.rb": [
+      "/home/vmcilwain/rails/vextranet/spec/support/objects.rb": [
         1,
         0,
         null
       ],
+<<<<<<< HEAD
       "/Users/vmcilwain/rails/vextranet/app/controllers/blog_categories_controller.rb": [
+=======
+      "/home/vmcilwain/rails/vextranet/app/controllers/contact_mes_controller.rb": [
         1,
         1,
-        1,
+        2,
         null,
         null,
         1,
+        15,
+        15,
+        15,
+        7,
+        7,
+        12,
+        7,
+        null,
+        8,
+        null,
+        8,
+        13,
+        8,
+        null,
+        null,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null,
         1,
         null,
+        1,
+        15,
+        null,
+        null
+      ],
+      "/home/vmcilwain/rails/vextranet/app/controllers/application_controller.rb": [
+>>>>>>> master
+        1,
+        1,
+<<<<<<< HEAD
+=======
+        null
+      ],
+      "/home/vmcilwain/rails/vextranet/spec/controllers/home_controller_spec.rb": [
+>>>>>>> master
+        1,
+        null,
+        null,
+<<<<<<< HEAD
+=======
+        null,
+        null
+      ],
+      "/home/vmcilwain/rails/vextranet/app/controllers/home_controller.rb": [
+>>>>>>> master
+        1,
+        1,
+        null,
+<<<<<<< HEAD
+=======
+        null
+      ],
+      "/home/vmcilwain/rails/vextranet/spec/features/contact_me/contact_me_new_http_missing_body_spec.rb": [
+        1,
+>>>>>>> master
         null,
         1,
         5,
@@ -36,10 +95,121 @@
         3,
         3,
         null,
+<<<<<<< HEAD
         2,
         2,
+=======
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/vmcilwain/rails/vextranet/spec/features/contact_me/contact_me_new_http_missing_email_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/vmcilwain/rails/vextranet/spec/features/contact_me/contact_me_new_http_missing_name_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/vmcilwain/rails/vextranet/spec/features/contact_me/contact_me_new_http_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/home/vmcilwain/rails/vextranet/spec/features/contact_me/contact_me_new_xhr_missing_body_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/vmcilwain/rails/vextranet/spec/features/contact_me/contact_me_new_xhr_missing_email_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/vmcilwain/rails/vextranet/spec/features/contact_me/contact_me_new_xhr_missing_name_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+>>>>>>> master
         null,
         null,
+<<<<<<< HEAD
+=======
+        null
+      ],
+      "/home/vmcilwain/rails/vextranet/spec/features/contact_me/contact_me_new_xhr_spec.rb": [
+        1,
+>>>>>>> master
         null,
         1,
         null,
@@ -48,36 +218,70 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/Users/vmcilwain/rails/vextranet/app/controllers/application_controller.rb": [
+=======
+      "/home/vmcilwain/rails/vextranet/spec/features/contact_me/contact_me_show_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+>>>>>>> master
         1,
         null,
         null,
         1,
         null
       ],
+<<<<<<< HEAD
       "/Users/vmcilwain/rails/vextranet/spec/fabricators/blog_category.rb": [
+=======
+      "/home/vmcilwain/rails/vextranet/spec/models/contact_me_spec.rb": [
+>>>>>>> master
         1,
         1,
         null
       ],
+<<<<<<< HEAD
       "/Users/vmcilwain/rails/vextranet/app/models/blog_category.rb": [
+=======
+      "/home/vmcilwain/rails/vextranet/app/models/contact_me.rb": [
+>>>>>>> master
         1,
         1,
         null
       ],
-      "/Users/vmcilwain/rails/vextranet/spec/fabricators/contact_me.rb": [
+      "/home/vmcilwain/rails/vextranet/spec/fabricators/contact_me.rb": [
         1,
         1,
         1,
         1,
         null
       ],
+<<<<<<< HEAD
       "/Users/vmcilwain/rails/vextranet/app/models/contact_me.rb": [
+=======
+      "/home/vmcilwain/rails/vextranet/app/mailers/notify.rb": [
+        1,
+        1,
+        7,
+        7,
+        null,
+        null
+      ],
+      "/home/vmcilwain/rails/vextranet/app/mailers/application_mailer.rb": [
+        1,
+        1,
+>>>>>>> master
         1,
         1,
         null
       ]
     },
+<<<<<<< HEAD
     "timestamp": 1421893358
+=======
+    "timestamp": 1422573822
+>>>>>>> master
   }
 }
