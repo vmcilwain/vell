@@ -90,5 +90,27 @@ describe BlogCategoriesController do
     end
   end
 
-  describe 'DELETE destroy'
+  describe 'DELETE destroy' do
+    let(:blog_category) {Fabricate :blog_category}
+
+    it "redirects to :index" do
+      delete :destroy, id: blog_category.id
+      expect(response).to redirect_to blog_categories_path
+    end
+
+    it "sets @blog_category" do
+      delete :destroy, id: blog_category.id
+      expect(assigns[:blog_category]).to be_instance_of BlogCategory
+    end
+
+    it "sets enabled to false" do
+      delete :destroy, id: blog_category.id
+      expect(blog_category.reload.enabled).to eq false
+    end
+
+    it "sets flash[:success]" do
+      delete :destroy, id: blog_category.id
+      expect(flash[:success]).to_not be_nil
+    end
+  end
 end

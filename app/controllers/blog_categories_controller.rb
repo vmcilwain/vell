@@ -1,5 +1,5 @@
 class BlogCategoriesController < ApplicationController
-  before_action :blog_category, only: [:show, :edit, :update]
+  before_action :blog_category, only: [:show, :edit, :update, :destroy]
   def index
     @blog_categories = BlogCategory.all
   end
@@ -27,6 +27,12 @@ class BlogCategoriesController < ApplicationController
       flash[:error] = 'Blog Category Not Updated!'
       render :edit
     end
+  end
+
+  def destroy
+    @blog_category.update(enabled: false)
+    flash[:success] = "Blog Category Disabled!"
+    redirect_to blog_categories_path
   end
 
   private
