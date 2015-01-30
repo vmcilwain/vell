@@ -8,8 +8,8 @@ feature 'creating a blog category' do
     expect(page).to have_content 'Create Blog Category'
 
     fill_in 'blog_category_name', with: 'Ruby On Rails'
-    click_button 'Create'
+    click_button 'Create Blog category'
 
-    expect(page).to have_content 'Blog Category has been created!'
+    expect(page).to have_content 'Blog Category Created!'
   end
 end

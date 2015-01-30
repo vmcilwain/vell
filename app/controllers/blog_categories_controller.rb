@@ -11,7 +11,7 @@ class BlogCategoriesController < ApplicationController
   def create
     @blog_category = BlogCategory.new(blog_category_params)
     if @blog_category.save
-      flash[:success] = "Blog Category has been created!"
+      flash[:success] = "Blog Category Created!"
       redirect_to blog_categories_path
     else
       flash[:error] = "There was a problem!"

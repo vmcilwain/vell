@@ -14,10 +14,10 @@
         %input{type: 'submit', value: 'Search'} #{link_to 'Cancel', '#', class: 'cancel_search_form_link'}
   =link_to 'Search Categories', '#', class: 'search_form_link'
   %hr
-  -8.times do
-    %div{class: 'blog_category_listing'} 
+  -@blog_categories.each do |blog_category|
+    %div{class: 'blog_category_listing'}
       %span
-        =link_to Faker::Lorem.words(1).join("\s"), '#'
-      =link_to 'Edit', '#'
+        =link_to blog_category.name, blog_category
+      =link_to 'Edit', edit_blog_category_path(blog_category)
       |
-      =link_to 'Delete', '#'
+      =link_to 'Delete', blog_category_path(blog_category), method: :delete

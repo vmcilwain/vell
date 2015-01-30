@@ -1,8 +1,15 @@
 %div{class: 'container'}
+  -if flash[:error]
+    =flash[:error]
+    %ul
+      -@blog_category.errors.full_messages.each do |err|
+        %li
+          =err
+
   %hr
   =form_for @blog_category do |f|
     =f.text_field :name, size: '18', placeholder: 'Enter Category Name'
     %br
     %div{class: 'actions'}
-      =f.submit 'Create'
+      =f.submit
       =link_to 'Cancel', blog_categories_path
