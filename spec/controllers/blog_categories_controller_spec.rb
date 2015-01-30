@@ -48,7 +48,47 @@ describe BlogCategoriesController do
     end
   end
   
-  describe "GET edit"
-  describe "PUT update"
+  describe "GET edit" do
+    it 'sets @blog_category' do
+      blog_category = Fabricate :blog_category
+      get :edit, id: blog_category.id
+      expect(assigns[:blog_category]).to be_instance_of BlogCategory
+    end
+  end
+
+  describe "PUT update" do
+    let(:blog_category) {Fabricate :blog_category}
+    before {blog_category}
+
+    it 'sets @blog_category' do
+      put :update, id: blog_category.id, blog_category: {name: Faker::Lorem.words(5).join("\s")}
+      expect(assigns[:blog_category]).to be_instance_of BlogCategory
+    end
+
+    context "a successful update" do
+      it "redirects to :show" do
+        put :update, id: blog_category.id, blog_category: {name: Faker::Lorem.words(5).join("\s")}
+        expect(response).to redirect_to blog_category_path
+      end
+
+      it "sets flash[:success]" do
+        put :update, id: blog_category.id, blog_category: {name: Faker::Lorem.words(5).join("\s")}
+        expect(flash[:success]).to_not be_nil
+      end
+    end
+
+    context "an unsuccessfull update" do
+      it "renders :edit" do
+        put :update, id: blog_category.id, blog_category: {name: ""}
+        expect(response).to render_template :edit
+      end
+
+      it "sets flash[:error]" do
+        put :update, id: blog_category.id, blog_category: {name: ""}
+        expect(flash[:error]).to_not be_nil
+      end
+    end
+  end
+
   describe 'DELETE destroy'
 end
