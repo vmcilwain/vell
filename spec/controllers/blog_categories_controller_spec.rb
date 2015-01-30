@@ -58,7 +58,6 @@ describe BlogCategoriesController do
 
   describe "PUT update" do
     let(:blog_category) {Fabricate :blog_category}
-    before {blog_category}
 
     it 'sets @blog_category' do
       put :update, id: blog_category.id, blog_category: {name: Faker::Lorem.words(5).join("\s")}
