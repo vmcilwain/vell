@@ -48,7 +48,50 @@ describe BlogCategoriesController do
     end
   end
   
-  describe "GET edit"
-  describe "PUT update"
+  describe "GET edit" do
+    let(:blog_category) {Fabricate :blog_category}
+    
+    before {get :edit, id: blog_category.id}
+    
+    it 'sets @blog_category' do
+      expect(assigns[:blog_category]).to eq blog_category
+    end
+  end
+  
+  describe "PUT update" do
+    let(:blog_category) {Fabricate :blog_category}
+    
+    it 'sets @blog_category' do
+      put :update, id: blog_category.id, blog_category: {name: "new_name"}
+      expect(assigns[:blog_category]).to eq blog_category
+    end
+    
+    context 'a successful update' do
+      it 'redirects to :show' do
+        put :update, id: blog_category.id, blog_category: {name: "new_name"}
+        expect(response).to redirect_to blog_category
+      end
+
+      it 'sets flash[:success]' do
+        put :update, id: blog_category.id, blog_category: {name: "new_name"}
+        expect(flash[:success]).to_not be_nil
+      end
+    end
+    
+    context 'an unsuccessful update' do
+      let(:blog_category) {Fabricate :blog_category}
+
+      before {put :update, id: blog_category.id, blog_category: {name: ""}}
+
+      it 'renders :edit template' do
+        expect(response).to render_template :edit
+      end
+      
+      it 'sets flash[:error]' do
+        expect(flash[:error]).to_not be_nil
+      end
+    end
+  end
+  
   describe 'DELETE destroy'
 end

@@ -1,4 +1,5 @@
 class BlogCategoriesController < ApplicationController
+  before_action :blog_category, only: [:edit, :update]
   def index
     @blog_categories = BlogCategory.all
   end
@@ -18,7 +19,20 @@ class BlogCategoriesController < ApplicationController
     end
   end
   
+  def update
+    if @blog_category.update(blog_category_params)
+      flash[:success] = 'Blog Category Updated!'
+      redirect_to @blog_category
+    else
+      flash[:error] = 'There was a problem!'
+      render :edit
+    end
+  end
+  
   private
+  def blog_category
+    @blog_category = BlogCategory.find(params[:id])
+  end
   
   def blog_category_params
     params.require(:blog_category).permit(:name)
