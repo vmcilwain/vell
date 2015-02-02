@@ -93,5 +93,11 @@ describe BlogCategoriesController do
     end
   end
   
-  describe 'DELETE destroy'
+  describe 'DELETE destroy' do
+    let(blog_category) {Fabricate :blog_category}
+    
+    it 'redirects to :index'
+    it 'sets status to disabled'
+    it 'sets flash[:success]'
+  end
 end
