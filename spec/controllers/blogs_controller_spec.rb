@@ -9,6 +9,14 @@ describe BlogsController do
     end
   end
   
+  def show
+    let(:blog) {Fabricate :blog}
+    it 'sets @blog' do
+      get :show, blog.id
+      expect(assigns[:blog]).to eq blog
+    end
+  end
+  
   describe 'GET new' do
     it 'sets @blog' do
       get :new

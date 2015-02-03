@@ -1,0 +1,41 @@
+%div{class: 'container'}
+  %div{class: 'master_links'}
+    %a{href: '#'} New Blog
+  %h1{class: 'title'} Blog Listing
+  %div{class: 'search_form'}
+    %h1 Search Posts
+    %form
+      %input{type: 'text', placeholder: 'Blog Headline'}
+      %br
+      %input{type: 'text', placeholder: 'Content'}
+      %br
+      %input{type: 'text', placeholder: 'Created On'}
+      %br
+      %input{type: 'text', placeholder: 'Commented By'}
+      %br
+      %input{type: 'text', placeholder: 'Commented Content'}
+      %br
+      %input{type: 'text', placeholder: 'Commented On'}
+      %br
+      %div{class: 'actions'}
+        %input{type: 'submit', value: 'Search'} #{link_to 'Cancel', '#', class: 'cancel_search_form_link'}
+  =link_to 'Search Posts', '#', class: 'search_form_link'
+  %hr
+  -8.times do
+    %div{class: 'blog_listing'}
+      %h1
+        =link_to Faker::Lorem.words(5).join("\s"), '#' 
+      %p
+        =Faker::Lorem.paragraphs(1).join("\s")
+        &nbsp;
+        %a{href: '#'} Read More
+        %span
+          %br
+          Posted:  
+          =Date.today
+          |
+          Comments: 
+          %a{href: '#'} 0
+          |
+          Attachments: 
+          %a{href: '#'} 0
