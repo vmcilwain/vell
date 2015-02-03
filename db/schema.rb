@@ -11,11 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150130133515) do
+ActiveRecord::Schema.define(version: 20150203012220) do
 
   create_table "blog_categories", force: :cascade do |t|
     t.string  "name"
     t.boolean "enabled"
+  end
+
+  create_table "blogs", force: :cascade do |t|
+    t.integer  "blog_category_id"
+    t.string   "headline"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "contact_mes", force: :cascade do |t|
