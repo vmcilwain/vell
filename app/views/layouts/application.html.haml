@@ -69,6 +69,14 @@
           %a{href: "#", class: "icon fa-envelope"}
             %span{class: "label"}
               Email
+        %li
+          =link_to blog_categories_path, class: 'icon fa-list-ol' do
+            %span{class: 'label'}
+              Blog Categories
+        / %li
+        /   =link_to blogs_path, class: 'icon fa-laptop'}
+        /     %span{class: 'label'}
+        /       Blog
 %div{id: "main"}
   =yield
 = render partial: 'layouts/footer'

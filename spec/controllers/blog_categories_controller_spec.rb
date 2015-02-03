@@ -57,47 +57,62 @@ describe BlogCategoriesController do
       expect(assigns[:blog_category]).to eq blog_category
     end
   end
-  
+
+
   describe "PUT update" do
     let(:blog_category) {Fabricate :blog_category}
-    
+
     it 'sets @blog_category' do
-      put :update, id: blog_category.id, blog_category: {name: "new_name"}
-      expect(assigns[:blog_category]).to eq blog_category
+      put :update, id: blog_category.id, blog_category: {name: Faker::Lorem.words(5).join("\s")}
+      expect(assigns[:blog_category]).to be_instance_of BlogCategory
     end
-    
-    context 'a successful update' do
-      it 'redirects to :show' do
-        put :update, id: blog_category.id, blog_category: {name: "new_name"}
-        expect(response).to redirect_to blog_category
+
+    context "a successful update" do
+      it "redirects to :show" do
+        put :update, id: blog_category.id, blog_category: {name: Faker::Lorem.words(5).join("\s")}
+        expect(response).to redirect_to blog_category_path
       end
 
-      it 'sets flash[:success]' do
-        put :update, id: blog_category.id, blog_category: {name: "new_name"}
+      it "sets flash[:success]" do
+        put :update, id: blog_category.id, blog_category: {name: Faker::Lorem.words(5).join("\s")}
         expect(flash[:success]).to_not be_nil
       end
     end
-    
-    context 'an unsuccessful update' do
-      let(:blog_category) {Fabricate :blog_category}
 
-      before {put :update, id: blog_category.id, blog_category: {name: ""}}
-
-      it 'renders :edit template' do
+    context "an unsuccessfull update" do
+      it "renders :edit" do
+        put :update, id: blog_category.id, blog_category: {name: ""}
         expect(response).to render_template :edit
       end
-      
-      it 'sets flash[:error]' do
+
+      it "sets flash[:error]" do
+        put :update, id: blog_category.id, blog_category: {name: ""}
         expect(flash[:error]).to_not be_nil
       end
     end
   end
-  
+
   describe 'DELETE destroy' do
-    let(blog_category) {Fabricate :blog_category}
-    
-    it 'redirects to :index'
-    it 'sets status to disabled'
-    it 'sets flash[:success]'
+    let(:blog_category) {Fabricate :blog_category}
+
+    it "redirects to :index" do
+      delete :destroy, id: blog_category.id
+      expect(response).to redirect_to blog_categories_path
+    end
+
+    it "sets @blog_category" do
+      delete :destroy, id: blog_category.id
+      expect(assigns[:blog_category]).to be_instance_of BlogCategory
+    end
+
+    it "sets enabled to false" do
+      delete :destroy, id: blog_category.id
+      expect(blog_category.reload.enabled).to eq false
+    end
+
+    it "sets flash[:success]" do
+      delete :destroy, id: blog_category.id
+      expect(flash[:success]).to_not be_nil
+    end
   end
 end
