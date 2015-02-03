@@ -36,6 +36,8 @@
       "/Users/vmcilwain/rails/vextranet/app/controllers/blogs_controller.rb": [
         1,
         1,
+        null,
+        1,
         1,
         null,
         null,
@@ -55,9 +57,29 @@
         null,
         null,
         1,
+        6,
+        3,
+        3,
+        null,
+        3,
+        3,
+        null,
+        null,
         null,
         1,
-        6,
+        4,
+        4,
+        4,
+        null,
+        null,
+        1,
+        null,
+        1,
+        11,
+        null,
+        null,
+        1,
+        12,
         null,
         null
       ],
@@ -93,7 +115,7 @@
         1,
         null,
         1,
-        1,
+        12,
         null,
         null
       ],
@@ -110,6 +132,6 @@
         null
       ]
     },
-    "timestamp": 1422931828
+    "timestamp": 1422934614
   }
 }
