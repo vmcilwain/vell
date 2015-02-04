@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_action :blog, only: [:show, :edit, :update, :destroy]
-  
+  before_action :blog_categories, only: [:new, :edit]
   def index
     @blogs = Blog.all
   end
@@ -40,6 +40,10 @@ class BlogsController < ApplicationController
   
   def blog
     @blog = Blog.find(params[:id])
+  end
+  
+  def blog_categories
+    @blog_categories = BlogCategory.where(enabled: true).collect{|blog_category| [blog_category.name, blog_category.id]}
   end
   
   def blog_params
