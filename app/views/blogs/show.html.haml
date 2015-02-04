@@ -1,8 +1,8 @@
 =flash[:success]
 %div{class: 'container'}
   %div{class: 'master_links'}
-    =link_to blogs_path, 'Back to Listing'
-  %h1{class: 'title'} #{Faker::Lorem.words(5).join("\s").titleize} - Option1
+    #{link_to 'Back to Listing', blogs_path} | #{link_to 'Edit', edit_blog_path(@blog)}
+  %h1{class: 'title'} #{@blog.headline} - #{@blog.blog_category.name}
   %hr
   =@blog.headline
   %br
