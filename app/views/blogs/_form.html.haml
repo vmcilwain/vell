@@ -1,10 +1,10 @@
+-if @blog.errors.any?
+  =flash[:error]
+  %ul
+    -@blog.errors.full_messages.each do |err|
+      %li #{err}
 =form_for @blog do |f|
   =f.select :blog_category_id, @blog_categories, prompt: true
-  / %select
-  /   %option{value: ''} Please Select
-  /   %option{value: 'option1'} Option1
-  /   %option{value: 'option2'} Option2
-  /   %option{value: 'option3'} Option3
   %br
   =f.text_field :headline, placeholder: 'Enter Headline', size: 18
   =f.text_area :body, placeholder: 'Enter Details'

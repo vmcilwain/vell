@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_action :blog, only: [:show, :edit, :update, :destroy]
-  before_action :blog_categories, only: [:new, :edit]
+  before_action :blog_categories, only: [:new, :edit, :create, :update]
   def index
     @blogs = Blog.all
   end
