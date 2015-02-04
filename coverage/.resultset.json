@@ -30,7 +30,7 @@
         null,
         null,
         1,
-        1,
+        5,
         null
       ],
       "/Users/vmcilwain/rails/vextranet/app/controllers/blog_categories_controller.rb": [
@@ -221,7 +221,7 @@
         1,
         null,
         1,
-        2,
+        3,
         null,
         null,
         1,
@@ -258,7 +258,7 @@
         1,
         null,
         1,
-        11,
+        12,
         null,
         null,
         1,
@@ -399,11 +399,28 @@
       "/Users/vmcilwain/rails/vextranet/app/controllers/home_controller.rb": [
         1,
         1,
-        15,
+        16,
         null,
         null
       ],
-      "/Users/vmcilwain/rails/vextranet/spec/features/blog/blog_view_index_spec.rb": [
+      "/Users/vmcilwain/rails/vextranet/spec/features/blog/blog_index_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vextranet/spec/features/blog/blog_show_spec.rb": [
+        1,
+        null,
+        1,
+        1,
         1,
         null,
         1,
@@ -721,7 +738,7 @@
         1,
         null,
         1,
-        33,
+        34,
         null,
         null
       ],
@@ -790,6 +807,6 @@
         null
       ]
     },
-    "timestamp": 1422936009
+    "timestamp": 1423014536
   }
 }

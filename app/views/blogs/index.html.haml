@@ -21,18 +21,18 @@
         %input{type: 'submit', value: 'Search'} #{link_to 'Cancel', '#', class: 'cancel_search_form_link'}
   =link_to 'Search Posts', '#', class: 'search_form_link'
   %hr
-  -8.times do
+  -@blogs.each do |blog|
     %div{class: 'blog_listing'}
       %h1
-        =link_to Faker::Lorem.words(5).join("\s"), '#' 
+        =link_to blog.headline, blog 
       %p
-        =Faker::Lorem.paragraphs(1).join("\s")
+        =truncate blog.body
         &nbsp;
-        %a{href: '#'} Read More
+        =link_to 'Read More', blog
         %span
           %br
           Posted:  
-          =Date.today
+          =blog.created_at
           |
           Comments: 
           %a{href: '#'} 0
