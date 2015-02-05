@@ -8,9 +8,9 @@ feature 'edit blog' do
     click_link 'Blogs'    
     click_link blog.headline    
     click_link 'Edit'
-    fill_in 'blog_body', with: text(25)
+    fill_in 'blog_body', with: ''
     click_button 'Update Blog'
-    expect(page).to have_content 'Blog updated!'
+    expect(page).to have_content "Blog body can't be blank"
     
   end
 end
