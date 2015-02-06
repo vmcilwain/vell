@@ -45,7 +45,7 @@ gem 'jquery-turbolinks'
 gem "ransack"
 gem 'figaro'
 gem 'twitter'
-
+gem 'carrierwave'
 gem 'letter_opener', group: [:development]
 
 group :test do
