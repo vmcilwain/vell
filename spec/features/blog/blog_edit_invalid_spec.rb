@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'edit blog' do
-  scenario 'successful edit of a blog' do
+  scenario 'unsuccesful edit of a blog' do
     blog
      
     visit "/"
@@ -10,7 +10,7 @@ feature 'edit blog' do
     click_link 'Edit'
     fill_in 'blog_body', with: ''
     click_button 'Update Blog'
-    expect(page).to have_content "Blog body can't be blank"
+    expect(page).to have_content "Body can't be blank"
     
   end
 end
