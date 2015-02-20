@@ -1,7 +1,11 @@
 ATTACHMENT_ROOT = Rails.root.to_s + "/spec/support/files"
 
 def blog_file
-  @blog_file ||= "#{ATTACHMENT_ROOT}/test_file.txt"
+  @blog_file ||= Fabricate :blog_file
+end
+
+def test_file
+  File.open "#{ATTACHMENT_ROOT}/test_file.txt"
 end
 
 def contact_me
