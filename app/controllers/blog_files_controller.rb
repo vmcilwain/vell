@@ -10,11 +10,11 @@ class BlogFilesController < ApplicationController
   
   def create
     @blog_file = BlogFile.new(blog_file_params)
-    binding.pry
     if @blog_file.save
       flash[:success] = 'Blog file created'
       redirect_to @blog_file
     else
+      flash[:error] = 'There were problems'
       render :new
     end
   end

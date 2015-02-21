@@ -26,8 +26,10 @@ describe BlogFilesController do
   end
   
   describe 'POST create' do
+    require 'rack/test'
+    
     context 'a successful creation' do
-      before {post :create, blog_file: {blog_id: 1, blog_document: test_file}}
+      before {post :create, blog_file: {blog_id: 1, blog_document: file_to_upload(test_file, "text/plain")}}
       
       it 'redirects_to :show' do
         expect(response).to redirect_to BlogFile.first
@@ -36,22 +38,31 @@ describe BlogFilesController do
       it 'sets @blog_file' do
         expect(assigns[:blog_file]).to be_instance_of BlogFile
       end
-      
+
       it 'sets flash[:success]' do
         expect(flash[:success]).to_not be_nil
       end
     end
     
-    # context 'an unsuccessful creation' do
-    #   before {post :create, blog_file: {blog_id: 1}}
-    #   it 'renders :new' do
-    #     expect(response).to render_template :new
-    #   end
-    #
-    #   it 'sets @blog_file'
-    #   it 'sets flash[:error]'
-    # end
+    context 'an unsuccessful creation' do
+      before {post :create, blog_file: {blog_id: 1}}
+      
+      it 'renders :new' do
+        expect(response).to render_template :new
+      end
+
+      it 'sets @blog_file' do
+        expect(assigns[:blog_file]).to be_instance_of BlogFile
+      end
+      
+      it 'sets flash[:error]' do
+        expect(flash[:error]).to_not be_nil
+      end
+    end
   end
-  describe 'GET edit'
+  
+  describe 'GET edit' do
+    
+  end
   describe 'PUT update'
 end
