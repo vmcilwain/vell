@@ -1,7 +1,7 @@
 %div{class: 'container'}
   %div{class: 'master_links'}
-    %a{href: '#'} New Blog File
-  %h1{class: 'title'} Blog File Listing
+    %a{href: '#'} New Blog
+  %h1{class: 'title'} Blog Listing
   %div{class: 'search_form'}
     %h1 Search Blog Files
     %form
@@ -16,8 +16,8 @@
         #{link_to 'Cancel', '#', class: 'cancel_search_form_link'}
   =link_to 'Search Posts', '#', class: 'search_form_link'
   %hr
-  -@blog_files.each do |blog_file|
-    =div_for(blog_file) do
-      =link_to blog_file.blog_document.file.identifier, blog_file
+  -8.times do
+    %div{class: 'blog_file_listing'}
+      =link_to Faker::Lorem.words(1).first, '#'
       %br
-      =blog_file.description
+      =Faker::Lorem.paragraphs(1).join("\s")
