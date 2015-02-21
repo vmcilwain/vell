@@ -1,5 +1,5 @@
 class BlogFilesController < ApplicationController
-  before_action :blog_file, only: [:show, :edit, :update, :destroy]
+  before_action :blog_file, only: [:show, :edit, :update, :destroy, :download]
   def index
     @blog_files = BlogFile.all
   end
@@ -34,6 +34,10 @@ class BlogFilesController < ApplicationController
     flash[:success] = 'Blog file deleted'
     redirect_to blog_files_path
   end
+  
+  def download
+ send_file(@blog_file.blog_document.path, type: @blog_file.blog_document.file.content_type, x_sendfile: true) if File.exists? @blog_file.blog_document.path
+ end
   
   private
   
