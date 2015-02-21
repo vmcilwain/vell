@@ -12,9 +12,12 @@
   %br
   %div{class: 'listing'}
     %h1 Attachments
-    -3.times do
+    -@blog.blog_files.each do |blog_file|
       %div
-        #{link_to Faker::Lorem.words(1).first, '#'} - #{Faker::Lorem.words(8).join("\s")}
+        #{link_to blog_file.blog_document.file.identifier, blog_file}
+        -if blog_file.description
+          -
+          =blog_file.description
   %br
   %br
   %div{class: 'comments_section'}

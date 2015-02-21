@@ -7,6 +7,7 @@ class BlogsController < ApplicationController
   
   def new
     @blog = Blog.new
+    3.times {@blog.blog_files.build}
   end
   
   def create
@@ -47,6 +48,6 @@ class BlogsController < ApplicationController
   end
   
   def blog_params
-    params.require(:blog).permit(:blog_category_id, :headline, :body, blog_files_attributes: [:blog_document, :description])
+    params.require(:blog).permit(:blog_category_id, :headline, :body, blog_files_attributes: [:id, :blog_document, :description])
   end
 end
