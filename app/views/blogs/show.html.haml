@@ -14,7 +14,7 @@
     %h1 Attachments
     -@blog.blog_files.each do |blog_file|
       %div
-        #{link_to blog_file.blog_document.file.identifier, blog_file}
+        #{link_to blog_file.blog_document.file.identifier, download_blog_files_path(id: blog_file.id)}
         -if blog_file.description
           -
           =blog_file.description
