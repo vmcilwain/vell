@@ -25,8 +25,25 @@ describe BlogsController do
   end
   
   describe 'POST create' do
-    context 'a successful creation' do
+    context 'a successful creation without a file' do
       before{post :create, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: Faker::Lorem.words(25).join("\s")}}
+      
+      it 'redirects to :show' do
+        expect(response).to redirect_to Blog.first
+      end
+      
+      it 'sets @blog' do
+        expect(assigns[:blog]).to be_instance_of Blog
+      end
+      
+      it 'sets flash[:success]' do
+        expect(flash[:success]).to_not be_nil
+      end
+    end
+    
+    context 'a successful creation with a file' do
+      require 'rack/test'
+      before{post :create, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: Faker::Lorem.words(25).join("\s"), blog_files: [blog_document: file_to_upload(test_file, 'text/plain')]}}
       
       it 'redirects to :show' do
         expect(response).to redirect_to Blog.first
@@ -68,7 +85,7 @@ describe BlogsController do
   
   describe 'PUT update' do
     let(:blog) {Fabricate :blog}
-    context 'a succesful update' do
+    context 'a succesful update without a file' do
       before{put :update, id: blog.id, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: Faker::Lorem.words(25).join("\s")}}
       
       it 'redirects to :show' do
