@@ -106,4 +106,26 @@ describe BlogFilesController do
       end
     end
   end
+  
+  describe 'DELETE destroy' do
+    let(:blog_file) {Fabricate :blog_file}
+    
+    before{delete :destroy, id: blog_file.id}
+    
+    it 'sets @blog_file' do
+      expect(assigns[:blog_file]).to eq blog_file
+    end
+    
+    it 'destroys @blog_file' do
+      expect(BlogFile.where(id: blog_file.id)).to eq []
+    end
+    
+    it 'redirects_to :index' do
+      expect(response).to redirect_to blog_files_path
+    end
+    
+    it 'sets flash[:success]' do
+      expect(flash[:success]).to_not be_nil
+    end
+  end
 end

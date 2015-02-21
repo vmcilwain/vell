@@ -1,5 +1,5 @@
 class BlogFilesController < ApplicationController
-  before_action :blog_file, only: [:show, :edit, :update]
+  before_action :blog_file, only: [:show, :edit, :update, :destroy]
   def index
     @blog_files = BlogFile.all
   end
@@ -30,7 +30,9 @@ class BlogFilesController < ApplicationController
   end
   
   def destroy
-    
+    @blog_file.destroy
+    flash[:success] = 'Blog file deleted'
+    redirect_to blog_files_path
   end
   
   private
