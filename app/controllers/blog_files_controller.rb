@@ -1,5 +1,5 @@
 class BlogFilesController < ApplicationController
-  before_action :blog_file, only: [:show]
+  before_action :blog_file, only: [:show, :edit, :update]
   def index
     @blog_files = BlogFile.all
   end
@@ -17,6 +17,20 @@ class BlogFilesController < ApplicationController
       flash[:error] = 'There were problems'
       render :new
     end
+  end
+  
+  def update
+    if @blog_file.update(blog_file_params)
+      flash[:success] = 'Blog file updated'
+      redirect_to @blog_file
+    else
+      flash[:error] = 'There were problems'
+      render :edit
+    end
+  end
+  
+  def destroy
+    
   end
   
   private

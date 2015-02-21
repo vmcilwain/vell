@@ -4,20 +4,20 @@
       "/Users/vmcilwain/rails/vextranet/spec/support/file_macro.rb": [
         1,
         null,
-        3,
+        9,
         null
       ],
-      "/Users/vmcilwain/rails/vextranet/spec/support/hooks.rb": [
-        1,
-        0,
-        null
-      ],
-      "/Users/vmcilwain/rails/vextranet/spec/support/js.rb": [
+      "/Users/vmcilwain/rails/vextranet/spec/support/hooks_macro.rb": [
         1,
         0,
         null
       ],
-      "/Users/vmcilwain/rails/vextranet/spec/support/mailer.rb": [
+      "/Users/vmcilwain/rails/vextranet/spec/support/js_macro.rb": [
+        1,
+        0,
+        null
+      ],
+      "/Users/vmcilwain/rails/vextranet/spec/support/mailer_macro.rb": [
         1,
         0,
         null,
@@ -26,7 +26,7 @@
         0,
         null
       ],
-      "/Users/vmcilwain/rails/vextranet/spec/support/objects.rb": [
+      "/Users/vmcilwain/rails/vextranet/spec/support/objects_macro.rb": [
         1,
         null,
         1,
@@ -34,7 +34,7 @@
         null,
         null,
         1,
-        3,
+        9,
         null,
         null,
         1,
@@ -76,13 +76,27 @@
         null,
         null,
         1,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
         6,
+        3,
+        3,
+        null,
+        3,
+        3,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        8,
+        null,
+        null,
+        1,
+        12,
         null,
         null
       ],
@@ -119,7 +133,7 @@
         1,
         null,
         1,
-        3,
+        10,
         null,
         null
       ],
@@ -153,7 +167,7 @@
         null,
         null,
         1,
-        6,
+        25,
         null,
         null,
         null,
@@ -215,6 +229,6 @@
         null
       ]
     },
-    "timestamp": 1424488190
+    "timestamp": 1424490076
   }
 }
