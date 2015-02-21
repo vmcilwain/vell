@@ -18,6 +18,7 @@
   %hr
   -@blog_files.each do |blog_file|
     =div_for(blog_file) do
-      =link_to blog_file.blog_document.file.identifier, blog_file
+      #{link_to blog_file.blog_document.file.identifier, blog_file} -
+      #{link_to :Delete, blog_file_path(blog_file), method: :delete, data: {confirm: 'Are you sure?'}}
       %br
       =blog_file.description
