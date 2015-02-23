@@ -24,7 +24,7 @@ describe BlogsController do
     end
   end
   
-  describe 'POST create' do
+  describe 'POST create', :vcr do
     context 'a successful creation without a file' do
       before{post :create, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: Faker::Lorem.words(25).join("\s")}}
       
