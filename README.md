@@ -1,30 +1,52 @@
-<h3>Details:</h3>
-> This is my personal extranet site that will have content about me and what goes on with me. This will replace my vellnet site which doesn't have any tests and is not utilizing saas.
+#Vextranet Website
 
-<h3>Current Phase:</h3>
-<ul>
-	<li>Design..In Progress</li>
-	<li>Coding..Not Started</li>
-	<li>Release..Not Started</li>
-</ul>
+##Summary
+This is my business extranet site that will house content about me as it relates to my web development profession.
 
-<h3>Processes:</h3>
-> TBD
+##Current Phase:
+Phase  | Status
+------------- | -------------
+Design  | Done
+Coding  | In Progress
+Released | Not Yet
 
-<h3>Data Model:</h3>
-> TBD
+###Processes:
+No processes yet
 
-<h3>Using the Application</h3>
-> Application will be deployed on Heroku.
->
-> Additional details on how to run locally and run tests will come at a later date.
+##Data Model:
+View the erd.pdf file in the root directory
 
-<h3>Technical Stuff:</h3>
-<ul>
-	<li>Ruby Version: 2.1.5</li>
-	<li>Rails Version: 4.1.7</li>
-	<li>System Dependencies: TBD</li>
-	<li>Confirguration: Uses SQLite3 for test and development and Postgres for production</li>
-	<li>Testing: TBD</li>
-	<li>Service: TBD</li>
-</ul>
+##Using the Application:
+###Development
+```
+rails s
+```
+from the root directory
+
+###Testing
+```
+rspec
+```
+from the root directory
+
+###Production
+Production will be deployed on Heroku.
+
+###Technical Stuff:  
+* Ruby Version: 2.0.0
+* Rails Version: 4.2.0
+* Dependencies:
+ * Twitter
+ * Google URL Shortner
+* Confirguration: 
+ * Development and Test Database: mysql
+ * Production Database: Postgres
+ * Twitter Gem environment variables:
+  * CONSUMER_KEY
+  * CONSUMER_SECRET
+  * ACCESS_TOKEN
+  * ACCESS_SECRET
+ * Google URL shortner environment variable
+  * GOOGLE_API_KEY
+* Testing: RSpec Suite
+* Service: This site does not provide any services

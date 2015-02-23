@@ -471,7 +471,8 @@
         13,
         13,
         9,
-        9,
+        8,
+        8,
         null,
         4,
         4,
@@ -497,7 +498,7 @@
         1,
         null,
         1,
-        24,
+        23,
         null,
         null,
         1,
@@ -1328,6 +1329,55 @@
         1,
         null
       ],
+      "/Users/vmcilwain/rails/vextranet/spec/models/google_url_shortener_service_spec.rb": [
+        1,
+        null,
+        1,
+        4,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vextranet/app/models/google_url_shortener_service.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        3,
+        3,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
       "/Users/vmcilwain/rails/vextranet/spec/fabricators/blog.rb": [
         1,
         1,
@@ -1370,6 +1420,6 @@
         null
       ]
     },
-    "timestamp": 1424545753
+    "timestamp": 1424656746
   }
 }

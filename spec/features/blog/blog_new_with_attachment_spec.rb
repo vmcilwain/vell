@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'new blog' do
+feature 'new blog', :vcr do
   scenario 'creating a new blog with an attachment' do
     blog_category
      
@@ -16,7 +16,7 @@ feature 'new blog' do
     fill_in 'blog_headline', with: text
     fill_in 'blog_body', with: text(20)
     click_button 'Create Blog'
-
+    
     expect(page).to have_content 'Blog created!'
     expect(page).to have_link Blog.last.blog_files.first.blog_document.filename
   end
