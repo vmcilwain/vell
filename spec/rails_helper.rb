@@ -6,6 +6,14 @@ require 'rspec/rails'
 require 'simplecov'
 SimpleCov.start
 require 'pry'
+
+require 'vcr'
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/cassettes'
+  c.hook_into :webmock
+  c.configure_rspec_metadata!
+  c.ignore_localhost = true
+end
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
