@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'viewing blogs index' do
+feature 'viewing blogs index', :vcr do
   scenario 'view blog listing' do
     blog_category
      
