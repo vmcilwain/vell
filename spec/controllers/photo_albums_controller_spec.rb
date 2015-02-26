@@ -27,9 +27,37 @@ describe PhotoAlbumsController do
   
   describe 'POST create' do
     context 'a successful creation' do
+      let(:photo_album_attrs) {Fabricate.attributes_for :photo_album}
       
+      before {post :create, photo_album: photo_album_attrs}
+      
+      it 'redirects to :show' do
+        expect(response).to redirect_to photo_album_path(PhotoAlbum.last)
+      end
+      
+      it 'sets @photo_album' do
+        expect(assigns[:photo_album]).to be_instance_of PhotoAlbum
+      end
+      
+      it 'it sets flash[:success]' do
+        expect(flash[:success]).to_not be_nil
+      end
     end
-    context 'an unsuccesful creation'
+    
+    context 'an unsuccesful creation' do
+      before {post :create, photo_album: {description: text}}
+      
+      it 'renders :new' do
+        expect(response).to render_template :new
+      end
+      
+      it 'sets @photo_album' do
+        expect(assigns[:photo_album]).to be_instance_of PhotoAlbum
+      end
+      it 'sets flash[:error]' do
+        expect(flash[:error]).to_not be_nil
+      end
+    end
   end
   describe 'GET edit'
   describe 'PUT update' do
