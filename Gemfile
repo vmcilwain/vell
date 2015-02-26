@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.1.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -48,6 +48,7 @@ gem 'figaro'
 gem 'twitter'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
+gem 'httparty'
 
 gem 'letter_opener', group: [:development]
 
@@ -60,7 +61,7 @@ group :test do
   gem "database_cleaner"
   gem "capybara"
   gem "vcr"
-  # gem "webmock"
+  gem "webmock"
   gem 'selenium-webdriver'
 end
 
