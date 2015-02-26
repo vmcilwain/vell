@@ -10,6 +10,7 @@ class BlogFilesController < ApplicationController
   
   def create
     @blog_file = BlogFile.new(blog_file_params)
+    
     if @blog_file.save
       flash[:success] = 'Blog file created'
       redirect_to @blog_file
@@ -30,13 +31,14 @@ class BlogFilesController < ApplicationController
   end
   
   def destroy
+    blog = @blog_file.blog
     @blog_file.destroy
     flash[:success] = 'Blog file deleted'
-    redirect_to blog_files_path
+    redirect_to blog
   end
   
   def download
- send_file(@blog_file.blog_document.path, type: @blog_file.blog_document.file.content_type, x_sendfile: true) if File.exists? @blog_file.blog_document.path
+ send_file(@blog_file.doc.path, type: @blog_file.doc.file.content_type, x_sendfile: true) if File.exists? @blog_file.doc.path
  end
   
   private
@@ -46,6 +48,6 @@ class BlogFilesController < ApplicationController
   end
   
   def blog_file_params
-    params.require(:blog_file).permit(:blog_id, :blog_document, :blog_description, :created_by, :updated_by)
+    params.require(:blog_file).permit(:blog_id, :doc, :blog_description, :created_by, :updated_by)
   end
 end

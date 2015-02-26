@@ -10,14 +10,8 @@
   =simple_format @blog.body
   %br
   %br
-  %div{class: 'listing'}
-    %h1 Attachments
-    -@blog.blog_files.each do |blog_file|
-      %div
-        #{link_to blog_file.blog_document.file.identifier, download_blog_files_path(id: blog_file.id)}
-        -if blog_file.description
-          -
-          =blog_file.description
+  %h1 Files
+  = render partial: 'blog_files/blog_file', collection: @blog.blog_files
   %br
   %br
   %div{class: 'comments_section'}

@@ -28,6 +28,8 @@ describe BlogsController do
     context 'a successful creation without a file' do
       before{post :create, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: Faker::Lorem.words(25).join("\s")}}
       
+      after {delete_files}
+      
       it 'redirects to :show' do
         expect(response).to redirect_to Blog.first
       end
