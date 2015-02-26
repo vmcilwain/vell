@@ -59,10 +59,49 @@ describe PhotoAlbumsController do
       end
     end
   end
-  describe 'GET edit'
+  
+  describe 'GET edit' do
+    let(:photo_album) {Fabricate :photo_album}
+    it 'sets @photo_album' do
+      get :edit, id: photo_album.id
+      expect(assigns[:photo_album]).to eq photo_album
+    end
+  end
+  
   describe 'PUT update' do
-    context 'a successful update'
-    context 'an unsuccessful update'
+    let(:photo_album) {Fabricate :photo_album}
+    context 'a successful update' do
+      before {put :update, id: photo_album.id, photo_album: {name: Faker::Lorem.words(5).join("\s")}}
+      
+      it 'redirects_to :show' do
+        expect(response).to redirect_to photo_album_path(PhotoAlbum.last)
+      end
+      
+      it 'sets @photo_album' do
+        expect(assigns[:photo_album]).to eq photo_album
+      end
+      
+      it 'sets flash[:success]' do
+        expect(flash[:success]).to_not be_nil
+      end
+    end
+    
+    context 'an unsuccessful update' do
+      let(:photo_album) {Fabricate :photo_album}
+      before {put :update, id: photo_album.id, photo_album: {name: nil}}
+      
+      it 'renders :edit' do
+        expect(response).to render_template :edit
+      end
+      
+      it 'sets @photo_album' do
+        expect(assigns[:photo_album]).to eq photo_album
+      end
+      
+      it 'sets flash[:error]' do
+        expect(flash[:error]).to_not be_nil
+      end
+    end
   end
   describe 'DELETE destroy'
 end
