@@ -10,3 +10,7 @@ end
 def web_test_file
   "#{ATTACHMENT_ROOT}/test_file.txt"
 end
+
+def delete_files
+  `rm -rf #{Rails.root}/tmp/uploads`
+end

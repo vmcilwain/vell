@@ -46,8 +46,8 @@ gem 'jquery-turbolinks'
 gem "ransack"
 gem 'figaro'
 gem 'twitter'
-gem 'carrierwave'
-gem 'fog'
+gem 'paperclip'
+gem 'aws-sdk', '< 2.0'
 gem 'httparty'
 
 gem 'letter_opener', group: [:development]
