@@ -1,7 +1,12 @@
 class PhotoAlbumsController < ApplicationController
   before_action :photo_album, only: [:show]
+  
   def index
     @photo_albums = PhotoAlbum.all
+  end
+  
+  def new
+    @photo_album = PhotoAlbum.new
   end
   
   private
