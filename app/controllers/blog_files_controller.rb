@@ -38,10 +38,6 @@ class BlogFilesController < ApplicationController
     redirect_to blog
   end
   
-  def download
- send_file(@blog_file.doc.path, type: @blog_file.doc.file.content_type, x_sendfile: true) if File.exists? @blog_file.doc.path
- end
-  
   private
   
   def blog_file
