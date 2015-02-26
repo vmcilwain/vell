@@ -17,10 +17,19 @@ describe PhotoAlbumsController do
       expect(assigns[:photo_album]).to eq photo_album
     end
   end
-  describe 'GET new'
+  
+  describe 'GET new' do
+    it 'sets @photo_album' do
+      get :new
+      expect(assigns[:photo_album]).to be_instance_of PhotoAlbum
+    end
+  end
+  
   describe 'POST create' do
-    context 'a successful creation'
-    context 'an unsuccesful creationg'
+    context 'a successful creation' do
+      
+    end
+    context 'an unsuccesful creation'
   end
   describe 'GET edit'
   describe 'PUT update' do

@@ -96,6 +96,11 @@
       "/Users/vmcilwain/rails/vextranet/app/controllers/photo_albums_controller.rb": [
         1,
         1,
+        null,
+        1,
+        1,
+        null,
+        null,
         1,
         1,
         null,
@@ -217,6 +222,6 @@
         null
       ]
     },
-    "timestamp": 1424915493
+    "timestamp": 1424915837
   }
 }
