@@ -5,7 +5,7 @@
       %li #{err}
 =form_for @blog, multipart: true do |f|
   = f.fields_for :blog_files do |builder|
-    = builder.file_field :blog_document 
+    = builder.file_field :doc
     %br
   %br
   =f.select :blog_category_id, @blog_categories, prompt: true

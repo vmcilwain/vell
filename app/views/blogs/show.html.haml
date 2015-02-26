@@ -1,40 +1,16 @@
-=flash[:success]
 %div{class: 'container'}
+  =flash[:success]
   %div{class: 'master_links'}
     #{link_to 'Back to Listing', blogs_path} | #{link_to 'Edit', edit_blog_path(@blog)} | #{link_to 'Destroy', blog_path(@blog), method: :delete, data: {confirm: 'Are you sure?'}}
-  %h1{class: 'title'} #{@blog.headline} - #{@blog.blog_category.name}
+  %h1{class: 'title'} #{@blog.headline}
+  Category:&nbsp;&nbsp;#{@blog.blog_category.name}
   %hr
-  =@blog.headline
-  %br
-  %br
   =simple_format @blog.body
   %br
   %br
-  %div{class: 'listing'}
-    %h1 Attachments
-    -@blog.blog_files.each do |blog_file|
-      %div
-        #{link_to blog_file.blog_document.file.identifier, download_blog_files_path(id: blog_file.id)}
-        -if blog_file.description
-          -
-          =blog_file.description
-  %br
-  %br
-  %div{class: 'comments_section'}
-    %h1 Enter your comment
-    %form
-      %input{type: 'text', placeholder: 'Enter Your Name'}
-      %textarea{rows: 5, placeholder: 'Enter Comment'}
-      %br
-      %div{class: 'actions'}
-        %input{type: 'submit', value: 'Post'}
-        =link_to 'Cancel', '#'
-    %br
-    %h1 Comments
-    -8.times do
-      %div{id: 'comments_listing'}
-        #{Faker::Name.name} wrote on #{Date.today}:
-        %br
-        =Faker::Lorem.words(5).join("\s")
-        %hr
+  %h1 Files
+  = render partial: 'blog_files/blog_file', collection: @blog.blog_files
+ 
+
+  =render 'blog_comments/js_form'
     
