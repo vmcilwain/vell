@@ -3,6 +3,7 @@ require 'rails_helper'
 describe BlogFilesController do
   after {delete_files}
   describe 'GET index' do
+
     it 'sets @blog_files' do
       blog_file1 = Fabricate :blog_file
       blog_file2 = Fabricate :blog_file
@@ -11,7 +12,7 @@ describe BlogFilesController do
     end
   end
   
-  describe 'GET show' do
+  describe 'GET show', :vcr do
     let(:blog_file) {Fabricate :blog_file}
     it 'sets @blog_file' do
       get :show, id: blog_file.id
@@ -19,14 +20,14 @@ describe BlogFilesController do
     end
   end
   
-  describe 'GET new' do
+  describe 'GET new', :vcr do
     it 'sets @blog_file' do
       get :new
       expect(assigns[:blog_file]).to be_instance_of BlogFile
     end
   end
   
-  describe 'POST create' do
+  describe 'POST create', :vcr do
     require 'rack/test'
     
     context 'a successful creation' do
@@ -62,7 +63,7 @@ describe BlogFilesController do
     end
   end
   
-  describe 'GET edit' do
+  describe 'GET edit', :vcr do
     let(:blog_file) {Fabricate :blog_file}
 
     it 'sets @blog_file' do |variable|
@@ -71,7 +72,7 @@ describe BlogFilesController do
     end
   end
   
-  describe 'PUT update' do
+  describe 'PUT update', :vcr do
     require 'rack/test'
     let(:blog_file) {Fabricate :blog_file}
     
@@ -93,7 +94,7 @@ describe BlogFilesController do
 
   end
   
-  describe 'DELETE destroy' do
+  describe 'DELETE destroy', :vcr do
     let(:blog_file) {Fabricate :blog_file}
     let(:blog) {blog_file.blog}
     
@@ -115,5 +116,4 @@ describe BlogFilesController do
       expect(flash[:success]).to_not be_nil
     end
   end
-  
 end

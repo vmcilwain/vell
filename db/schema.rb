@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 20150225221324) do
     t.boolean "enabled", limit: 1
   end
 
+  create_table "blog_comments", force: :cascade do |t|
+    t.integer  "blog_id",    limit: 4
+    t.string   "name",       limit: 255
+    t.text     "body",       limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "blog_files", force: :cascade do |t|
     t.integer  "blog_id",          limit: 4
     t.string   "description",      limit: 255

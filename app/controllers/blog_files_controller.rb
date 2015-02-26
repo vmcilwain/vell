@@ -33,6 +33,7 @@ class BlogFilesController < ApplicationController
   def destroy
     blog = @blog_file.blog
     @blog_file.destroy
+
     flash[:success] = 'Blog file deleted'
     redirect_to blog
   end

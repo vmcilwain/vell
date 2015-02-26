@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   
   resources :contact_mes, only: [:index, :show, :create]
-  resources :blog_categories, :blogs
+  resources :blog_categories, :blogs, :blog_comments
   resources :blog_files do
     collection do
       get :download
