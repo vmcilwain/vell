@@ -1,0 +1,5 @@
+=div_for(blog_comment) do
+  %p
+    #{blog_comment.name} wrote on #{blog_comment.created_at}:
+    %br
+    =blog_comment.body
