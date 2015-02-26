@@ -16,7 +16,7 @@
         null,
         null,
         1,
-        24,
+        25,
         null
       ],
       "/Users/vmcilwain/rails/vextranet/spec/support/hooks_macro.rb": [
@@ -480,7 +480,8 @@
         12,
         12,
         8,
-        8,
+        7,
+        7,
         null,
         4,
         4,
@@ -506,7 +507,7 @@
         1,
         null,
         1,
-        24,
+        23,
         null,
         null,
         1,
@@ -806,6 +807,8 @@
         1,
         null,
         1,
+        null,
+        2,
         1,
         1,
         null,
@@ -1296,6 +1299,55 @@
         1,
         null
       ],
+      "/Users/vmcilwain/rails/vextranet/spec/models/google_url_shortener_service_spec.rb": [
+        1,
+        null,
+        1,
+        4,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vextranet/app/models/google_url_shortener_service.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        3,
+        3,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
       "/Users/vmcilwain/rails/vextranet/spec/fabricators/blog.rb": [
         1,
         1,
@@ -1338,6 +1390,6 @@
         null
       ]
     },
-    "timestamp": 1424909859
+    "timestamp": 1424910238
   }
 }
