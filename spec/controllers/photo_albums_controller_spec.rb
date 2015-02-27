@@ -103,5 +103,26 @@ describe PhotoAlbumsController do
       end
     end
   end
-  describe 'DELETE destroy'
+  
+  describe 'DELETE destroy' do
+    let(:photo_album) {Fabricate :photo_album}
+    
+    before {delete :destroy, id: photo_album.id}
+    
+    it 'redirects_to :index' do
+      expect(response).to redirect_to photo_albums_path
+    end
+    
+    it 'sets @photo_album' do
+      expect(assigns[:photo_album]).to eq photo_album
+    end
+    
+    it 'removes the record' do
+      expect(PhotoAlbum.where(id: photo_album.id)).to eq []
+    end
+    
+    it 'sets flash[:success]' do
+      expect(flash[:success]).to_not be_nil
+    end
+  end
 end
