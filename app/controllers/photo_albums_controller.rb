@@ -1,5 +1,5 @@
 class PhotoAlbumsController < ApplicationController
-  before_action :photo_album, only: [:show, :edit, :update]
+  before_action :photo_album, only: [:show, :edit, :update, :destroy]
   
   def index
     @photo_albums = PhotoAlbum.all
@@ -28,6 +28,12 @@ class PhotoAlbumsController < ApplicationController
       flash[:error] = 'There were errors'
       render :edit
     end
+  end
+  
+  def destroy
+    @photo_album.destroy
+    flash[:success] = 'Photo album deleted'
+    redirect_to photo_albums_path
   end
   
   private
