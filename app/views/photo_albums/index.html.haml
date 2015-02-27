@@ -1,0 +1,27 @@
+%div{class: 'container'}
+  %h1{class: 'title'} Photo Albums
+  %div{class: 'search_form'}
+    %h1 Search Photo Albums
+    %form
+      %input{type: 'text', placeholder: 'Name'}
+      %br
+      %input{type: 'text', placeholder: 'Description'}
+      %br
+      %input{type: 'text', placeholder: 'Created On'}
+      %br
+      %input{type: 'text', placeholder: 'Commented By'}
+      %br
+      %input{type: 'text', placeholder: 'Commented Content'}
+      %br
+      %input{type: 'text', placeholder: 'Commented On'}
+      %br
+      %div{class: 'actions'}
+        %input{type: 'submit', value: 'Search'} #{link_to 'Cancel', '#', class: 'cancel_search_form_link'}
+  =link_to 'Search Albums', '#', class: 'search_form_link'
+  =link_to 'New Album', new_photo_album_path
+  %hr
+    -@photo_albums.each do |photo_album|
+      =div_for(photo_album) do
+        =link_to photo_album.name, photo_album
+        %br
+        =photo_album.description
