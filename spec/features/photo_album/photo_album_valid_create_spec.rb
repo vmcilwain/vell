@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'photo albums' do
-  scenario 'creating a photo album' do
+  scenario 'create a valid photo album' do
     visit photo_albums_path
     expect(page).to have_text 'Photo Albums'
     
