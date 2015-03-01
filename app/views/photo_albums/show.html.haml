@@ -1,1 +1,5 @@
 =flash[:success]
+%h1 #{@photo_album.name}
+=link_to :Edit, edit_photo_album_path(@photo_album)
+=link_to :Destroy, photo_album_path(@photo_album), method: :delete, data: {confirm: 'Are you sure?'}
+%hr
