@@ -75,8 +75,39 @@ describe PhotosController do
   end
   
   describe 'PUT update' do
-    context 'successful update'
-    context 'unsuccessful update'
+    require 'rack/test'
+    let(:photo) {Fabricate :photo}
+    
+    context 'successful update' do
+      before {put :update, id: photo.id, photo: {description: Faker::Lorem.words(5).join("\s")}}
+      
+      it 'redirects to :show' do
+        expect(response).to redirect_to photo_path(photo)
+      end
+      
+      it 'sets @photo' do
+        expect(assigns[:photo]).to eq photo
+      end
+      
+      it 'sets flash[:success]' do
+        expect(flash[:success]).to_not be_nil
+      end
+    end
+    
+    context 'unsuccessful update' do
+      before {put :update, id: photo.id, photo: {photo_album_id: nil}}
+      
+      it 'redirects to :edit' do
+        expect(response).to render_template :edit
+      end
+      it 'sets @photo' do
+        expect(assigns[:photo]).to eq photo
+      end
+      
+      it 'sets flash[:error]' do
+        expect(flash[:error]).to_not be_nil
+      end
+    end
   end
   describe 'DELETE destroy'
 end
