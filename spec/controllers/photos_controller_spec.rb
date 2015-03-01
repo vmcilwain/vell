@@ -100,6 +100,7 @@ describe PhotosController do
       it 'redirects to :edit' do
         expect(response).to render_template :edit
       end
+      
       it 'sets @photo' do
         expect(assigns[:photo]).to eq photo
       end
@@ -109,5 +110,26 @@ describe PhotosController do
       end
     end
   end
-  describe 'DELETE destroy'
+  
+  describe 'DELETE destroy' do
+    let(:photo) {Fabricate :photo}
+    
+    before {delete :destroy, id: photo.id}
+    
+    it 'redirects to photo album' do
+      expect(response).to redirect_to photo_album_path(photo.photo_album)
+    end
+    
+    it 'sets @photo' do
+      expect(assigns[:photo]).to eq photo
+    end
+    
+    it 'removes the record from the db' do
+      expect(Photo.where(id: photo.id)).to eq []
+    end
+    
+    it 'sets flash[:success]' do
+      expect(flash[:success]).to_not be_nil
+    end
+  end
 end
