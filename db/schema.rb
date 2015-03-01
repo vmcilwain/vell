@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 20150301165350) do
 
   create_table "photos", force: :cascade do |t|
     t.integer  "photo_album_id",        limit: 4
-    t.string   "name",                  limit: 255
     t.string   "description",           limit: 255
     t.integer  "created_by",            limit: 4
     t.integer  "updated_by",            limit: 4
