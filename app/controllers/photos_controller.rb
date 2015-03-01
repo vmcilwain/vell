@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_action :photo, only: [:show, :edit]
+  before_action :photo, only: [:show, :edit, :update]
   
   def index
     @photos = Photo.all
@@ -20,6 +20,15 @@ class PhotosController < ApplicationController
     end
   end
   
+  def update
+    if @photo.update(photo_params)
+      flash[:success] = 'Photo updated'
+      redirect_to @photo
+    else
+      flash[:error] = 'There were errors'
+      render :edit
+    end
+  end
   private
   
   def photo
