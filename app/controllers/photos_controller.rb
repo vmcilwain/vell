@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_action :photo, only: [:show, :edit, :update]
+  before_action :photo, only: [:show, :edit, :update, :destroy]
   
   def index
     @photos = Photo.all
@@ -29,6 +29,13 @@ class PhotosController < ApplicationController
       render :edit
     end
   end
+  
+  def destroy
+    @photo.destroy
+    flash[:success] = 'Photo destroyed'
+    redirect_to @photo.photo_album
+  end
+  
   private
   
   def photo
