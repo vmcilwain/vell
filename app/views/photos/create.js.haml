@@ -1,0 +1,5 @@
+- if @photo.errors.any?
+  $('#photo_js_nofication').html("There were errors<br/>#{@photo.errors.full_messages.join('<br />')}");
+-else
+  $('#photo_js_nofication').html('Photo uploaded').fadeOut();
+  $("#photo_document").val('');

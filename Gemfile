@@ -49,7 +49,7 @@ gem 'twitter'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 gem 'httparty'
-
+gem 'remotipart', '~> 1.2'
 gem 'letter_opener', group: [:development]
 
 group :test do
