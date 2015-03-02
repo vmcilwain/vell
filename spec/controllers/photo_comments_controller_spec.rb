@@ -105,5 +105,25 @@ describe PhotoCommentsController do
       end
     end
   end
-  describe 'DELETE destroy'
+  
+  describe 'DELETE destroy' do
+    let(:photo_comment) {Fabricate :photo_comment}
+    before {delete :destroy, id: photo_comment.id}
+    
+    it 'redirects to :index' do
+      expect(response).to redirect_to photo_comments_path
+    end
+    
+    it 'sets @photo_comment' do
+      expect(assigns[:photo_comment]).to eq photo_comment
+    end
+    
+    it 'removes the record' do
+      expect(PhotoComment.where(id: photo_comment.id)).to eq []
+    end
+    
+    it 'sets flash[:success]' do
+      expect(flash[:success]).to_not be_nil
+    end
+  end
 end
