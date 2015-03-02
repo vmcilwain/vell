@@ -13,7 +13,9 @@ Rails.application.configure do
   config.eager_load = false
 
   # Configure static asset server for tests with Cache-Control for performance.
-  config.serve_static_assets  = true
+  # config.serve_static_assets  = true # removed for linke blow
+  config.serve_static_files = true
+  
   config.static_cache_control = 'public, max-age=3600'
 
   # Show full error reports and disable caching.
@@ -36,4 +38,10 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  config.paperclip_defaults = {
+    :storage => :Filesystem,
+  }
+  
+  config.active_record.raise_in_transactional_callbacks = true
+  config.action_dispatch.show_exceptions = true
 end

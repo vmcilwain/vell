@@ -1,0 +1,18 @@
+%div{class: 'container'}
+  =flash[:success]
+  %div
+    Name:
+    %br
+    =@blog_comment.name
+  %div
+    Body:
+    %br
+    =@blog_comment.body
+  %div
+    Created At:
+    %br
+    =@blog_comment.created_at
+  %div
+    Updated At
+    %br
+    =@blog_comment.updated_at

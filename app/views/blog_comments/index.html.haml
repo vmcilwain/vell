@@ -1,0 +1,28 @@
+%div{class: 'container'}
+  =flash[:success]
+  %div{class: 'master_links'}
+    =link_to 'Blog Listing', blogs_path
+  %h1{class: 'title'} Blog Comment Listing
+  %div{class: 'search_form'}
+    %h1 Search Blog Comments
+    %form
+      %input{type: 'text', placeholder: 'Blog Headline'}
+      %br
+      %input{type: 'text', placeholder: 'Content'}
+      %br
+      %input{type: 'text', placeholder: 'Created On'}
+      %br
+      %div{class: 'actions'}
+        %input{type: 'submit', value: 'Search'} #{link_to 'Cancel', '#', class: 'cancel_search_form_link'}
+  =link_to 'Search Comments', '#', class: 'search_form_link'
+  %hr
+  -@blog_comments.reverse.each do |blog_comment|
+    %div{class: 'listing'}
+      / %h1 #{link_to Faker::Lorem.words(4).join("\s"), '#'}
+      %p
+        #{blog_comment.name} wrote on #{blog_comment.created_at}:
+        %br
+        =blog_comment.body
+        %div{class: 'master_links'}
+          #{link_to :Edit, edit_blog_comment_path(blog_comment)} |  
+          #{link_to :Destroy, blog_comment_path(blog_comment), method: :delete, data: {confirm: 'Are you sure?'}}
