@@ -6,6 +6,7 @@ require 'rspec/rails'
 require 'simplecov'
 SimpleCov.start
 require 'pry'
+require 'paperclip/matchers'
 
 require 'vcr'
 VCR.configure do |c|

@@ -41,4 +41,7 @@ Rails.application.configure do
   config.paperclip_defaults = {
     :storage => :Filesystem,
   }
+  
+  config.active_record.raise_in_transactional_callbacks = true
+  config.action_dispatch.show_exceptions = true
 end
