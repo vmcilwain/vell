@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150225221324) do
+ActiveRecord::Schema.define(version: 20150302163416) do
 
   create_table "blog_categories", force: :cascade do |t|
     t.string  "name",    limit: 255
@@ -53,6 +53,35 @@ ActiveRecord::Schema.define(version: 20150225221324) do
     t.text     "body",       limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "photo_albums", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.string   "description", limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "photo_comments", force: :cascade do |t|
+    t.integer  "photo_id",   limit: 4
+    t.string   "name",       limit: 255
+    t.string   "headline",   limit: 255
+    t.text     "body",       limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.integer  "photo_album_id",        limit: 4
+    t.string   "description",           limit: 255
+    t.integer  "created_by",            limit: 4
+    t.integer  "updated_by",            limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "document_file_name",    limit: 255
+    t.string   "document_content_type", limit: 255
+    t.integer  "document_file_size",    limit: 4
+    t.datetime "document_updated_at"
   end
 
 end

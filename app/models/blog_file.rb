@@ -17,10 +17,10 @@ class BlogFile < ActiveRecord::Base
      square: '200x200#',
      medium: '300x300>'
    }
-   # validates_attachment :doc, content_type: {content_type: ALLOWABLE_APPLICATIONS + ALLOWABLE_IMAGES}
    validates_attachment_presence :doc
    
    # Validate the attached image is image/jpg, image/png, etc
-   # validates_attachment_content_type :doc, :content_type => /\Aimage\/.*\Z/
    validates_attachment_content_type :doc, :content_type => ALLOWABLE_APPLICATIONS + ALLOWABLE_IMAGES
+   
+   validates_associated :blog
 end

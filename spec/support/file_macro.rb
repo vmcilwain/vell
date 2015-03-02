@@ -7,6 +7,10 @@ def test_file
   File.open "#{ATTACHMENT_ROOT}/test_file.txt"
 end
 
+def test_picture
+  File.open "#{ATTACHMENT_ROOT}/test_picture.jpg"
+end
+
 def web_test_file
   "#{ATTACHMENT_ROOT}/test_file.txt"
 end

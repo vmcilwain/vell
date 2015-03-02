@@ -1,0 +1,17 @@
+-if @photo_album.errors.any?
+  =flash[:error]
+  %ul
+    =@photo_album.errors.full_messages.each do |message|
+      %li #{message}
+=form_for @photo_album do |f|
+  %div
+    =f.label :name
+    %br
+    =f.text_field :name, placeholder: 'Name'
+  %div
+    =f.label :description
+    %br
+    =f.text_field :description, placeholder: 'Description'
+  %div
+    =f.submit
+    =link_to :Cancel, photo_albums_path
