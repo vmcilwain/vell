@@ -11,29 +11,40 @@ class PhotosController < ApplicationController
   
   def create
     @photo = Photo.new(photo_params)
-    if @photo.save
-      flash[:success] = 'Photo created'
-      redirect_to @photo
-    else
-      flash[:error] = 'There were errors'
-      render :new
+    respond_to do |format|
+      if @photo.save
+        flash[:success] = 'Photo created'
+        format.html {redirect_to @photo}
+        format.js {}
+      else
+        flash[:error] = 'There were errors'
+        format.html {render :new}
+        format.js {}
+      end
     end
   end
   
   def update
-    if @photo.update(photo_params)
-      flash[:success] = 'Photo updated'
-      redirect_to @photo
-    else
-      flash[:error] = 'There were errors'
-      render :edit
+    respond_to do |format|
+      if @photo.update(photo_params)
+        flash[:success] = 'Photo updated'
+        format.html {redirect_to @photo}
+        format.js {}
+      else
+        flash[:error] = 'There were errors'
+        format.html {render :edit}
+        format.js {}
+      end
     end
   end
   
   def destroy
     @photo.destroy
     flash[:success] = 'Photo destroyed'
-    redirect_to @photo.photo_album
+    respond_to do |format|
+      format.html {redirect_to @photo.photo_album}
+      format.js {}
+    end
   end
   
   private

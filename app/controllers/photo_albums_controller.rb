@@ -5,6 +5,10 @@ class PhotoAlbumsController < ApplicationController
     @photo_albums = PhotoAlbum.all
   end
   
+  def show
+    @photos = @photo_album.photos.in_groups_of(5, false)
+  end
+  
   def new
     @photo_album = PhotoAlbum.new
   end

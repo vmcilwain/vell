@@ -1,5 +1,18 @@
-=flash[:success]
-%h1 #{@photo_album.name}
-=link_to :Edit, edit_photo_album_path(@photo_album)
-=link_to :Destroy, photo_album_path(@photo_album), method: :delete, data: {confirm: 'Are you sure?'}
-%hr
+%div{class: 'container'}
+  =flash[:success]
+  %h1 #{@photo_album.name}
+  =link_to :Edit, edit_photo_album_path(@photo_album)
+  =link_to :Destroy, photo_album_path(@photo_album), method: :delete, data: {confirm: 'Are you sure?'}
+  %hr
+  =render 'photos/js_form'
+  %div
+    %table
+      -@photos.each do |row|
+        %tr
+          -row.each do |photo|
+            %td 
+              =link_to image_tag( photo.document.url(:medium)), photo.document.url, target: 'blank'
+              %br
+              =photo.description
+              %br
+              =link_to :Destroy, photo_path(photo), method: :delete, data: {confirm: 'Are you sure?'}
