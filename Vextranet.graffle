@@ -234,7 +234,7 @@ Contact Form}</string>
 			<integer>59</integer>
 			<key>Points</key>
 			<array>
-				<string>{596.57937135283009, 481.00569762584234}</string>
+				<string>{596.58221844549394, 487.14481382235289}</string>
 				<string>{214.00000722664691, 296.44554335518728}</string>
 			</array>
 			<key>Style</key>
@@ -816,7 +816,7 @@ Contact Form}</string>
 			<integer>48</integer>
 			<key>Points</key>
 			<array>
-				<string>{596.53347573083261, 507.343428443628}</string>
+				<string>{597.02970860764253, 518.81187990695503}</string>
 				<string>{513.86137830204916, 517.54950962491091}</string>
 			</array>
 			<key>Style</key>
@@ -1210,7 +1210,7 @@ Contact Form}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{597.02970860764253, 451.48513582736513}, {104.34654235839844, 111.59406280517578}}</string>
+			<string>{{597.02970860764253, 451.48513582736518}, {106.93069458007812, 134.65348815917969}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -1289,6 +1289,7 @@ Contact Form}</string>
 
 \b0 \cf0 id :integer PK\
 photo_id :integer FK\
+name: string\
 headline :string\
 body :text\
 created_by :integer\
@@ -2640,7 +2641,7 @@ updated_at :datetime}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-02-26 01:18:20 +0000</string>
+	<string>2015-03-02 16:35:24 +0000</string>
 	<key>Modifier</key>
 	<string>Vell Mcilwain</string>
 	<key>NotesVisible</key>
@@ -2716,7 +2717,7 @@ updated_at :datetime}</string>
 		<key>ExpandedCanvases</key>
 		<array/>
 		<key>Frame</key>
-		<string>{{429, 25}, {758, 852}}</string>
+		<string>{{63, 25}, {758, 852}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>
@@ -2730,7 +2731,7 @@ updated_at :datetime}</string>
 		<key>SidebarWidth</key>
 		<integer>120</integer>
 		<key>VisibleRegion</key>
-		<string>{{69.306931347487534, 0}, {616.83168899263899, 691.08911543637566}}</string>
+		<string>{{269.30693323595153, 0}, {616.83168899263899, 691.08911543637566}}</string>
 		<key>Zoom</key>
 		<real>1.0099999904632568</real>
 		<key>ZoomValues</key>
