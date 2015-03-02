@@ -10,4 +10,6 @@
       =f.text_field :description, placeholder: 'Description'
     %div
       =f.submit
-  #{link_to 'Add Photo', '#', id: 'add_photo_form'} | #{link_to 'Cancel Photo', '#', id: 'cancel_photo_form'}
+  =link_to 'Add Photo', '#', id: 'add_photo_form'
+  &nbsp;&nbsp;
+  =link_to 'Cancel Photo', '#', id: 'cancel_photo_form'

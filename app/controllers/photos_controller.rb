@@ -8,7 +8,7 @@ class PhotosController < ApplicationController
   def new
     @photo = Photo.new
   end
-  
+
   def create
     @photo = Photo.new(photo_params)
     respond_to do |format|
@@ -39,10 +39,11 @@ class PhotosController < ApplicationController
   end
   
   def destroy
+    photo_album = @photo.photo_album
     @photo.destroy
     flash[:success] = 'Photo destroyed'
     respond_to do |format|
-      format.html {redirect_to @photo.photo_album}
+      format.html {redirect_to photo_album}
       format.js {}
     end
   end

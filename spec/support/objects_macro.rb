@@ -27,3 +27,7 @@ end
 def photo_album
   @photo_album ||= Fabricate :photo_album
 end
+
+def photo
+  @photo ||= Fabricate :photo
+end
