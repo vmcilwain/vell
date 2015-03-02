@@ -20,7 +20,7 @@
         null,
         null,
         1,
-        52,
+        53,
         null
       ],
       "/Users/vmcilwain/rails/vextranet/spec/support/hooks_macro.rb": [
@@ -1895,6 +1895,23 @@
         null,
         null
       ],
+      "/Users/vmcilwain/rails/vextranet/spec/features/photo/photo_description_edit_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
       "/Users/vmcilwain/rails/vextranet/spec/features/photo/photo_destroy_spec.rb": [
         1,
         null,
@@ -1928,23 +1945,6 @@
         null
       ],
       "/Users/vmcilwain/rails/vextranet/spec/features/photo/photo_valid_create_spec.rb": [
-        1,
-        null,
-        1,
-        2,
-        2,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/vmcilwain/rails/vextranet/spec/features/photo/photo_valid_edit_spec.rb": [
         1,
         null,
         1,
@@ -2055,7 +2055,11 @@
       "/Users/vmcilwain/rails/vextranet/app/models/blog_category.rb": [
         1,
         1,
+        null,
         1,
+        null,
+        1,
+        null,
         1,
         null,
         1,
@@ -2076,6 +2080,7 @@
       "/Users/vmcilwain/rails/vextranet/app/models/blog_comment.rb": [
         1,
         1,
+        null,
         1,
         null
       ],
@@ -2108,10 +2113,10 @@
         null,
         null,
         null,
-        null,
         1,
         null,
         null,
+        1,
         null,
         1,
         null
@@ -2131,10 +2136,15 @@
       "/Users/vmcilwain/rails/vextranet/app/models/blog.rb": [
         1,
         1,
+        null,
         1,
+        null,
         1,
+        null,
         1,
+        null,
         1,
+        null,
         null
       ],
       "/Users/vmcilwain/rails/vextranet/spec/models/contact_me_spec.rb": [
@@ -2212,13 +2222,33 @@
         1,
         1,
         1,
+        1,
+        null
+      ],
+      "/Users/vmcilwain/rails/vextranet/spec/models/photo_comment_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        null
+      ],
+      "/Users/vmcilwain/rails/vextranet/app/models/photo_comment.rb": [
+        1,
+        1,
+        1,
+        1,
         null
       ],
       "/Users/vmcilwain/rails/vextranet/spec/models/photo_spec.rb": [
         1,
         null,
         1,
-        4,
+        5,
+        2,
         2,
         2,
         2,
@@ -2227,6 +2257,10 @@
       "/Users/vmcilwain/rails/vextranet/app/models/photo.rb": [
         1,
         1,
+        1,
+        null,
+        1,
+        null,
         1,
         null,
         1,
@@ -2297,6 +2331,6 @@
         null
       ]
     },
-    "timestamp": 1425312923
+    "timestamp": 1425315587
   }
 }
