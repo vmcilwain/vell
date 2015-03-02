@@ -11,8 +11,10 @@
         %tr
           -row.each do |photo|
             %td 
+              %div{id: "notification_photo_#{photo.id}"}
               =link_to image_tag( photo.document.url(:medium)), photo.document.url, target: 'blank'
               %br
-              =photo.description
+              %div{id: "edit_photo_#{photo.id}"}
+                =photo.description
               %br
-              =link_to :Destroy, photo_path(photo), method: :delete, data: {confirm: 'Are you sure?'}
+              #{link_to 'Edit Photo', edit_photo_path(photo), remote: true, id: "edit_photo_#{photo.id}_link"} |        #{link_to 'Destroy Photo', photo_path(photo), method: :delete, data: {confirm: 'Are you sure?'}}
