@@ -1,5 +1,5 @@
 class PhotoCommentsController < ApplicationController
-  before_action :photo_comment, only: [:show]
+  before_action :photo_comment, only: [:show, :edit, :update]
   def index
     @photo_comments = PhotoComment.all
   end
@@ -16,6 +16,16 @@ class PhotoCommentsController < ApplicationController
     else
       flash[:error] = 'There were errors'
       render :new
+    end
+  end
+  
+  def update
+    if @photo_comment.update(photo_comment_params)
+      flash[:success] = 'Photo comment updated'
+      redirect_to @photo_comment.photo
+    else
+      flash[:error] = 'There were errors'
+      render :edit
     end
   end
   
