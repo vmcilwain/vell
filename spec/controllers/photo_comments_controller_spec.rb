@@ -25,9 +25,40 @@ describe PhotoCommentsController do
       expect(assigns[:photo_comment]).to be_instance_of PhotoComment
     end
   end
+  
   describe 'POST create' do
-    context 'successful creation'
-    context 'unsuccesful creation'
+    context 'successful creation'do
+      let(:photo_comment_attrs) {Fabricate.attributes_for :photo_comment}
+      before {post :create, photo_comment: photo_comment_attrs}
+    
+      it 'redirects to :show' do
+        expect(response).to redirect_to photo_path(PhotoComment.last.photo)
+      end
+    
+      it 'sets @photo_comment' do
+        expect(assigns[:photo_comment]).to be_instance_of PhotoComment
+      end
+    
+      it 'sets flash[:success]' do
+        expect(flash[:success]).to_not be_nil
+      end
+    end
+    
+    context 'unsuccesful creation' do
+      before {post :create, photo_comment: {blog_id: 1, name: Faker::Name.name, headline: text, body: nil}}
+      
+      it 'renders :new' do
+        expect(response).to render_template :new
+      end
+      
+      it 'sets @photo_comment' do
+        expect(assigns[:photo_comment]).to be_instance_of PhotoComment
+      end
+      
+      it 'sets flash[:error]' do
+        expect(flash[:error]).to_not be_nil
+      end
+    end
   end
   describe 'GET edit'
   describe 'PUT update' do
