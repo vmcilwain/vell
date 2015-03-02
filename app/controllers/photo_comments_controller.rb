@@ -1,5 +1,5 @@
 class PhotoCommentsController < ApplicationController
-  before_action :photo_comment, only: [:show, :edit, :update]
+  before_action :photo_comment, only: [:show, :edit, :update, :destroy]
   def index
     @photo_comments = PhotoComment.all
   end
@@ -27,6 +27,12 @@ class PhotoCommentsController < ApplicationController
       flash[:error] = 'There were errors'
       render :edit
     end
+  end
+  
+  def destroy
+    @photo_comment.destroy
+    flash[:success] = 'Photo comment destroyed'
+    redirect_to photo_comments_path
   end
   
   private

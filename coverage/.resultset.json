@@ -20,7 +20,7 @@
         null,
         null,
         1,
-        16,
+        20,
         null
       ],
       "/Users/vmcilwain/rails/vextranet/spec/support/hooks_macro.rb": [
@@ -81,14 +81,14 @@
         1,
         1,
         1,
-        13,
-        13,
-        13,
+        17,
+        17,
+        17,
         null,
         null,
         1,
         1,
-        13,
+        17,
         null,
         null,
         null,
@@ -134,9 +134,15 @@
         null,
         null,
         1,
+        4,
+        4,
+        4,
+        null,
         null,
         1,
-        8,
+        null,
+        1,
+        12,
         null,
         null,
         1,
@@ -303,6 +309,6 @@
         null
       ]
     },
-    "timestamp": 1425320022
+    "timestamp": 1425320542
   }
 }
