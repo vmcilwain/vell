@@ -1,0 +1,6 @@
+%div{class: 'container'}
+  %div
+    %p Name: #{@contact_me.name}
+    %p Email: #{@contact_me.email}
+    %p Created At: #{@contact_me.created_at}
+    %p #{simple_format @contact_me.body}

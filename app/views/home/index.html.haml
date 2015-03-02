@@ -1,1 +1,103 @@
-<h2>You are home!</h2>
+/ Intro
+%section{id: "top", class: "one dark cover"}
+  %div{class: "container"}
+    %header
+      %h2{class: "alt"}
+        Hi! I'm
+        %strong Prologue, a 
+        %a{href: "http://html5up.net/license"} free responsive
+        %br site template designed by
+        %a{href: "http://html5up.net"} HTML5 UP.
+        %p Ligula scelerisque justo sem accumsan diam quis
+        %br vitae natoque dictum sollicitudin elementum.
+    %footer
+      %a{href: "#portfolio", class: "button scrolly"} Magna Aliquam	
+/ Portfolio
+%section{id: "portfolio", class: "two"}
+  %div{class: "container"}
+    %header
+      %h2 Portfolio
+      %p 
+      Vitae natoque dictum etiam semper magnis enim feugiat convallis convallis
+      egestas rhoncus ridiculus in quis risus amet curabitur tempor orci penatibus.
+      Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis 
+      fusce hendrerit lacus ridiculus.</p>
+
+  %div{class: "row"}
+    %div{class: "4u"}
+      %article{class: "item"}
+        %a{href: "#", class: "image fit"}
+          =image_tag("pic02.jpg")
+        %header
+          %h3 Ipsum Feugiat
+      %article{class: "item"}
+        %a{href: "#", class: "image fit"}
+          =image_tag("pic03.jpg")
+        %header
+          %h3 Rhoncus Semper
+    %div{class: "4u"}
+      %article{class: "item"}
+        %a{href: "#", class: "image fit"}
+          =image_tag("pic04.jpg")
+        %header
+          %h3 Magna Nullam
+      %article{class: "item"}
+        %a{href: "#", class: "image fit"}
+          =image_tag("pic05.jpg")
+        %header
+          %h3 Natoque Vitae
+    %div{class: "4u"}
+      %article{class: "item"}
+        %a{href: "#", class: "image fit"}
+          =image_tag("pic06.jpg")
+        %header
+          %h3 Dolor Penatibus
+      %article{class: "item"}
+        %a{href: "#", class: "image fit"}
+          =image_tag("pic07.jpg")
+        %header
+          %h3 Orci Convallis
+/ About Me
+%section{id: "about", class: "three"}
+  %div{class: "container"}
+    %header
+      %h2 About Me
+    %a{href: "#", class: "image featured"}
+      =image_tag("pic08.jpg")
+    %p
+      Tincidunt eu elit diam magnis pretium accumsan etiam id urna. Ridiculus 
+      ultricies curae quis et rhoncus velit. Lobortis elementum aliquet nec vitae 
+      laoreet eget cubilia quam non etiam odio tincidunt montes. Elementum sem 
+      parturient nulla quam placerat viverra mauris non cum elit tempus ullamcorper 
+      dolor. Libero rutrum ut lacinia donec curae mus vel quisque sociis nec 
+      ornare iaculis.</p>
+/ Contact
+%section{id: "contact", class: "four"}
+  %div{class: "container"}
+    %header
+      %h2 Contact
+    %p
+      Elementum sem parturient nulla quam placerat viverra 
+      mauris non cum elit tempus ullamcorper dolor. Libero rutrum ut lacinia 
+      donec curae mus. Eleifend id porttitor ac ultricies lobortis sem nunc 
+      orci ridiculus faucibus a consectetur. Porttitor curae mauris urna mi dolor.
+    %div{class: 'notice'}
+      -if flash[:contact_me_errors]
+        =flash[:error]
+        %ul
+          -flash[:contact_me_errors].each do |err|
+            %li #{err}
+      -else
+        =flash[:success]
+    =form_for @contact_me, remote: true do |f|
+      %div{class: "row 50%"}
+        %div{class: "6u"}
+          =f.text_field :name, type: 'text', placeholder: 'Name'
+        %div{class: "6u"}
+          =f.text_field :email, type: 'text', placeholder: 'Email'
+      %div{class: "row 50%"}
+        %div{class: "12u"}
+          =f.text_area :body, type: 'text', placeholder: 'Message'
+      %div{class: "row"}
+        %div{class: "12u"}
+          =f.submit('Send Message')

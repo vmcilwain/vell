@@ -1,0 +1,20 @@
+-if @blog.errors.any?
+  =flash[:error]
+  %ul
+    -@blog.errors.full_messages.each do |err|
+      %li #{err}
+=form_for @blog, multipart: true do |f|
+  = f.fields_for :blog_files do |builder|
+    = builder.file_field :doc
+    %br
+  %br
+  =f.select :blog_category_id, @blog_categories, prompt: true
+  %br
+  =f.text_field :headline, placeholder: 'Enter Headline', size: 18
+  %br
+  =f.text_area :body, placeholder: 'Enter Details'
+  %br
+  %br
+  %div{class: 'actions'}
+    =f.submit
+    =link_to 'Cancel', blogs_path
