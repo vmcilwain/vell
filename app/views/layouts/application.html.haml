@@ -9,11 +9,12 @@
     %div{class: 'top'}
       / Logo
       %div{id: "logo"}
-        %span{class: 'image avatar48'}
-          =image_tag('avatar.jpg')
+        / %span{class: 'image avatar48'}
+        %span{class: 'image'}
+          =image_tag('vell.jpg', height: '170px')
         %h1{id: 'title'}
-          Jane Doe
-        %p Hyperspace Engineer
+          Vell McIlwain
+        %p Web Specialist
       / Nav
       %nav{id: 'nav'}
         /
@@ -47,13 +48,33 @@
               %span{class: "icon fa-envelope"}
                 Contact
           %li
-            =link_to blog_categories_path, class: 'icon fa-list-ol' do
-              %span{class: 'label'}
+            =link_to blog_categories_path, class: "skel-layers-ignoreHref" do
+              %span{class: 'icon fa-list-ol'}
                 Blog Categories
           %li
-            =link_to blogs_path, class: 'icon fa-keyboard-o' do
-              %span{class: 'label'}
+            =link_to blogs_path, class: "skel-layers-ignoreHref" do
+              %span{class: 'icon fa-keyboard-o'}
                 Blogs
+          %li
+            =link_to blog_comments_path, class: "skel-layers-ignoreHref" do
+              %span{class: 'icon fa-comments-o'}
+                Blog Comments
+          %li
+            =link_to blog_files_path, class: "skel-layers-ignoreHref" do
+              %span{class: 'icon fa-folder-o'}
+                Blog Files
+          %li
+            =link_to photo_albums_path, class: "skel-layers-ignoreHref" do
+              %span{class: 'icon fa-folder-o'}
+                Photo Albums
+          %li
+            =link_to photos_path, class: "skel-layers-ignoreHref" do
+              %span{class: 'icon fa-file-photo-o'}
+                Photos
+          %li
+            =link_to photo_comments_path, class: "skel-layers-ignoreHref" do
+              %span{class: 'icon fa-comments-o'}
+                Photo Comments
     %div{class: "bottom"}
       / Social Icons
       %ul{class: "icons"}

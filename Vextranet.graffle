@@ -1500,8 +1500,8 @@ updated_at :datetime}</string>
 			<integer>38</integer>
 			<key>Points</key>
 			<array>
-				<string>{559.6313973923086, 316.31956558242672}</string>
-				<string>{617.55638513927624, 274.08063455964657}</string>
+				<string>{559.63139739240694, 316.31956558247822}</string>
+				<string>{617.55638513935173, 274.08063455995142}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -2306,7 +2306,7 @@ updated_at :datetime}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
 
-\f0\b\fs18 \cf0 Blog Attachments\
+\f0\b\fs18 \cf0 Blog Files\
 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720
 
@@ -2641,7 +2641,7 @@ updated_at :datetime}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-03-02 16:35:24 +0000</string>
+	<string>2015-03-03 00:36:13 +0000</string>
 	<key>Modifier</key>
 	<string>Vell Mcilwain</string>
 	<key>NotesVisible</key>
@@ -2731,7 +2731,7 @@ updated_at :datetime}</string>
 		<key>SidebarWidth</key>
 		<integer>120</integer>
 		<key>VisibleRegion</key>
-		<string>{{269.30693323595153, 0}, {616.83168899263899, 691.08911543637566}}</string>
+		<string>{{144.55445681047399, 0}, {616.83168899263899, 691.08911543637566}}</string>
 		<key>Zoom</key>
 		<real>1.0099999904632568</real>
 		<key>ZoomValues</key>
