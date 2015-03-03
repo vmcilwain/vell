@@ -32,21 +32,34 @@
         /
         %ul
           %li
-            %a{id: 'top-link', class: 'skel-layers-ignoreHref', href: '#top'}
+            =link_to root_path, id: 'top-link', class: 'skel-layers-ignoreHref' do
               %span{class: 'icon fa-home'}
                 Intro
-          %li
-            %a{href: "#portfolio", id: "portfolio-link", class: "skel-layers-ignoreHref"}
-              %span{class: "icon fa-th"}
-                Portfolio
-          %li
-            %a{href: "#about", id: "about-link", class: "skel-layers-ignoreHref"}
-              %span{class: "icon fa-user"}
-                About Me
-          %li
-            %a{href: "#contact", id: "contact-link", class: "skel-layers-ignoreHref"}
-              %span{class: "icon fa-envelope"}
-                Contact
+            / %a{id: 'top-link', class: 'skel-layers-ignoreHref', href: '#top'}
+            /   %span{class: 'icon fa-home'}
+            /     Intro
+          -if current_page?(root_url)
+            %li
+              =link_to '#portfolio', id: "portfolio-link", class: "skel-layers-ignoreHref" do
+                %span{class: "icon fa-th"}
+                  Portfolio
+              / %a{href: "#portfolio", id: "portfolio-link", class: "skel-layers-ignoreHref"}
+              /   %span{class: "icon fa-th"}
+              /     Portfolio
+            %li
+              =link_to '#about', id: "about-link", class: "skel-layers-ignoreHref" do
+                %span{class: "icon fa-user"}
+                  About Me
+              / %a{href: "#about", id: "about-link", class: "skel-layers-ignoreHref"}
+              /   %span{class: "icon fa-user"}
+              /     About Me
+            %li
+              =link_to '#contact', id: "contact-link", class: "skel-layers-ignoreHref" do
+                %span{class: "icon fa-envelope"}
+                  Contact
+              / %a{href: "#contact", id: "contact-link", class: "skel-layers-ignoreHref"}
+              /   %span{class: "icon fa-envelope"}
+              /     Contact
           %li
             =link_to blog_categories_path, class: "skel-layers-ignoreHref" do
               %span{class: 'icon fa-list-ol'}
