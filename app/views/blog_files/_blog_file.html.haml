@@ -1,3 +1,12 @@
-=div_for(blog_file) do
-  #{link_to blog_file.doc_file_name, blog_file.doc.url} -
-  #{link_to :destroy, blog_file, method: :delete, data: {confirm: 'Are you sure?'}}
+=div_for(blog_file, class: 'row') do
+  %div{class: '5u'}
+    =image_tag blog_file.doc.url(:thumb)
+  %div{class: '7u'}
+    %div{class: 'row'}
+      =link_to blog_file.blog.headline, blog_file.blog
+    =blog_file.description
+    %div{class: 'row'}
+      %div{class: '2u'}
+        =link_to blog_file.doc_file_name, blog_file.doc.url
+      %div{class: '2u'}
+        =link_to :Delete, blog_file, method: :delete, data: {confirm: 'Are you sure?'}

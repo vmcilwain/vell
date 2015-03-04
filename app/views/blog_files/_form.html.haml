@@ -1,0 +1,23 @@
+%div{class: 'row'}
+  -if @blog_file.errors.any?
+    =flash[:error]
+    %ul
+      -@blog_file.errors.full_messages.each do |err|
+        %li #{err}
+=form_for @blog_file do |f|
+  %div{class: 'row'}
+    %div{class: '2u'}
+      =f.text_field :blog_id, placeholder: 'Blog ID'
+  %div{class: 'row'}
+    =f.file_field :doc
+  %div{class: 'row'}
+    %div{class: '12u'}
+      =f.text_field :description, placeholder: 'Description'
+  %div{class: 'row'}
+    %div{class: '4u'}
+      =f.submit
+    %div{class: '2u'}
+      -if @blog_file.new_record?
+        =link_to 'Cancel', blog_files_path
+      -else
+        =link_to 'Cancel', blog_file_path(@blog_file)

@@ -1,22 +1,35 @@
 %div{class: 'container'}
-  %div{class: 'master_links'}
-    %a{href: '#'} New Blog File
-  %h1{class: 'title'} Blog File Listing
+  %div{class: 'row'}
+    %h1{class: 'title'} Blog File Listing
   %div{class: 'search_form'}
-    %h1 Search Blog Files
     %form
-      %input{type: 'text', placeholder: 'Blog Document'}
-      %br
-      %input{type: 'text', placeholder: 'Blog Description'}
-      %br
-      %input{type: 'text', placeholder: 'Created On'}
-      %br
-      %div{class: 'actions'}
+      %div{class: 'row'}
+        %input{type: 'text', placeholder: 'Blog Document'}
+      %div{class: 'row'}
+        %input{type: 'text', placeholder: 'Blog Description'}
+      %div{class: 'row'}
+        %input{type: 'text', placeholder: 'Created On'}
+      %div{class: 'row'}
+        %div{class: '2u'}
         %input{type: 'submit', value: 'Search'} 
-        #{link_to 'Cancel', '#', class: 'cancel_search_form_link'}
-  =link_to 'Search Posts', '#', class: 'search_form_link'
+        %div{class: '2u'}
+          =link_to 'Cancel', '#', class: 'cancel_search_form_link'
+  %div{class: 'row'}
+    %div{class: '2u'}
+      =link_to 'Search Posts', '#', class: 'search_form_link'
+    %div{class: '3u'}
+      =link_to 'New Blog File', new_blog_file_path
   %hr
   -@blog_files.each do |blog_file|
-    =div_for(blog_file) do
-      #{link_to blog_file.doc_file_name, blog_file.doc.url} | 
-      #{link_to :Delete, blog_file, method: :delete, data: {confirm: 'Are you sure?'}}
+    %div{class: 'row'}
+      %div{class: '5u'}
+        =image_tag blog_file.doc.url
+      %div{class: '7u'}
+        %div{class: 'row'}
+          =link_to blog_file.blog.headline, blog_file.blog
+        =blog_file.description
+        %div{class: 'row'}
+          %div{class: '2u'}
+            =link_to blog_file.doc_file_name, blog_file.doc.url
+          %div{class: '2u'}
+            =link_to :Delete, blog_file, method: :delete, data: {confirm: 'Are you sure?'}
