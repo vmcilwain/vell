@@ -1,30 +1,43 @@
 %div{class: 'container'}
-  %h1{class: 'title'} Photo Albums
+  %div{class: 'row'}
+    %h1{class: 'title'} Photo Albums
   %div{class: 'search_form'}
-    %h1 Search Photo Albums
+    %div{class: 'row'}
+      %h1 Search Photo Albums
     %form
-      %input{type: 'text', placeholder: 'Name'}
-      %br
-      %input{type: 'text', placeholder: 'Description'}
-      %br
-      %input{type: 'text', placeholder: 'Created On'}
-      %br
-      %input{type: 'text', placeholder: 'Commented By'}
-      %br
-      %input{type: 'text', placeholder: 'Commented Content'}
-      %br
-      %input{type: 'text', placeholder: 'Commented On'}
-      %br
-      %div{class: 'actions'}
-        %input{type: 'submit', value: 'Search'} #{link_to 'Cancel', '#', class: 'cancel_search_form_link'}
-  =link_to 'Search Albums', '#', class: 'search_form_link'
-  =link_to 'New Album', new_photo_album_path
+      %div{class: 'row'}
+        %div{class: '6u'}
+          %input{type: 'text', placeholder: 'Name'}
+        %div{class: '6u'}
+          %input{type: 'text', placeholder: 'Description'}
+      %div{class: 'row'}
+        %div{class: '6u'}
+          %input{type: 'text', placeholder: 'Created On'}
+        %div{class: '6u'}
+          %input{type: 'text', placeholder: 'Commented By'}
+      %div{class: 'row'}
+        %div{class: '6u'}
+          %input{type: 'text', placeholder: 'Commented Content'}
+        %div{class: '6u'}
+          %input{type: 'text', placeholder: 'Commented On'}
+      %row{class: 'row'}
+        %div{class: '6u'}
+          %input{type: 'submit', value: 'Search'} 
+        %dov{class: '6u'}
+          =link_to 'Cancel', '#', class: 'cancel_search_form_link'
+  %div{class: 'row'}
+    %div{class: '3u'}
+      =link_to 'Search Albums', '#', class: 'search_form_link'
+    %div{class: '3u'}
+      =link_to 'New Album', new_photo_album_path
   %hr
     -@photo_albums.each do |photo_album|
-      =div_for(photo_album) do
-        =link_to photo_album.name, photo_album
-        %br
-        =photo_album.description
-        %br
-        =link_to :Edit, edit_photo_album_path(photo_album)
-        =link_to :Destroy, photo_album_path(photo_album), method: :delete, data: {confirm: 'Are you sure?'}
+      %div{class: 'row'}
+        %div{class: '4u'}
+          =link_to photo_album.name, photo_album
+        %div{class: '4u'}
+          =link_to :Edit, edit_photo_album_path(photo_album)
+        %div{class: '4u'}
+          =link_to :Destroy, photo_album_path(photo_album), method: :delete, data: {confirm: 'Are you sure?'}
+        %div{class: '12u'}
+          Description: #{photo_album.description}
