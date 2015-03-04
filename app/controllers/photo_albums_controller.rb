@@ -6,7 +6,7 @@ class PhotoAlbumsController < ApplicationController
   end
   
   def show
-    @photos = @photo_album.photos.in_groups_of(5, false)
+    @photos = @photo_album.photos.in_groups_of(4, false)
   end
   
   def new
