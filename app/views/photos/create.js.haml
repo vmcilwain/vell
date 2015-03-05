@@ -1,5 +1,7 @@
-- if @photo.errors.any?
+-if @photo.errors.any?
   $('#photo_js_nofication').html("There were errors<br/>#{@photo.errors.full_messages.join('<br />')}");
 -else
-  $('#photo_js_nofication').html('Photo uploaded').fadeOut();
+  $('#new_photo').hide();
   $("#photo_document").val('');
+  $('#photo_js_nofication').html('Photo uploaded').fadeOut();
+  $('#photo_listing').html("#{escape_javascript(render(partial: 'photos/listing', locals: {photos: @photo.photo_album.photos.in_groups_of(3, false)}))}")
