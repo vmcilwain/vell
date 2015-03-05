@@ -16,6 +16,7 @@ class BlogCommentsController < ApplicationController
         flash[:success] = 'Blog comment created'
         format.html{redirect_to @blog_comment}
         format.js {}
+        Notify.send_new_blog_comment(@blog_comment).deliver_now
       else
         @blog = Blog.find(params[:blog_comment][:blog_id])
         flash[:error] = 'There were errors'
