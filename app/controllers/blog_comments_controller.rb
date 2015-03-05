@@ -1,7 +1,8 @@
 class BlogCommentsController < ApplicationController
   before_action :blog_comment, only: [:show, :edit, :update, :destroy]
   def index
-    @blog_comments = BlogComment.all
+    @q = BlogComment.ransack(params[:q])
+    @blog_comments = @q.result
   end
   
   def new
