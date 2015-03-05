@@ -1,7 +1,8 @@
 class PhotoCommentsController < ApplicationController
   before_action :photo_comment, only: [:show, :edit, :update, :destroy]
   def index
-    @photo_comments = PhotoComment.all
+    @q = PhotoComment.ransack(params[:q])
+    @photo_comments = @q.result
   end
   
   def new
