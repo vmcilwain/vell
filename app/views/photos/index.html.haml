@@ -1,5 +1,10 @@
 %div{class: 'container'}
   %div{class: 'row'}
+    %div{class: '3u'}
+      =link_to 'Search Photos', '#', class: 'search_form_link'
+    %div{class: '3u'}
+      =link_to 'New Photo', new_photo_path
+  %div{class: 'row'}
     %h1{class: 'title'} Photo Listing
   %div{class: 'search_form'}
     %form
@@ -14,19 +19,15 @@
         %input{type: 'submit', value: 'Search'} 
         %div{class: '2u'}
           =link_to 'Cancel', '#', class: 'cancel_search_form_link'
-  %div{class: 'row'}
-    %div{class: '3u'}
-      =link_to 'Search Photos', '#', class: 'search_form_link'
-    %div{class: '3u'}
-      =link_to 'New Photo', new_photo_path
+  
   %hr
   -@photos.each do |photo|
     %div{class: 'row'}
-      %div{class: '5u'}
-        =image_tag photo.document.url
+      %div{class: '2u'}
+        =image_tag photo.document.url(:thumb)
+      %div{class: '4u'}
+        =link_to :Delete, photo, method: :delete, data: {confirm: 'Are you sure?'}
       %div{class: '7u'}
         %div{class: 'row'}
           %div{class: '2u'}
             =link_to photo.document_file_name, photo.document.url
-          %div{class: '2u'}
-            =link_to :Delete, photo, method: :delete, data: {confirm: 'Are you sure?'}

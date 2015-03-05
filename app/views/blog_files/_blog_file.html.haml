@@ -1,12 +1,11 @@
 =div_for(blog_file, class: 'row') do
-  %div{class: '5u'}
-    =image_tag blog_file.doc.url(:thumb)
-  %div{class: '7u'}
+  %div{class: '4u'}
+    =image_tag blog_file.doc.url(:thumb) if ALLOWABLE_IMAGES.include?(blog_file.doc_content_type)
     %div{class: 'row'}
-      =link_to blog_file.blog.headline, blog_file.blog
-    =blog_file.description
+      =link_to :Delete, blog_file, method: :delete, data: {confirm: 'Are you sure?'}
+  %div{class: '8u'}
     %div{class: 'row'}
-      %div{class: '2u'}
-        =link_to blog_file.doc_file_name, blog_file.doc.url
-      %div{class: '2u'}
-        =link_to :Delete, blog_file, method: :delete, data: {confirm: 'Are you sure?'}
+      =link_to blog_file.doc_file_name, blog_file.doc.url
+    %div{class: 'row'}
+      =blog_file.description
+      

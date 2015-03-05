@@ -1,27 +1,14 @@
 %div{class: 'container'}
   %div{class: 'row'}
-    %h1{class: 'title'} #{@photo_album.name}
-  %div{class: 'row'}
     %div{class: '1u'}
       =link_to :Edit, edit_photo_album_path(@photo_album)
     %div{class: '1u'}
       =link_to :Destroy, photo_album_path(@photo_album), method: :delete, data: {confirm: 'Are you sure?'}
+  %div{class: 'row'}
+    %h1{class: 'title'} #{@photo_album.name}
   %hr
   %div{class: 'row'}
-    =flash[:success]
+    %div
+      =flash[:success]
   =render 'photos/js_form'
-  -@photos.each do |row|
-    %div{class: 'row'}
-      -row.each do |photo|
-        %div{class: '3u'}
-          %div{class: 'row'}
-            %div{id: "notification_photo_#{photo.id}"}
-            =link_to image_tag( photo.document.url(:medium)), photo.document.url, target: 'blank'
-          %div{class: 'row'}
-            %div{id: "edit_photo_#{photo.id}"}
-              =photo.description
-          %div{class: 'row'}
-            %div{class: '3u'}
-              =link_to :Edit, edit_photo_path(photo), remote: true, id: "edit_photo_#{photo.id}_link"
-            %div{class: '1u'}
-              =link_to 'Destroy', photo_path(photo), method: :delete, data: {confirm: 'Are you sure?'}
+  =render partial: 'photos/listing', locals: {photos: @photos}

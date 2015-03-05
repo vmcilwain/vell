@@ -1,0 +1,105 @@
+%div{id: 'header', class: 'skel-layers-fixed'}
+  %div{class: 'top'}
+    / Logo
+    %div{id: "logo"}
+      / %span{class: 'image avatar48'}
+      %span{class: 'image'}
+        =image_tag('vell.jpg', height: '170px')
+      %h1{id: 'title'}
+        Vell McIlwain
+      %p Web Specialist
+    / Nav
+    %nav{id: 'nav'}
+      /
+      /
+      / Prologue's nav expects links in one of two formats:
+      /
+      / 1. Hash link (scrolls to a different section within the page)
+      /
+      /    <li><a href="#foobar" id="foobar-link" class="icon fa-whatever-icon-you-want skel-layers-ignoreHref"><span class="label">Foobar</span></a></li>
+      /
+      / 2. Standard link (sends the user to another page/site)
+      /
+      /    <li><a href="http://foobar.tld" id="foobar-link" class="icon fa-whatever-icon-you-want"><span class="label">Foobar</span></a></li>
+      /
+      /
+      %ul
+        %li
+          =link_to root_path, id: 'top-link', class: 'skel-layers-ignoreHref' do
+            %span{class: 'icon fa-home'}
+              Intro
+          / %a{id: 'top-link', class: 'skel-layers-ignoreHref', href: '#top'}
+          /   %span{class: 'icon fa-home'}
+          /     Intro
+        %li
+          =link_to '#portfolio', id: "portfolio-link", class: "skel-layers-ignoreHref" do
+            %span{class: "icon fa-th"}
+              Portfolio
+        %li
+          =link_to '#about', id: "about-link", class: "skel-layers-ignoreHref" do
+            %span{class: "icon fa-user"}
+              About Me
+        %li
+          =link_to '#contact', id: "contact-link", class: "skel-layers-ignoreHref" do
+            %span{class: "icon fa-envelope"}
+              Contact
+
+        / %li
+        /   =link_to blog_categories_path, class: "skel-layers-ignoreHref" do
+        /     %span{class: 'icon fa-list-ol'}
+        /       Blog Categories
+        %li
+          =link_to blogs_path, class: "skel-layers-ignoreHref" do
+            %span{class: 'icon fa-keyboard-o'}
+              Blogs
+        / %li
+        /   =link_to blog_comments_path, class: "skel-layers-ignoreHref" do
+        /     %span{class: 'icon fa-comments-o'}
+        /       Blog Comments
+        / %li
+        /   =link_to blog_files_path, class: "skel-layers-ignoreHref" do
+        /     %span{class: 'icon fa-folder-o'}
+        /       Blog Files
+        %li
+          =link_to photo_albums_path, class: "skel-layers-ignoreHref" do
+            %span{class: 'icon fa-file-photo-o'}
+              Photo Albums
+        / %li
+        /   =link_to photos_path, class: "skel-layers-ignoreHref" do
+        /     %span{class: 'icon fa-file-photo-o'}
+        /       Photos
+        / %li
+        /   =link_to photo_comments_path, class: "skel-layers-ignoreHref" do
+        /     %span{class: 'icon fa-comments-o'}
+        /       Photo Comments
+  %div{class: "bottom"}
+    / Social Icons
+    %ul{class: "icons"}
+      %li
+        =link_to 'www.linkedin.com/pub/lovell-mcilwain/60/92/28', target: 'blank', class: "icon fa-linkedin" do
+          %span{class: "label"}
+            LinkedIn
+      %li
+        =link_to 'https://twitter.com/the_codemonster', target: 'blank', class: "icon fa-twitter" do
+          %span{class: "label"}
+            Twitter
+      / %li
+      /   %a{href: "#", class: "icon fa-facebook"}
+      /     %span{class: "label"}
+      /       Facebook
+      %li
+        =link_to 'https://github.com/vmcilwain', target: 'blank', class: "icon fa-github" do
+          %span{class: "label"}
+            Github
+      / %li
+      /   %a{href: "#", class: "icon fa-dribbble"}
+      /     %span{class: "label"}
+      /       Dribbble
+      %li
+        =mail_to 'vmcilwain@me.com', target: 'blank', class: "icon fa-envelope" do
+          %span{class: "label"}
+            Email
+      / %li
+      /   =link_to blogs_path, class: 'icon fa-laptop'}
+      /     %span{class: 'label'}
+      /       Blog

@@ -1,5 +1,10 @@
 %div{class: 'container'}
   %div{class: 'row'}
+    %div{class: '3u'}
+      =link_to 'Search Categories', '#', class: 'search_form_link actions'
+    %div{class: '3u'}
+      =link_to 'New Category', new_blog_category_path
+  %div{class: 'row'}
     %h1{class: 'title'} Blog Categories
   %div{class: 'row'}
     %div{class: 'search_form'}
@@ -11,16 +16,10 @@
           %div{class: '6u'}
             %input{type: 'text', placeholder: 'Created On'}
         %div{class: 'row'}
-          / %div{class: 'actions'}
           %div{class: '6u'}
             %input{type: 'submit', value: 'Search'}
-          %div{class: '6u actions'}
+          %div{class: '6u'}
             =link_to 'Cancel', '#', class: 'cancel_search_form_link'
-  %div{class: 'row'}
-    %div{class: '3u'}
-      =link_to 'Search Categories', '#', class: 'search_form_link actions'
-    %div{class: '3u'}
-      =link_to 'New Category', new_blog_category_path
   %hr
   %div{class: 'row'}
     =flash[:success]

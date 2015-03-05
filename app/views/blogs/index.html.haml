@@ -1,5 +1,10 @@
 %div{class: 'container'}
   %div{class: 'row'}
+    %div{class: '2u'}
+      =link_to 'Search Posts', '#', class: 'search_form_link'
+    %div{class: '2u'}
+      =link_to 'New Blog', new_blog_path
+  %div{class: 'row'}
     %h1{class: 'title'} Blog Listing
   %div{class: 'row'}
     %div{class: 'search_form'}
@@ -25,21 +30,17 @@
             %input{type: 'submit', value: 'Search'} 
           %div{class: '6u'}
             =link_to 'Cancel', '#', class: 'cancel_search_form_link'
-  %div{class: 'row'}
-    %div{class: '3u'}
-      =link_to 'Search Posts', '#', class: 'search_form_link'
-    %div{class: '3u'}
-      =link_to 'New Blog', new_blog_path
   %hr
   -@blogs.each do |blog|
     %div{class: 'row'}
       %div{class: 'row'}
         %h1 #{link_to blog.headline, blog}
-      %p
-        =truncate(blog.body, length: 100) { link_to "Read More", blog }
+        %div
+          =truncate(blog.body, length: 100) { link_to "Read More", blog }
         %div{class: '4u'}
           Posted: #{short_date blog.created_at}
         %div{class: '4u'}
           Comments: #{link_to blog.blog_comments.count, blog}
         %div{class: '4u'}
           Attachments: #{link_to blog.blog_files.count, blog}
+    %hr
