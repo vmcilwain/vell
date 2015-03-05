@@ -21,7 +21,7 @@
         =f.submit
         -if @blog_category.new_record?
           %div{class: '6u'}
-            =link_to 'Cancel', blog_categories_path
+            =link_to 'Cancel', blog_categories_path, class: 'cancel-button'
         -else
           %div{class: '6u'}
-            =link_to 'Cancel', blog_categories_path
+            =link_to 'Cancel', @blog_category, class: 'cancel-button'
