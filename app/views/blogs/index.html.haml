@@ -1,41 +1,45 @@
 %div{class: 'container'}
-  %div{class: 'master_links'}
-    =link_to 'New Blog', new_blog_path
-  %h1{class: 'title'} Blog Listing
-  %div{class: 'search_form'}
-    %h1 Search Posts
-    %form
-      %input{type: 'text', placeholder: 'Blog Headline'}
-      %br
-      %input{type: 'text', placeholder: 'Content'}
-      %br
-      %input{type: 'text', placeholder: 'Created On'}
-      %br
-      %input{type: 'text', placeholder: 'Commented By'}
-      %br
-      %input{type: 'text', placeholder: 'Commented Content'}
-      %br
-      %input{type: 'text', placeholder: 'Commented On'}
-      %br
-      %div{class: 'actions'}
-        %input{type: 'submit', value: 'Search'} #{link_to 'Cancel', '#', class: 'cancel_search_form_link'}
-  =link_to 'Search Posts', '#', class: 'search_form_link'
+  %div{class: 'row'}
+    %h1{class: 'title'} Blog Listing
+  %div{class: 'row'}
+    %div{class: 'search_form'}
+      %h1 Search Posts
+      %form
+        %div{class: 'row'}
+          %div{class: '6u'}
+            %input{type: 'text', placeholder: 'Blog Headline'}
+          %div{class: '6u'}
+            %input{type: 'text', placeholder: 'Content'}
+        %div{class: 'row'}
+          %div{class: '6u'}
+            %input{type: 'text', placeholder: 'Created On'}
+          %div{class: '6u'}
+            %input{type: 'text', placeholder: 'Commented By'}
+        %div{class: 'row'}
+          %div{class: '6u'}
+            %input{type: 'text', placeholder: 'Commented Content'}
+          %div{class: '6u'}
+            %input{type: 'text', placeholder: 'Commented On'}
+        %div{class:'row'}
+          %div{class: '6u'}
+            %input{type: 'submit', value: 'Search'} 
+          %div{class: '6u'}
+            =link_to 'Cancel', '#', class: 'cancel_search_form_link'
+  %div{class: 'row'}
+    %div{class: '3u'}
+      =link_to 'Search Posts', '#', class: 'search_form_link'
+    %div{class: '3u'}
+      =link_to 'New Blog', new_blog_path
   %hr
   -@blogs.each do |blog|
-    %div{class: 'blog_listing'}
-      %h1
-        =link_to blog.headline, blog 
+    %div{class: 'row'}
+      %div{class: 'row'}
+        %h1 #{link_to blog.headline, blog}
       %p
-        =truncate blog.body
-        &nbsp;
-        =link_to 'Read More', blog
-        %span
-          %br
-          Posted:  
-          =blog.created_at
-          |
-          Comments: 
-          %a{href: '#'} 0
-          |
-          Attachments: 
-          %a{href: '#'} 0
+        =truncate(blog.body, length: 100) { link_to "Read More", blog }
+        %div{class: '4u'}
+          Posted: #{short_date blog.created_at}
+        %div{class: '4u'}
+          Comments: #{link_to blog.blog_comments.count, blog}
+        %div{class: '4u'}
+          Attachments: #{link_to blog.blog_files.count, blog}

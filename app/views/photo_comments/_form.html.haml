@@ -1,0 +1,23 @@
+%div{class: 'row'}
+  -if @photo_comment.errors.any?
+    =flash[:error]
+    %ul
+      -@photo_comment.errors.full_messages.each do |err|
+        %li #{err}
+=form_for @photo_comment do |f|
+  =f.hidden_field :photo_album_id, value: @photo_album.id
+  %div{class: 'row'}
+    =f.text_field :name, size: 80
+  %div{class: 'row'}
+    =f.text_area :body, cols: 80, rows: 10
+  %div{class: 'row'}
+    -if @photo_comment.new_record?
+      %div{class: '3u'}
+        =f.submit 'Create'
+      %div{class: '3u'}
+        =link_to :Cancel, photo_comments_path
+    -else
+      %div{class: '3u'}
+        =f.submit 'Update'
+      %div{class: '3u'}
+        =link_to :Cancel, @photo_comment

@@ -1,28 +1,41 @@
 %div{class: 'container'}
-  =flash[:success]
-  %div{class: 'master_links'}
-    =link_to 'Blog Listing', blogs_path
-  %h1{class: 'title'} Blog Comment Listing
+  %div{class: 'row'}
+    %h1{class: 'title'} Blog Comments Listing
   %div{class: 'search_form'}
-    %h1 Search Blog Comments
+    %div{class: 'row'}
+      %h1 Search Blog Comments
     %form
-      %input{type: 'text', placeholder: 'Blog Headline'}
-      %br
-      %input{type: 'text', placeholder: 'Content'}
-      %br
-      %input{type: 'text', placeholder: 'Created On'}
-      %br
-      %div{class: 'actions'}
-        %input{type: 'submit', value: 'Search'} #{link_to 'Cancel', '#', class: 'cancel_search_form_link'}
-  =link_to 'Search Comments', '#', class: 'search_form_link'
+      %div{class: 'row'}
+        %input{type: 'text', placeholder: 'Blog Headline'}
+      %div{class: 'row'}
+        %input{type: 'text', placeholder: 'Content'}
+      %div{class: 'row'}
+        %input{type: 'text', placeholder: 'Created On'}
+      %div{class: 'row'}
+        %div{class: '3u'}
+          %input{type: 'submit', value: 'Search'} 
+        %div{class: '3u'}
+          =link_to 'Cancel', '#', class: 'cancel_search_form_link'
+  %div{class: 'row'}
+    %div{class: '3u'}
+      =link_to 'Search Comments', '#', class: 'search_form_link'
+    %div{class: '3u'}
+      =link_to 'Blog Listing', blogs_path
   %hr
+  %br
+  %div{class: 'row'}
+    =flash[:success]
   -@blog_comments.reverse.each do |blog_comment|
-    %div{class: 'listing'}
-      / %h1 #{link_to Faker::Lorem.words(4).join("\s"), '#'}
-      %p
-        #{blog_comment.name} wrote on #{blog_comment.created_at}:
-        %br
+    %div{class: 'row'}
+      %div{class: '3u'}
+        =blog_comment.name
+      %div{class: '4u'}
+        =medium_date blog_comment.created_at
+    %div{class: 'row'}
+      %div
         =blog_comment.body
-        %div{class: 'master_links'}
-          #{link_to :Edit, edit_blog_comment_path(blog_comment)} |  
-          #{link_to :Destroy, blog_comment_path(blog_comment), method: :delete, data: {confirm: 'Are you sure?'}}
+    %div{class: 'row'}
+      %div{class: '1u'}
+        =link_to :Edit, edit_blog_comment_path(blog_comment)
+      %div{class: '1u'}  
+        =link_to :Destroy, blog_comment_path(blog_comment), method: :delete, data: {confirm: 'Are you sure?'}
