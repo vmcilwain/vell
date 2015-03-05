@@ -1,0 +1,13 @@
+%p Dear Vell,
+%p You have a new comment from #{@blog_comment.name}.
+%div{class: 'row'}
+  %div{class: '3u'}
+    =@blog_comment.name
+  %div{class: '4u'}
+    =medium_date @blog_comment.created_at
+%div{class: 'row'}
+  %div
+    =@blog_comment.body
+%div{class: 'row'}
+  %div{class: '1u'}
+    =blog_url(@blog)

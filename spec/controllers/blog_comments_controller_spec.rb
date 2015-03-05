@@ -31,9 +31,9 @@ describe BlogCommentsController do
   end
   
   describe 'POST create' do
+    after {clear_mailbox}
     context 'a successful http creation' do
       before {post :create, blog_comment: Fabricate.attributes_for(:blog_comment)}
-      
       it 'redirects_to :show' do
         expect(response).to redirect_to BlogComment.first
       end
@@ -45,12 +45,20 @@ describe BlogCommentsController do
       it 'sets flash[:success]' do
         expect(flash[:success]).to_not be_nil
       end
+      
+      it 'sends an email' do
+        expect(mailbox.size).to eq 1
+      end
     end
     
     context 'a successful xhr creation' do
       before {xhr :post, :create, blog_comment: Fabricate.attributes_for(:blog_comment)}
       it 'sets @blog_comment' do
         expect(assigns[:blog_comment]).to be_instance_of BlogComment
+      end
+      
+      it 'sends an email' do
+        expect(mailbox.size).to eq 1
       end
     end
     
