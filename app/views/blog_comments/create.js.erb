@@ -1,6 +1,7 @@
 <% if @blog_comment.errors.any? %>
   $('#blog_comment_errors').html("<div id='error_notice'><%= raw @blog_comment.errors.full_messages.join('<br/>') %></div>")
 <% else %>
+  $("#new_blog_comment").hide();
   $("#comments_listing").html("<%= escape_javascript(render @blog_comment.blog.blog_comments) %>")
   $('#blog_comment_name').val('');
   $('#blog_comment_body').val('');

@@ -1,26 +1,24 @@
 %div{class: 'container'}
   %div{class: 'row'}
-    %div{class: ''}
+    %div{class: '1u'}
+      =link_to 'Listing', blogs_path
+    %div{class: '1u'}
+      =link_to 'Edit', edit_blog_path(@blog)
+    %div{class: '1u'}  
+      =link_to 'Destroy', blog_path(@blog), method: :delete, data: {confirm: 'Are you sure?'}
+  %div{class: 'row'}
+    %div{class: 'title'}
       =@blog.headline
   %div{class: 'row'}
-    %div{class: '2u'}
-      Category:
-    %div{class: '1u'}
-      =@blog.blog_category.name
+    %div{class: '4u'}
+      Category:&nbsp;&nbsp;#{@blog.blog_category.name}
   %div{class: 'row'}
     =flash[:success]
-  %div{class: 'row'}
-    %div{class: '2u'}
-      =link_to 'Listing', blogs_path
-    %div{class: '2u'}
-      =link_to 'Edit', edit_blog_path(@blog)
-    %div{class: '2u'}  
-      =link_to 'Destroy', blog_path(@blog), method: :delete, data: {confirm: 'Are you sure?'}
+  %br
   %div{class: 'row'}
     = render partial: 'blog_files/blog_file', collection: @blog.blog_files
   %hr
   %div{class: 'row'}
     =simple_format @blog.body
-  %div{class: 'row'}
-    =render 'blog_comments/js_form'
+  =render 'blog_comments/js_form'
     
