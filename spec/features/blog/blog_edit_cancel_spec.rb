@@ -9,7 +9,7 @@ feature 'edit blog' do
     click_link blog.headline    
     click_link 'Edit'
     click_link 'Cancel'
-    expect(current_path).to eq blogs_path
+    expect(current_path).to eq blog_path(blog)
     
   end
 end
