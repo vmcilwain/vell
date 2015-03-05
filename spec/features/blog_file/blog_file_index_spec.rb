@@ -6,8 +6,7 @@ feature 'blog file index' do
     blog_file1 = Fabricate :blog_file
     blog_file2 = Fabricate :blog_file
     visit blog_files_path
-    
-    expect(page).to have_css "div#blog_file_#{blog_file1.id}"
-    expect(page).to have_css "div#blog_file_#{blog_file2.id}"
+
+    expect(page.all('a', text: 'test_file.txt').size).to eq 2
   end
 end

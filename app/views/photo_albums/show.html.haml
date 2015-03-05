@@ -21,7 +21,7 @@
             %div{id: "edit_photo_#{photo.id}"}
               =photo.description
           %div{class: 'row'}
-            %div{class: '1u'}
+            %div{class: '3u'}
               =link_to :Edit, edit_photo_path(photo), remote: true, id: "edit_photo_#{photo.id}_link"
             %div{class: '1u'}
-              =link_to 'Destroy Photo', photo_path(photo), method: :delete, data: {confirm: 'Are you sure?'}
+              =link_to 'Destroy', photo_path(photo), method: :delete, data: {confirm: 'Are you sure?'}

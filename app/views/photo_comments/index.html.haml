@@ -1,0 +1,43 @@
+%div{class: 'container'}
+  %div{class: 'row'}
+    %h1{class: 'title'} Photo Comments Listing
+  %div{class: 'search_form'}
+    %div{class: 'row'}
+      %h1 Search Photo Comments
+    %form
+      %div{class: 'row'}
+        %input{type: 'text', placeholder: 'Photo Album'}
+      %div{class: 'row'}
+        %input{type: 'text', placeholder: 'Name'}
+      %div{class: 'row'}
+        %input{type: 'text', placeholder: 'Doc File Name'}
+      %div{class: 'row'}
+        %input{type: 'text', placeholder: 'Created On'}
+      %div{class: 'row'}
+        %div{class: '3u'}
+          %input{type: 'submit', value: 'Search'} 
+        %div{class: '3u'}
+          =link_to 'Cancel', '#', class: 'cancel_search_form_link'
+  %div{class: 'row'}
+    %div{class: '3u'}
+      =link_to 'Search Comments', '#', class: 'search_form_link'
+    %div{class: '3u'}
+      =link_to 'Photo Comment Listing', photo_comments_path
+  %hr
+  %br
+  %div{class: 'row'}
+    =flash[:success]
+  -@photo_comments.reverse.each do |photo_comment|
+    %div{class: 'row'}
+      %div{class: '3u'}
+        =photo_comment.name
+      %div{class: '4u'}
+        =medium_date photo_comment.created_at
+    %div{class: 'row'}
+      %div
+        =photo_comment.body
+    %div{class: 'row'}
+      %div{class: '1u'}
+        =link_to :Edit, edit_photo_comment_path(photo_comment)
+      %div{class: '1u'}  
+        =link_to :Destroy, photo_comment_path(photo_comment), method: :delete, data: {confirm: 'Are you sure?'}

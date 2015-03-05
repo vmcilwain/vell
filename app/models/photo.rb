@@ -1,4 +1,3 @@
-ALLOWABLE_IMAGES = ["image/gif", "image/jpeg", "image/jpg", "image/png"]
 class Photo < ActiveRecord::Base
   belongs_to :photo_album
   
