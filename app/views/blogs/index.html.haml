@@ -1,5 +1,10 @@
 %div{class: 'container'}
   %div{class: 'row'}
+    %div{class: '2u'}
+      =link_to 'Search Posts', '#', class: 'search_form_link'
+    %div{class: '2u'}
+      =link_to 'New Blog', new_blog_path
+  %div{class: 'row'}
     %h1{class: 'title'} Blog Listing
   %div{class: 'row'}
     %div{class: 'search_form'}
@@ -25,11 +30,6 @@
             %input{type: 'submit', value: 'Search'} 
           %div{class: '6u'}
             =link_to 'Cancel', '#', class: 'cancel_search_form_link'
-  %div{class: 'row'}
-    %div{class: '3u'}
-      =link_to 'Search Posts', '#', class: 'search_form_link'
-    %div{class: '3u'}
-      =link_to 'New Blog', new_blog_path
   %hr
   -@blogs.each do |blog|
     %div{class: 'row'}

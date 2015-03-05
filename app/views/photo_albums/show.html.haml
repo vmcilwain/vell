@@ -1,11 +1,11 @@
 %div{class: 'container'}
   %div{class: 'row'}
-    %h1{class: 'title'} #{@photo_album.name}
-  %div{class: 'row'}
     %div{class: '1u'}
       =link_to :Edit, edit_photo_album_path(@photo_album)
     %div{class: '1u'}
       =link_to :Destroy, photo_album_path(@photo_album), method: :delete, data: {confirm: 'Are you sure?'}
+  %div{class: 'row'}
+    %h1{class: 'title'} #{@photo_album.name}
   %hr
   %div{class: 'row'}
     %div
