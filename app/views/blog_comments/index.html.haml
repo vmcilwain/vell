@@ -6,21 +6,7 @@
       =link_to 'Blog Listing', blogs_path
   %div{class: 'row'}
     %h1{class: 'title'} Blog Comments Listing
-  %div{class: 'search_form'}
-    %div{class: 'row'}
-      %h1 Search Blog Comments
-    %form
-      %div{class: 'row'}
-        %input{type: 'text', placeholder: 'Blog Headline'}
-      %div{class: 'row'}
-        %input{type: 'text', placeholder: 'Content'}
-      %div{class: 'row'}
-        %input{type: 'text', placeholder: 'Created On'}
-      %div{class: 'row'}
-        %div{class: '3u'}
-          %input{type: 'submit', value: 'Search'} 
-        %div{class: '3u'}
-          =link_to 'Cancel', '#', class: 'cancel_search_form_link'
+  =render 'search'
   %hr
   %br
   %div{class: 'row'}
