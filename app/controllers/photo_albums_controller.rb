@@ -2,7 +2,8 @@ class PhotoAlbumsController < ApplicationController
   before_action :photo_album, only: [:show, :edit, :update, :destroy]
   
   def index
-    @photo_albums = PhotoAlbum.all
+    @q = PhotoAlbum.ransack(params[:q])
+    @photo_albums = @q.result
   end
   
   def show
