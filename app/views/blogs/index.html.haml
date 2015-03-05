@@ -35,11 +35,12 @@
     %div{class: 'row'}
       %div{class: 'row'}
         %h1 #{link_to blog.headline, blog}
-      %p
-        =truncate(blog.body, length: 100) { link_to "Read More", blog }
+        %div
+          =truncate(blog.body, length: 100) { link_to "Read More", blog }
         %div{class: '4u'}
           Posted: #{short_date blog.created_at}
         %div{class: '4u'}
           Comments: #{link_to blog.blog_comments.count, blog}
         %div{class: '4u'}
           Attachments: #{link_to blog.blog_files.count, blog}
+    %hr
