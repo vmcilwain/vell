@@ -1,0 +1,15 @@
+.search_form
+  =search_form_for @q do |f|
+    .row
+      .4u
+        =f.search_field :name_cont, placeholder: 'Name', size: 30
+      .4u
+        =f.search_field :email_cont, placeholder: 'Email', size: 30
+    .row
+      %div
+      =f.search_field :body_cont, placeholder: 'Message', size: 63
+    .row
+      .3u
+        =f.submit('Search')
+      .3u
+        =link_to 'Cancel', '#', class: 'cancel_search_form_link cancel-button'
