@@ -1,5 +1,10 @@
 %div{class: 'container'}
   %div{class: 'row'}
+    %div{class: '3u'}
+      =link_to 'Search Comments', '#', class: 'search_form_link'
+    %div{class: '3u'}
+      =link_to 'Blog Listing', blogs_path
+  %div{class: 'row'}
     %h1{class: 'title'} Blog Comments Listing
   %div{class: 'search_form'}
     %div{class: 'row'}
@@ -16,11 +21,6 @@
           %input{type: 'submit', value: 'Search'} 
         %div{class: '3u'}
           =link_to 'Cancel', '#', class: 'cancel_search_form_link'
-  %div{class: 'row'}
-    %div{class: '3u'}
-      =link_to 'Search Comments', '#', class: 'search_form_link'
-    %div{class: '3u'}
-      =link_to 'Blog Listing', blogs_path
   %hr
   %br
   %div{class: 'row'}
@@ -39,3 +39,4 @@
         =link_to :Edit, edit_blog_comment_path(blog_comment)
       %div{class: '1u'}  
         =link_to :Destroy, blog_comment_path(blog_comment), method: :delete, data: {confirm: 'Are you sure?'}
+    %hr

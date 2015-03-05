@@ -1,5 +1,5 @@
 %div{class: 'container'}
-  = @contact_mes.each do |contact_me|
+  -@contact_mes.each do |contact_me|
     =div_for contact_me do
       =link_to contact_me.id, contact_me
       %p #{contact_me.name}(#{contact_me.email})
