@@ -1,11 +1,11 @@
 %div{class: 'search_form'}
   =search_form_for @q do |f|
     %div{class: 'row'}
-      =f.select :photo_photo_album_name, PhotoAlbum.all.collect{|x| [x.name, x.id]}, prompt: true
+      =f.select :photo_photo_album_name_eq, PhotoAlbum.all.collect{|x| [x.name, x.id]}, prompt: true
     %div{class: 'row'}
-      =f.search_field :name, placeholder: 'Name', size: 60
+      =f.search_field :name_cont, placeholder: 'Name', size: 60
     %div{class: 'row'}
-      =f.search_field :body, placeholder: 'Content', size: 60
+      =f.search_field :body_cont, placeholder: 'Content', size: 60
     %div{class: 'row'}
       %div{class: '3u'}
         %input{type: 'submit', value: 'Search'} 
