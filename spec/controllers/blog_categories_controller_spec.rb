@@ -70,7 +70,7 @@ describe BlogCategoriesController do
     context "a successful update" do
       it "redirects to :show" do
         put :update, id: blog_category.id, blog_category: {name: Faker::Lorem.words(5).join("\s")}
-        expect(response).to redirect_to blog_category_path
+        expect(response).to redirect_to blog_categories_path
       end
 
       it "sets flash[:success]" do
