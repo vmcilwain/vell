@@ -1,6 +1,7 @@
 class ContactMesController < ApplicationController
   def index
-    @contact_mes = ContactMe.all
+    @q = ContactMe.ransack(params[:q])
+    @contact_mes = @q.result
   end
   
   def create

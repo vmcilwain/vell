@@ -11,6 +11,6 @@
           =f.check_box :enabled
       %div{class: 'row'}
         %div{class: '6u'}
-          %input{type: 'submit', value: 'Search'}
+          =f.submit('Search')
         %div{class: '4u'}
           =link_to 'Cancel', '#', class: 'cancel_search_form_link cancel-button'

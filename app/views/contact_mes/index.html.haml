@@ -1,6 +1,17 @@
 %div{class: 'container'}
+  .row
+    =link_to 'Search Posts', '#', class: 'search_form_link'
+  .row
+    %h1.title Contact Me
+  =render 'search'
   -@contact_mes.each do |contact_me|
     =div_for contact_me do
-      =link_to contact_me.id, contact_me
-      %p #{contact_me.name}(#{contact_me.email})
-      %p #{truncate contact_me.body}
+      .row
+        .1u
+          =link_to contact_me.id, contact_me
+        .2u
+          =contact_me.name
+        .3u
+          =mail_to contact_me.email
+        .6u
+          =truncate contact_me.body

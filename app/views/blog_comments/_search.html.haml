@@ -8,6 +8,6 @@
       =f.search_field :body_cont, placeholder: 'Comment', size: 50
     %div{class: 'row'}
       %div{class: '3u'}
-        %input{type: 'submit', value: 'Search'} 
+        =f.submit('Search') 
       %div{class: '3u'}
         =link_to 'Cancel', '#', class: 'cancel_search_form_link cancel-button'
