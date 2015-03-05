@@ -1,5 +1,6 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "vextranet@herokuapp.com"
-  default to: 'vmcilwain@me.com'
+  default to: 'Vell <vmcilwain@me.com>'
+  default from: 'vell.herokuapp.com <vmcilwain@me.com>'
+  helper :application
   layout 'mailer'
 end
