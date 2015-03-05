@@ -44,4 +44,5 @@ Rails.application.configure do
       :secret_access_key => ENV['S3_SECRET']
     }
   }
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
 end
