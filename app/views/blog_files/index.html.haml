@@ -6,19 +6,7 @@
       =link_to 'New Blog File', new_blog_file_path
   %div{class: 'row'}
     %h1{class: 'title'} Blog File Listing
-  %div{class: 'search_form'}
-    %form
-      %div{class: 'row'}
-        %input{type: 'text', placeholder: 'Blog Document'}
-      %div{class: 'row'}
-        %input{type: 'text', placeholder: 'Blog Description'}
-      %div{class: 'row'}
-        %input{type: 'text', placeholder: 'Created On'}
-      %div{class: 'row'}
-        %div{class: '2u'}
-        %input{type: 'submit', value: 'Search'} 
-        %div{class: '2u'}
-          =link_to 'Cancel', '#', class: 'cancel_search_form_link'
+  =render 'search'
   
   %hr
   -@blog_files.each do |blog_file|
