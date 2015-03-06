@@ -50,6 +50,7 @@ gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 gem 'httparty'
 gem 'remotipart', '~> 1.2'
+gem 'will_paginate', '~> 3.0.6'
 gem 'letter_opener', group: [:development]
 
 group :test do
