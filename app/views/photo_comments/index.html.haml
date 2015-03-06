@@ -7,6 +7,7 @@
   %div{class: 'row'}
     %h1{class: 'title'} Photo Comments Listing
   =render 'search'
+  =will_paginate @photo_comments, class: 'apple_pagination'
   %hr
   %br
   %div{class: 'row'}

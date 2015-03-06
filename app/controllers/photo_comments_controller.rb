@@ -2,7 +2,7 @@ class PhotoCommentsController < ApplicationController
   before_action :photo_comment, only: [:show, :edit, :update, :destroy]
   def index
     @q = PhotoComment.ransack(params[:q])
-    @photo_comments = @q.result
+    @photo_comments = @q.result.paginate(:page => params[:page], :per_page => 20)
   end
   
   def new
