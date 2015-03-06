@@ -1,7 +1,15 @@
 .container
   .row
     .page-header
-    %h1 Contact Lovell
+      %h1 Contact Lovell
+  .row
+    .col-xs-12
+      -if @contact_me.errors.any?
+        %div{class: 'row alert alert-danger'}
+          =flash[:error]
+          %ul
+            -@contact_me.errors.full_messages.each do |message|
+              %li #{message}
   .row.well
     =form_for @contact_me do |f|
       .form-group

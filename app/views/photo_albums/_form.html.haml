@@ -1,10 +1,12 @@
 .container
   .row
-    -if @photo_album.errors.any?
-      =flash[:error]
-      %ul
-        =@photo_album.errors.full_messages.each do |message|
-          %li #{message}
+    .col-xs-12
+      -if @photo_album.errors.any?
+        %div{class: 'row alert alert-danger'}
+          =flash[:error]
+          %ul
+            -@photo_album.errors.full_messages.each do |message|
+              %li #{message}
   .row.well
     =form_for @photo_album do |f|
       .form-group

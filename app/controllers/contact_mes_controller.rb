@@ -20,7 +20,7 @@ class ContactMesController < ApplicationController
         flash[:error] = "There was a problem with your message."
         # Think of a better way to do this and also to persist the data so user doesn't have to rewrite their message.
         flash[:contact_me_errors] = @contact_me.errors.full_messages
-        format.html {redirect_to root_path}
+        format.html {render :new}
         format.js {}
       end
     end

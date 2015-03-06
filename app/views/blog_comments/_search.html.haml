@@ -1,13 +1,19 @@
-%div{class: 'search_form'}
-  =search_form_for @q do |f|
-    .row
-      =f.search_field :blog_headline_cont, placeholder: 'Blog Headline', size: 50
-    %div{class: 'row'}
-      =f.search_field :name_cont, placeholder: 'Commenter', size: 50
-    %div{class: 'row'}
-      =f.search_field :body_cont, placeholder: 'Comment', size: 50
-    %div{class: 'row'}
-      %div{class: '3u'}
-        =f.submit('Search') 
-      %div{class: '3u'}
-        =link_to 'Cancel', '#', class: 'cancel_search_form_link cancel-button'
+.search_form
+  .row
+    .col-md-12
+      =search_form_for @q do |f|
+        .form-group
+          =f.label :headline
+          %br
+          =f.search_field :blog_headline_cont, placeholder: 'Blog Headline Contains', size: 50
+        .form-group
+          =f.label :name
+          %br
+          =f.search_field :name_cont, placeholder: 'Commenter Contains', size: 50
+        .form-group
+          =f.label :body
+          %br
+          =f.search_field :body_cont, placeholder: 'Comment Contains', size: 50
+        .form-group
+          =f.submit 'Search', class: 'btn btn-primary'
+          =link_to 'Cancel', '#', class: 'cancel_search_form_link btn btn-danger'
