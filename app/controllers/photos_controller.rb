@@ -3,7 +3,7 @@ class PhotosController < ApplicationController
   
   def index
     @q = Photo.ransack(params[:q])
-    @photos = @q.result
+    @photos = @q.result.paginate(:page => params[:page], :per_page => 15)
   end
   
   def new
