@@ -6,30 +6,8 @@
       =link_to 'New Blog', new_blog_path
   %div{class: 'row'}
     %h1{class: 'title'} Blog Listing
-  %div{class: 'row'}
-    %div{class: 'search_form'}
-      %h1 Search Posts
-      %form
-        %div{class: 'row'}
-          %div{class: '6u'}
-            %input{type: 'text', placeholder: 'Blog Headline'}
-          %div{class: '6u'}
-            %input{type: 'text', placeholder: 'Content'}
-        %div{class: 'row'}
-          %div{class: '6u'}
-            %input{type: 'text', placeholder: 'Created On'}
-          %div{class: '6u'}
-            %input{type: 'text', placeholder: 'Commented By'}
-        %div{class: 'row'}
-          %div{class: '6u'}
-            %input{type: 'text', placeholder: 'Commented Content'}
-          %div{class: '6u'}
-            %input{type: 'text', placeholder: 'Commented On'}
-        %div{class:'row'}
-          %div{class: '6u'}
-            %input{type: 'submit', value: 'Search'} 
-          %div{class: '6u'}
-            =link_to 'Cancel', '#', class: 'cancel_search_form_link'
+  =render 'search'
+  =will_paginate @blogs, class: 'apple_pagination'
   %hr
   -@blogs.each do |blog|
     %div{class: 'row'}

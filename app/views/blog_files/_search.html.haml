@@ -1,0 +1,11 @@
+%div{class: 'search_form'}
+  =search_form_for @q do |f|
+    %div{class: 'row'}
+      =f.search_field :blog_headline_cont, placeholder: 'Blog Headline', size: 50
+    %div{class: 'row'}
+      =f.search_field :description, placeholder: 'Description', size: 50
+    %div{class: 'row'}
+      %div{class: '3u'}
+        =f.submit('Search')
+      %div{class: '2u'}
+        =link_to 'Cancel', '#', class: 'cancel_search_form_link cancel-button'

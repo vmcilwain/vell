@@ -6,30 +6,8 @@
       =link_to 'New Album', new_photo_album_path
   %div{class: 'row'}
     %h1{class: 'title'} Photo Albums
-  %div{class: 'search_form'}
-    %div{class: 'row'}
-      %h1 Search Photo Albums
-    %form
-      %div{class: 'row'}
-        %div{class: '6u'}
-          %input{type: 'text', placeholder: 'Name'}
-        %div{class: '6u'}
-          %input{type: 'text', placeholder: 'Description'}
-      %div{class: 'row'}
-        %div{class: '6u'}
-          %input{type: 'text', placeholder: 'Created On'}
-        %div{class: '6u'}
-          %input{type: 'text', placeholder: 'Commented By'}
-      %div{class: 'row'}
-        %div{class: '6u'}
-          %input{type: 'text', placeholder: 'Commented Content'}
-        %div{class: '6u'}
-          %input{type: 'text', placeholder: 'Commented On'}
-      %row{class: 'row'}
-        %div{class: '6u'}
-          %input{type: 'submit', value: 'Search'} 
-        %dov{class: '6u'}
-          =link_to 'Cancel', '#', class: 'cancel_search_form_link'
+  =render 'search'
+  =will_paginate @photo_albums, class: 'apple_pagination'
   %hr
     -@photo_albums.each do |photo_album|
       %div{class: 'row'}
