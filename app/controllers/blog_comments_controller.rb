@@ -2,7 +2,7 @@ class BlogCommentsController < ApplicationController
   before_action :blog_comment, only: [:show, :edit, :update, :destroy]
   def index
     @q = BlogComment.ransack(params[:q])
-    @blog_comments = @q.result
+    @blog_comments = @q.result.paginate(:page => params[:page], :per_page => 20)
   end
   
   def new
