@@ -7,6 +7,7 @@
   %div{class: 'row'}
     %h1{class: 'title'} Photo Albums
   =render 'search'
+  =will_paginate(@photo_albums)
   %hr
     -@photo_albums.each do |photo_album|
       %div{class: 'row'}
