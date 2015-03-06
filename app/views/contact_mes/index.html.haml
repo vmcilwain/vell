@@ -4,7 +4,7 @@
   .row
     %h1.title Contact Me
   =render 'search'
-  =will_paginate(@contact_mes)
+  =will_paginate @contact_mes, class: 'apple_pagination'
   %hr
   -@contact_mes.each do |contact_me|
     =div_for contact_me do

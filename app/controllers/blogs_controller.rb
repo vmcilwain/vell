@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   before_action :blog_categories, only: [:new, :edit, :create, :update]
   def index
     @q = Blog.ransack(params[:q])
-    @blogs = @q.result.paginate(:page => params[:page], :per_page => 10)
+    @blogs = @q.result.paginate(:page => params[:page], :per_page => 2)
   end
   
   def new

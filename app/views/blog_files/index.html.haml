@@ -7,7 +7,7 @@
   %div{class: 'row'}
     %h1{class: 'title'} Blog File Listing
   =render 'search'
-  =will_paginate(@blog_files)
+  =will_paginate @blog_files, class: 'apple_pagination'
   %hr
   -@blog_files.each do |blog_file|
     %div{class: 'row'}
