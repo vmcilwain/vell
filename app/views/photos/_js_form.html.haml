@@ -1,19 +1,21 @@
-%div{class: 'row'}
-  %div{id: 'photo_js_nofication'}
-=form_for Photo.new, multipart: true, remote: true do |f|
-  %div{class: 'row'}
-    %h1 Add Photo
-  =hidden_field_tag :authenticity_token, form_authenticity_token
-  =f.hidden_field :photo_album_id, value: @photo_album.id
-  %div{class: 'row'}
-    =f.file_field :document
-  %div{class: 'row'}
-    %div{class: '12u'}
-      =f.text_field :description, placeholder: 'Description'
-  %div{class: 'row'}
-    %div{class: "8u"}
-      =f.submit
-    %div{class: '4u'}
-      =link_to 'Cancel', '#', id: 'cancel_photo_form'
-%div{class: 'row'}
-  =link_to 'Add Photo', '#', id: 'add_photo_form'
+.row
+  #photo_js_notification
+.row
+  =form_for Photo.new, multipart: true, remote: true do |f|
+    .page-header
+      %h1 Add Photo
+    =hidden_field_tag :authenticity_token, form_authenticity_token
+    =f.hidden_field :photo_album_id, value: @photo_album.id
+    .form-group
+      =f.label :document
+      %br
+      =f.file_field :document
+    .form-group
+      =f.label :description
+      %br
+      =f.text_field :description, placeholder: 'Description', size: 80
+    .form-group
+      =f.submit class: 'btn btn-primary'
+      =link_to 'Cancel', '#', id: 'cancel_photo_form', class: 'btn btn-danger'
+.row
+  =link_to 'Add Photo', '#', id: 'add_photo_form', class: 'btn btn-primary'
