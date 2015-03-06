@@ -1,19 +1,20 @@
-%br
-%div{class: 'row'}
-  -if @photo_album.errors.any?
-    =flash[:error]
-    %ul
-      =@photo_album.errors.full_messages.each do |message|
-        %li #{message}
-=form_for @photo_album do |f|
-  %div{class: 'row'}
-    %div{class: '12u'}
-      =f.text_field :name, placeholder: 'Name'
-  %div{class: 'row'}
-    %div{class: '12u'}
-      =f.text_field :description, placeholder: 'Description'
-  %div{class: 'row'}
-    %div{class: '4u'}
-      =f.submit
-    %div{class: '3u'}
-      =link_to :Cancel, photo_albums_path, class: 'cancel-button'
+.container
+  .row
+    -if @photo_album.errors.any?
+      =flash[:error]
+      %ul
+        =@photo_album.errors.full_messages.each do |message|
+          %li #{message}
+  .row.well
+    =form_for @photo_album do |f|
+      .form-group
+        =f.label :name
+        %br
+        =f.text_field :name, placeholder: 'Enter Name', size: 80
+      .form-group
+        =f.label :description
+        %br
+        =f.text_area :description, placeholder: 'Enter Description', cols: 80, rows: 10
+      .form-group
+        =f.submit class: 'btn btn-primary'
+        =link_to :Cancel, photo_albums_path, class: 'btn btn-danger'

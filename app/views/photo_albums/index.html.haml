@@ -1,21 +1,29 @@
-%div{class: 'container'}
-  %div{class: 'row'}
-    %div{class: '2u'}
-      =link_to 'Search Albums', '#', class: 'search_form_link'
-    %div{class: '2u'}
-      =link_to 'New Album', new_photo_album_path
-  %div{class: 'row'}
-    %h1{class: 'title'} Photo Albums
-  =render 'search'
-  =will_paginate @photo_albums, class: 'apple_pagination'
+.container
+  .row
+    .col-xs-5
+      %h1 Photo Albums
+    .col-xs-3
+      %br
+      =link_to 'Search Albums', '#', class: 'search_form_link btn btn-default'
+    .col-xs-2
+      %br
+      =link_to 'New Album', new_photo_album_path, class: 'btn btn-default'
+  .row
+    .col-xs-12
+      =render 'search'
+  .row
+    .col-xs-12
+      =will_paginate @photo_albums, class: 'apple_pagination'
   %hr
     -@photo_albums.each do |photo_album|
-      %div{class: 'row'}
-        %div{class: '4u'}
+      .row
+        .col-xs-3
+          =image_tag 'http://placehold.it/100x100'
+        .col-xs-3
           =link_to photo_album.name, photo_album
-        %div{class: '4u'}
+        .col-xs-3
           =link_to :Edit, edit_photo_album_path(photo_album)
-        %div{class: '4u'}
+        .col-xs-3
           =link_to :Destroy, photo_album_path(photo_album), method: :delete, data: {confirm: 'Are you sure?'}
-        %div{class: '12u'}
+        .col-xs-12
           Description: #{photo_album.description}
