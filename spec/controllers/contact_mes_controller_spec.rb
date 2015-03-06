@@ -13,6 +13,13 @@ describe ContactMesController do
       expect(assigns[:contact_mes].size).to eq 2
     end
   end
+  
+  describe 'GET new' do
+    it 'sets @contact_me' do
+      get :new
+      expect(assigns[:contact_me]).to be_instance_of ContactMe
+    end
+  end
 
   describe 'POST create' do
     context 'HTTP request' do

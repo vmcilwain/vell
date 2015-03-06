@@ -4,6 +4,10 @@ class ContactMesController < ApplicationController
     @contact_mes = @q.result.paginate(:page => params[:page], :per_page => 30)
   end
   
+  def new
+    @contact_me = ContactMe.new
+  end
+  
   def create
     @contact_me = ContactMe.new(contact_me_params)
     respond_to do |format|
