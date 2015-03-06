@@ -1,7 +1,8 @@
 class BlogFilesController < ApplicationController
   before_action :blog_file, only: [:show, :edit, :update, :destroy, :download]
   def index
-    @blog_files = BlogFile.all
+    @q = BlogFile.ransack(params[:q])
+    @blog_files = @q.result.paginate(:page => params[:page], :per_page => 20)
   end
   
   def new

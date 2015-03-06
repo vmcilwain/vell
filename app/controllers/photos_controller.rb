@@ -2,7 +2,8 @@ class PhotosController < ApplicationController
   before_action :photo, only: [:show, :edit, :update, :destroy]
   
   def index
-    @photos = Photo.all
+    @q = Photo.ransack(params[:q])
+    @photos = @q.result.paginate(:page => params[:page], :per_page => 15)
   end
   
   def new

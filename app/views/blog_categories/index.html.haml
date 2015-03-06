@@ -6,20 +6,8 @@
       =link_to 'New Category', new_blog_category_path
   %div{class: 'row'}
     %h1{class: 'title'} Blog Categories
-  %div{class: 'row'}
-    %div{class: 'search_form'}
-      %h1 Search Blog Categories
-      %form
-        %div{class: 'row'}
-          %div{class: '6u'}
-            %input{type: 'text', placeholder: 'Name'}
-          %div{class: '6u'}
-            %input{type: 'text', placeholder: 'Created On'}
-        %div{class: 'row'}
-          %div{class: '6u'}
-            %input{type: 'submit', value: 'Search'}
-          %div{class: '6u'}
-            =link_to 'Cancel', '#', class: 'cancel_search_form_link'
+  =render 'search'
+  =will_paginate @blog_categories class: 'apple_pagination'
   %hr
   %div{class: 'row'}
     =flash[:success]

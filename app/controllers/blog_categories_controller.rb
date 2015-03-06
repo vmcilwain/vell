@@ -2,7 +2,8 @@ class BlogCategoriesController < ApplicationController
   before_action :blog_category, only: [:edit, :update, :destroy]
 
   def index
-    @blog_categories = BlogCategory.all
+    @q = BlogCategory.ransack(params[:q])
+    @blog_categories = @q.result.paginate(:page => params[:page], :per_page => 15)
   end
   
   def new

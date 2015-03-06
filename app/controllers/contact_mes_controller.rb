@@ -1,6 +1,7 @@
 class ContactMesController < ApplicationController
   def index
-    @contact_mes = ContactMe.all
+    @q = ContactMe.ransack(params[:q])
+    @contact_mes = @q.result.paginate(:page => params[:page], :per_page => 30)
   end
   
   def create
