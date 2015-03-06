@@ -1,24 +1,25 @@
-%div{class: 'container'}
-  %div{class: 'row'}
-    %div{class: '2u'}
+.container
+  .row
+    .col-xs-2
       =link_to 'Search Posts', '#', class: 'search_form_link'
-    %div{class: '2u'}
+    .col-xs-2
       =link_to 'New Blog', new_blog_path
-  %div{class: 'row'}
-    %h1{class: 'title'} Blog Listing
+  .row
+    .col-md-6
+      %h1 Blog Listing
   =render 'search'
   =will_paginate @blogs, class: 'apple_pagination'
-  %hr
   -@blogs.each do |blog|
-    %div{class: 'row'}
-      %div{class: 'row'}
-        %h1 #{link_to blog.headline, blog}
-        %div
+    .row
+      .col-md-12
+        %h2 #{link_to blog.headline, blog}
+      .row
+        .col-md-12
           =truncate(blog.body, length: 100) { link_to "Read More", blog }
-        %div{class: '4u'}
+      .row
+        .col-xs-4
           Posted: #{short_date blog.created_at}
-        %div{class: '4u'}
+        .col-xs-4
           Comments: #{link_to blog.blog_comments.count, blog}
-        %div{class: '4u'}
+        .col-xs-4
           Attachments: #{link_to blog.blog_files.count, blog}
-    %hr
