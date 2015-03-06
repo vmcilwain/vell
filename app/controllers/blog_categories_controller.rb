@@ -3,7 +3,7 @@ class BlogCategoriesController < ApplicationController
 
   def index
     @q = BlogCategory.ransack(params[:q])
-    @blog_categories = @q.result
+    @blog_categories = @q.result.paginate(:page => params[:page], :per_page => 15)
   end
   
   def new
