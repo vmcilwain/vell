@@ -16,7 +16,7 @@
         .col-xs-12
         =will_paginate @blog_comments, class: 'apple_pagination'
   .row
-    .col-xs-12
+    %div{class: 'alert alert-success'}
       =flash[:success]
   -@blog_comments.reverse.each do |blog_comment|
     .row

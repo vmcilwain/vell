@@ -14,7 +14,8 @@
         %br
         =link_to 'Destroy', blog_path(@blog), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
   .row
-    =flash[:success]
+    %div{class: 'alert alert-success'}
+      =flash[:success]
   .row
     =render partial: 'blog_files/blog_file', collection: @blog.blog_files
   .row
