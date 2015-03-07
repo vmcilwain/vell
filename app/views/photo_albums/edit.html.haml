@@ -1,5 +1,4 @@
-%div{class: 'container'}
-  %div{class: 'row'}
-    %h1{class: 'title'} Edit #{@photo_album.name}
-  %hr
+.container
+  .page-header
+    %h1 Edit #{@photo_album.name}
   =render 'form'

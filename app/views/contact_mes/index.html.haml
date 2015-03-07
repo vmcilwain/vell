@@ -1,19 +1,25 @@
-%div{class: 'container'}
+.container
   .row
-    =link_to 'Search Posts', '#', class: 'search_form_link'
+    .col-xs-4
+      %h1.title Contact Me
+    .col-xs-4
+      %br
+      =link_to 'Search Posts', '#', class: 'search_form_link btn btn-default'
   .row
-    %h1.title Contact Me
-  =render 'search'
+    .col-xs-12
+      =render 'search'
   =will_paginate @contact_mes, class: 'apple_pagination'
   %hr
   -@contact_mes.each do |contact_me|
-    =div_for contact_me do
-      .row
-        .1u
-          =link_to contact_me.id, contact_me
-        .2u
-          =contact_me.name
-        .3u
-          =mail_to contact_me.email
-        .6u
-          =truncate contact_me.body
+    .row
+      .col-xs-1
+        =link_to contact_me.id, contact_me
+      .col-xs-3
+        =contact_me.name
+      .col-xs-6
+        =mail_to contact_me.email
+    .row
+      .col-xs-12
+        %br
+        =truncate(contact_me.body, length: 100) { link_to "Read More", contact_me }
+    %hr
