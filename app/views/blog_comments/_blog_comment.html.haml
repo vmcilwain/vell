@@ -1,9 +1,9 @@
-=div_for(blog_comment, class: 'row') do
-  %div{class: '3u'}
+=div_for(blog_comment, class: 'row well') do
+  .col-xs-3
     #{blog_comment.name}: 
-  %div{class: '4u'}
+  .col-xs-4
     =medium_date blog_comment.created_at
-  %div{class: 'row'}
-    %div
+  .row
+    .col-xs-12
       =blog_comment.body
-%hr
+%br
