@@ -6,18 +6,19 @@
     .form-group
       =f.label :name
       %br
-      =f.text_field :name, placeholder: 'Enter Your Name'
+      =f.text_field :name, placeholder: 'Enter Your Name',size: 50
     .form-group
       =f.label :body
       %br
-      =f.text_area :body, placeholder: 'Enter Comment', cols: 75
+      =f.text_area :body, placeholder: 'Enter Comment', cols: 75, rows: 5
     .row
       .col-xs-3
         =f.submit 'Post', class: 'btn btn-primary'
         =link_to 'Cancel', '#', id: 'blog_comment_cancel_link', class: 'btn btn-danger'
-.row     
+.row
   =link_to 'Add Comment', '#', id: 'add_blog_comment_link', class: 'btn btn-primary'
-
+  %br
+  %br
 -if @blog.blog_comments.any?
   #comments_listing
     =render partial: 'blog_comments/blog_comment', collection: @blog.blog_comments.reverse

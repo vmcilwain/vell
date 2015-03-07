@@ -1,22 +1,27 @@
 .container
-  .row
-    .col-xs-2
-      =link_to 'Search Posts', '#', class: 'search_form_link'
-    .col-xs-2
-      =link_to 'New Blog', new_blog_path
-  .row
-    .col-md-6
-      %h1 Blog Listing
-  =render 'search'
-  =will_paginate @blogs, class: 'apple_pagination'
+  .page-header
+    .row
+      .col-xs-4
+        %h1 Blog Listing
+      .col-xs-2
+        %br
+        =link_to 'Search Posts', '#', class: 'search_form_link btn btn-default'
+      .col-xs-2
+        %br
+        =link_to 'New Blog', new_blog_path, class: 'btn btn-primary'
+    =render 'search'
+    .row
+      =will_paginate @blogs, class: 'apple_pagination'
   -@blogs.each do |blog|
     .row
-      .col-md-12
-        %h2 #{link_to blog.headline, blog}
       .row
         .col-md-12
-          =truncate(blog.body, length: 100) { link_to "Read More", blog }
+          %h2 #{link_to blog.headline, blog}
       .row
+        .col-xs-12
+          =truncate(blog.body, length: 250) { link_to "Read More", blog }
+      .row
+        %br
         .col-xs-4
           Posted: #{short_date blog.created_at}
         .col-xs-4
