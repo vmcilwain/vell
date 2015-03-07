@@ -1,21 +1,25 @@
-%div{class: 'row'}
-  %div{class: 'search_form'}
+.row
+  .search_form
     =search_form_for @q do |f|
-      .row
-        .6u
-          =f.select :blog_category_id, BlogCategory.all.collect{|x| [x.name, x.id]}, prompt: true
-      %div{class: 'row'}
-        %div{class: '6u'}
-          =f.search_field :headline_cont, placeholder: 'Headline', size: 40
-        %div{class: '6u'}
-          =f.search_field :body_cont, placeholder: 'Content', size: 40
-      %div{class: 'row'}
-        %div{class: '6u'}
-          =f.search_field :blog_comments_name_cont, placeholder: 'Commenter', size: 40
-        %div{class: '6u'}
-          =f.search_field :blog_comments_body_cont, placeholder: 'Comment', size: 40
-      %div{class:'row'}
-        %div{class: '3u'}
-          =f.submit('Search')
-        %div{class: '3u'}
-          =link_to 'Cancel', '#', class: 'cancel_search_form_link cancel-button'
+      .form-group
+        =f.label :blog_category, 'Blog Category'
+        =f.select :blog_category_id, BlogCategory.all.collect{|x| [x.name, x.id]}, prompt: true
+      .form-group
+        =f.label :Headline
+        %br
+        =f.search_field :headline_cont, placeholder: 'Headline Contains', size: 40
+      .form-group
+        =f.label :body
+        %br
+        =f.search_field :body_cont, placeholder: 'Content Contains', size: 40
+      .form-group
+        =f.label :blog_comments_name
+        %br
+        =f.search_field :blog_comments_name_cont, placeholder: 'Commenter Contains', size: 40
+      .form-group
+        =f.label :blog_comments_body
+        %br
+        =f.search_field :blog_comments_body_cont, placeholder: 'Comment', size: 40
+      .form-group
+        =f.submit 'Search', class: 'btn btn-primary'
+        =link_to 'Cancel', '#', class: 'cancel_search_form_link btn btn-danger'
