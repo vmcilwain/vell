@@ -1,7 +1,7 @@
 -if @photo.errors.any?
-  $('#photo_js_nofication').html("There were errors<br/>#{@photo.errors.full_messages.join('<br />')}");
+  $('#photo_js_nofication').html("<div class='alert alert-danger'>There were errors<br/>#{@photo.errors.full_messages.join('<br />')}</div>");
 -else
   $('#new_photo').hide();
   $("#photo_document").val('');
-  $('#photo_js_nofication').html('Photo uploaded').fadeOut();
+  $('#photo_js_nofication').html("<div class='alert alert-success'>Photo uploaded</div>").fadeOut();
   $('#photo_listing').html("#{escape_javascript(render(partial: 'photos/listing', locals: {photos: @photo.photo_album.photos.in_groups_of(3, false)}))}")

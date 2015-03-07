@@ -22,7 +22,7 @@
       .form-group
         =f.label :body
         %br
-        =f.text_area :body, placeholder: 'Enter Details', cols: 95, rows: 20
+        =f.text_area :body, placeholder: 'Enter Details', cols: 95, rows: 20, class: 'jqte-textarea'
       .form-group
         =f.submit class: 'btn btn-primary'
         =link_to 'Cancel', blogs_path, class: 'btn btn-danger'
