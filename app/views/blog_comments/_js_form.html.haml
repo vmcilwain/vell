@@ -1,21 +1,27 @@
-%div{class: 'row'}
-  %div{id: 'blog_comment_errors'}
-=form_for BlogComment.new, remote: true do |f|
-  =f.hidden_field :blog_id, value: @blog.id
-  %div{class: 'row'}
-    =f.text_field :name, placeholder: 'Enter Your Name'
-  %div{class: 'row'}
-    =f.text_area :body, placeholder: 'Enter Comment', cols: 75
-  %div{class: 'row'}
-    %div{class: '3u'}
-      =f.submit 'Post'
-    %div{class: '3u'}
-    =link_to 'Cancel', '#', id: 'blog_comment_cancel_link'
-%div{class: 'row'}     
-  =link_to 'Add Comment', '#', id: 'add_blog_comment_link'
-%div
-  -if @blog.blog_comments.any?
-    %div{id: 'comments_listing'}
-      =render partial: 'blog_comments/blog_comment', collection: @blog.blog_comments.reverse
-  -else
+.row
+  #blog_comment_errors
+.row
+  =form_for BlogComment.new, remote: true do |f|
+    =f.hidden_field :blog_id, value: @blog.id
+    .form-group
+      =f.label :name
+      %br
+      =f.text_field :name, placeholder: 'Enter Your Name',size: 50
+    .form-group
+      =f.label :body
+      %br
+      =f.text_area :body, placeholder: 'Enter Comment', cols: 75, rows: 5
+    .row
+      .col-xs-3
+        =f.submit 'Post', class: 'btn btn-primary'
+        =link_to 'Cancel', '#', id: 'blog_comment_cancel_link', class: 'btn btn-danger'
+.row
+  =link_to 'Add Comment', '#', id: 'add_blog_comment_link', class: 'btn btn-primary'
+  %br
+  %br
+-if @blog.blog_comments.any?
+  #comments_listing
+    =render partial: 'blog_comments/blog_comment', collection: @blog.blog_comments.reverse
+-else
+  .well
     Be the first to add a comment

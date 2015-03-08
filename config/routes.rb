@@ -2,8 +2,12 @@ Rails.application.routes.draw do
   get 'ui(/:action)', controller: 'ui'
   
   root to: 'home#index'
-  
-  resources :contact_mes, only: [:index, :show, :create]
+  resources :home, only: [:index] do
+    collection do
+      get :about
+    end
+  end
+  resources :contact_mes, only: [:index, :new, :show, :create]
   resources :blog_categories, except: [:show]
   resources :blogs, :blog_comments, :blog_files, :photo_albums, :photos, :photo_comments
   

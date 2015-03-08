@@ -7,10 +7,11 @@
   %div{class: 'row'}
     %h1{class: 'title'} Blog Categories
   =render 'search'
-  =will_paginate @blog_categories class: 'apple_pagination'
+  =will_paginate @blog_categories, class: 'apple_pagination'
   %hr
-  %div{class: 'row'}
-    =flash[:success]
+  .row
+    %div{class: 'alert alert-success'}
+      =flash[:success]
   -@blog_categories.each do |blog_category|
     %div{class: 'row'}
       %div{class: '4u'}

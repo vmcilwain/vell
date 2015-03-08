@@ -1,7 +1,7 @@
 <% if @contact_me.errors.any? %>
-  $('.notice').html("<span class='success'>There was a problem with your message.<br /><ul><% @contact_me.errors.full_messages.each do |err| %><li><%= err%></li><% end %></ul></span>");
+  $('.notice').html("<span class='alert alert-danger'>There was a problem with your message.<br /><ul><% @contact_me.errors.full_messages.each do |err| %><li><%= err%></li><% end %></ul></span>");
 <% else %>
-  $('.notice').html("<span class='success'>Your message has been sent.</span>");
+  $('.notice').html("<span class='alert alert-success'>Your message has been sent.</span>");
   $('#contact_me_name').val("");
   $('#contact_me_email').val("");
   $('#contact_me_body').val("");

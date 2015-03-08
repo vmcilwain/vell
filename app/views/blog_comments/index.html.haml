@@ -1,29 +1,34 @@
-%div{class: 'container'}
-  %div{class: 'row'}
-    %div{class: '3u'}
-      =link_to 'Search Comments', '#', class: 'search_form_link'
-    %div{class: '3u'}
-      =link_to 'Blog Listing', blogs_path
-  %div{class: 'row'}
-    %h1{class: 'title'} Blog Comments Listing
-  =render 'search'
-  =will_paginate @blog_comments, class: 'apple_pagination'
-  %hr
-  %br
-  %div{class: 'row'}
-    =flash[:success]
+.container
+  .row
+    .page-header
+      .col-xs-7
+        %h1 Blog Comments Listing
+      .col-xs-3
+        %br
+        =link_to 'Search Comments', '#', class: 'search_form_link btn btn-default'
+      .col-xs-2
+        %br
+        =link_to 'Blog Listing', blogs_path, class: 'btn btn-default'
+      .row
+        .col-xs-12
+        =render 'search'
+      .row
+        .col-xs-12
+        =will_paginate @blog_comments, class: 'apple_pagination'
+  .row
+    %div{class: 'alert alert-success'}
+      =flash[:success]
   -@blog_comments.reverse.each do |blog_comment|
-    %div{class: 'row'}
-      %div{class: '3u'}
+    .row
+      .col-xs-3
         =blog_comment.name
-      %div{class: '4u'}
+      .col-xs-4
         =medium_date blog_comment.created_at
-    %div{class: 'row'}
-      %div
+      .col-xs-2
+        =link_to :Edit, edit_blog_comment_path(blog_comment), class: 'btn btn-default'
+      .col-xs-2
+        =link_to :Destroy, blog_comment_path(blog_comment), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
+    .row
+      .col-xs-12
         =blog_comment.body
-    %div{class: 'row'}
-      %div{class: '1u'}
-        =link_to :Edit, edit_blog_comment_path(blog_comment)
-      %div{class: '1u'}  
-        =link_to :Destroy, blog_comment_path(blog_comment), method: :delete, data: {confirm: 'Are you sure?'}
     %hr

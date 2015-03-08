@@ -13,17 +13,13 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require jquery.remotipart
-//= require jquery.scrolly.min.js
-//= require jquery.scrollzer.min.js
-//= require skel.min.js
-//= require skel-layers.min.js
-//= require init.js
 //= require turbolinks
 //= require_tree .
 
 $(function(){
-  $(".textarea").jqte({placeholder: "Please, write your post"});
+  $(".jqte-textarea").jqte({placeholder: "Please, write your post"});
   
   $('.search_form').hide();
   

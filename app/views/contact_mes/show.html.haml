@@ -1,6 +1,6 @@
-%div{class: 'container'}
-  %div
+.container
+  .row.well
     %p Name: #{@contact_me.name}
-    %p Email: #{@contact_me.email}
-    %p Created At: #{@contact_me.created_at}
+    %p Email: #{mail_to @contact_me.email}
+    %p Created At: #{medium_date @contact_me.created_at}
     %p #{simple_format @contact_me.body}

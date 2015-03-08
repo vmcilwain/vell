@@ -1,28 +1,33 @@
-%div{class: 'container'}
-  %h1{class: 'title'} Create Blog
-  %hr
-  %div{class: 'row'}
-    -if @blog.errors.any?
-      =flash[:error]
-      %ul
-        -@blog.errors.full_messages.each do |err|
-          %li #{err}
-  %br
-  =form_for @blog, multipart: true do |f|
-    %div{class: 'row'}
-      = f.fields_for :blog_files do |builder|
-        %div{class: '4u'}
-          = builder.file_field :doc
-    %div{class: 'row'}
-      %div{class: '6u'}
+.container
+  .page-header
+    .row
+      %h1 Create Blog
+  .row
+    .col-xs-12
+      -if @blog.errors.any?
+        %div{class: 'row alert alert-danger'}
+          =flash[:error]
+          %ul
+            -@blog.errors.full_messages.each do |message|
+              %li #{message}
+  .row.well
+    =form_for @blog, multipart: true do |f|
+      .form-group
+        = f.fields_for :blog_files do |builder|
+          .col-xs-4
+            = builder.file_field :doc
+        %br
+      .form-group
+        =f.label :blog_category
         =f.select :blog_category_id, @blog_categories, prompt: true
-      %div{class: '6u'}
-        =f.text_field :headline, placeholder: 'Enter Headline', size: 18
-    %div{class: 'row'}
-      %div{class: '12u'}
-        =f.text_area :body, placeholder: 'Enter Details'
-    %div{class: 'row'}
-      %div{class: '3u'}
-        =f.submit
-      %div{class: '4u'}
-        =link_to 'Cancel', blogs_path, class: 'cancel-button'
+      .form-group
+        =f.label :headline
+        %br
+        =f.text_field :headline, placeholder: 'Enter Headline', size: 95
+      .form-group
+        =f.label :body
+        %br
+        =f.text_area :body, placeholder: 'Enter Details', cols: 95, rows: 20, class: 'jqte-textarea'
+      .form-group
+        =f.submit class: 'btn btn-primary'
+        =link_to 'Cancel', blogs_path, class: 'btn btn-danger'
