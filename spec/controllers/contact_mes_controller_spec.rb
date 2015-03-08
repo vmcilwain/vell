@@ -13,6 +13,13 @@ describe ContactMesController do
       expect(assigns[:contact_mes].size).to eq 2
     end
   end
+  
+  describe 'GET new' do
+    it 'sets @contact_me' do
+      get :new
+      expect(assigns[:contact_me]).to be_instance_of ContactMe
+    end
+  end
 
   describe 'POST create' do
     context 'HTTP request' do
@@ -51,12 +58,12 @@ describe ContactMesController do
           expect(flash[:error]).to_not be_nil
         end
         
-        it 'sets flash[:contact_me_errors]' do
-          expect(flash[:error]).to_not be_nil
+        it 'sets @contact_me' do
+          expect(assigns[:contact_me]).to be_instance_of ContactMe
         end
-
-        it 'redirects to root path' do
-          expect(response).to redirect_to root_path
+        
+        it 'renders :new' do
+          expect(response).to render_template :new
         end
       end
     end

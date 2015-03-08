@@ -1,14 +1,18 @@
-%div{class: 'container'}
-  %div{class: 'row'}
-    %div{class: '1u'}
-      =link_to :Edit, edit_photo_album_path(@photo_album)
-    %div{class: '1u'}
-      =link_to :Destroy, photo_album_path(@photo_album), method: :delete, data: {confirm: 'Are you sure?'}
-  %div{class: 'row'}
-    %h1{class: 'title'} #{@photo_album.name}
-  %hr
-  %div{class: 'row'}
-    %div
-      =flash[:success]
-  =render 'photos/js_form'
+.container
+  .row
+    .col-xs-12
+      -if flash[:success]
+        %div{class: 'alert alert-success'}
+          =flash[:success]
+  .page-header
+    .row
+      .col-xs-4
+        %h1 #{@photo_album.name}
+      .col-xs-4
+        %br
+        =link_to :Edit, edit_photo_album_path(@photo_album), class: 'btn btn-default'
+        =link_to :Destroy, photo_album_path(@photo_album), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
+  .row
+    .col-sx-12
+      =render 'photos/js_form'
   =render partial: 'photos/listing', locals: {photos: @photos}

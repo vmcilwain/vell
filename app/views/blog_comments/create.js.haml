@@ -1,0 +1,9 @@
+-if @blog_comment.errors.any?
+  $('#blog_comment_errors').html("<div class='alert alert-danger'>#{raw @blog_comment.errors.full_messages.join('<br/>')}</div>")
+-else
+  $("#new_blog_comment").hide();
+  $('#add_blog_comment_link').show();
+  $("#comments_listing").html("#{escape_javascript(render(partial: 'blog_comments/blog_comment', collection: @blog_comment.blog.blog_comments.reverse))}")
+  $('#blog_comment_name').val('');
+  $('#blog_comment_body').val('');
+  $('#blog_comment_errors').html("<div class='alert alert-success'>Comment added</div>");

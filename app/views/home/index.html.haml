@@ -1,89 +1,32 @@
-/ Intro
-%section{id: "top", class: "one dark cover"}
-  %div{class: "container"}
-    %header
-      %h2{class: "alt"}
-        Hi! I'm Lovell, a #{link_to :Ruby, 'https://www.ruby-lang.org/en/'} and #{link_to 'Ruby on Rails', 'http://rubyonrails.org/'} developer living and working in the DC Metropolitan area. I'm passionate about creating clean and elegant web applications that just work.
-    %footer
-      %a{href: "#portfolio", class: "button scrolly"} Scroll	
-/ Portfolio
-%section{id: "portfolio", class: "two"}
-  %div{class: "container"}
-    %header
-      %h2 Portfolio
-      %p 
-        This section has some of my noteable projects that I have created. These links will take you to the code base of the project that is clicked. There you can browse code and get a feel for my coding style.
-  %div{class: "row"}
-    %div{class: "4u"}
-      %article{class: "item"}
-        %a{href: "https://github.com/vmcilwain/authenticatable", target: 'blank', class: "image fit"}
-          =image_tag("pic02.jpg")
-        %header
-          %h3 authenticatable
-      %article{class: "item"}
-        %a{href: "https://github.com/vmcilwain/ruby_mysql_web_service", target: 'blank', class: "image fit"}
-          =image_tag("pic03.jpg")
-        %header
-          %h3 Mysql Web Service Written in Ruby
-    %div{class: "4u"}
-      %article{class: "item"}
-        %a{href: "https://github.com/vmcilwain/announcements", target: 'blank', class: "image fit"}
-          =image_tag("pic04.jpg")
-        %header
-          %h3 Daily Announcements
-      %article{class: "item"}
-        %a{href: "https://github.com/vmcilwain/rails_template", target: 'blank', class: "image fit"}
-          =image_tag("pic05.jpg")
-        %header
-          %h3 Ruby on Rails Template
-    %div{class: "4u"}
-      %article{class: "item"}
-        %a{href: "#", class: "image fit"}
-          =image_tag("pic06.jpg")
-        %header
-          %h3 TBD
-      %article{class: "item"}
-        %a{href: "#", class: "image fit"}
-          =image_tag("pic07.jpg")
-        %header
-          %h3 TBD
-/ About Me
-%section{id: "about", class: "three"}
-  %div{class: "container"}
-    %header
-      %h2 About Me
-    %a{href: "#", class: "image featured"}
-      =image_tag("pic08.jpg")
-    %p
-      I'm a seasoned Ruby and Ruby on Rails developer with over 5 years of experience. Prior to that, I was a Senior Systems Administrator and Database Administrator. I currently work at ASPPH as a Web Specialist helping to push them into new technologies and methodologies.
-    %p
-      The value that I provide to my current job as well as freelance jobs is the ability to turn around a well tested product in a respectable amount of time. This allows for early feedback and collaboration among the stakeholders and me. Thats a good thing!
-    %p
-      If you are interested in speaking with me, please fill out the contact me form below.
-/ Contact
-%section{id: "contact", class: "four"}
-  %div{class: "container"}
-    %header
-      %h2 Contact
-    %p
-      Using the form below is the best way to contact me. If you would like a call back be sure to leave a contact number in the message and the best time to call you. I am available for freelance opportunities.
-    %div{class: 'notice'}
-      -if flash[:contact_me_errors]
-        =flash[:error]
-        %ul
-          -flash[:contact_me_errors].each do |err|
-            %li #{err}
-      -else
-        =flash[:success]
-    =form_for @contact_me, remote: true do |f|
-      %div{class: "row 50%"}
-        %div{class: "6u"}
-          =f.text_field :name, type: 'text', placeholder: 'Name'
-        %div{class: "6u"}
-          =f.text_field :email, type: 'text', placeholder: 'Email'
-      %div{class: "row 50%"}
-        %div{class: "12u"}
-          =f.text_area :body, type: 'text', placeholder: 'Message'
-      %div{class: "row"}
-        %div{class: "12u"}
-          =f.submit('Send Message')
+.container
+  -if flash[:success]
+    .row
+      .col-md-12
+        %div{class: 'alert alert-success'}
+          =flash[:success]
+  .jumbotron
+    %h1 Welcome
+    %p Hi! I'm Lovell, a #{link_to :Ruby, 'https://www.ruby-lang.org/en/', target: 'blank'} and #{link_to 'Ruby on Rails', 'http://rubyonrails.org/', target: 'blank'} developer living and working in the DC Metropolitan area. I'm passionate about creating clean and elegant web applications that just work.
+    %p If you are looking to contact me about freelance work, please click the button below to send me a message.
+    
+    =link_to 'Contact Me', new_contact_me_path, class: "btn btn-lg btn-primary", role: "button"
+  .row
+    .col-md-3
+      %h1 Projects
+  .row.well
+    .col-xs-3
+      =link_to 'Authenticatable Engine', "https://github.com/vmcilwain/authenticatable", target: 'blank'
+    .col-xs-3
+      =link_to 'Ruby Mysql Web API', "https://github.com/vmcilwain/ruby_mysql_web_service", target: 'blank'
+    .col-xs-3
+      =link_to 'Announcements', "https://github.com/vmcilwain/announcements", target: 'blank'
+  .row
+    .col-md-3
+      %h1 Connect With Me
+  .row.well
+    .col-xs-3
+      =link_to :Twitter, 'https://twitter.com/the_codemonster', class: 'fa fa-twitter', target: 'blank'
+    .col-xs-3
+      =link_to :LinkedIn, 'https://www.linkedin.com/pub/lovell-mcilwain/60/92/28/', class: 'fa fa-linkedin', target: 'blank'
+    .col-xs-3
+      =link_to :Github, 'https://www.github.com/vmcilwain', class: 'fa fa-github', target: 'blank'

@@ -7,7 +7,8 @@
     %div{class: '3u'}
       =link_to :Listing, photos_path
   %hr
-  %div{class: 'row'}
-    =flash[:success]
+  .row
+    %div{class: 'alert alert-success'}
+      =flash[:success]
   %div{class: 'row'}
     =image_tag @photo.document.url
