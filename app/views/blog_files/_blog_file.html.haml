@@ -1,12 +1,11 @@
 =div_for(blog_file, class: 'row') do
-  .col-xs-4
+  .col-xs-3
     -if ALLOWABLE_IMAGES.include?(blog_file.doc_content_type)
-      =link_to image_tag(blog_file.doc.url(:thumb)), blog_file.doc.url
+      =link_to image_tag(blog_file.doc.url, width: '150px'), blog_file.doc.url
     -else
       =link_to blog_file.doc_file_name, blog_file.doc.url
-    .row
-      =link_to :Delete, blog_file, method: :delete, data: {confirm: 'Are you sure?'}
+  .col-xs-4
+    =link_to :Delete, blog_file, method: :delete, data: {confirm: 'Are you sure?'}
   .row
     .row
       =blog_file.description
-      
