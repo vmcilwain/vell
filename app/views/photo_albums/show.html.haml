@@ -13,9 +13,6 @@
         =link_to :Edit, edit_photo_album_path(@photo_album), class: 'btn btn-default'
         =link_to :Destroy, photo_album_path(@photo_album), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
   .row
-    %div{class: 'alert alert-success'}
-      =flash[:success]
-  .row
     .col-sx-12
       =render 'photos/js_form'
   =render partial: 'photos/listing', locals: {photos: @photos}

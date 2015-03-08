@@ -10,6 +10,7 @@ feature 'photo', js: true do
     click_link 'Add Photo'
     attach_file('photo_document', "#{ATTACHMENT_ROOT}/test_picture.jpg")
     click_button 'Create Photo'
-    expect(page).to have_content 'Photo uploaded'
+    
+    expect(page).to have_content 'Photo created'
   end
 end

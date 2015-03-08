@@ -19,13 +19,13 @@
       .form-group
         =f.label :email
         %br
-        =f.text_field :email, placeholder: 'EnterEmail', size: 60
+        =f.text_field :email, placeholder: 'Enter Email', size: 60
       .form-group
         =f.label :body
         %br
         =f.text_area :body, placeholder: 'Enter Message', cols: 100, rows: 10
       .row
-        .col-xs-1
+        .col-xs-2
           =f.submit 'Send', class: 'btn btn-primary'
         .col-xs-1
           =link_to 'Cancel', root_path, class: 'btn btn-danger'

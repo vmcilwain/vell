@@ -1,16 +1,16 @@
-%div{id: 'photo_listing'}
-  -photos.each do |row|
-    %div{class: 'row'}
+#photo_listing
+  -photos.in_groups_of(3, false).each do |row|
+    .row
       -row.each do |photo|
-        %div{class: '4u'}
-          %div{class: 'row'}
+        .col-xs-4
+          .row
             %div{id: "notification_photo_#{photo.id}"}
-            =link_to image_tag( photo.document.url(:medium)), photo.document.url, target: 'blank'
-          %div{class: 'row'}
+            =link_to image_tag(photo.document.url, width: '200px'), photo.document.url, target: 'blank'
+          .row
             %div{id: "edit_photo_#{photo.id}"}
               =photo.description
-          %div{class: 'row'}
-            %div{class: '3u'}
+          .row
+            .col-xs-3
               =link_to :Edit, edit_photo_path(photo), remote: true, id: "edit_photo_#{photo.id}_link"
-            %div{class: '1u'}
-              =link_to 'Destroy', photo_path(photo), method: :delete, data: {confirm: 'Are you sure?'}
+            .col-xs-1
+              =link_to 'Destroy', photo_path(photo), method: :delete, data: {confirm: 'Are you sure?'}, id: "cancel_photo_#{photo.id}_link"
