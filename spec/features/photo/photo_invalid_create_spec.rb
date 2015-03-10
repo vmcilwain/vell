@@ -4,6 +4,7 @@ feature 'photo', js: true do
   before {photo_album}
   after {delete_files}
   scenario 'invalid photo creation' do
+    sign_in
     visit photo_album_path(photo_album)
     expect(page).to have_content photo_album.name
     

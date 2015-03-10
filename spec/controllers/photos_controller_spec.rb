@@ -4,6 +4,13 @@ describe PhotosController do
   after {delete_files}
   
    describe 'GET index' do
+    let(:user) {Fabricate :user}
+  
+    before do
+     add_user_to_role(user, 'Administrator')
+     session[:user_id] = user.id
+    end
+    
     it 'sets @photos' do
       photo1 = Fabricate :photo
       photo2 = Fabricate :photo
@@ -14,8 +21,13 @@ describe PhotosController do
   
   describe 'GET show' do
     let(:photo) {Fabricate :photo}
-    
-    before {get :show, id: photo.id}
+    let(:user) {Fabricate :user}
+  
+    before do
+      add_user_to_role(user, 'Administrator')
+      session[:user_id] = user.id
+      get :show, id: photo.id
+    end
     
     it 'sets @photo' do
       expect(assigns(:photo)).to eq photo
@@ -23,6 +35,13 @@ describe PhotosController do
   end
   
   describe 'GET new' do
+    let(:user) {Fabricate :user}
+  
+    before do
+      add_user_to_role(user, 'Administrator')
+      session[:user_id] = user.id
+    end
+    
     it 'sets @photo' do
       get :new
       expect(assigns[:photo]).to be_instance_of Photo
@@ -31,9 +50,13 @@ describe PhotosController do
   
   describe 'POST create' do
     require 'rack/test'
-    
+    let(:user) {Fabricate :user}
     context 'successful creation' do
-      before {post :create, photo: {photo_album_id: 1, document: file_to_upload(test_picture, "image/jpg")}}
+      before do  
+        add_user_to_role(user, 'Administrator')
+        session[:user_id] = user.id
+        post :create, photo: {photo_album_id: 1, document: file_to_upload(test_picture, "image/jpg")}
+      end
       
       it 'redirects to :show' do
         expect(response).to redirect_to photo_path(Photo.last)
@@ -49,7 +72,12 @@ describe PhotosController do
     end
     
     context 'unsuccesful creation' do
-      before {post :create, photo: {document: file_to_upload(test_picture, "image/jpg")}}
+      let(:user) {Fabricate :user}
+      before do
+        add_user_to_role(user, 'Administrator')
+        session[:user_id] = user.id
+        post :create, photo: {document: file_to_upload(test_picture, "image/jpg")}
+      end
       
       it 'renders :new' do
         expect(response).to render_template :new
@@ -67,7 +95,12 @@ describe PhotosController do
   
   describe 'GET edit' do
     let(:photo) {Fabricate :photo}
-    before {get :edit, id: photo.id}
+    let(:user) {Fabricate :user}
+    before do
+      add_user_to_role(user, 'Administrator')
+      session[:user_id] = user.id
+      get :edit, id: photo.id
+    end
     
     it 'sets @photo' do
       expect(assigns[:photo]).to eq photo
@@ -77,9 +110,14 @@ describe PhotosController do
   describe 'PUT update' do
     require 'rack/test'
     let(:photo) {Fabricate :photo}
-    
+    let(:user) {Fabricate :user}
     context 'successful update' do
-      before {put :update, id: photo.id, photo: {description: Faker::Lorem.words(5).join("\s")}}
+  
+      before do
+        add_user_to_role(user, 'Administrator')
+        session[:user_id] = user.id
+        put :update, id: photo.id, photo: {description: Faker::Lorem.words(5).join("\s")}
+      end
       
       it 'redirects to :show' do
         expect(response).to redirect_to photo_path(photo)
@@ -95,7 +133,11 @@ describe PhotosController do
     end
     
     context 'unsuccessful update' do
-      before {put :update, id: photo.id, photo: {photo_album_id: nil}}
+      before do
+        add_user_to_role(user, 'Administrator')
+        session[:user_id] = user.id
+        put :update, id: photo.id, photo: {photo_album_id: nil}
+      end
       
       it 'redirects to :edit' do
         expect(response).to render_template :edit
@@ -113,8 +155,13 @@ describe PhotosController do
   
   describe 'DELETE destroy' do
     let(:photo) {Fabricate :photo}
+    let(:user) {Fabricate :user}
     
-    before {delete :destroy, id: photo.id}
+    before do
+      add_user_to_role(user, 'Administrator')
+      session[:user_id] = user.id
+      delete :destroy, id: photo.id
+    end
     
     it 'redirects to photo album' do
       expect(response).to redirect_to photo_album_path(photo.photo_album)

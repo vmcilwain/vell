@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 feature 'blog file index' do
+  before {blog_file}
   after {delete_files}
   scenario 'viewing blog file index' do
-    blog_file = Fabricate :blog_file
+    sign_in
     visit blog_files_path
     expect(page).to have_link 'Delete'
     

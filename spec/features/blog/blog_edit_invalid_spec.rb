@@ -4,9 +4,9 @@ feature 'edit blog' do
   scenario 'unsuccesful edit of a blog' do
     blog
      
-    visit "/"
-    click_link 'Blogs'    
-    click_link blog.headline    
+    sign_in
+    click_link 'Blogs'
+    click_link blog.headline
     click_link 'Edit'
     fill_in 'blog_body', with: ''
     click_button 'Update Blog'

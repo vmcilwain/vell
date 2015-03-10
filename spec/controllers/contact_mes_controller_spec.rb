@@ -2,7 +2,11 @@ require 'rails_helper'
 
 describe ContactMesController do
   describe 'GET index' do
+    let(:user) {Fabricate :user}
+
     before do
+      add_user_to_role(user, 'Administrator')
+      session[:user_id] = user.id
       2.times{Fabricate(:contact_me)}
     end
 
@@ -77,6 +81,12 @@ describe ContactMesController do
   end
 
   describe 'GET show' do
+    let(:user) {Fabricate :user}
+  
+    before do
+      add_user_to_role(user, 'Administrator')
+      session[:user_id] = user.id
+    end
     after {clear_mailbox}
 
     it 'sets @contact_me' do

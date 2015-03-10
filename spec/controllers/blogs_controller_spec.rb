@@ -18,6 +18,13 @@ describe BlogsController do
   end
   
   describe 'GET new' do
+    let(:user) {Fabricate :user}
+  
+    before do
+      add_user_to_role(user, 'Administrator')
+      session[:user_id] = user.id
+    end
+    
     it 'sets @blog' do
       get :new
       expect(assigns[:blog]).to be_instance_of Blog
@@ -26,7 +33,13 @@ describe BlogsController do
   
   describe 'POST create', :vcr do
     context 'a successful creation without a file' do
-      before{post :create, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: Faker::Lorem.words(25).join("\s")}}
+      let(:user) {Fabricate :user}
+      
+      before do
+        add_user_to_role(user, 'Administrator')
+        session[:user_id] = user.id
+        post :create, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: Faker::Lorem.words(25).join("\s")}
+      end
       
       after {delete_files}
       
@@ -45,7 +58,13 @@ describe BlogsController do
     
     context 'a successful creation with a file' do
       require 'rack/test'
-      before{post :create, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: Faker::Lorem.words(25).join("\s"), blog_files: [blog_document: file_to_upload(test_file, 'text/plain')]}}
+      let(:user) {Fabricate :user}
+
+      before do
+        add_user_to_role(user, 'Administrator')
+        session[:user_id] = user.id
+        post :create, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: Faker::Lorem.words(25).join("\s"), blog_files: [blog_document: file_to_upload(test_file, 'text/plain')]}
+      end
       
       it 'redirects to :show' do
         expect(response).to redirect_to Blog.first
@@ -61,7 +80,12 @@ describe BlogsController do
     end
     
     context 'an unsuccessful creation' do
-      before{post :create, blog: {blog_category_id: 1, body: Faker::Lorem.words(25).join("\s")}}
+      let(:user) {Fabricate :user}
+      before do
+        add_user_to_role(user, 'Administrator')
+        session[:user_id] = user.id
+        post :create, blog: {blog_category_id: 1, body: Faker::Lorem.words(25).join("\s")}
+      end
       
       it 'renders :new' do
         expect(response).to render_template :new
@@ -87,8 +111,13 @@ describe BlogsController do
   
   describe 'PUT update' do
     let(:blog) {Fabricate :blog}
+    let(:user) {Fabricate :user}
     context 'a succesful update without a file' do
-      before{put :update, id: blog.id, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: Faker::Lorem.words(25).join("\s")}}
+      before do
+        add_user_to_role(user, 'Administrator')
+        session[:user_id] = user.id
+        put :update, id: blog.id, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: Faker::Lorem.words(25).join("\s")}
+      end
       
       it 'redirects to :show' do
         expect(response).to redirect_to blog_path(blog)
@@ -104,7 +133,13 @@ describe BlogsController do
     end
     
     context 'an unsuccessful update' do
-      before{put :update, id: blog.id, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: ""}}
+      let(:user) {Fabricate :user}
+
+      before do
+        add_user_to_role(user, 'Administrator')
+        session[:user_id] = user.id
+        put :update, id: blog.id, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: ""}
+      end
       
       it 'renders :new' do
         expect(response).to render_template :new
@@ -122,7 +157,14 @@ describe BlogsController do
   
   describe 'DELETE destroy' do
     let(:blog) {Fabricate :blog}
-    before{delete :destroy, id: blog.id}
+    let(:user) {Fabricate :user}
+    
+    before do
+      add_user_to_role(user, 'Administrator')
+      session[:user_id] = user.id
+      delete :destroy, id: blog.id
+    end
+    
     it 'sets @blog' do
       expect(assigns[:blog]).to eq blog
     end

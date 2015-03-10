@@ -3,6 +3,7 @@ require 'rails_helper'
 feature 'photo albums' do
   background {photo_album}
   scenario 'destroying a photo album' do
+    sign_in
     visit photo_album_path(photo_album)
     expect(page).to have_content photo_album.name
     
