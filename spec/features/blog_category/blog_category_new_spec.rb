@@ -2,7 +2,8 @@ require 'rails_helper'
 
 feature 'creating a blog category' do
   scenario 'administrator should be able to create a blog category' do
-    visit blog_categories_path
+    sign_in
+    click_link 'Blog Categories'
     click_link 'New Category'
 
     expect(page).to have_content 'Create Blog Category'

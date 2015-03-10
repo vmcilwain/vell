@@ -3,7 +3,8 @@ require 'rails_helper'
 feature 'edit blog comment' do
   background {blog_comment}
   scenario 'editing a blog comment' do
-    visit blog_comments_path
+    sign_in
+    click_link 'Blog Comments'
     expect(page).to have_content blog_comment.body
     
     click_link 'Edit'

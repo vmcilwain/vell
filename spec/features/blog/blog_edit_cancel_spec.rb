@@ -4,9 +4,9 @@ feature 'edit blog' do
   scenario 'canceling a blog edit' do
     blog
      
-    visit "/"
-    click_link 'Blogs'    
-    click_link blog.headline    
+    sign_in
+    click_link 'Blogs'
+    click_link blog.headline
     click_link 'Edit'
     click_link 'Cancel'
     expect(current_path).to eq blog_path(blog)

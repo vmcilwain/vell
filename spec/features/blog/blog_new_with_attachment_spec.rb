@@ -6,7 +6,7 @@ feature 'new blog', :vcr do
   scenario 'creating a new blog with an attachment' do
     blog_category
      
-    visit root_path
+    sign_in
     click_link 'Blogs'
     expect(page).to have_link 'New Blog'
     
@@ -20,6 +20,7 @@ feature 'new blog', :vcr do
     click_button 'Create Blog'
 
     expect(page).to have_content 'Blog created!'
+    puts page.html
     expect(page).to have_link Blog.last.blog_files.last.doc_file_name
   end
 end

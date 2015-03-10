@@ -31,3 +31,7 @@ end
 def photo
   @photo ||= Fabricate :photo
 end
+
+def user
+  @user ||= Fabricate :user
+end
