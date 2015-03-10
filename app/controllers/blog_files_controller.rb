@@ -1,5 +1,7 @@
 class BlogFilesController < ApplicationController
   before_action :blog_file, only: [:show, :edit, :update, :destroy, :download]
+  before_action :require_user
+  before_action :require_admin
   def index
     @q = BlogFile.ransack(params[:q])
     @blog_files = @q.result.paginate(:page => params[:page], :per_page => 20)

@@ -1,5 +1,7 @@
 class PhotosController < ApplicationController
   before_action :photo, only: [:show, :edit, :update, :destroy]
+  before_action :require_user
+  before_action :require_admin
   
   def index
     @q = Photo.ransack(params[:q])

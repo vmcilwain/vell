@@ -1,7 +1,14 @@
 require 'rails_helper'
 
 describe BlogCategoriesController do
-  describe "GET index" do    
+  let(:user) {Fabricate :user}
+  
+  before do
+    add_user_to_role(user, 'Administrator')
+    session[:user_id] = user.id
+  end
+  
+  describe "GET index" do 
     it 'sets @blog_categories' do
       blog_categories = []
       2.times {blog_categories << Fabricate(:blog_category)}

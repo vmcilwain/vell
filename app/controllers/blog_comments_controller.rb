@@ -1,5 +1,7 @@
 class BlogCommentsController < ApplicationController
   before_action :blog_comment, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, except: [:new, :create]
+  before_action :require_admin, except: [:new, :create]
   def index
     @q = BlogComment.ransack(params[:q])
     @blog_comments = @q.result.paginate(:page => params[:page], :per_page => 20)
