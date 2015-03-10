@@ -20,7 +20,6 @@ feature 'new blog', :vcr do
     click_button 'Create Blog'
 
     expect(page).to have_content 'Blog created!'
-    puts page.html
     expect(page).to have_link Blog.last.blog_files.last.doc_file_name
   end
 end
