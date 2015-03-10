@@ -4,7 +4,7 @@ feature 'new blog' do
   scenario 'creating a new blog' do
     blog_category
      
-    visit "/"
+    sign_in
     click_link 'Blogs'
     expect(page).to have_link 'New Blog'
     
