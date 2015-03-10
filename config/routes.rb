@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
+  mount Authenticatable::Engine => "/auth"
+  
   get 'ui(/:action)', controller: 'ui'
   
   root to: 'home#index'
-  resources :home, only: [:index] do
+  resources :home do
     collection do
       get :about
     end
   end
+  
+  get 'about', to: 'home#about'
+  
   resources :contact_mes, only: [:index, :new, :show, :create]
   resources :blog_categories, except: [:show]
   resources :blogs, :blog_comments, :blog_files, :photo_albums, :photos, :photo_comments

@@ -2,6 +2,13 @@ require 'rails_helper'
 
 describe BlogCommentsController do
   describe 'GET index' do
+    let(:user) {Fabricate :user}
+  
+    before do
+      add_user_to_role(user, 'Administrator')
+      session[:user_id] = user.id
+    end
+    
     it 'sets @blog_comments' do
       comment1 = Fabricate :blog_comment
       comment2 = Fabricate :blog_comment
@@ -82,7 +89,13 @@ describe BlogCommentsController do
   
   describe 'GET edit' do
     let(:blog_comment) {Fabricate :blog_comment}
-    before {get :edit, id: blog_comment.id}
+    let(:user) {Fabricate :user}
+    
+    before do
+      add_user_to_role(user, 'Administrator')
+      session[:user_id] = user.id
+      get :edit, id: blog_comment.id
+    end
     it 'sets @blog_comment' do
       expect(assigns[:blog_comment]).to eq blog_comment
     end
@@ -93,9 +106,15 @@ describe BlogCommentsController do
   end
   
   describe 'PUT update' do
+    let(:user) {Fabricate :user}
     let(:blog_comment) {Fabricate :blog_comment}
+    
     context 'a successful update' do
-      before{put :update, id: blog_comment.id, blog_comment: {body: text(10)}}
+      before do
+        add_user_to_role(user, 'Administrator')
+      session[:user_id] = user.id
+        put :update, id: blog_comment.id, blog_comment: {body: text(10)}
+      end
       it 'redirects to :show' do
         expect(response).to redirect_to blog_comment
       end
@@ -109,7 +128,12 @@ describe BlogCommentsController do
       end
     end
     context 'an unsuccessful update' do
-      before{put :update, id: blog_comment.id, blog_comment: {blog_id: blog_comment.blog.id, body: nil}}
+      let(:user) {Fabricate :user}
+      before do
+        add_user_to_role(user, 'Administrator')
+        session[:user_id] = user.id
+        put :update, id: blog_comment.id, blog_comment: {blog_id: blog_comment.blog.id, body: nil}
+      end
       
       it 'renders :edit' do
         expect(response).to render_template :edit
@@ -127,7 +151,13 @@ describe BlogCommentsController do
   
   describe 'DELETE destroy' do
     let(:blog_comment) {Fabricate :blog_comment}
-    before {delete :destroy, id: blog_comment.id}
+    let(:user) {Fabricate :user}
+
+    before do
+      add_user_to_role(user, 'Administrator')
+      session[:user_id] = user.id
+      delete :destroy, id: blog_comment.id
+    end
     
     it 'redirects to :index' do
       expect(response).to redirect_to blog_comments_path

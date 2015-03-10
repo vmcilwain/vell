@@ -3,7 +3,13 @@ require 'rails_helper'
 describe BlogFilesController do
   after {delete_files}
   describe 'GET index' do
-
+    let(:user) {Fabricate :user}
+  
+    before do
+      add_user_to_role(user, 'Administrator')
+      session[:user_id] = user.id
+    end
+    
     it 'sets @blog_files' do
       blog_file1 = Fabricate :blog_file
       blog_file2 = Fabricate :blog_file
@@ -21,6 +27,13 @@ describe BlogFilesController do
   end
   
   describe 'GET new', :vcr do
+    let(:user) {Fabricate :user}
+  
+    before do
+      add_user_to_role(user, 'Administrator')
+      session[:user_id] = user.id
+    end
+    
     it 'sets @blog_file' do
       get :new
       expect(assigns[:blog_file]).to be_instance_of BlogFile
@@ -31,7 +44,12 @@ describe BlogFilesController do
     require 'rack/test'
     
     context 'a successful creation' do
-      before {post :create, blog_file: {blog_id: 1, doc: file_to_upload(test_file, "text/plain")}}
+      let(:user) {Fabricate :user}
+      before do
+        add_user_to_role(user, 'Administrator')
+        session[:user_id] = user.id
+        post :create, blog_file: {blog_id: 1, doc: file_to_upload(test_file, "text/plain")}
+      end
       
       it 'redirects_to :show' do
         expect(response).to redirect_to BlogFile.first
@@ -47,7 +65,12 @@ describe BlogFilesController do
     end
     
     context 'an unsuccessful creation' do
-      before {post :create, blog_file: {blog_id: 1}}
+      let(:user) {Fabricate :user}
+      before do
+        add_user_to_role(user, 'Administrator')
+        session[:user_id] = user.id
+        post :create, blog_file: {blog_id: 1}
+      end
       
       it 'renders :new' do
         expect(response).to render_template :new
@@ -77,7 +100,13 @@ describe BlogFilesController do
     let(:blog_file) {Fabricate :blog_file}
     
     context 'a successful update' do
-      before {put :update, id: blog_file.id, blog_file: {blog_id: 1, doc: file_to_upload(test_file, "text/plain")}}
+      let(:user) {Fabricate :user}
+
+      before do
+        add_user_to_role(user, 'Administrator')
+        session[:user_id] = user.id
+        put :update, id: blog_file.id, blog_file: {blog_id: 1, doc: file_to_upload(test_file, "text/plain")}
+      end
       
       it 'redirects_to :show' do
         expect(response).to redirect_to blog_file
@@ -97,8 +126,13 @@ describe BlogFilesController do
   describe 'DELETE destroy', :vcr do
     let(:blog_file) {Fabricate :blog_file}
     let(:blog) {blog_file.blog}
-    
-    before{delete :destroy, id: blog_file.id}
+    let(:user) {Fabricate :user}
+  
+    before do
+      add_user_to_role(user, 'Administrator')
+      session[:user_id] = user.id
+      delete :destroy, id: blog_file.id
+    end
     
     it 'sets @blog_file' do
       expect(assigns[:blog_file]).to eq blog_file

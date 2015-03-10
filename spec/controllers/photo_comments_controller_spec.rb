@@ -3,6 +3,12 @@ require 'rails_helper'
 describe PhotoCommentsController do
   after {delete_files}
   describe 'GET index' do
+    let(:user) {Fabricate :user}
+  
+    before do
+      add_user_to_role(user, 'Administrator')
+      session[:user_id] = user.id
+    end
     it 'sets @photo_comments' do
       comment1 = Fabricate :photo_comment
       comment2 = Fabricate :photo_comment
@@ -72,9 +78,14 @@ describe PhotoCommentsController do
   
   describe 'PUT update' do
     let(:photo_comment) {Fabricate :photo_comment}
-    
+    let(:user) {Fabricate :user}
+
     context 'successful update' do
-      before {put :update, id: photo_comment.id, photo_comment: {name: Faker::Name.name}}
+      before do
+        add_user_to_role(user, 'Administrator')
+        session[:user_id] = user.id
+        put :update, id: photo_comment.id, photo_comment: {name: Faker::Name.name}
+      end
       
       it 'redirects to :show' do
         expect(response).to redirect_to photo_path(photo_comment.photo)
@@ -90,7 +101,11 @@ describe PhotoCommentsController do
     end
     
     context 'unsuccessful update' do
-      before {put :update, id: photo_comment.id, photo_comment: {body: nil}}
+      before do
+        add_user_to_role(user, 'Administrator')
+        session[:user_id] = user.id
+        put :update, id: photo_comment.id, photo_comment: {body: nil}
+      end
       
       it 'renders :edit' do
         expect(response).to render_template :edit
@@ -108,7 +123,12 @@ describe PhotoCommentsController do
   
   describe 'DELETE destroy' do
     let(:photo_comment) {Fabricate :photo_comment}
-    before {delete :destroy, id: photo_comment.id}
+    let(:user) {Fabricate :user}
+    before do
+      add_user_to_role(user, 'Administrator')
+      session[:user_id] = user.id
+      delete :destroy, id: photo_comment.id
+    end
     
     it 'redirects to :index' do
       expect(response).to redirect_to photo_comments_path
