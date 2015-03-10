@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'ui(/:action)', controller: 'ui'
   
   root to: 'home#index'
-  resources :home do
+  resources :home, only: [:index] do
     collection do
       get :about
     end
