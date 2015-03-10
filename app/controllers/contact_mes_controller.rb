@@ -1,4 +1,6 @@
 class ContactMesController < ApplicationController
+  before_action :require_user, except: [:new, :create]
+  before_action :require_admin, except: [:new, :create]
   def index
     @q = ContactMe.ransack(params[:q])
     @contact_mes = @q.result.paginate(:page => params[:page], :per_page => 30)

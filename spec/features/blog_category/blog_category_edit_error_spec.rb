@@ -4,7 +4,8 @@ feature 'blog category errors' do
   scenario 'blog category should present error when invalid' do
     blog_category
     
-    visit blog_categories_path
+    sign_in
+    click_link 'Blog Categories'
     
     expect(page).to have_link 'Edit'
     

@@ -19,6 +19,13 @@ describe PhotoAlbumsController do
   end
   
   describe 'GET new' do
+    let(:user) {Fabricate :user}
+  
+    before do
+      add_user_to_role(user, 'Administrator')
+      session[:user_id] = user.id
+    end
+    
     it 'sets @photo_album' do
       get :new
       expect(assigns[:photo_album]).to be_instance_of PhotoAlbum
@@ -26,10 +33,15 @@ describe PhotoAlbumsController do
   end
   
   describe 'POST create' do
+    let(:user) {Fabricate :user}
     context 'a successful creation' do
       let(:photo_album_attrs) {Fabricate.attributes_for :photo_album}
       
-      before {post :create, photo_album: photo_album_attrs}
+      before do
+        add_user_to_role(user, 'Administrator')
+        session[:user_id] = user.id
+        post :create, photo_album: photo_album_attrs
+      end
       
       it 'redirects to :show' do
         expect(response).to redirect_to photo_album_path(PhotoAlbum.last)
@@ -45,7 +57,11 @@ describe PhotoAlbumsController do
     end
     
     context 'an unsuccesful creation' do
-      before {post :create, photo_album: {description: text}}
+      before do
+        add_user_to_role(user, 'Administrator')
+        session[:user_id] = user.id
+        post :create, photo_album: {description: text}
+      end
       
       it 'renders :new' do
         expect(response).to render_template :new
@@ -62,6 +78,13 @@ describe PhotoAlbumsController do
   
   describe 'GET edit' do
     let(:photo_album) {Fabricate :photo_album}
+    let(:user) {Fabricate :user}
+  
+    before do
+      add_user_to_role(user, 'Administrator')
+      session[:user_id] = user.id
+    end
+    
     it 'sets @photo_album' do
       get :edit, id: photo_album.id
       expect(assigns[:photo_album]).to eq photo_album
@@ -70,8 +93,13 @@ describe PhotoAlbumsController do
   
   describe 'PUT update' do
     let(:photo_album) {Fabricate :photo_album}
+    let(:user) {Fabricate :user}
     context 'a successful update' do
-      before {put :update, id: photo_album.id, photo_album: {name: Faker::Lorem.words(5).join("\s")}}
+      before do
+        add_user_to_role(user, 'Administrator')
+        session[:user_id] = user.id
+        put :update, id: photo_album.id, photo_album: {name: Faker::Lorem.words(5).join("\s")}
+      end
       
       it 'redirects_to :show' do
         expect(response).to redirect_to photo_album_path(PhotoAlbum.last)
@@ -88,7 +116,11 @@ describe PhotoAlbumsController do
     
     context 'an unsuccessful update' do
       let(:photo_album) {Fabricate :photo_album}
-      before {put :update, id: photo_album.id, photo_album: {name: nil}}
+      before do
+        add_user_to_role(user, 'Administrator')
+        session[:user_id] = user.id
+        put :update, id: photo_album.id, photo_album: {name: nil}
+      end
       
       it 'renders :edit' do
         expect(response).to render_template :edit
@@ -106,8 +138,12 @@ describe PhotoAlbumsController do
   
   describe 'DELETE destroy' do
     let(:photo_album) {Fabricate :photo_album}
-    
-    before {delete :destroy, id: photo_album.id}
+    let(:user) {Fabricate :user}
+    before do
+      add_user_to_role(user, 'Administrator')
+      session[:user_id] = user.id
+      delete :destroy, id: photo_album.id
+    end
     
     it 'redirects_to :index' do
       expect(response).to redirect_to photo_albums_path

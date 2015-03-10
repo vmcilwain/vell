@@ -3,7 +3,9 @@ require 'rails_helper'
 feature 'photo albums' do
   background {photo_album}
   scenario 'successful update of a photo album' do
-    visit photo_album_path(photo_album)
+    sign_in
+    click_link 'Photo Albums'
+    click_link photo_album.name
     expect(page).to have_content photo_album.name
     
     click_link 'Edit'

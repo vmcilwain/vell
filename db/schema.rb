@@ -11,7 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302163416) do
+ActiveRecord::Schema.define(version: 20150310005632) do
+
+  create_table "authenticatable_roles", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.string   "description", limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "authenticatable_roles_users", id: false, force: :cascade do |t|
+    t.integer "role_id", limit: 4
+    t.integer "user_id", limit: 4
+  end
+
+  create_table "authenticatable_security_keys", force: :cascade do |t|
+    t.integer "user_id",         limit: 4
+    t.string  "key",             limit: 255
+    t.date    "expiration_date"
+  end
+
+  create_table "authenticatable_users", force: :cascade do |t|
+    t.string   "full_name",  limit: 255
+    t.string   "email",      limit: 255
+    t.string   "password",   limit: 255
+    t.string   "salt",       limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "blog_categories", force: :cascade do |t|
     t.string  "name",    limit: 255
@@ -53,6 +80,11 @@ ActiveRecord::Schema.define(version: 20150302163416) do
     t.text     "body",       limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "homes", force: :cascade do |t|
+    t.text "index", limit: 65535
+    t.text "about", limit: 65535
   end
 
   create_table "photo_albums", force: :cascade do |t|

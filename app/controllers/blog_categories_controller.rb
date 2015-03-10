@@ -1,6 +1,7 @@
 class BlogCategoriesController < ApplicationController
   before_action :blog_category, only: [:edit, :update, :destroy]
-
+  before_action :require_user
+  before_action :require_admin
   def index
     @q = BlogCategory.ransack(params[:q])
     @blog_categories = @q.result.paginate(:page => params[:page], :per_page => 15)
