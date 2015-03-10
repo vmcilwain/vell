@@ -4,12 +4,13 @@ describe PhotosController do
   after {delete_files}
   
    describe 'GET index' do
-     let(:user) {Fabricate :user}
+    let(:user) {Fabricate :user}
   
-     before do
-       add_user_to_role(user, 'Administrator')
-       session[:user_id] = user.id
-     end
+    before do
+     add_user_to_role(user, 'Administrator')
+     session[:user_id] = user.id
+    end
+    
     it 'sets @photos' do
       photo1 = Fabricate :photo
       photo2 = Fabricate :photo
