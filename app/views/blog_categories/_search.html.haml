@@ -1,16 +1,14 @@
-%div{class: 'row'}
-  %div{class: 'search_form'}
+.row
+  .search_form
     =search_form_for @q do |f|
-      %div{class: 'row'}
-        %div{class: '8u'}
-          =f.search_field :name_cont, placeholder: 'Name'
-      .row
-        .3u
-          =f.label :Enabled
-        .4u
-          =f.check_box :enabled
-      %div{class: 'row'}
-        %div{class: '6u'}
-          =f.submit('Search')
-        %div{class: '4u'}
-          =link_to 'Cancel', '#', class: 'cancel_search_form_link cancel-button'
+      .form-group
+        =f.label :name
+        %br
+        =f.search_field :name_cont, placeholder: 'Name'
+      .form-group
+        =f.label :enabled
+        %br
+        =f.check_box :enabled
+      .form-group
+        =f.submit 'Search', class: 'btn btn-primary'
+        =link_to 'Cancel', '#', class: 'cancel_search_form_link btn btn-danger'

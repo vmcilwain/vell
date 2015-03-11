@@ -1,27 +1,20 @@
-%div{class: 'row'}
-  -if flash[:error]
+-if flash[:error]
+  %div{class: 'row alert alert-danger'}
     =flash[:error]
     %ul
-      -@blog_category.errors.full_messages.each do |err|
-        %li
-          =err
+      -@blog_category.errors.full_messages.each do |message|
+        %li #{message}
+.well
   =form_for @blog_category do |f|
-    %div{class: 'row'}
-      %div{class: '12u'}
-        =f.text_field :name, size: '18', placeholder: 'Enter Category Name'
-    -if !@blog_category.new_record?
-      %div{class: 'row'}
-        %br
-        %div{class: '6u'}
-          =f.label :enabled
-        %div{class: '6u'}
-          =f.check_box :enabled
-    %div{class: 'row'}
-      %div{class: '6u'}
-        =f.submit
-        -if @blog_category.new_record?
-          %div{class: '6u'}
-            =link_to 'Cancel', blog_categories_path, class: 'cancel-button'
-        -else
-          %div{class: '6u'}
-            =link_to 'Cancel', @blog_category, class: 'cancel-button'
+    .form-group
+      =f.label :name
+      %br
+      =f.text_field :name, size: '18', placeholder: 'Enter Category Name'
+    .form-group
+      =f.label :enable
+      %br
+      =f.check_box :enabled
+    .form-group
+      =f.submit class: 'btn btn-primary'
+      =link_to 'Cancel', blog_categories_path, class: 'btn btn-danger'
+   

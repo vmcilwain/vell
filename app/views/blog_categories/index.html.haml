@@ -1,22 +1,32 @@
-%div{class: 'container'}
-  %div{class: 'row'}
-    %div{class: '3u'}
-      =link_to 'Search Categories', '#', class: 'search_form_link actions'
-    %div{class: '3u'}
-      =link_to 'New Category', new_blog_category_path
-  %div{class: 'row'}
-    %h1{class: 'title'} Blog Categories
+.page-header
+  .row
+    %h1.page-heading
+      .col-xs-4
+        Blog Categories
+    .col-xs-2
+      =link_to 'Search Categories', '#', class: 'search_form_link actions btn btn-default'
+    .col-xs-2
+      =link_to 'New Category', new_blog_category_path, class: 'btn btn-primary' if current_user && current_user.has_role?("Administrator")
   =render 'search'
+.row
   =will_paginate @blog_categories, class: 'apple_pagination'
-  %hr
+-if flash[:success]
   .row
     %div{class: 'alert alert-success'}
       =flash[:success]
-  -@blog_categories.each do |blog_category|
-    %div{class: 'row'}
-      %div{class: '4u'}
-        =blog_category.name
-      %div{class: '4u'}
-        =link_to 'Edit', edit_blog_category_path(blog_category)
-      %div{class: '4u'}
-        Enabled: #{blog_category.enabled}
+.row
+  .col-xs-3
+    Name
+  .col-xs-3
+    Enabled
+  .col-xs-3
+    &nbsp;
+-@blog_categories.each do |blog_category|
+  .row
+    .col-xs-3
+      =blog_category.name
+    .col.xs-2
+      =blog_category.enabled
+    .col-xs-2
+      =link_to 'Edit', edit_blog_category_path(blog_category), class: 'btn btn-primary'
+  %hr
