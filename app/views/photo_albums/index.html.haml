@@ -7,7 +7,7 @@
       =link_to 'Search Albums', '#', class: 'search_form_link btn btn-default'
     .col-xs-2
       %br
-      =link_to 'New Album', new_photo_album_path, class: 'btn btn-default'
+      =link_to 'New Album', new_photo_album_path, class: 'btn btn-default' if current_user.has_role?('Administrator')
   .row
     .col-xs-12
       =render 'search'
@@ -18,12 +18,13 @@
     -@photo_albums.each do |photo_album|
       .row
         .col-xs-3
-          =image_tag 'http://placehold.it/100x100'
+          =image_tag photo_album.photos.first.document.url if photo_album.photos.present?
         .col-xs-3
           =link_to photo_album.name, photo_album
-        .col-xs-3
-          =link_to :Edit, edit_photo_album_path(photo_album)
-        .col-xs-3
-          =link_to :Destroy, photo_album_path(photo_album), method: :delete, data: {confirm: 'Are you sure?'}
+        -if current_user.has_role?('Administrator')
+          .col-xs-3
+            =link_to :Edit, edit_photo_album_path(photo_album)
+          .col-xs-3
+            =link_to :Destroy, photo_album_path(photo_album), method: :delete, data: {confirm: 'Are you sure?'}
         .col-xs-12
           Description: #{photo_album.description}

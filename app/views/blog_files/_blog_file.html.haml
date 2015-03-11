@@ -5,7 +5,7 @@
     -else
       =link_to blog_file.doc_file_name, blog_file.doc.url
   .col-xs-4
-    =link_to :Delete, blog_file, method: :delete, data: {confirm: 'Are you sure?'}
+    =link_to :Delete, blog_file, method: :delete, data: {confirm: 'Are you sure?'} if current_user.has_role?('Administrator')
   .row
     .row
       =blog_file.description

@@ -9,8 +9,9 @@
           .row
             %div{id: "edit_photo_#{photo.id}"}
               =photo.description
-          .row
-            .col-xs-3
-              =link_to :Edit, edit_photo_path(photo), remote: true, id: "edit_photo_#{photo.id}_link"
-            .col-xs-1
-              =link_to 'Destroy', photo_path(photo), method: :delete, data: {confirm: 'Are you sure?'}, id: "cancel_photo_#{photo.id}_link"
+          -if current_user.has_role?('Administrator')
+            .row
+              .col-xs-3
+                =link_to :Edit, edit_photo_path(photo), remote: true, id: "edit_photo_#{photo.id}_link"
+              .col-xs-1
+                =link_to 'Destroy', photo_path(photo), method: :delete, data: {confirm: 'Are you sure?'}, id: "cancel_photo_#{photo.id}_link"
