@@ -1,21 +1,20 @@
-%div{class: 'container'}
-  %div{class: 'row'}
-    %div{class: '3u'}
-      =link_to 'Search Photos', '#', class: 'search_form_link'
-    %div{class: '3u'}
-      =link_to 'New Photo', new_photo_path
-  %div{class: 'row'}
-    %h1{class: 'title'} Photo Listing
-  =render 'search'
-  =will_paginate @photos, class: 'apple_pagination'
-  %hr
+.page-header
+  .row
+    %h1.page-heading.col-xs-4
+      Photo Listing
+    .col-xs-3
+      %br
+      =link_to 'Search Photos', '#', class: 'search_form_link btn btn-default'
+    .col-xs-3
+      %br
+      =link_to 'New Photo', new_photo_path, class: 'btn btn-primary'
+  .row
+    =render 'search'
+  .row
+    =will_paginate @photos, class: 'apple_pagination'  
+
   -@photos.each do |photo|
-    %div{class: 'row'}
-      %div{class: '2u'}
-        =image_tag photo.document.url(:thumb)
-      %div{class: '4u'}
-        =link_to :Delete, photo, method: :delete, data: {confirm: 'Are you sure?'}
-      %div{class: '7u'}
-        %div{class: 'row'}
-          %div{class: '2u'}
-            =link_to photo.document_file_name, photo.document.url
+    .col-xs-2
+      =link_to image_tag(photo.document.url, width: '200px', class: 'img-thumbnail'), photo.document.url
+    .col-xs-2
+      =link_to :Delete, photo, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
