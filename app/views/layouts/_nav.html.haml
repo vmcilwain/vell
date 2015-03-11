@@ -20,9 +20,9 @@
           %li #{link_to "Blog Comments", main_app.blog_comments_path}
           %li #{link_to "Photos", main_app.photos_path}
           %li #{link_to "Photo Comments", main_app.photo_comments_path}
-      -if request.ssl?
-        %ul{class: "nav navbar-nav navbar-right"}
-          -if current_user
-            %li #{current_user.full_name}  #{link_to 'Sign Out', authenticatable.sign_out_path, class: 'btn btn-danger'}
-          -else
-            %li #{link_to 'Sign In', authenticatable.sign_in_path, class: 'btn btn-default'}
+      / -if request.ssl?
+      %ul{class: "nav navbar-nav navbar-right"}
+        -if current_user
+          %li #{current_user.full_name}  #{link_to 'Sign Out', authenticatable.sign_out_path, class: 'btn btn-danger'}
+        -else
+          %li #{link_to 'Sign In', authenticatable.sign_in_path, class: 'btn btn-default'}

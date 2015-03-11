@@ -32,4 +32,6 @@ $(function(){
     $('.search_form').slideUp('slow');
     $('.search_form_link').fadeIn('slow');
   });
+  
+  $('.alert-success').fadeOut(FADE_OUT_TIME);
 })

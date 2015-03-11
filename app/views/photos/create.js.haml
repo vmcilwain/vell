@@ -5,4 +5,4 @@
   $('#add_photo_form').show();
   $("#photo_document").val('');
   $('#photo_description').val('');
-  $('#photo_js_notification').html("<div class='alert alert-success'>Photo uploaded</div>").fadeOut(); $('#photo_listing').html("#{escape_javascript(render(partial: 'photos/listing', locals: {photos: @photo.photo_album.photos}))}")
+  $('#photo_js_notification').html("<div class='alert alert-success'>Photo uploaded</div>").fadeOut(FADE_OUT_TIME); $('#photo_listing').html("#{escape_javascript(render(partial: 'photos/listing', locals: {photos: @photo.photo_album.photos}))}")
