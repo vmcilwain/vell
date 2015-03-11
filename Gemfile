@@ -46,7 +46,7 @@ gem 'authenticatable', git: 'https://github.com/vmcilwain/authenticatable'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
 gem "haml-rails"
-gem "thin"
+gem "puma"
 gem 'jquery-turbolinks'
 gem "ransack"
 gem 'twitter'
