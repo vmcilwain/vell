@@ -7,12 +7,13 @@
       .col-xs-2
         %br
         =link_to 'Listing', blogs_path, class: 'btn btn-default'
-      .col-xs-1
-        %br
-        =link_to 'Edit', edit_blog_path(@blog), class: 'btn btn-primary'
-      .col-xs-1
-        %br
-        =link_to 'Destroy', blog_path(@blog), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
+      -if current_user.has_role?('Administrator')
+        .col-xs-1
+          %br
+          =link_to 'Edit', edit_blog_path(@blog), class: 'btn btn-primary'
+        .col-xs-1
+          %br
+          =link_to 'Destroy', blog_path(@blog), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
   .row
     -if flash[:success]
       %div{class: 'alert alert-success'}

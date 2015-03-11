@@ -8,10 +8,11 @@
     .row
       .col-xs-4
         %h1 #{@photo_album.name}
-      .col-xs-4
-        %br
-        =link_to :Edit, edit_photo_album_path(@photo_album), class: 'btn btn-default'
-        =link_to :Destroy, photo_album_path(@photo_album), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
+      -if current_user.has_role?('Administrator')
+        .col-xs-4
+          %br
+          =link_to :Edit, edit_photo_album_path(@photo_album), class: 'btn btn-default'
+          =link_to :Destroy, photo_album_path(@photo_album), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
   .row
     .col-sx-12
       =render 'photos/js_form'
