@@ -18,4 +18,5 @@
 .DS_Store
 
 #VCR files that contain oauth data
- /spec/cassettes.env
+/spec/cassettes
+.env
