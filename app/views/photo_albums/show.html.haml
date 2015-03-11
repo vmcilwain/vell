@@ -8,7 +8,7 @@
     .row
       .col-xs-4
         %h1 #{@photo_album.name}
-      -if current_user.has_role?('Administrator')
+      -if current_user && current_user.has_role?('Administrator')
         .col-xs-4
           %br
           =link_to :Edit, edit_photo_album_path(@photo_album), class: 'btn btn-default'
