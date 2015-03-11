@@ -19,4 +19,5 @@
 
 #VCR files that contain oauth data
 /spec/cassettes
+
 .env
