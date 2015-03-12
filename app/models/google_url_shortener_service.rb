@@ -1,5 +1,5 @@
 class GoogleUrlShortenerService
-  attr_reader :url
+  attr_reader :url, :short_url, :long_url
   include HTTParty
   base_uri 'https://www.googleapis.com'
     

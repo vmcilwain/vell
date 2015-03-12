@@ -18,7 +18,7 @@ class BlogsController < ApplicationController
     @blog = Blog.new(blog_params)
     if @blog.save
       url = GoogleUrlShortenerService.new("http://vell.herokuapp.com/blogs/#{@blog.id}").short_url
-      $twitter.update("I created a new blog entry. You can see it here: " + url) unless Rails.env.development?
+      $twitter.update("I created a new blog entry. You can see it here: #{url}") unless Rails.env.development?
       flash[:success] = 'Blog created!'
       redirect_to @blog
     else
