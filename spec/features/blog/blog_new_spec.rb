@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'new blog' do
+feature 'new blog', :vcr do
   scenario 'creating a new blog' do
     blog_category
      
