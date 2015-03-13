@@ -9,6 +9,6 @@ feature 'blog category' do
     click_link 'Edit'
     uncheck 'blog_category_enabled'
     click_button 'Update Blog category'
-    expect(page).to have_text 'Enabled: false'
+    expect(page).to have_text 'false'
   end
 end
