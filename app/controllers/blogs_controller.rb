@@ -6,7 +6,7 @@ class BlogsController < ApplicationController
   
   def index
     @q = Blog.ransack(params[:q])
-    @blogs = @q.result.paginate(:page => params[:page], :per_page => 15)
+    @blogs = @q.result.reverse.paginate(:page => params[:page], :per_page => 15)
   end
   
   def new
@@ -17,7 +17,7 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
     if @blog.save
-      short_url = TinyurlService.new('http://vell.herokuapp.com/blogs/#{@blog.id}').tiny_url
+      short_url = TinyurlService.new("http://vell.herokuapp.com/blogs/#{@blog.id}").tiny_url
       $twitter.update("I created a new blog entry. You can see it here: #{short_url}") unless Rails.env.development?
       flash[:success] = 'Blog created!'
       redirect_to @blog
