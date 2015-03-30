@@ -12,7 +12,7 @@
     =render 'search'
     .row
       =will_paginate @blogs, class: 'apple_pagination'
-  -@blogs.each do |blog|
+  -@blogs.reverse.each do |blog|
     .row
       .row
         .col-md-12
