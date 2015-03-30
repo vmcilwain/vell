@@ -27,11 +27,11 @@ test: &test
 #   password:
 
  #Only to precompile assets if you can't get it to work with postgres
-#production:
-  #adapter: mysql2
-  #encoding: utf8
-  #database: vextranet_development
-  #pool: 5
-  #username: root
-  #password: <%#= ENV['DBPASS'] %>
-  #socket: /tmp/mysql.sock
+# production:
+#   adapter: mysql2
+#   encoding: utf8
+#   database: vextranet_development
+#   pool: 5
+#   username: root
+#   password: <%#= ENV['DBPASS'] %>
+#   socket: /tmp/mysql.sock
