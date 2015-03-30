@@ -56,6 +56,7 @@ gem 'httparty'
 gem 'remotipart', '~> 1.2'
 gem 'will_paginate', '~> 3.0.6'
 gem 'letter_opener', group: [:development]
+gem "font-awesome-rails"
 
 group :test do
   gem "rspec-rails"
