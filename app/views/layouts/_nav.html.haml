@@ -10,19 +10,21 @@
       =link_to 'Vell', main_app.root_path, class: 'navbar-brand'
     %div{id: "navbar", class: "navbar-collapse collapse"}
       %ul{class: "nav navbar-nav"}
-        %li #{link_to :Home, main_app.root_path}
-        %li #{link_to "About Me", main_app.about_path}
-        %li #{link_to "Contact Me", main_app.new_contact_me_path}
-        %li #{link_to :Blogs, main_app.blogs_path}
-        %li #{link_to "Photo Albums", main_app.photo_albums_path}
+        / %li #{link_to fa_icon('home', text: 'Home'), main_app.root_path}
+        %li #{link_to fa_icon('eye', text: 'About Me'), main_app.about_path}
+        %li #{link_to fa_icon('envelope', text: 'Contact Me'), main_app.new_contact_me_path}
+        %li #{link_to fa_icon('book', text: 'Blog'), main_app.blogs_path}
+        %li #{link_to fa_icon('camera', text: 'Photo Album'), main_app.photo_albums_path}
         -if current_user && current_user.has_role?('Administrator')
-          %li #{link_to 'Blog Categories', main_app.blog_categories_path}
-          %li #{link_to "Blog Comments", main_app.blog_comments_path}
-          %li #{link_to "Photos", main_app.photos_path}
-          %li #{link_to "Photo Comments", main_app.photo_comments_path}
+          %li #{link_to fa_icon('folder', text: 'Blog Categories'), main_app.blog_categories_path}
+          %li #{link_to fa_icon('comments', text: 'Blog Comments'), main_app.blog_comments_path}
+          %li #{link_to fa_icon('file-image-o', text: 'Photos'), main_app.photos_path}
+          %li #{link_to fa_icon('comments', text: "Photo Comments"), main_app.photo_comments_path}
       / -if request.ssl?
       %ul{class: "nav navbar-nav navbar-right"}
         -if current_user
-          %li #{current_user.full_name}  #{link_to 'Sign Out', authenticatable.sign_out_path, class: 'btn btn-danger'}
+          %li
+            =link_to fa_icon('sign-out', text: current_user.full_name), authenticatable.sign_out_path
         -else
-          %li #{link_to 'Sign In', authenticatable.sign_in_path, class: 'btn btn-default'}
+          %li
+            =link_to fa_icon('sign-in', text: 'Sign In'), authenticatable.sign_in_path

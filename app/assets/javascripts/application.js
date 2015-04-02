@@ -19,7 +19,11 @@
 //= require_tree .
 
 $(function(){
-  // $(".jqte-textarea").jqte({placeholder: "Please, write your post"});
+  $(".jqte-textarea").jqte({
+    placeholder: "Please, write your post", 
+    linktypes: ["Web URL", 
+                "E-mail", 
+                "Picture"]});
   
   $('.search_form').hide();
   
