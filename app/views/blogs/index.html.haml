@@ -19,7 +19,7 @@
           %h2 #{link_to blog.headline, blog}
       .row
         .col-xs-12
-          =truncate(blog.body, length: 250) { link_to "Read More", blog }
+          =truncate(to_text(blog.body), length: 250) { link_to "Read More", blog }
       .row
         %br
         .col-xs-4

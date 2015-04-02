@@ -13,4 +13,8 @@ module ApplicationHelper
   def short_date(date)
     h date.strftime("%Y-%m-%d") rescue ''
   end
+  
+  def to_text(text)
+    text.gsub(/<\/?[^>]+>/, '')
+  end
 end
