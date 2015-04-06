@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe TinyurlService, :vcr do
-  let(:tiny) {TinyurlService.new('http://www.yahoo.com')}
+describe TwitterService, :vcr do
+  let(:twitter) {TwitterService.new('http://www.yahoo.com')}
   
   it 'sets @url' do
     expect(tiny.url).to eq 'http://www.yahoo.com'

@@ -1,4 +1,4 @@
-class TinyurlService
+class TwitterService
   attr_reader :blog, :tiny_url
   include HTTParty
   base_uri 'http://tinyurl.com'
@@ -18,7 +18,7 @@ class TinyurlService
   private
   
   def blog_url
-    "http://og3og.herokuapp.com/blogs/#{@blog.id}"
+    "https://vell.herokuapp.com/blogs/#{@blog.id}"
   end
   
   def tiny_url
