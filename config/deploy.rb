@@ -33,11 +33,11 @@ set :deploy_to, "/var/www/#{fetch(:application)}"
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
-set :running_dir, File.dirname(__FILE__)
+# set :running_dir, File.dirname(__FILE__)
 # set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 # set :whenever_roles, ->{ :app }
 # set :monit_conf_file, "#{fetch(:running_dir)}/deploy/monit.conf"
-puts fetch(:running_dir)
+set :rails_env, "#{:stage}"
 namespace :deploy do
 
   after :restart, :clear_cache do
