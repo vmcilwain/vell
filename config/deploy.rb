@@ -55,8 +55,8 @@ namespace :deploy do
     desc 'Restart all services'
     task :restart do
       on roles(:app) do
-        within release_path do
-          info 'Creating stubs'
+        info 'Creating stubs'
+        within current_path do
           execute 'bundle install --binstubs'
         end
         invoke 'unicorn:restart'
