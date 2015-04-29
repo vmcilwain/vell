@@ -50,12 +50,13 @@ namespace :deploy do
       # within release_path do
       #   execute :rake, 'cache:clear'
       # end
-      info 'Creating stubs'
-      within current_path do
-        execute 'bundle install --binstubs'
+        info 'Creating stubs'
+        within current_path do
+          execute 'bundle install --binstubs'
+        end
+        invoke 'unicorn:restart'
+        invoke 'nginx:restart'
       end
-      invoke 'unicorn:restart'
-      invoke 'nginx:restart'
     end
     
     # desc 'Restart all services'
