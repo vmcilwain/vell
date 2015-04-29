@@ -45,19 +45,19 @@ set :default_env, { 'DBPASS' => ENV['PROWEB'] }
 
 namespace :deploy do
   
-  after :restart, :clear_cache do
-    on roles(:app), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-    end
-  end
+  # after :restart, :clear_cache do
+  #   on roles(:app), in: :groups, limit: 3, wait: 10 do
+  #     # Here we can do anything such as:
+  #     # within release_path do
+  #     #   execute :rake, 'cache:clear'
+  #     # end
+  #   end
+  # end
   
-  after :finished, :restart do
+  task :restart do
     on roles(:app) do
       info 'Creating stubs'
-      execute "cd #{release_path} && bin/bundle install --binstubs"
+      execute "cd #{release_path} && /home/deploy/.rvm/rubies/ruby-2.2.2/bin/ruby bin/bundle install --binstubs"
       invoke 'unicorn:restart'
       invoke 'nginx:restart'
     end
