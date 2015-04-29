@@ -32,6 +32,6 @@ production:
   encoding: utf8
   database: vell_production
   pool: 5
-  username: root
+  username: rails_user
   password: <%= ENV['DBPASS'] %>
   socket: /var/run/mysqld/mysqld.sock
