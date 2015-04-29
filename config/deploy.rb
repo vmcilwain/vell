@@ -56,6 +56,7 @@ namespace :deploy do
     task :restart do
       on roles(:app) do
         within release_path do
+          info 'Creating stubs'
           execute 'bundle install --binstubs'
         end
         invoke 'unicorn:restart'
@@ -64,7 +65,8 @@ namespace :deploy do
     end
   end
   
-  after :published, :restart
+  after :published, 'nginx:create_nginx_config'
   after 'nginx:create_nginx_config', 'unicorn:create_unicorn_config'
   after 'unicorn:create_unicorn_config','unicorn:create_unicorn_init'
+  after 'unicorn:create_unicorn_init', :restart
 end
