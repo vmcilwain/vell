@@ -5,6 +5,7 @@ namespace :nginx do
   desc 'restart nginx'
   task :restart do
     on roles(:app) do
+      info 'Restarting nginx'
       execute :sudo, "service nginx restart"
     end
   end
@@ -12,7 +13,7 @@ namespace :nginx do
   desc "create #{fetch(:application)} nginx.conf"
   task :generate_nginx_conf do
     on roles(:app) do
-      info "creating #{fetch(:application)} nginx.conf file"
+      info "Generating #{fetch(:application)} nginx.conf file"
       open(fetch(:nginx_conf_file), 'w') do |f|
         f.puts(ERB.new(File.read(fetch(:home_path) + "/templates/nginx.conf.erb")).result(binding))
       end
@@ -29,6 +30,7 @@ namespace :nginx do
   desc "delete local #{fetch(:application)} nginx.conf"
   task :remove do
     on roles(:app) do
+      info 'Removing local nginx.conf'
       FileUtils.rm(fetch(:nginx_conf_file))
     end
   end
@@ -36,7 +38,16 @@ namespace :nginx do
   desc "create symlink for #{fetch(:application)} nginx.conf"
   task :create_symlink do
     on roles(:app) do
+      info 'Creating symlink on remote system'
       execute :sudo, "ln -s #{current_path}}/config/nginx.conf /etc/nginx/sites-enabled/#{fetch(:application)}"
+    end
+  end
+  
+  desc "remove symlink for #{fetch(:application)} nginx.conf"
+  task :remove_symlink do
+    on roles(:app) do
+      info 'Removing symlink on remote system'
+      execute :sudo, "rm -rf /etc/nginx/sites-enabled/#{fetch(:application)}"
     end
   end
 
@@ -46,6 +57,7 @@ namespace :nginx do
       info "Creating #{fetch(:application)} nginx.conf"
       invoke 'nginx:generate_nginx_conf'
       invoke 'nginx:upload'
+      invoke 'nginx:remove_symlink'
       invoke 'nginx:create_symlink'
       invoke 'nginx:remove'
     end
