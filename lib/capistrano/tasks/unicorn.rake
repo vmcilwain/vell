@@ -5,8 +5,10 @@ set :unicorn_init_file, "#{fetch(:home_path)}/unicorn_init.sh"
 namespace :unicorn do
   desc "restart unicorn for #{fetch(:application)}"
   task :restart do
-    info 'Restarting unicorn'
-    execute :sudo, "unicorn-#{fetch(:applicadtion)} restart"
+    on roles(:app) do
+      info 'Restarting unicorn'
+      execute :sudo, "unicorn-#{fetch(:applicadtion)} restart"
+    end
   end
 
   desc "generate unicorn.conf for #{fetch(:application)}"
@@ -61,7 +63,7 @@ namespace :unicorn do
 
   desc "create symlink for #{fetch(:application)} unicorn_init.sh"
   task :create_symlink do
-    on role(:app) do
+    on roles(:app) do
       info 'Symlinking unicorn_init.sh'
       execute :sudo, "chmod +x #{current_path}/config/unicorn_init.sh"
       execute :sudo, "ln -s #{current_path}}/config/unicorn_init.sh /etc/init.d/unicorn-#{fetch(:application)}"
@@ -70,7 +72,7 @@ namespace :unicorn do
 
   desc "remove symlink for #{fetch(:application)} unicorn_init.sh"
   task :remove_symlink do
-    on role(:app) do
+    on roles(:app) do
       info 'Removing unicorn_init.sh symlink'
       execute :sudo, "rm -rf /etc/init.d/unicorn-#{fetch(:application)}"
     end
