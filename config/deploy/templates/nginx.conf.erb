@@ -5,7 +5,7 @@ upstream app {
 
 server {
     listen 80;
-    server_name <%= fetch(:application) %>;
+    server_name lovell.direct;
 
     # Application root, as defined previously
     root /var/www/<%= fetch(:application) %>/public;

@@ -43,19 +43,28 @@ set :deploy_to, "/var/www/#{fetch(:application)}"
 set :rails_env, fetch(:stage)
 set :default_env, { 'DBPASS' => ENV['PROWEB'] }
 namespace :deploy do
-
+  
   after :restart, :clear_cache do
     on roles(:app), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
       # within release_path do
       #   execute :rake, 'cache:clear'
       # end
-      invoke 'unicorn:restart'
-      invoke 'nginx:restart'
+    end
+    
+    desc 'Restart all services'
+    task :restart do
+      on roles(:app) do
+        within release_path do
+          execute 'bundle install --binstubs'
+        end
+        invoke 'unicorn:restart'
+        invoke 'nginx:restart'
+      end
     end
   end
-  # before :publishing, 'rails_db:check_db_existance'
-  after :published, 'nginx:create_nginx_config'
+  
+  after :published, :restart
   after 'nginx:create_nginx_config', 'unicorn:create_unicorn_config'
   after 'unicorn:create_unicorn_config','unicorn:create_unicorn_init'
 end
