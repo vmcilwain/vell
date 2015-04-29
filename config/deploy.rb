@@ -1,3 +1,6 @@
+# In order for this to work the following must be true
+# * user must have sudo without password privileges for setting symlinks
+# * local env for db password needs to be set in :default_env so that migrations can run
 # config valid only for current version of Capistrano
 lock '3.4.0'
 

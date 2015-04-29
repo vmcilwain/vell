@@ -1,3 +1,4 @@
+# Capistrano file for setting up delayed job during application deployment
 namespace :delayed_job do
 
   def args

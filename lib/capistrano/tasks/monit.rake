@@ -1,3 +1,5 @@
+# Capistrano file for setting up monit during application deployment
+set :home_path, File.expand_path("../../../../config/deploy", __FILE__)
 set :rails_config_dir, "/var/www/#{fetch(:application)}/current/config"
 namespace :monit do
 
@@ -11,7 +13,7 @@ namespace :monit do
       info "Creating monit config"
       open(fetch(:monit_conf_file), 'w') do |f|
         daemons.each do |daemon|
-          f.puts(ERB.new(File.read(fetch(:running_dir) + "/deploy/templates/monit.conf.erb"), nil, '-').result(binding))
+          f.puts(ERB.new(File.read(fetch(:home_path) + "/templates/monit.conf.erb"), nil, '-').result(binding))
         end
       end
     end

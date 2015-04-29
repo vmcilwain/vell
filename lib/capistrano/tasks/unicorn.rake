@@ -1,3 +1,4 @@
+# Capistrano file for setting up unicorn during application deployment
 set :home_path, File.expand_path("../../../../config/deploy", __FILE__)
 set :unicorn_conf_file, "#{fetch(:home_path)}/unicorn.conf"
 set :unicorn_init_file, "#{fetch(:home_path)}/unicorn_init.sh"
@@ -66,7 +67,7 @@ namespace :unicorn do
     on roles(:app) do
       info 'Symlinking unicorn_init.sh'
       execute :sudo, "chmod +x #{current_path}/config/unicorn_init.sh"
-      execute :sudo, "ln -s #{current_path}}/config/unicorn_init.sh /etc/init.d/unicorn-#{fetch(:application)}"
+      execute :sudo, "ln -s #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn-#{fetch(:application)}"
     end
   end
 

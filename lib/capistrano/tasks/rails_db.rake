@@ -1,3 +1,4 @@
+# Capistrano file for setting up rails db during application deployment
 namespace :rails_db do
   desc "check if db exists on remote server. If not create it."
   task :check_db_existance do

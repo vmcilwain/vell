@@ -1,3 +1,4 @@
+# Capistrano file for setting up nginx during application deployment
 set :home_path, File.expand_path("../../../../config/deploy", __FILE__)
 set :nginx_conf_file, "#{fetch(:home_path)}/nginx.conf"
 
@@ -39,7 +40,7 @@ namespace :nginx do
   task :create_symlink do
     on roles(:app) do
       info 'Creating symlink on remote system'
-      execute :sudo, "ln -s #{current_path}}/config/nginx.conf /etc/nginx/sites-enabled/#{fetch(:application)}"
+      execute :sudo, "ln -s #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{fetch(:application)}"
     end
   end
   
