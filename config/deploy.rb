@@ -75,5 +75,4 @@ namespace :deploy do
   before :published, 'nginx:create_nginx_config'
   after 'nginx:create_nginx_config', 'unicorn:create_unicorn_config'
   after 'unicorn:create_unicorn_config','unicorn:create_unicorn_init'
-  after 'unicorn:create_unicorn_init'
 end
