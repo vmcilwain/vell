@@ -51,7 +51,7 @@ namespace :deploy do
       invoke 'nginx:restart'
     end
   end
-  before :publishing, 'rails_db:check_db_existance'
+  # before :publishing, 'rails_db:check_db_existance'
   after :published, 'nginx:create_nginx_config'
   after 'nginx:create_nginx_config', 'unicorn:create_unicorn_config'
   after 'unicorn:create_unicorn_config','unicorn:create_unicorn_init'
