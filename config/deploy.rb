@@ -52,9 +52,7 @@ namespace :deploy do
       #   execute :rake, 'cache:clear'
       # end
       info 'Creating stubs'
-      within current_path do
-        execute 'bundle install --binstubs'
-      end
+      execute 'bundle install --binstubs'
       invoke 'unicorn:restart'
       invoke 'nginx:restart'
     end
@@ -63,4 +61,5 @@ namespace :deploy do
   before :published, 'nginx:create_nginx_config'
   after 'nginx:create_nginx_config', 'unicorn:create_unicorn_config'
   after 'unicorn:create_unicorn_config','unicorn:create_unicorn_init'
+  after :published, :restart
 end
