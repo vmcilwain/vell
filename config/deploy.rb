@@ -54,7 +54,7 @@ namespace :deploy do
   #   end
   # end
   
-  task :restart do
+  before :finishing, :restart do
     on roles(:app) do
       info 'Creating stubs'
       execute "cd #{release_path} && /home/deploy/.rvm/rubies/ruby-2.2.2/bin/ruby bin/bundle install --binstubs"
