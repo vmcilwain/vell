@@ -1,6 +1,6 @@
 set :home_path, File.expand_path("../../../../config/deploy", __FILE__)
 set :unicorn_conf_file, "#{fetch(:home_path)}/unicorn.conf"
-set :unicorn_init_file, "#{fetch(:home_path)}/deploy/unicorn_init.sh"
+set :unicorn_init_file, "#{fetch(:home_path)}/unicorn_init.sh"
 
 namespace :unicorn do
   desc "restart unicorn for #{fetch(:application)}"
@@ -14,7 +14,7 @@ namespace :unicorn do
      on roles(:app) do
       info "generating #{fetch(:application)} unicorn.conf file"
       open(fetch(:unicorn_conf_file), 'w') do |f|
-        f.puts(ERB.new(File.read(fetch(:home_path) + "/deploy/templates/unicorn.conf.erb")).result(binding))
+        f.puts(ERB.new(File.read(fetch(:home_path) + "/templates/unicorn.conf.erb")).result(binding))
       end
     end
   end
@@ -24,7 +24,7 @@ namespace :unicorn do
      on roles(:app) do
      info "generating #{fetch(:application)} unicorn_init.sh file"
       open(fetch(:unicorn_init_file), 'w') do |f|
-        f.puts(ERB.new(File.read(fetch(:home_path) + "/deploy/templates/unicorn_init.sh.erb")).result(binding))
+        f.puts(ERB.new(File.read(fetch(:home_path) + "/templates/unicorn_init.sh.erb")).result(binding))
       end
     end
   end
