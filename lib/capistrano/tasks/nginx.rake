@@ -1,5 +1,6 @@
-set :nginx_conf_file, "#{fetch(:running_dir)}/nginx.conf"
-puts fetch(:running_dir)
+set :home_path, File.expand_path("../../../../config/deploy", __FILE__)
+set :nginx_conf_file, "#{fetch(:home_path)}/nginx.conf"
+
 namespace :nginx do
   desc 'restart nginx'
   task :restart do
@@ -13,7 +14,7 @@ namespace :nginx do
     on roles(:app) do
       info "creating #{fetch(:application)} nginx.conf file"
       open(fetch(:nginx_conf_file), 'w') do |f|
-        f.puts(ERB.new(File.read(fetch(:running_dir) + "/templates/nginx.conf.erb")).result(binding))
+        f.puts(ERB.new(File.read(fetch(:home_path) + "/templates/nginx.conf.erb")).result(binding))
       end
     end
   end
