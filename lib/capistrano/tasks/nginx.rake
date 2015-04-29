@@ -35,7 +35,7 @@ namespace :nginx do
 
   desc "create symlink for #{fetch(:application)} nginx.conf"
   task :create_symlink do
-    on role(:app) do
+    on roles(:app) do
       execute :sudo, "ln -s #{current_path}}/config/nginx.conf /etc/nginx/sites-enabled/#{fetch(:application)}"
     end
   end
