@@ -54,7 +54,7 @@ namespace :deploy do
     end
   end
   
-  after :published, :restart do
+  after :finished, :restart do
     on roles(:app) do
       info 'Creating stubs'
       execute "cd #{release_path} && bin/bundle install --binstubs"
