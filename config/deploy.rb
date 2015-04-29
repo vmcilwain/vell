@@ -38,6 +38,7 @@ set :deploy_to, "/var/www/#{fetch(:application)}"
 # set :whenever_roles, ->{ :app }
 # set :monit_conf_file, "#{fetch(:running_dir)}/deploy/monit.conf"
 set :rails_env, fetch(:stage)
+set :default_env, { 'DBPASS' => ENV['PROWEB'] }
 namespace :deploy do
 
   after :restart, :clear_cache do
