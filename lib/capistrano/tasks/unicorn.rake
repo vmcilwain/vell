@@ -49,7 +49,7 @@ namespace :unicorn do
   desc "delete local #{fetch(:application)} unicorn.conf"
   task :remove_unicorn_conf do
     on roles(:app) do
-      info 'Deleting loacl unicorn.conf'
+      info 'Deleting local unicorn.conf'
       FileUtils.rm(fetch(:unicorn_conf_file))
     end
   end
@@ -57,7 +57,7 @@ namespace :unicorn do
   desc "delete local #{fetch(:application)} unicorn.init.sh"
   task :remove_unicorn_init do
     on roles(:app) do
-      info 'Deleting loacl unicorn_init.sh'
+      info 'Deleting local unicorn_init.sh'
       FileUtils.rm(fetch(:unicorn_init_file))
     end
   end

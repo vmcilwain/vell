@@ -50,23 +50,29 @@ namespace :deploy do
       # within release_path do
       #   execute :rake, 'cache:clear'
       # end
+      info 'Creating stubs'
+      within current_path do
+        execute 'bundle install --binstubs'
+      end
+      invoke 'unicorn:restart'
+      invoke 'nginx:restart'
     end
     
-    desc 'Restart all services'
-    task :restart do
-      on roles(:app) do
-        info 'Creating stubs'
-        within current_path do
-          execute 'bundle install --binstubs'
-        end
-        invoke 'unicorn:restart'
-        invoke 'nginx:restart'
-      end
-    end
+    # desc 'Restart all services'
+    # task :restart do
+    #   on roles(:app) do
+    #     info 'Creating stubs'
+    #     within current_path do
+    #       execute 'bundle install --binstubs'
+    #     end
+    #     invoke 'unicorn:restart'
+    #     invoke 'nginx:restart'
+    #   end
+    # end
   end
   
-  after :published, 'nginx:create_nginx_config'
+  before :published, 'nginx:create_nginx_config'
   after 'nginx:create_nginx_config', 'unicorn:create_unicorn_config'
   after 'unicorn:create_unicorn_config','unicorn:create_unicorn_init'
-  after 'unicorn:create_unicorn_init', :restart
+  after 'unicorn:create_unicorn_init'
 end
