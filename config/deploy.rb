@@ -42,6 +42,7 @@ set :deploy_to, "/var/www/#{fetch(:application)}"
 # set :monit_conf_file, "#{fetch(:running_dir)}/deploy/monit.conf"
 set :rails_env, fetch(:stage)
 set :default_env, { 'DBPASS' => ENV['PROWEB'] }
+
 namespace :deploy do
   
   after :restart, :clear_cache do
@@ -50,26 +51,13 @@ namespace :deploy do
       # within release_path do
       #   execute :rake, 'cache:clear'
       # end
-        info 'Creating stubs'
-        within current_path do
-          execute 'bundle install --binstubs'
-        end
-        invoke 'unicorn:restart'
-        invoke 'nginx:restart'
+      info 'Creating stubs'
+      within current_path do
+        execute 'bundle install --binstubs'
       end
+      invoke 'unicorn:restart'
+      invoke 'nginx:restart'
     end
-    
-    # desc 'Restart all services'
-    # task :restart do
-    #   on roles(:app) do
-    #     info 'Creating stubs'
-    #     within current_path do
-    #       execute 'bundle install --binstubs'
-    #     end
-    #     invoke 'unicorn:restart'
-    #     invoke 'nginx:restart'
-    #   end
-    # end
   end
   
   before :published, 'nginx:create_nginx_config'
