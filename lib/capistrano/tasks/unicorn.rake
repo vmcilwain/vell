@@ -47,10 +47,10 @@ namespace :unicorn do
   end
   
   desc "upload #{fetch(:application)} bin/unicorn"
-  task :unicorn_binary do
+  task :upload_unicorn_binary do
     on roles(:app) do
       # bundle binstub unicorn must already be run
-      upload!(fetch(:unicorn_binary)), "#{current_path}/bin")
+      upload!(fetch(:unicorn_binary), "#{current_path}/bin")
     end
   end
 
@@ -93,6 +93,7 @@ namespace :unicorn do
       invoke 'unicorn:generate_unicorn_conf'
       invoke 'unicorn:upload_unicorn_conf'
       invoke 'unicorn:remove_unicorn_conf'
+      invoke 'unicorn:upload_unicorn_binary'
     end
   end
 
