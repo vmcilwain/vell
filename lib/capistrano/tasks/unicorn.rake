@@ -93,7 +93,7 @@ namespace :unicorn do
       invoke 'unicorn:generate_unicorn_conf'
       invoke 'unicorn:upload_unicorn_conf'
       invoke 'unicorn:remove_unicorn_conf'
-      invoke 'unicorn:upload_unicorn_binary'
+      # invoke 'unicorn:upload_unicorn_binary'
     end
   end
 

@@ -2,17 +2,17 @@
 #
 # Set the working application directory
 # working_directory '/path/to/your/app'
-working_directory "/var/www/<%= fetch(:application) %>"
+working_directory "/var/www/<%= fetch(:application) %>/current"
 
 # Unicorn PID file location
 # pid '/path/to/pids/unicorn.pid'
-pid "/var/www/<%= fetch(:application) %>/tmp/pids/unicorn.pid"
+pid "/var/www/<%= fetch(:application) %>/current/tmp/pids/unicorn.pid"
 
 # Path to logs
 # stderr_path '/path/to/log/unicorn.log'
 # stdout_path '/path/to/log/unicorn.log'
-stderr_path "/var/www/<%= fetch(:application) %>/log/unicorn.log"
-stdout_path "/var/www/<%= fetch(:application) %>/log/unicorn.log"
+stderr_path "/var/www/<%= fetch(:application) %>/current/log/unicorn.log"
+stdout_path "/var/www/<%= fetch(:application) %>/current/log/unicorn.log"
 
 # Unicorn socket
 # listen '/tmp/unicorn.[application name].sock'
