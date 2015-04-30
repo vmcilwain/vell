@@ -4,13 +4,6 @@ set :unicorn_conf_file, "#{fetch(:home_path)}/unicorn.rb"
 set :unicorn_init_file, "#{fetch(:home_path)}/unicorn_init.sh"
 set :unicorn_binary, "#{fetch(:home_path)}/../../bin/unicorn"
 namespace :unicorn do
-  desc "restart unicorn for #{fetch(:application)}"
-  task :restart do
-    on roles(:app) do
-      info 'Restarting unicorn'
-      execute :sudo, "/etc/init.d/unicorn-#{fetch(:application)} restart"
-    end
-  end
 
   desc "generate unicorn.conf for #{fetch(:application)}"
   task :generate_unicorn_conf do
@@ -96,7 +89,23 @@ namespace :unicorn do
       # invoke 'unicorn:upload_unicorn_binary'
     end
   end
-
+  
+  desc "restart unicorn for #{fetch(:application)}"
+  task :restart do
+    on roles(:app) do
+      info 'Restarting unicorn'
+      execute :sudo, "/etc/init.d/unicorn-#{fetch(:application)} restart"
+    end
+  end
+  
+  # desc "Stop unicorn for #{fetch(:application)}"
+  # task :stop do
+  #   on roles(:app) do
+  #     info 'Stopping unicorn'
+  #     execute :sudo, "kill #{capture(current_path.join('tmp/pids/unicorn.pid'))}"
+  #   end
+  # end
+  
   desc "add unicorn init config to #{fetch(:application)}"
   task :create_unicorn_init do
     on roles(:app) do |host|
