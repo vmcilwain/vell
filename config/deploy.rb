@@ -29,7 +29,7 @@ set :deploy_to, "/var/www/#{fetch(:application)}"
 # set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
 # Default value for linked_dirs is []
-# set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -42,7 +42,8 @@ set :deploy_to, "/var/www/#{fetch(:application)}"
 # set :monit_conf_file, "#{fetch(:running_dir)}/deploy/monit.conf"
 set :rails_env, fetch(:stage)
 set :default_env, { 'DBPASS' => ENV['PROWEB'] }
-set :bundle_binstubs, -> { release_path.join('bin') }
+# set :bundle_binstubs, -> { release_path.join('bin') }
+set :bundle_binstubs, nil
 namespace :deploy do
   
   # after :restart, :clear_cache do
