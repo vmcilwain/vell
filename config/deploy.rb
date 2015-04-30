@@ -42,7 +42,7 @@ set :deploy_to, "/var/www/#{fetch(:application)}"
 # set :monit_conf_file, "#{fetch(:running_dir)}/deploy/monit.conf"
 set :rails_env, fetch(:stage)
 set :default_env, { 'DBPASS' => ENV['PROWEB'] }
-set :bundle_binstubs, -> { shared_path.join('bin') }
+set :bundle_binstubs, -> { release_path.join('bin') }
 namespace :deploy do
   
   # after :restart, :clear_cache do
