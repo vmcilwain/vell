@@ -1,6 +1,6 @@
 # Capistrano file for setting up unicorn during application deployment
 set :home_path, File.expand_path("../../../../config/deploy", __FILE__)
-set :unicorn_conf_file, "#{fetch(:home_path)}/unicorn.conf"
+set :unicorn_conf_file, "#{fetch(:home_path)}/unicorn.rb"
 set :unicorn_init_file, "#{fetch(:home_path)}/unicorn_init.sh"
 set :unicorn_binary, "#{fetch(:home_path)}/../../bin/unicorn"
 namespace :unicorn do
@@ -17,7 +17,7 @@ namespace :unicorn do
      on roles(:app) do
       info "generating #{fetch(:application)} unicorn.conf file"
       open(fetch(:unicorn_conf_file), 'w') do |f|
-        f.puts(ERB.new(File.read(fetch(:home_path) + "/templates/unicorn.conf.erb")).result(binding))
+        f.puts(ERB.new(File.read(fetch(:home_path) + "/templates/unicorn.rb.erb")).result(binding))
       end
     end
   end
