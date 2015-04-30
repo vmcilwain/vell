@@ -8,7 +8,7 @@ namespace :unicorn do
   task :restart do
     on roles(:app) do
       info 'Restarting unicorn'
-      execute :sudo, "/etc/init.d/unicorn-#{fetch(:applicadtion)} restart"
+      execute :sudo, "/etc/init.d/unicorn-#{fetch(:application)} restart"
     end
   end
 

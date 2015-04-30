@@ -56,7 +56,6 @@ namespace :deploy do
   
   before :finishing, :restart do
     on roles(:app) do
-      info 'Creating stubs'
       invoke 'unicorn:restart'
       invoke 'nginx:restart'
     end
