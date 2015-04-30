@@ -2,7 +2,7 @@
 set :home_path, File.expand_path("../../../../config/deploy", __FILE__)
 set :unicorn_conf_file, "#{fetch(:home_path)}/unicorn.conf"
 set :unicorn_init_file, "#{fetch(:home_path)}/unicorn_init.sh"
-
+set :unicorn_binary, "#{fetch(:home_path)}/../../bin/unicorn"
 namespace :unicorn do
   desc "restart unicorn for #{fetch(:application)}"
   task :restart do
@@ -43,6 +43,14 @@ namespace :unicorn do
   task :upload_unicorn_init do
     on roles(:app) do
       upload!(fetch(:unicorn_init_file), "#{current_path}/config")
+    end
+  end
+  
+  desc "upload #{fetch(:application)} bin/unicorn"
+  task :unicorn_binary do
+    on roles(:app) do
+      # bundle binstub unicorn must already be run
+      upload!(fetch(:unicorn_binary)), "#{current_path}/bin")
     end
   end
 

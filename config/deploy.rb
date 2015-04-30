@@ -1,6 +1,10 @@
 # In order for this to work the following must be true
 # * user must have sudo without password privileges for setting symlinks
 # * local env for db password needs to be set in :default_env so that migrations can run
+
+# To Dos
+# * Figure out how to get capistrano-bundler to generate unicorn binary
+# * 
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
@@ -42,8 +46,8 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # set :monit_conf_file, "#{fetch(:running_dir)}/deploy/monit.conf"
 set :rails_env, fetch(:stage)
 set :default_env, { 'DBPASS' => ENV['PROWEB'] }
-# set :bundle_binstubs, -> { release_path.join('bin') }
-set :bundle_binstubs, nil
+set :bundle_binstubs, -> { release_path.join('bin') }
+
 namespace :deploy do
   
   # after :restart, :clear_cache do
