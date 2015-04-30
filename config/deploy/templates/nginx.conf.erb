@@ -1,6 +1,6 @@
 upstream <%= fetch(:application) %> {
     # Path to Unicorn SOCK file, as defined previously
-    server unix:/tmp/unicorn.<%= fetch(:application) %>.sock fail_timeout=0;
+    server unix:<%= current_path %>/tmp/sockets/unicorn.<%= fetch(:application) %>.sock fail_timeout=0;
 }
 
 server {

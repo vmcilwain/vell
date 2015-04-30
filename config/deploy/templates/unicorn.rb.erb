@@ -16,7 +16,7 @@ stdout_path "/var/www/<%= fetch(:application) %>/current/log/unicorn.log"
 
 # Unicorn socket
 # listen '/tmp/unicorn.[application name].sock'
-listen "/tmp/unicorn.<%= fetch(:application) %>.sock"
+listen "<%= current_path %>/tmp/sockets/unicorn.<%= fetch(:application) %>.sock"
 
 # Number of processes
 # worker_processes 4
