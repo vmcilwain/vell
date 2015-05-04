@@ -70,6 +70,7 @@ namespace :deploy do
     on roles(:app) do
       info 'Uploading application.yml'
       info "#{Dir.pwd}"
+      info "#{fetch(:home_path)}"
       upload!("#{fetch(:home_path)}/application.yml", "#{current_path}/config")
     end
   end
