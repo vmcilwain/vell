@@ -80,9 +80,9 @@ Rails.application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => ENV['S3_BUCKET_NAME'],
-      :access_key_id => ENV['S3_KEY'],
-      :secret_access_key => ENV['S3_SECRET']
+      :bucket => CONFIG[:s3_bucke_name],
+      :access_key_id => CONFIG[:s3_access_key_id],
+      :secret_access_key => CONFIG[:s3_secret_access_key]
     }
   }
   config.action_mailer.default_url_options = { host: 'vell.herokuapp.com' }
@@ -91,8 +91,8 @@ Rails.application.configure do
     address: 'smtp.sendgrid.net',
     port: '587',
     authentication: :plain,
-    user_name: ENV['SENDGRID_USERNAME'],
-    password: ENV['SENDGRID_PASSWORD'],
+    user_name: CONFIG[:sendgrid_username],
+    password: CONFIG[:sendgrid_password],
     domain: 'heroku.com',
     enable_starttls_auto: true
   }
