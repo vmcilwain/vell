@@ -47,7 +47,6 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 set :rails_env, fetch(:stage)
 set :default_env, { 'DBPASS' => ENV['PROWEB'] }
 set :bundle_binstubs, -> { release_path.join('bin') }
-set :home_path, File.expand_path('/config',__FILE__)
 namespace :deploy do
   
   # after :restart, :clear_cache do
@@ -69,9 +68,7 @@ namespace :deploy do
   task :upload_app_yml do
     on roles(:app) do
       info 'Uploading application.yml'
-      info "#{Dir.pwd}"
-      info "#{fetch(:home_path)}"
-      upload!("#{fetch(:home_path)}/application.yml", "#{current_path}/config")
+      upload!("#{Dir.pwd}/config/application.yml", "#{current_path}/config")
     end
   end
   
