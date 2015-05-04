@@ -4,8 +4,12 @@ upstream <%= fetch(:application) %> {
 }
 
 server {
-    listen 80;
+    listen 80 default_server;
+    listen 443 ssl;
+    
     server_name lovell.direct;
+    ssl_certificate /etc/nginx/ssl/nginx.crt;
+    ssl_certificate_key /etc/nginx/ssl/nginx.key;
 
     # Application root, as defined previously
     root /var/www/<%= fetch(:application) %>/public;

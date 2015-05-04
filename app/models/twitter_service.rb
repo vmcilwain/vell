@@ -18,7 +18,7 @@ class TwitterService
   private
   
   def blog_url
-    "https://vell.herokuapp.com/blogs/#{@blog.id}"
+    "http://lovell.direct.com/blogs/#{@blog.id}"
   end
   
   def tiny_url

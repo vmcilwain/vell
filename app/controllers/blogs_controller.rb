@@ -17,7 +17,7 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
     if @blog.save
-      #TwitterService.new(@blog).update unless Rails.env.development?
+      TwitterService.new(@blog).update unless Rails.env.development?
       flash[:success] = 'Blog created!'
       redirect_to @blog
     else
