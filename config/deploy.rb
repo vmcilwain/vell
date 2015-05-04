@@ -45,7 +45,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # set :whenever_roles, ->{ :app }
 # set :monit_conf_file, "#{fetch(:running_dir)}/deploy/monit.conf"
 set :rails_env, fetch(:stage)
-set :default_env, { 'DBPASS' => ENV['PROWEB'] }
+# set :default_env, { 'DBPASS' => ENV['PROWEB'] }
 set :bundle_binstubs, -> { release_path.join('bin') }
 namespace :deploy do
   
