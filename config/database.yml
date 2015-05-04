@@ -33,6 +33,6 @@ production:
   database: vell_production
   pool: 5
   host: 127.0.0.1
-  username: rails_user
-  password: <%= ENV['DBPASS'] %>
+  username: <%= CONFIG[:db_user] %>
+  password: <%= CONFIG[:db_pass] %>
   socket: /var/run/mysqld/mysqld.sock
