@@ -73,7 +73,7 @@ namespace :deploy do
     end
   end
   
-  before :published, :upload_app_yml
+  after :started, :upload_app_yml
   before :published, 'nginx:create_nginx_config'
   before :published, 'unicorn:create_unicorn_config'
   before :published,'unicorn:create_unicorn_init'
