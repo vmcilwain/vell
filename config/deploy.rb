@@ -69,6 +69,7 @@ namespace :deploy do
   task :upload_app_yml do
     on roles(:app) do
       info 'Uploading application.yml'
+      info "#{Dir.pwd}"
       upload!('application.yml', "#{current_path}/config")
     end
   end
