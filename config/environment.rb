@@ -12,7 +12,7 @@ ALLOWABLE_APPLICATIONS = ["application/vnd.oasis.opendocument.text",
 
 FADE_OUT_TIME = 3000
 
-APP_VERSION = '1.7.1'
+APP_VERSION = '1.7.2'
 
 # Load the Rails application.
 require File.expand_path('../application', __FILE__)

@@ -6,7 +6,7 @@ describe BlogFilesController do
     let(:user) {Fabricate :user}
   
     before do
-      add_user_to_role(user, 'Administrator')
+      add_user_to_role(user, 'administrator')
       session[:user_id] = user.id
     end
     
@@ -30,7 +30,7 @@ describe BlogFilesController do
     let(:user) {Fabricate :user}
   
     before do
-      add_user_to_role(user, 'Administrator')
+      add_user_to_role(user, 'administrator')
       session[:user_id] = user.id
     end
     
@@ -46,7 +46,7 @@ describe BlogFilesController do
     context 'a successful creation' do
       let(:user) {Fabricate :user}
       before do
-        add_user_to_role(user, 'Administrator')
+        add_user_to_role(user, 'administrator')
         session[:user_id] = user.id
         post :create, blog_file: {blog_id: 1, doc: file_to_upload(test_file, "text/plain")}
       end
@@ -67,7 +67,7 @@ describe BlogFilesController do
     context 'an unsuccessful creation' do
       let(:user) {Fabricate :user}
       before do
-        add_user_to_role(user, 'Administrator')
+        add_user_to_role(user, 'administrator')
         session[:user_id] = user.id
         post :create, blog_file: {blog_id: 1}
       end
@@ -103,7 +103,7 @@ describe BlogFilesController do
       let(:user) {Fabricate :user}
 
       before do
-        add_user_to_role(user, 'Administrator')
+        add_user_to_role(user, 'administrator')
         session[:user_id] = user.id
         put :update, id: blog_file.id, blog_file: {blog_id: 1, doc: file_to_upload(test_file, "text/plain")}
       end
@@ -129,7 +129,7 @@ describe BlogFilesController do
     let(:user) {Fabricate :user}
   
     before do
-      add_user_to_role(user, 'Administrator')
+      add_user_to_role(user, 'administrator')
       session[:user_id] = user.id
       delete :destroy, id: blog_file.id
     end

@@ -5,7 +5,7 @@ describe BlogCommentsController do
     let(:user) {Fabricate :user}
   
     before do
-      add_user_to_role(user, 'Administrator')
+      add_user_to_role(user, 'administrator')
       session[:user_id] = user.id
     end
     
@@ -92,7 +92,7 @@ describe BlogCommentsController do
     let(:user) {Fabricate :user}
     
     before do
-      add_user_to_role(user, 'Administrator')
+      add_user_to_role(user, 'administrator')
       session[:user_id] = user.id
       get :edit, id: blog_comment.id
     end
@@ -111,7 +111,7 @@ describe BlogCommentsController do
     
     context 'a successful update' do
       before do
-        add_user_to_role(user, 'Administrator')
+        add_user_to_role(user, 'administrator')
       session[:user_id] = user.id
         put :update, id: blog_comment.id, blog_comment: {body: text(10)}
       end
@@ -130,7 +130,7 @@ describe BlogCommentsController do
     context 'an unsuccessful update' do
       let(:user) {Fabricate :user}
       before do
-        add_user_to_role(user, 'Administrator')
+        add_user_to_role(user, 'administrator')
         session[:user_id] = user.id
         put :update, id: blog_comment.id, blog_comment: {blog_id: blog_comment.blog.id, body: nil}
       end
@@ -154,7 +154,7 @@ describe BlogCommentsController do
     let(:user) {Fabricate :user}
 
     before do
-      add_user_to_role(user, 'Administrator')
+      add_user_to_role(user, 'administrator')
       session[:user_id] = user.id
       delete :destroy, id: blog_comment.id
     end

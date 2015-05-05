@@ -21,7 +21,7 @@ describe HomeController do
   #   let(:user) {Fabricate :user}
   #
   #   before do
-  #     add_user_to_role(user, 'Administrator')
+  #     add_user_to_role(user, 'administrator')
   #     session[:user_id] = user.id
   #   end
   #
@@ -44,7 +44,7 @@ describe HomeController do
   #     let(:user) {Fabricate :user}
   #
   #     before do
-  #       add_user_to_role(user, 'Administrator')
+  #       add_user_to_role(user, 'administrator')
   #       session[:user_id] = user.id
   #       post :create, home: {index: Faker::Lorem.words(5).join("\s"), about: Faker::Lorem.words(5).join("\s")}
   #     end

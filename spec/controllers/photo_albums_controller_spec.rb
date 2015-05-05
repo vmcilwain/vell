@@ -22,7 +22,7 @@ describe PhotoAlbumsController do
     let(:user) {Fabricate :user}
   
     before do
-      add_user_to_role(user, 'Administrator')
+      add_user_to_role(user, 'administrator')
       session[:user_id] = user.id
     end
     
@@ -38,7 +38,7 @@ describe PhotoAlbumsController do
       let(:photo_album_attrs) {Fabricate.attributes_for :photo_album}
       
       before do
-        add_user_to_role(user, 'Administrator')
+        add_user_to_role(user, 'administrator')
         session[:user_id] = user.id
         post :create, photo_album: photo_album_attrs
       end
@@ -58,7 +58,7 @@ describe PhotoAlbumsController do
     
     context 'an unsuccesful creation' do
       before do
-        add_user_to_role(user, 'Administrator')
+        add_user_to_role(user, 'administrator')
         session[:user_id] = user.id
         post :create, photo_album: {description: text}
       end
@@ -81,7 +81,7 @@ describe PhotoAlbumsController do
     let(:user) {Fabricate :user}
   
     before do
-      add_user_to_role(user, 'Administrator')
+      add_user_to_role(user, 'administrator')
       session[:user_id] = user.id
     end
     
@@ -96,7 +96,7 @@ describe PhotoAlbumsController do
     let(:user) {Fabricate :user}
     context 'a successful update' do
       before do
-        add_user_to_role(user, 'Administrator')
+        add_user_to_role(user, 'administrator')
         session[:user_id] = user.id
         put :update, id: photo_album.id, photo_album: {name: Faker::Lorem.words(5).join("\s")}
       end
@@ -117,7 +117,7 @@ describe PhotoAlbumsController do
     context 'an unsuccessful update' do
       let(:photo_album) {Fabricate :photo_album}
       before do
-        add_user_to_role(user, 'Administrator')
+        add_user_to_role(user, 'administrator')
         session[:user_id] = user.id
         put :update, id: photo_album.id, photo_album: {name: nil}
       end
@@ -140,7 +140,7 @@ describe PhotoAlbumsController do
     let(:photo_album) {Fabricate :photo_album}
     let(:user) {Fabricate :user}
     before do
-      add_user_to_role(user, 'Administrator')
+      add_user_to_role(user, 'administrator')
       session[:user_id] = user.id
       delete :destroy, id: photo_album.id
     end

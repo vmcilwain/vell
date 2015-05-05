@@ -21,7 +21,7 @@ describe BlogsController do
     let(:user) {Fabricate :user}
   
     before do
-      add_user_to_role(user, 'Administrator')
+      add_user_to_role(user, 'administrator')
       session[:user_id] = user.id
     end
     
@@ -36,7 +36,7 @@ describe BlogsController do
       let(:user) {Fabricate :user}
       
       before do
-        add_user_to_role(user, 'Administrator')
+        add_user_to_role(user, 'administrator')
         session[:user_id] = user.id
         post :create, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: Faker::Lorem.words(25).join("\s")}
       end
@@ -61,7 +61,7 @@ describe BlogsController do
       let(:user) {Fabricate :user}
 
       before do
-        add_user_to_role(user, 'Administrator')
+        add_user_to_role(user, 'administrator')
         session[:user_id] = user.id
         post :create, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: Faker::Lorem.words(25).join("\s"), blog_files: [blog_document: file_to_upload(test_file, 'text/plain')]}
       end
@@ -82,7 +82,7 @@ describe BlogsController do
     context 'an unsuccessful creation' do
       let(:user) {Fabricate :user}
       before do
-        add_user_to_role(user, 'Administrator')
+        add_user_to_role(user, 'administrator')
         session[:user_id] = user.id
         post :create, blog: {blog_category_id: 1, body: Faker::Lorem.words(25).join("\s")}
       end
@@ -114,7 +114,7 @@ describe BlogsController do
     let(:user) {Fabricate :user}
     context 'a succesful update without a file' do
       before do
-        add_user_to_role(user, 'Administrator')
+        add_user_to_role(user, 'administrator')
         session[:user_id] = user.id
         put :update, id: blog.id, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: Faker::Lorem.words(25).join("\s")}
       end
@@ -136,7 +136,7 @@ describe BlogsController do
       let(:user) {Fabricate :user}
 
       before do
-        add_user_to_role(user, 'Administrator')
+        add_user_to_role(user, 'administrator')
         session[:user_id] = user.id
         put :update, id: blog.id, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: ""}
       end
@@ -160,7 +160,7 @@ describe BlogsController do
     let(:user) {Fabricate :user}
     
     before do
-      add_user_to_role(user, 'Administrator')
+      add_user_to_role(user, 'administrator')
       session[:user_id] = user.id
       delete :destroy, id: blog.id
     end

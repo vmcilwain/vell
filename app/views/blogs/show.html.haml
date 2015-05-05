@@ -7,7 +7,7 @@
       .col-xs-2
         %br
         =link_to 'Listing', blogs_path, class: 'btn btn-default'
-      -if current_user && current_user.has_role?('Administrator')
+      -if current_user && current_user.has_role?('administrator')
         .col-xs-1
           %br
           =link_to 'Edit', edit_blog_path(@blog), class: 'btn btn-primary'

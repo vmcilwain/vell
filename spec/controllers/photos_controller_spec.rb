@@ -7,7 +7,7 @@ describe PhotosController do
     let(:user) {Fabricate :user}
   
     before do
-     add_user_to_role(user, 'Administrator')
+     add_user_to_role(user, 'administrator')
      session[:user_id] = user.id
     end
     
@@ -24,7 +24,7 @@ describe PhotosController do
     let(:user) {Fabricate :user}
   
     before do
-      add_user_to_role(user, 'Administrator')
+      add_user_to_role(user, 'administrator')
       session[:user_id] = user.id
       get :show, id: photo.id
     end
@@ -38,7 +38,7 @@ describe PhotosController do
     let(:user) {Fabricate :user}
   
     before do
-      add_user_to_role(user, 'Administrator')
+      add_user_to_role(user, 'administrator')
       session[:user_id] = user.id
     end
     
@@ -53,7 +53,7 @@ describe PhotosController do
     let(:user) {Fabricate :user}
     context 'successful creation' do
       before do  
-        add_user_to_role(user, 'Administrator')
+        add_user_to_role(user, 'administrator')
         session[:user_id] = user.id
         post :create, photo: {photo_album_id: 1, document: file_to_upload(test_picture, "image/jpg")}
       end
@@ -74,7 +74,7 @@ describe PhotosController do
     context 'unsuccesful creation' do
       let(:user) {Fabricate :user}
       before do
-        add_user_to_role(user, 'Administrator')
+        add_user_to_role(user, 'administrator')
         session[:user_id] = user.id
         post :create, photo: {document: file_to_upload(test_picture, "image/jpg")}
       end
@@ -97,7 +97,7 @@ describe PhotosController do
     let(:photo) {Fabricate :photo}
     let(:user) {Fabricate :user}
     before do
-      add_user_to_role(user, 'Administrator')
+      add_user_to_role(user, 'administrator')
       session[:user_id] = user.id
       get :edit, id: photo.id
     end
@@ -114,7 +114,7 @@ describe PhotosController do
     context 'successful update' do
   
       before do
-        add_user_to_role(user, 'Administrator')
+        add_user_to_role(user, 'administrator')
         session[:user_id] = user.id
         put :update, id: photo.id, photo: {description: Faker::Lorem.words(5).join("\s")}
       end
@@ -134,7 +134,7 @@ describe PhotosController do
     
     context 'unsuccessful update' do
       before do
-        add_user_to_role(user, 'Administrator')
+        add_user_to_role(user, 'administrator')
         session[:user_id] = user.id
         put :update, id: photo.id, photo: {photo_album_id: nil}
       end
@@ -158,7 +158,7 @@ describe PhotosController do
     let(:user) {Fabricate :user}
     
     before do
-      add_user_to_role(user, 'Administrator')
+      add_user_to_role(user, 'administrator')
       session[:user_id] = user.id
       delete :destroy, id: photo.id
     end

@@ -6,7 +6,7 @@ describe PhotoCommentsController do
     let(:user) {Fabricate :user}
   
     before do
-      add_user_to_role(user, 'Administrator')
+      add_user_to_role(user, 'administrator')
       session[:user_id] = user.id
     end
     it 'sets @photo_comments' do
@@ -82,7 +82,7 @@ describe PhotoCommentsController do
 
     context 'successful update' do
       before do
-        add_user_to_role(user, 'Administrator')
+        add_user_to_role(user, 'administrator')
         session[:user_id] = user.id
         put :update, id: photo_comment.id, photo_comment: {name: Faker::Name.name}
       end
@@ -102,7 +102,7 @@ describe PhotoCommentsController do
     
     context 'unsuccessful update' do
       before do
-        add_user_to_role(user, 'Administrator')
+        add_user_to_role(user, 'administrator')
         session[:user_id] = user.id
         put :update, id: photo_comment.id, photo_comment: {body: nil}
       end
@@ -125,7 +125,7 @@ describe PhotoCommentsController do
     let(:photo_comment) {Fabricate :photo_comment}
     let(:user) {Fabricate :user}
     before do
-      add_user_to_role(user, 'Administrator')
+      add_user_to_role(user, 'administrator')
       session[:user_id] = user.id
       delete :destroy, id: photo_comment.id
     end

@@ -4,7 +4,7 @@ describe BlogCategoriesController do
   let(:user) {Fabricate :user}
   
   before do
-    add_user_to_role(user, 'Administrator')
+    add_user_to_role(user, 'administrator')
     session[:user_id] = user.id
   end
   
