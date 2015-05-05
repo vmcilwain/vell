@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount Authenticatable::Engine => "/auth"
+  mount SimpleAuthEngine::Engine => "/authenticatable"
   
   get 'ui(/:action)', controller: 'ui'
   
@@ -14,7 +14,13 @@ Rails.application.routes.draw do
   
   resources :contact_mes, only: [:index, :new, :show, :create]
   resources :blog_categories, except: [:show]
-  resources :blogs, :blog_comments, :blog_files, :photo_albums, :photos, :photo_comments
+  resources :blogs, :blog_comments, :photo_albums, :photos, :photo_comments
+  
+  resources :blog_files do
+    collection do
+      get :download
+    end
+  end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

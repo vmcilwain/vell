@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'photo albums' do
   scenario 'creating an invalid photo album' do
     sign_in
-    click_link 'Photo Albums'
+    click_link 'Photo Album'
     expect(page).to have_text 'Photo Albums'
     
     click_link 'New Album'

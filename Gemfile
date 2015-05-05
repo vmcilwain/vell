@@ -44,7 +44,7 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'authenticatable', git: 'https://github.com/vmcilwain/authenticatable'
+ gem 'simple_auth_engine', git: 'https://github.com/vmcilwain/simple_auth_gem'
 
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
@@ -80,4 +80,5 @@ group :development, :test do
   gem "pry-nav"
   gem "better_errors"
   gem "yard"
+  gem "binding_of_caller"
 end

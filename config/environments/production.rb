@@ -1,3 +1,4 @@
+SIMPLE_AUTH_ENGINE_FROM = 'Lovell M. <lmcilwain@me.com>'
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -78,14 +79,21 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-      :bucket => CONFIG[:s3_bucke_name],
-      :access_key_id => CONFIG[:s3_access_key_id],
-      :secret_access_key => CONFIG[:s3_secret_access_key]
+    store: :filesystem,
+    path: CONFIG[:attachment_path], 
+    :styles => { 
+      :medium => "300x300>", 
+      :thumb => "100x100>" 
     }
+    # :storage => :s3,
+  #   :s3_credentials => {
+  #     :bucket => CONFIG[:s3_bucke_name],
+  #     :access_key_id => CONFIG[:s3_access_key_id],
+  #     :secret_access_key => CONFIG[:s3_secret_access_key]
+    # }
   }
-  config.action_mailer.default_url_options = { host: 'vell.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: CONFIG[:action_mailer_host] }
+  config.action_controller.default_url_options = { host: CONFIG[:action_controller_host] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.sendgrid.net',

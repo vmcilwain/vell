@@ -8,7 +8,7 @@ feature 'add a comment to a blog', js: true do
   scenario 'user adds a comment to a blog' do
     t = text(25)
     sign_in
-    click_link 'Blogs'
+    click_link 'Blog'
     click_link blog.headline
 
     click_link 'Add Comment'

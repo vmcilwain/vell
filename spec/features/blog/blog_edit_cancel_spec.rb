@@ -5,7 +5,7 @@ feature 'edit blog' do
     blog
      
     sign_in
-    click_link 'Blogs'
+    click_link 'Blog'
     click_link blog.headline
     click_link 'Edit'
     click_link 'Cancel'

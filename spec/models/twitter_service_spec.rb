@@ -1,15 +1,16 @@
 require 'rails_helper'
 
 describe TwitterService, :vcr do
-  let(:twitter) {TwitterService.new('http://www.yahoo.com')}
+  let(:blog) {Fabricate :blog}
+  let(:twitter) {TwitterService.new(blog)}
   
-  it 'sets @url' do
-    expect(tiny.url).to eq 'http://www.yahoo.com'
+  it 'sets @blog' do
+    expect(twitter.blog).to eq blog
   end
   
-  describe '#tiny_url' do
-    it 'returns a url containing http://goo.gl/' do
-      expect(tiny.tiny_url).to include 'http://tinyurl.com/'
+  describe '#message' do
+    it 'sets message for update' do
+      expect(twitter.message).to include "#blog #blogging #{blog.headline}:"
     end
   end
 end

@@ -5,7 +5,7 @@ feature 'new blog', :vcr do
     blog_category
      
     sign_in
-    click_link 'Blogs'
+    click_link 'Blog'
     expect(page).to have_link 'New Blog'
     
     click_link 'New Blog'

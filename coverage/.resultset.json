@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/vmcilwain/Desktop/home/vell/spec/support/file_macro.rb": [
+      "/Users/vmcilwain/rails/vell/spec/support/file_macro.rb": [
         1,
         null,
         15,
@@ -23,17 +23,17 @@
         71,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/support/hooks_macro.rb": [
+      "/Users/vmcilwain/rails/vell/spec/support/hooks_macro.rb": [
         1,
         0,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/support/js_macro.rb": [
+      "/Users/vmcilwain/rails/vell/spec/support/js_macro.rb": [
         1,
         0,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/support/mailer_macro.rb": [
+      "/Users/vmcilwain/rails/vell/spec/support/mailer_macro.rb": [
         1,
         3,
         null,
@@ -42,7 +42,7 @@
         27,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/support/methods_macro.rb": [
+      "/Users/vmcilwain/rails/vell/spec/support/methods_macro.rb": [
         1,
         149,
         null,
@@ -56,7 +56,7 @@
         33,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/support/objects_macro.rb": [
+      "/Users/vmcilwain/rails/vell/spec/support/objects_macro.rb": [
         1,
         null,
         1,
@@ -95,7 +95,7 @@
         66,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/support/paperclip_macro.rb": [
+      "/Users/vmcilwain/rails/vell/spec/support/paperclip_macro.rb": [
         1,
         1,
         1,
@@ -119,7 +119,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/app/controllers/blog_categories_controller.rb": [
+      "/Users/vmcilwain/rails/vell/app/controllers/blog_categories_controller.rb": [
         1,
         1,
         1,
@@ -172,7 +172,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/app/controllers/application_controller.rb": [
+      "/Users/vmcilwain/rails/vell/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -183,7 +183,7 @@
         1,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/controllers/blog_comments_controller_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/controllers/blog_comments_controller_spec.rb": [
         1,
         null,
         1,
@@ -363,7 +363,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/app/controllers/blog_comments_controller.rb": [
+      "/Users/vmcilwain/rails/vell/app/controllers/blog_comments_controller.rb": [
         1,
         1,
         1,
@@ -427,7 +427,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/controllers/blog_files_controller_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/controllers/blog_files_controller_spec.rb": [
         1,
         null,
         1,
@@ -582,7 +582,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/app/controllers/blog_files_controller.rb": [
+      "/Users/vmcilwain/rails/vell/app/controllers/blog_files_controller.rb": [
         1,
         1,
         1,
@@ -624,6 +624,10 @@
         null,
         5,
         5,
+        null,
+        null,
+        1,
+        0,
         null,
         null,
         1,
@@ -637,7 +641,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/controllers/blogs_controller_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/controllers/blogs_controller_spec.rb": [
         1,
         null,
         1,
@@ -684,15 +688,15 @@
         4,
         null,
         1,
-        0,
+        1,
         null,
         null,
         1,
-        0,
+        1,
         null,
         null,
         1,
-        0,
+        1,
         null,
         null,
         null,
@@ -707,15 +711,15 @@
         null,
         null,
         1,
-        0,
+        1,
         null,
         null,
         1,
-        0,
+        1,
         null,
         null,
         1,
-        0,
+        1,
         null,
         null,
         null,
@@ -823,7 +827,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/app/controllers/blogs_controller.rb": [
+      "/Users/vmcilwain/rails/vell/app/controllers/blogs_controller.rb": [
         1,
         1,
         1,
@@ -843,10 +847,9 @@
         1,
         12,
         12,
+        8,
         7,
         7,
-        0,
-        0,
         null,
         4,
         4,
@@ -872,7 +875,7 @@
         1,
         null,
         1,
-        24,
+        25,
         null,
         null,
         1,
@@ -884,7 +887,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/controllers/contact_mes_controller_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/controllers/contact_mes_controller_spec.rb": [
         1,
         null,
         1,
@@ -984,7 +987,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/app/controllers/contact_mes_controller.rb": [
+      "/Users/vmcilwain/rails/vell/app/controllers/contact_mes_controller.rb": [
         1,
         1,
         1,
@@ -1026,7 +1029,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/controllers/home_controller_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/controllers/home_controller_spec.rb": [
         1,
         null,
         1,
@@ -1093,7 +1096,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/app/controllers/home_controller.rb": [
+      "/Users/vmcilwain/rails/vell/app/controllers/home_controller.rb": [
         1,
         null,
         null,
@@ -1128,7 +1131,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/controllers/photo_albums_controller_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/controllers/photo_albums_controller_spec.rb": [
         1,
         null,
         1,
@@ -1294,7 +1297,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/app/controllers/photo_albums_controller.rb": [
+      "/Users/vmcilwain/rails/vell/app/controllers/photo_albums_controller.rb": [
         1,
         1,
         1,
@@ -1351,7 +1354,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/controllers/photo_comments_controller_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/controllers/photo_comments_controller_spec.rb": [
         1,
         null,
         1,
@@ -1502,7 +1505,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/app/controllers/photo_comments_controller.rb": [
+      "/Users/vmcilwain/rails/vell/app/controllers/photo_comments_controller.rb": [
         1,
         1,
         1,
@@ -1554,7 +1557,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/controllers/photos_controller_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/controllers/photos_controller_spec.rb": [
         1,
         null,
         1,
@@ -1738,7 +1741,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/app/controllers/photos_controller.rb": [
+      "/Users/vmcilwain/rails/vell/app/controllers/photos_controller.rb": [
         1,
         1,
         1,
@@ -1803,7 +1806,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/add_comment_to_blog_xhr_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/add_comment_to_blog_xhr_spec.rb": [
         1,
         null,
         1,
@@ -1826,7 +1829,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog/blog_destroy_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog/blog_destroy_spec.rb": [
         1,
         null,
         1,
@@ -1843,7 +1846,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog/blog_edit_cancel_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog/blog_edit_cancel_spec.rb": [
         1,
         null,
         1,
@@ -1860,25 +1863,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog/blog_edit_invalid_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog/blog_edit_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog/blog_edit_invalid_spec.rb": [
         1,
         null,
         1,
@@ -1896,7 +1881,25 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog/blog_index_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog/blog_edit_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/features/blog/blog_index_spec.rb": [
         1,
         null,
         1,
@@ -1909,7 +1912,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog/blog_new_cancel_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog/blog_new_cancel_spec.rb": [
         1,
         null,
         1,
@@ -1929,7 +1932,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog/blog_new_invalid_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog/blog_new_invalid_spec.rb": [
         1,
         null,
         1,
@@ -1950,7 +1953,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog/blog_new_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog/blog_new_spec.rb": [
         1,
         null,
         1,
@@ -1973,7 +1976,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog/blog_new_with_attachment_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog/blog_new_with_attachment_spec.rb": [
         1,
         null,
         1,
@@ -2000,7 +2003,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog/blog_show_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog/blog_show_spec.rb": [
         1,
         null,
         1,
@@ -2017,7 +2020,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog_category/blog_category_disable_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog_category/blog_category_disable_spec.rb": [
         1,
         null,
         1,
@@ -2033,7 +2036,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog_category/blog_category_edit_cancel_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog_category/blog_category_edit_cancel_spec.rb": [
         1,
         null,
         1,
@@ -2049,7 +2052,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog_category/blog_category_edit_error_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog_category/blog_category_edit_error_spec.rb": [
         1,
         null,
         1,
@@ -2071,7 +2074,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog_category/blog_category_edit_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog_category/blog_category_edit_spec.rb": [
         1,
         null,
         1,
@@ -2091,7 +2094,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog_category/blog_category_new_cancel_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog_category/blog_category_new_cancel_spec.rb": [
         1,
         null,
         1,
@@ -2107,7 +2110,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog_category/blog_category_new_error_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog_category/blog_category_new_error_spec.rb": [
         1,
         null,
         1,
@@ -2123,7 +2126,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog_category/blog_category_new_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog_category/blog_category_new_spec.rb": [
         1,
         null,
         1,
@@ -2141,7 +2144,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog_category/blog_category_view_index_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog_category/blog_category_view_index_spec.rb": [
         1,
         null,
         1,
@@ -2152,7 +2155,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog_comment/blog_comment_destroy_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog_comment/blog_comment_destroy_spec.rb": [
         1,
         null,
         1,
@@ -2167,7 +2170,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog_comment/blog_comment_edit_cancel_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog_comment/blog_comment_edit_cancel_spec.rb": [
         1,
         null,
         1,
@@ -2185,25 +2188,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog_comment/blog_comment_edit_error_spec.rb": [
-        1,
-        null,
-        1,
-        2,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog_comment/blog_comment_edit_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog_comment/blog_comment_edit_error_spec.rb": [
         1,
         null,
         1,
@@ -2221,37 +2206,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog_comment/blog_comment_new_cacel_spec.rb": [
-        1,
-        null,
-        1,
-        2,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog_comment/blog_comment_new_error_spec.rb": [
-        1,
-        null,
-        1,
-        2,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog_comment/blog_comment_new_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog_comment/blog_comment_edit_spec.rb": [
         1,
         null,
         1,
@@ -2265,38 +2220,11 @@
         1,
         1,
         1,
-        null,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog_comment/blog_comment_view_index_spec.rb": [
-        1,
-        null,
-        1,
-        2,
-        1,
-        1,
-        1,
         1,
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog_file/blog_file_destroy_spec.rb": [
-        1,
-        null,
-        1,
-        2,
-        2,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/blog_file/blog_file_index_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog_comment/blog_comment_new_cacel_spec.rb": [
         1,
         null,
         1,
@@ -2306,226 +2234,19 @@
         1,
         1,
         1,
-        null,
         1,
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/contact_me/contact_me_new_http_missing_body_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/contact_me/contact_me_new_http_missing_email_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/contact_me/contact_me_new_http_missing_name_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/contact_me/contact_me_new_http_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/contact_me/contact_me_new_xhr_missing_body_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/contact_me/contact_me_new_xhr_missing_email_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/contact_me/contact_me_new_xhr_missing_name_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/contact_me/contact_me_new_xhr_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/contact_me/contact_me_show_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/photo/photo_description_edit_spec.rb": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/photo/photo_destroy_spec.rb": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/photo/photo_invalid_create_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog_comment/blog_comment_new_error_spec.rb": [
         1,
         null,
         1,
         2,
-        2,
-        1,
-        1,
-        1,
-        1,
-        null,
         1,
         1,
         1,
         null,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/photo/photo_valid_create_spec.rb": [
-        1,
-        null,
-        1,
-        2,
-        2,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
         1,
         1,
         null,
@@ -2533,7 +2254,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/photo_album/photo_album_destroy_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog_comment/blog_comment_new_spec.rb": [
         1,
         null,
         1,
@@ -2546,19 +2267,15 @@
         1,
         1,
         1,
+        1,
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/photo_album/photo_album_invalid_create_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog_comment/blog_comment_view_index_spec.rb": [
         1,
         null,
         1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
+        2,
         1,
         1,
         1,
@@ -2566,7 +2283,23 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/photo_album/photo_album_invalid_edit_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/blog_file/blog_file_destroy_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/features/blog_file/blog_file_index_spec.rb": [
         1,
         null,
         1,
@@ -2578,13 +2311,248 @@
         1,
         null,
         1,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/features/contact_me/contact_me_new_http_missing_body_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/features/contact_me/contact_me_new_http_missing_email_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/features/contact_me/contact_me_new_http_missing_name_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/features/contact_me/contact_me_new_http_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/features/contact_me/contact_me_new_xhr_missing_body_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/features/contact_me/contact_me_new_xhr_missing_email_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/features/contact_me/contact_me_new_xhr_missing_name_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/features/contact_me/contact_me_new_xhr_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/features/contact_me/contact_me_show_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/features/photo/photo_description_edit_spec.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/features/photo/photo_destroy_spec.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/features/photo/photo_invalid_create_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        null,
         1,
         1,
         1,
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/photo_album/photo_album_valid_create_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/photo/photo_valid_create_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/features/photo_album/photo_album_destroy_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/features/photo_album/photo_album_invalid_create_spec.rb": [
         1,
         null,
         1,
@@ -2601,7 +2569,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/features/photo_album/photo_album_valid_edit_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/photo_album/photo_album_invalid_edit_spec.rb": [
         1,
         null,
         1,
@@ -2619,7 +2587,42 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/models/blog_category_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/features/photo_album/photo_album_valid_create_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/features/photo_album/photo_album_valid_edit_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/models/blog_category_spec.rb": [
         1,
         null,
         1,
@@ -2631,7 +2634,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/app/models/blog_category.rb": [
+      "/Users/vmcilwain/rails/vell/app/models/blog_category.rb": [
         1,
         1,
         null,
@@ -2642,11 +2645,11 @@
         1,
         null,
         1,
-        90,
+        92,
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/models/blog_comment_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/models/blog_comment_spec.rb": [
         1,
         null,
         1,
@@ -2656,14 +2659,14 @@
         2,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/app/models/blog_comment.rb": [
+      "/Users/vmcilwain/rails/vell/app/models/blog_comment.rb": [
         1,
         1,
         null,
         1,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/models/blog_file_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/models/blog_file_spec.rb": [
         1,
         null,
         1,
@@ -2672,7 +2675,7 @@
         2,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/app/models/blog_file.rb": [
+      "/Users/vmcilwain/rails/vell/app/models/blog_file.rb": [
         1,
         1,
         null,
@@ -2689,7 +2692,7 @@
         1,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/models/blog_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/models/blog_spec.rb": [
         1,
         null,
         1,
@@ -2701,7 +2704,7 @@
         2,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/app/models/blog.rb": [
+      "/Users/vmcilwain/rails/vell/app/models/blog.rb": [
         1,
         1,
         null,
@@ -2715,7 +2718,7 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/models/contact_me_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/models/contact_me_spec.rb": [
         1,
         null,
         1,
@@ -2724,12 +2727,12 @@
         2,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/app/models/contact_me.rb": [
+      "/Users/vmcilwain/rails/vell/app/models/contact_me.rb": [
         1,
         1,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/models/photo_album_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/models/photo_album_spec.rb": [
         1,
         null,
         1,
@@ -2737,14 +2740,14 @@
         2,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/app/models/photo_album.rb": [
+      "/Users/vmcilwain/rails/vell/app/models/photo_album.rb": [
         1,
         1,
         1,
         1,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/models/photo_comment_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/models/photo_comment_spec.rb": [
         1,
         null,
         1,
@@ -2755,13 +2758,13 @@
         2,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/app/models/photo_comment.rb": [
+      "/Users/vmcilwain/rails/vell/app/models/photo_comment.rb": [
         1,
         1,
         1,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/models/photo_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/models/photo_spec.rb": [
         1,
         null,
         1,
@@ -2772,7 +2775,7 @@
         2,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/app/models/photo.rb": [
+      "/Users/vmcilwain/rails/vell/app/models/photo.rb": [
         1,
         1,
         null,
@@ -2787,10 +2790,11 @@
         1,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/models/tinyurl_service_spec.rb": [
+      "/Users/vmcilwain/rails/vell/spec/models/twitter_service_spec.rb": [
         1,
         null,
         1,
+        3,
         3,
         null,
         1,
@@ -2804,11 +2808,15 @@
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/app/models/tinyurl_service.rb": [
+      "/Users/vmcilwain/rails/vell/app/models/twitter_service.rb": [
         1,
         1,
         1,
         1,
+        null,
+        1,
+        10,
+        null,
         null,
         1,
         9,
@@ -2818,96 +2826,106 @@
         8,
         null,
         null,
+        1,
         null,
-        null,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/fabricators/blog.rb": [
         1,
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/fabricators/blog_category.rb": [
-        1,
-        1,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/fabricators/blog_comment.rb": [
-        1,
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/fabricators/blog_file.rb": [
-        1,
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/fabricators/contact_me.rb": [
-        1,
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/fabricators/home.rb": [
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/app/models/home.rb": [
-        1,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/fabricators/photo.rb": [
-        1,
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/fabricators/photo_album.rb": [
-        1,
-        1,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/fabricators/photo_comment.rb": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/spec/fabricators/user.rb": [
-        1,
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/vmcilwain/Desktop/home/vell/app/mailers/notify.rb": [
-        1,
-        1,
-        7,
-        7,
-        7,
+        9,
         null,
         null,
         1,
+        9,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/fabricators/blog.rb": [
+        1,
+        2,
+        2,
+        2,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/fabricators/blog_category.rb": [
+        1,
+        2,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/fabricators/blog_comment.rb": [
+        1,
+        2,
+        2,
+        2,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/fabricators/blog_file.rb": [
+        1,
+        2,
+        2,
+        2,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/fabricators/contact_me.rb": [
+        1,
+        2,
+        2,
+        2,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/fabricators/home.rb": [
+        1,
+        0,
+        0,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/fabricators/photo.rb": [
+        1,
+        2,
+        2,
+        2,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/fabricators/photo_album.rb": [
+        1,
+        2,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/fabricators/photo_comment.rb": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/spec/fabricators/user.rb": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        null
+      ],
+      "/Users/vmcilwain/rails/vell/app/mailers/notify.rb": [
+        1,
+        1,
+        7,
+        7,
+        7,
+        null,
+        null,
+        1,
         7,
         7,
         7,
         null,
         null
       ],
-      "/Users/vmcilwain/Desktop/home/vell/app/mailers/application_mailer.rb": [
+      "/Users/vmcilwain/rails/vell/app/mailers/application_mailer.rb": [
         1,
         1,
         1,
@@ -2916,6 +2934,6 @@
         null
       ]
     },
-    "timestamp": 1426854402
+    "timestamp": 1430785837
   }
 }

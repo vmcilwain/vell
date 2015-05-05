@@ -1,5 +1,5 @@
 class TwitterService
-  attr_reader :blog, :tiny_url
+  attr_reader :blog, :message
   include HTTParty
   base_uri 'http://tinyurl.com'
     
@@ -18,7 +18,7 @@ class TwitterService
   private
   
   def blog_url
-    "http://lovell.direct.com/blogs/#{@blog.id}"
+    "http://www.lovell.direct/blogs/#{@blog.id}"
   end
   
   def tiny_url

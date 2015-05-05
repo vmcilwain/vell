@@ -1,7 +1,7 @@
 class BlogFile < ActiveRecord::Base
   belongs_to :blog
   
-  has_attached_file :doc, path: "#{Rails.env}/blog_files/:id/:basename.:extension"#, styles: {
+  has_attached_file :doc#, path: "#{Rails.env}/blog_files/:id/:basename.:extension"#, styles: {
      # thumb: '100x100>',
 #      square: '200x200#',
 #      medium: '300x300>'

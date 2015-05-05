@@ -3,7 +3,7 @@ class Photo < ActiveRecord::Base
   
   validates :photo_album_id, :document, presence: true
   
-  has_attached_file :document, path: "#{Rails.env}/photos/:id/:basename.:extension", :styles => { :medium => "300x300>", :thumb => "100x100>" }#, :default_url => "/images/:style/missing.png"
+  has_attached_file :document#, path: "#{Rails.env}/photos/:id/:basename.:extension", :styles => { :medium => "300x300>", :thumb => "100x100>" }#, :default_url => "/images/:style/missing.png"
   
   validates_attachment_content_type :document, :content_type => ALLOWABLE_IMAGES
   

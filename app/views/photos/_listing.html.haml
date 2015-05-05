@@ -5,7 +5,7 @@
         .col-xs-4
           .row
             %div{id: "notification_photo_#{photo.id}"}
-            =link_to image_tag(photo.document.url, width: '200px'), photo.document.url, target: 'blank'
+            =image_tag(photo.document.url, width: '200px')
           .row
             %div{id: "edit_photo_#{photo.id}"}
               =photo.description

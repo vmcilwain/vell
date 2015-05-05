@@ -5,7 +5,7 @@ feature 'viewing blogs index' do
     blog
     
     visit "/"
-    click_link 'Blogs'
+    click_link 'Blog'
     expect(page).to have_link blog.headline
     
     click_link blog.headline
