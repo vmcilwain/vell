@@ -38,7 +38,7 @@ Rails.application.configure do
   
   config.paperclip_defaults = {
     storage: :filesytem,
-    path: CONFIG[:attachment_path,
+    path: "#{Rails.root}/tmp/:class/:id/:basename.:extension",
       :styles => { 
         :medium => "300x300>", 
         :thumb => "100x100>" 

@@ -40,7 +40,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
   config.paperclip_defaults = {
     storage: :filesystem,
-    path: CONFIG[:attachment_path],
+    path: "#{Rails.root}/tmp/:class/:id/:basename.:extension",
     :styles => { 
       :medium => "300x300>", 
       :thumb => "100x100>" 

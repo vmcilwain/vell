@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2'
 
@@ -39,7 +39,7 @@ group :development do
   gem 'capistrano-rvm'
 end
 
- gem 'simple_auth_engine', git: 'https://github.com/vmcilwain/simple_auth_gem.git'
+ gem 'simple_auth_engine', git: 'https://github.com/vmcilwain/simple_auth_engine.git', tag: '0.0.2'
 
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
