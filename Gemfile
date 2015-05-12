@@ -4,10 +4,8 @@ ruby '2.2.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
-# gem 'sqlite3'
 gem 'mysql2'
 
-gem 'rails_12factor', group: :production
 # Use SCSS for stylesheets
 # gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -41,10 +39,7 @@ group :development do
   gem 'capistrano-rvm'
 end
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
- gem 'simple_auth_engine', git: 'https://github.com/vmcilwain/simple_auth_gem'
+ gem 'simple_auth_engine', git: 'https://github.com/vmcilwain/simple_auth_gem.git'
 
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
