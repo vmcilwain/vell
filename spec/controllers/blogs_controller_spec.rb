@@ -99,6 +99,19 @@ describe BlogsController do
         expect(flash[:error]).to_not be_nil
       end
     end
+    
+    # context 'not sending to twitter' do
+    #   let(:user) {Fabricate :user}
+    #   before do
+    #     add_user_to_role(user, 'administrator')
+    #     session[:user_id] = user.id
+    #     post :create, blog: {blog_category_id: 1, body: Faker::Lorem.words(25).join("\s"), to_twitter: true}
+    #   end
+    #
+    #   it 'redirects to :show'
+    #   it 'sets @blog'
+    #   it 'sets flash[:success]'
+    # end
   end
   
   describe 'GET edit' do

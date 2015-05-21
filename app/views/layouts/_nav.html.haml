@@ -23,8 +23,8 @@
       / -if request.ssl?
       %ul{class: "nav navbar-nav navbar-right"}
         -if current_user
-          %li
-            =link_to fa_icon('sign-out', text: current_user.full_name), simple_auth_engine.sign_out_path
+          %li #{link_to fa_icon('sign-out', text: current_user.full_name), simple_auth_engine.sign_out_path}
+          %li #{link_to :Admin, simple_auth_engine.admin_path}
         -else
           %li
             =link_to fa_icon('sign-in', text: 'Sign In'), simple_auth_engine.sign_in_path

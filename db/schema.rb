@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512214414) do
+ActiveRecord::Schema.define(version: 20150521193021) do
 
   create_table "blog_categories", force: :cascade do |t|
     t.string  "name",    limit: 255
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20150512214414) do
     t.text     "body",             limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "to_twitter",       limit: 1,     default: false
   end
 
   create_table "contact_mes", force: :cascade do |t|

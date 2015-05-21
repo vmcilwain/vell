@@ -8,7 +8,7 @@ ALLOWABLE_APPLICATIONS = ["application/vnd.oasis.opendocument.text",
 "application/vnd.ms-powerpoint",
 "application/vnd.openxmlformats-officedocument.presentationml.presentation",
 "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-"application/vnd.ms-word", "application/pdf", "text/plain"]
+"application/vnd.ms-word", "application/pdf", "text/plain", "application/zip", "application/octet-stream"]
 
 FADE_OUT_TIME = 3000
 

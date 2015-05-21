@@ -17,7 +17,9 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
     if @blog.save
-      TwitterService.new(@blog).update unless Rails.env.development?
+      if @blog.to_twitter
+        TwitterService.new(@blog).update unless Rails.env.development?
+      end
       flash[:success] = 'Blog created!'
       redirect_to @blog
     else
@@ -53,6 +55,6 @@ class BlogsController < ApplicationController
   end
   
   def blog_params
-    params.require(:blog).permit(:blog_category_id, :headline, :body, blog_files_attributes: [:id, :blog_id, :description, :doc])
+    params.require(:blog).permit(:blog_category_id, :headline, :body, :to_twitter, blog_files_attributes: [:id, :blog_id, :description, :doc])
   end
 end
