@@ -9,8 +9,8 @@
 lock '3.4.0'
 
 set :application, 'vell'
-# set :repo_url, 'git@github.com:vmcilwain/vell.git'
-set :repo_url, 'git@bitbucket.org:vmcilwain/lovell.git'
+set :repo_url, 'git@github.com:vmcilwain/vell.git'
+# set :repo_url, 'git@bitbucket.org:vmcilwain/lovell.git'
 
 # Default branch is :master
 ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
