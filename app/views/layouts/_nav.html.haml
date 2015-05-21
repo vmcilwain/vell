@@ -14,7 +14,7 @@
         %li #{link_to fa_icon('eye', text: 'About Me'), main_app.about_path}
         %li #{link_to fa_icon('envelope', text: 'Contact Me'), main_app.new_contact_me_path}
         %li #{link_to fa_icon('book', text: 'Blog'), main_app.blogs_path}
-        %li #{link_to fa_icon('camera', text: 'Photo Album'), main_app.photo_albums_path}
+        %li #{link_to fa_icon('camera', text: 'Photo Album'), main_app.photo_albums_path unless Rails.env.production?}
         -if current_user && current_user.has_role?('administrator')
           %li #{link_to fa_icon('folder', text: 'Blog Categories'), main_app.blog_categories_path}
           %li #{link_to fa_icon('comments', text: 'Blog Comments'), main_app.blog_comments_path}

@@ -37,7 +37,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :letter_opener
   
   config.paperclip_defaults = {
-    storage: :filesytem,
+    storage: :filesystem,
     path: "#{Rails.root}/tmp/:class/:id/:basename.:extension",
       :styles => { 
         :medium => "300x300>", 

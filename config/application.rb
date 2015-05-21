@@ -10,6 +10,8 @@ CONFIG = YAML.load(File.read(File.expand_path('../application.yml', __FILE__)))
 CONFIG.merge! CONFIG.fetch(Rails.env, {})
 CONFIG.symbolize_keys!
 
+Paperclip.options[:command_path] = "/usr/local/bin/"
+
 module Vextranet
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

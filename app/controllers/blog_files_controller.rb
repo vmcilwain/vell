@@ -42,7 +42,7 @@ class BlogFilesController < ApplicationController
   end
   
   def download
-    send_file(@blog_file.document.path, type: @blog_file.document_content_type, x_sendfile: true) if File.exists? @blog_file.document.path
+    send_file(@blog_file.doc.path, type: @blog_file.doc_content_type, x_sendfile: true) if File.exists? @blog_file.doc.path
   end
   
   private
