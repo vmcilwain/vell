@@ -6,7 +6,7 @@ class BlogsController < ApplicationController
   
   def index
     @q = Blog.ransack(params[:q])
-    @blogs = @q.result.paginate(:page => params[:page], :per_page => 15)
+    @blogs = @q.result.order('created_at desc').paginate(:page => params[:page], :per_page => 15)
   end
   
   def new
