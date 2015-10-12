@@ -45,7 +45,6 @@ end
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
 gem "haml-rails"
-gem "puma"
 gem 'jquery-turbolinks'
 gem "ransack"
 gem 'twitter'
