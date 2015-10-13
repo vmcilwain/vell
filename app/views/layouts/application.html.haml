@@ -1,15 +1,93 @@
-%html
+/ %html
+/   %head
+/     %meta{'http-equiv' => "content-type", content: "text/html;charset=utf-8"}
+/     %meta{name: "author", content: "Lovell McIlwain"}
+/     %meta{name: 'description', content: 'The professional site for Vell McIlwain. A Ruby and Ruby on Rails developer in the D.C. Metropolitan area. You will laaugh. You will cry. You will want to keep reading hopefully.'}
+/     %meta{name: "ROBOTS", content: "INDEX, NOFOLLOW"}
+/     %title Lovell
+/     =stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+/     =javascript_include_tag 'application', 'data-turbolinks-track' => true
+/     =csrf_meta_tags
+/ %body{role: 'document'}
+/   =render 'layouts/nav'
+/   %div{class: "container theme-showcase", role: "main"}
+/     =yield
+/   =render 'layouts/footer'
+  
+!!!
+/[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7">
+/[if IE 7] <html class="no-js lt-ie9 lt-ie8">
+/[if IE 8] <html class="no-js lt-ie9">
+/ [if gt IE 8]><!
+%html.no-js
+  / <![endif]
   %head
-    %meta{'http-equiv' => "content-type", content: "text/html;charset=utf-8"}
-    %meta{name: "author", content: "Lovell McIlwain"}
-    %meta{name: 'description', content: 'The professional site for Vell McIlwain. A Ruby and Ruby on Rails developer in the D.C. Metropolitan area. You will laaugh. You will cry. You will want to keep reading hopefully.'}
-    %meta{name: "ROBOTS", content: "INDEX, NOFOLLOW"}
-    %title Lovell
-    =stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    =javascript_include_tag 'application', 'data-turbolinks-track' => true
-    =csrf_meta_tags
-%body{role: 'document'}
-  =render 'layouts/nav'
-  %div{class: "container theme-showcase", role: "main"}
-    =yield
-  =render 'layouts/footer'
+    %meta{:charset => "utf-8"}
+      %title Tales - Blog
+      %meta{:content => "", :name => "description"}
+        %meta{:content => "width=device-width", :name => "viewport"}
+          / / Bootstrap styles
+          / %link{:href => "css/vendor/bootstrap/bootstrap.min.css", :rel => "stylesheet"}
+          /   %link{:href => "css/vendor/bootstrap/bootstrap-theme.min.css", :rel => "stylesheet"}
+          /     / Font-Awesome
+          /     %link{:href => "css/vendor/font-awesome/font-awesome.min.css", :rel => "stylesheet"}
+          /       / Google Webfonts
+          %link{:href => "http://fonts.googleapis.com/css?family=Open+Sans:400,600|PT+Serif:400,400italic", :rel => "stylesheet", :type => "text/css"}
+          / Styles
+          / %link#theme-styles{:href => "css/styles-bluegreen.css", :rel => "stylesheet"}
+          /[if lt IE 9]
+            <script src="js/vendor/google/html5-3.6-respond-1.1.0.min.js"></script>
+          %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"}
+          :javascript
+            window.jQuery || document.write('<\/script>')
+                %body
+    =yield      
+
+    %footer
+      .widewrapper.footer
+        .container
+          .row
+            .col-md-4.footer-widget
+              %h3
+                %i.fa.fa-cog>
+                Statistics
+              %span Even we sometimes loose track of how many articles we actually have here.  This one helps:
+              .stats
+                .line
+                  %span.counter 27
+                  %span.caption Articles
+                .line
+                  %span.counter 208
+                  %span.caption Comments
+                .line
+                  %span.counter 2
+                  %span.caption Authors
+            .col-md-4.footer-widget
+              %h3
+                %i.fa.fa-star
+                Hall of Fame
+              %ul.tales-list
+                %li
+                  %a{:href => "index.html"} Why we Need to Encrypt All Communication
+                %li
+                  %a{:href => "#"} Selling is a Function of Design. Not Vice-Versa.
+                %li
+                  %a{:href => "#"} It’s Hard To Come Up With Dummy Titles
+                %li
+                  %a{:href => "#"} Why the Internet is Full of Cats
+                %li
+                  %a{:href => "#"} Last Made-Up Headline, I Swear!
+            .col-md-4.footer-widget
+              %h3
+                %i.fa.fa-envelope>
+                Contact Me
+              %span I'm happy to hear from my readers. Thoughts, feedback, critique - all welcome! Drop me a line:
+              %span.email
+                %a{:href => "#"}> jimmy@notanactualemail.com
+                , PGP key 0x5AK0BEA1
+      .widewrapper.copyright
+        .container
+          Designed by
+          %a{:href => "http://hackerthemes.com"} HackerThemes
+    %script{:src => "js/vendor/bootstrap/bootstrap.min.js"}
+    %script{:src => "js/vendor/modernizr/modernizr.js"}
