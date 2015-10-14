@@ -11,32 +11,32 @@
         > li {
             margin-left:10px;
             > a {
-                color:@navigation-link;
+                color:$navigation-link;
                 padding:11px 16px;
                 line-height:14px;
 
                 &:hover, &:focus {
-                    background-color: @navigation-active-background;
+                    background-color: $navigation-active-background;
                 }
             }
             &.dropdown.open.active {
                 > a:hover, > a:focus {            
-                    background-color: @navigation-active-background;
+                    background-color: $navigation-active-background;
                 }
             }
         }
 
         .open {
             .dropdown-toggle {
-                background-color: @navigation-active-background;
+                background-color: $navigation-active-background;
             }
         }
         > .active {
             > a {
-                background-color: @navigation-active-background;
+                background-color: $navigation-active-background;
 
                 &:hover, &:focus {
-                    background-color: @navigation-active-background;
+                    background-color: $navigation-active-background;
                 }
             }
         }
@@ -48,7 +48,7 @@
     }
 
     .caret {
-        border-color:@navigation-link transparent transparent transparent !important;
+        border-color:$navigation-link transparent transparent transparent !important;
         display:none; // Comment this if you want carets in the desktop nav as well.
     }
 
@@ -60,25 +60,25 @@
 
 
     .dropdown-menu {
-        background-color: @navigation-dropdown-background;
+        background-color: $navigation-dropdown-background;
         border-color:transparent; /*IE 8 Legacy */
-        border: 1px solid @navigation-dropdown-border;
-        .box-shadow(0 5px 10px @navigation-dropdown-shadow);
+        border: 1px solid $navigation-dropdown-border;
+        @include box-shadow(0 5px 10px $navigation-dropdown-shadow);
         margin: 2px 0 0;
         min-width: 160px;
         padding: 5px 0;
 
         > li {
             > a {
-                color: @navigation-dropdown-link;
+                color: $navigation-dropdown-link;
                 line-height: 30px;
                 white-space: nowrap;
 
                 &:hover, &:focus {
-                    background-color: @navigation-dropdown-hover-legacy; // IE8 doesn't support rgba() etc.
-                    background-color: @navigation-dropdown-hover;
+                    background-color: $navigation-dropdown-hover-legacy; // IE8 doesn't support rgba() etc.
+                    background-color: $navigation-dropdown-hover;
                     background-image: none;
-                    color: @navigation-dropdown-link;
+                    color: $navigation-dropdown-link;
                     filter: none;
                 }
             }
@@ -99,7 +99,7 @@
     display:none;
     margin-top:10px;
 
-    @media @smaller {
+    @media $smaller {
         display:block;
     }
 
@@ -108,14 +108,14 @@
     }
 
     .fa {
-        color:@masthead-text;
+        color:$masthead-text;
     }
 }
 
 /* Mobile version of the navigation */
 
 
-@media @smaller {
+@media $smaller {
 
     .masthead {
         padding-bottom:0px;
@@ -123,14 +123,14 @@
 
     .tales-nav {
         box-shadow:none;
-        background-color: @mobilenav-background; 
+        background-color: $mobilenav-background; 
         float:left !important;
         width:100%;
        
         margin-top:30px;
         margin-bottom:20px;
 
-        .border-radius(6px);
+        @include border-radius(6px);
 
         .navbar-collapse {
             max-height: none;
@@ -141,7 +141,7 @@
                 margin-left:0;
                 float:none;                
                 > a {
-                    // border-top:@mobilenav-line 1px solid;
+                    // border-top:$mobilenav-line 1px solid;
                     margin-left: 40px;
                     margin-right: 40px;                    
                 }
@@ -152,7 +152,7 @@
                     line-height:30px;
                     padding-left: 10px;
                     padding-right: 10px;
-                    .border-radius(0px);
+                    @include border-radius(0px);
                 }
 
                 &:first-child {
@@ -180,7 +180,7 @@
 
             .open .dropdown-toggle {
                 background-color: transparent;
-                border-color:@mobilenav-line;
+                border-color:$mobilenav-line;
                 padding-bottom:7px;
             }
 
@@ -192,12 +192,12 @@
 
             }
             .dropdown-menu {
-                background-color: @mobilenav-active-background;
+                background-color: $mobilenav-active-background;
             }
 
             .dropdown {
                 &.open {
-                    background-color: @mobilenav-active-background;
+                    background-color: $mobilenav-active-background;
                     .dropdown-toggle {
                         
                     }
@@ -206,7 +206,7 @@
         }
 
         .caret {
-            border-color:@mobilenav-link transparent transparent transparent !important;
+            border-color:$mobilenav-link transparent transparent transparent !important;
             border-width:6px;
             display:block;
         }
@@ -214,7 +214,7 @@
         .dropdown-menu {
             margin-top:0;
             padding-top: 0;
-            .box-shadow(none);
+            @include box-shadow(none);
             border:none;
 
             > li {

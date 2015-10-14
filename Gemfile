@@ -7,7 +7,8 @@ gem 'rails', '4.2.1'
 gem 'mysql2'
 
 # Use SCSS for stylesheets
-# gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0.3'
+gem 'less-rails', '~> 2.7.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -55,7 +56,7 @@ gem 'remotipart', '~> 1.2'
 gem 'will_paginate', '~> 3.0.6'
 gem 'letter_opener', group: [:development]
 gem "font-awesome-rails"
-gem 'less'
+# gem 'less-rails', '~> 2.7.0'
 group :test do
   gem "rspec-rails"
   gem "rails-erd"

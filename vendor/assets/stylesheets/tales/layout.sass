@@ -13,43 +13,43 @@
 
 /* Widewrappers that span the whole width of the page */
 .widewrapper {
-    background-color: @background;
+    background-color: $background;
     
     &.main {
-        .box-shadow(inset 1px 3px 1px -2px @background-shadow);    
+        @include box-shadow(inset 1px 3px 1px -2px $background-shadow);    
     }
 
     &.masthead {
-        background-color:@masthead-background;
-        color:@masthead-text;
+        background-color:$masthead-background;
+        color:$masthead-text;
     }
     
     &.subheader {
-        background-color:@subheader-background;
-        color:@subheader-text; //Breadcrumb is separately defined in elements.less
+        background-color:$subheader-background;
+        color:$subheader-text; //Breadcrumb is separately defined in elements.sass
         font-size:16px;
         min-height: 63px
     }
 
     &.footer {
-        background-color:@footer-background;
-        color:@footer-text;
+        background-color:$footer-background;
+        color:$footer-text;
 
         font-size:14px;
 
         a {
-            color:@footer-link;
+            color:$footer-link;
         }
         h1, h2, h3, h4, h5 {
-            color:@footer-heading;
+            color:$footer-heading;
         }
     }
 
     &.copyright {
-        background-color:@copyright-background;
-        color:@copyright-text;
+        background-color:$copyright-background;
+        color:$copyright-text;
         a {
-            color:lighten(@copyright-text, 15%);
+            color:lighten($copyright-text, 15%);
         }
         padding-top:15px;
         padding-bottom:15px;
