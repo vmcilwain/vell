@@ -1,19 +1,3 @@
-/ %html
-/   %head
-/     %meta{'http-equiv' => "content-type", content: "text/html;charset=utf-8"}
-/     %meta{name: "author", content: "Lovell McIlwain"}
-/     %meta{name: 'description', content: 'The professional site for Vell McIlwain. A Ruby and Ruby on Rails developer in the D.C. Metropolitan area. You will laaugh. You will cry. You will want to keep reading hopefully.'}
-/     %meta{name: "ROBOTS", content: "INDEX, NOFOLLOW"}
-/     %title Lovell
-/     =stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-/     =javascript_include_tag 'application', 'data-turbolinks-track' => true
-/     =csrf_meta_tags
-/ %body{role: 'document'}
-/   =render 'layouts/nav'
-/   %div{class: "container theme-showcase", role: "main"}
-/     =yield
-/   =render 'layouts/footer'
-  
 !!!
 /[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7">
 /[if IE 7] <html class="no-js lt-ie9 lt-ie8">
@@ -22,16 +6,41 @@
 %html.no-js
   / <![endif]
   %head
-    %meta{:charset => "utf-8"}
     %meta{'http-equiv' => "content-type", content: "text/html;charset=utf-8"}
     %meta{name: "author", content: "Lovell McIlwain"}
     %meta{name: 'description', content: 'The professional site for Vell McIlwain. A Ruby and Ruby on Rails developer in the D.C. Metropolitan area. You will laaugh. You will cry. You will want to keep reading hopefully.'}
-    %meta{:content => "width=device-width", :name => "viewport"}
+    %meta{name: "ROBOTS", content: "INDEX, NOFOLLOW"}
     %title Lovell
-    =stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-  %body
-    =yield      
-
+    %link{:href => "http://fonts.googleapis.com/css?family=Open+Sans:400,600|PT+Serif:400,400italic", :rel => "stylesheet", :type => "text/css"}
+    =stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    =javascript_include_tag 'application', 'data-turbolinks-track' => true
+    =csrf_meta_tags
+%body{role: 'document'}
+  %header
+    .widewrapper.masthead
+      .container
+        %a#logo{:href => "index.html"}
+          =image_tag('tales/tales-logo.png', alt: 'Tales Logo')
+        #mobile-nav-toggle.pull-right
+          %a{"data-target" => ".tales-nav .navbar-collapse", "data-toggle" => "collapse", :href => "#"}
+            %i.fa.fa-bars
+        %nav.pull-right.tales-nav
+          .collapse.navbar-collapse
+            %ul.nav.nav-pills.navbar-nav
+              %li.dropdown.active
+                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                  Blog
+                  %b.caret
+                %ul.dropdown-menu
+                  %li
+                    %a{:href => "index.html"} Blog
+                  %li
+                    %a{:href => "blog-detail.html"} Blog Detail
+              %li
+                %a{:href => "about.html"} About
+              %li
+                %a{:href => "credits.html"} Credits
+  =yield
   %footer
     .widewrapper.footer
       .container
@@ -78,5 +87,3 @@
       .container
         Designed by
         %a{:href => "http://hackerthemes.com"} HackerThemes
-  %script{:src => "js/vendor/bootstrap/bootstrap.min.js"}
-  %script{:src => "js/vendor/modernizr/modernizr.js"}

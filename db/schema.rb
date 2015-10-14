@@ -13,33 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150521193021) do
 
-  create_table "authenticatable_roles", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.string   "description", limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "authenticatable_roles_users", id: false, force: :cascade do |t|
-    t.integer "role_id", limit: 4
-    t.integer "user_id", limit: 4
-  end
-
-  create_table "authenticatable_security_keys", force: :cascade do |t|
-    t.integer "user_id",         limit: 4
-    t.string  "key",             limit: 255
-    t.date    "expiration_date"
-  end
-
-  create_table "authenticatable_users", force: :cascade do |t|
-    t.string   "full_name",  limit: 255
-    t.string   "email",      limit: 255
-    t.string   "password",   limit: 255
-    t.string   "salt",       limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "blog_categories", force: :cascade do |t|
     t.string  "name",    limit: 255
     t.boolean "enabled", limit: 1
