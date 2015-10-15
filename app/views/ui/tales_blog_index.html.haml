@@ -1,0 +1,50 @@
+.widewrapper.main
+  .container
+    %header
+      %h1 Blogs
+    =link_to 'New Blog', '#', class: 'btn btn-default'
+    =link_to 'Search Posts', '#', class: 'btn btn-default search_form_link'
+    %div{class: 'search_form'}
+      %h1 Search Posts
+      %form.contact-form
+        .form-group
+        %input{type: 'text', placeholder: 'Blog Headline', class: 'form-control'}
+        %br
+        %input{type: 'text', placeholder: 'Content', class: 'form-control'}
+        %br
+        %input{type: 'text', placeholder: 'Created On', class: 'form-control'}
+        %br
+        %input{type: 'text', placeholder: 'Commented By', class: 'form-control'}
+        %br
+        %input{type: 'text', placeholder: 'Commented Content', class: 'form-control'}
+        %br
+        %input{type: 'text', placeholder: 'Commented On', class: 'form-control'}
+        %br
+        .form-group
+          %input{type: 'submit', value: 'Search'} #{link_to 'Cancel', '#', class: 'btn btn-danger cancel_search_form_link'}
+    %hr
+    -8.times do
+      .row
+        .col-md-8.blog-main
+          %article.blog-post
+            %header
+              %h1 #{Faker::Lorem.words(5).join("\s") }
+            .lead-image
+              .meta.clearfix
+                .author
+                  %i.fa.fa-user
+                  %span.data #{Faker::Name.name}
+                .date
+                  %i.fa.fa-calendar
+                  %span.data 26 July 2013
+                .comments
+                  %i.fa.fa-comments
+                  %span.data
+                    =link_to '26 Comments', '#'
+                .files
+                  %i.fa.fa-file-text
+                  %span.data
+                    =link_to '0 Files', '#'
+            %p
+              =Faker::Lorem.paragraphs(1).join("\s")
+              &nbsp; #{link_to 'Read More', '#'}

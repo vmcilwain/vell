@@ -1,0 +1,17 @@
+.widewrapper.main
+  .container
+    %header
+      %h1 Create / Edit Blog
+    %form
+      .form-group
+        =select_tag "credit_card", options_for_select([ "Option 1", "Option 2" ]), include_blank: true
+
+      .form-group
+        =text_field_tag :headline, nil, size: 18, placeholder: 'Headline', class: 'form-control'
+      .form-group
+        =text_area_tag :body, nil, placeholder: 'Details', rows: 10, class: 'form-control'
+      .form-group
+        %input{type: 'file'}
+      .form-group
+        %input{type: "submit", value: "Submit"}
+        =link_to 'Cancel', '#', class: 'btn btn-danger'
