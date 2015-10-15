@@ -40,6 +40,19 @@
                 %a{:href => "about.html"} About
               %li
                 %a{:href => "credits.html"} Credits
+    .widewrapper.subheader
+      .container
+        .tales-breadcrumb
+          %a{:href => "#"} Blog
+          %span.separator /
+          %a{:href => "#"} Security
+          %span.separator /
+          %a{:href => "#"} My Insightful Article
+        .tales-searchbox
+          %form{"accept-charset" => "utf-8", :action => "#", :method => "get"}
+            %button.searchbutton{:type => "submit"}
+              %i.fa.fa-search
+            %input#searchbox.searchfield{:placeholder => "Search", :type => "text"}
   =yield
   %footer
     .widewrapper.footer
