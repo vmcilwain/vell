@@ -1,0 +1,10 @@
+.widewrapper.main
+  .container
+    %header
+      %h1 Create /Edit Category
+    %form
+      .form-group
+        =text_field_tag :name, nil, size: 18, placeholder: 'Category Name', class: 'form-control'
+      .form-group
+      %input{type: "submit", value: "Submit"}
+      =link_to 'Cancel', '#', class: 'btn btn-danger'

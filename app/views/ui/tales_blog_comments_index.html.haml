@@ -1,0 +1,26 @@
+%div{class: 'container'}
+  %div{class: 'master_links'}
+    =link_to 'Blog Listing', '#'
+  %h1{class: 'title'} Blog Comment Listing
+  %div{class: 'search_form'}
+    %h1 Search Blog Comments
+    %form
+      %input{type: 'text', placeholder: 'Blog Headline'}
+      %br
+      %input{type: 'text', placeholder: 'Content'}
+      %br
+      %input{type: 'text', placeholder: 'Created On'}
+      %br
+      %div{class: 'actions'}
+        %input{type: 'submit', value: 'Search'} #{link_to 'Cancel', '#', class: 'cancel_search_form_link'}
+  =link_to 'Search Comments', '#', class: 'search_form_link'
+  %hr
+  -10.times do
+    %div{class: 'listing'}
+      %h1 #{link_to Faker::Lorem.words(4).join("\s"), '#'}
+      %p
+        #{Faker::Name.name} wrote on #{Date.today}:
+        %br
+        =Faker::Lorem.words(5).join("\s")
+        %div{class: 'master_links'}
+          #{link_to 'Edit', '#'} |  #{link_to 'Destroy', '#'}
