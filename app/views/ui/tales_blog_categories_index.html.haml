@@ -1,0 +1,28 @@
+.widewrapper.main
+  .container
+    .page-header
+      %header
+        %h1 Blogs
+      =link_to 'New Blog Category', '#', class: 'btn btn-default'
+      =link_to 'Search Categories', '#', class: 'btn btn-default search_form_link'
+    
+    .search_form
+      %header
+        %h1 Search Blog Categories
+      %form
+        .form-group
+          =text_field_tag :name, nil, placeholder: 'Name', class: 'form-control'
+        .form-group
+          =text_field_tag :created_at, nil, placeholder: 'Created On', class: 'form-control'
+        .form-group
+          =submit_tag 'Search', class: 'btn btn-default'
+          =link_to 'Cancel', '#', class: 'cancel_search_form_link btn btn-danger'
+
+    -8.times do
+      .row
+        .col-md-3
+          %h4 #{link_to Faker::Lorem.words(1).join("\s"), '#'}
+        .col-md-1
+          =link_to 'Edit', '#', class: 'btn btn-default'
+        .col-md-1
+          =link_to 'Delete', '#', class: 'btn btn-danger'

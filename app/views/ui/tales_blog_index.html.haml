@@ -1,27 +1,30 @@
 .widewrapper.main
   .container
-    %header
-      %h1 Blogs
-    =link_to 'New Blog', '#', class: 'btn btn-default'
-    =link_to 'Search Posts', '#', class: 'btn btn-default search_form_link'
-    %div{class: 'search_form'}
-      %h1 Search Posts
-      %form.contact-form
+    .page-header
+      %header
+        %h1 Blogs
+      =link_to 'New Blog', '#', class: 'btn btn-default'
+      =link_to 'Search Posts', '#', class: 'btn btn-default search_form_link'
+      %div{class: 'search_form'}
+    .search_form
+      %form
+        %header
+          %h1 Search Posts
         .form-group
-        %input{type: 'text', placeholder: 'Blog Headline', class: 'form-control'}
-        %br
-        %input{type: 'text', placeholder: 'Content', class: 'form-control'}
-        %br
-        %input{type: 'text', placeholder: 'Created On', class: 'form-control'}
-        %br
-        %input{type: 'text', placeholder: 'Commented By', class: 'form-control'}
-        %br
-        %input{type: 'text', placeholder: 'Commented Content', class: 'form-control'}
-        %br
-        %input{type: 'text', placeholder: 'Commented On', class: 'form-control'}
-        %br
+          =text_field_tag :headline, nil, placeholder: 'Blog Headline', class: 'form-control'
         .form-group
-          %input{type: 'submit', value: 'Search'} #{link_to 'Cancel', '#', class: 'btn btn-danger cancel_search_form_link'}
+          =text_field_tag :content, nil, placeholder: 'Content', class: 'form-control'
+        .form-group
+          =text_field_tag :created_at, nil, placeholder: 'Created On', class: 'form-control'
+        .form-group
+          =text_field_tag :commenter, nil, placeholder: 'Commented By', class: 'form-control'
+        .form-group
+          =text_field_tag :comment_content, nil, placeholder: 'Commenter Comment', class: 'form-control'
+        .form-group
+          =text_field_tag :comment_created_at, nil, placeholder: 'Commented Created On', class: 'form-control'
+        .form-group
+          =submit_tag 'Search', class: 'btn btn-default'
+          =link_to 'Cancel', '#', class: 'btn btn-danger cancel_search_form_link'
     %hr
     -8.times do
       .row
