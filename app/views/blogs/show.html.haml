@@ -42,12 +42,7 @@
             %hr
             %p #{raw @blog.body}
         =render 'social_media'
-        #comments_listing
-          %aside#comments.comments
-            %hr
-              %h2
-                %i.fa.fa-comments
-                =pluralize(@blog.blog_comments.count, 'Comment')
-              =render partial: 'blog_comments/blog_comment', collection: @blog.blog_comments
+      
+        =render partial: 'blog_comments/comment_listing', locals: {blog: @blog}
         =render partial: 'blog_comments/comment_form'
       =render 'layouts/side_widgets'

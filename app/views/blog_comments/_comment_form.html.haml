@@ -5,7 +5,7 @@
     %h2
       %i.fa.fa-heart
       Add Comment
-    =form_for BlogComment.new, remote: true do |f|
+    =form_for BlogComment.new, remote: true, format: :js do |f|
       =f.hidden_field :blog_id, value: @blog.id
       .row
         .col-md-6
