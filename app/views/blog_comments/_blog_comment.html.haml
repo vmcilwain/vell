@@ -1,8 +1,14 @@
-=div_for(blog_comment, class: 'row well') do
-  .col-xs-3
-    #{blog_comment.name}: 
-  .col-xs-4
-    =medium_date blog_comment.created_at
-  .row
-    .col-xs-12
-      =blog_comment.body
+%article.comment
+  %header.clearfix
+    =image_tag('tales/avatar.png', alt: 'A Smart Guy', class: 'avatar')
+    .meta
+      %h3
+        =blog_comment.name
+        -#%a{:href => "#"} Willy Wonka
+      %span.date
+        =medium_date(blog_comment.created_at)
+      %span.separator
+        \-
+      %a.reply-link{:href => "#create-comment"} Reply
+  .body
+    =blog_comment.body

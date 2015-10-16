@@ -1,30 +1,35 @@
-.container
-  .page-header
-    .row
-      .col-xs-4
-        %h1 Blog Listing
-      .col-xs-2
-        %br
-        =link_to 'Search Posts', '#', class: 'search_form_link btn btn-default'
-      .col-xs-2
-        %br
-        =link_to 'New Blog', new_blog_path, class: 'btn btn-primary' if current_user && current_user.has_role?('administrator')
-    =render 'search'
+.widewrapper.main
+  .container
+    .page-header
+      %header
+        %h1 Blogs
+      =link_to 'New Blog', new_blog_path, class: 'btn btn-default' if current_user && current_user.has_role?('administrator')
+      =link_to 'Search Posts', '#', class: 'btn btn-default search_form_link'
+      =render 'search'
     .row
       =will_paginate @blogs, class: 'apple_pagination'
-  -@blogs.each do |blog|
-    .row
+
+    -@blogs.each do |blog|
       .row
-        .col-md-12
-          %h2 #{link_to blog.headline, blog}
-      .row
-        .col-xs-12
-          =truncate(to_text(blog.body), length: 250) { link_to "Read More", blog }
-      .row
-        %br
-        .col-xs-4
-          Posted: #{short_date blog.created_at}
-        .col-xs-4
-          Comments: #{link_to blog.blog_comments.count, blog}
-        .col-xs-4
-          Attachments: #{link_to blog.blog_files.count, blog}
+        .col-md-8.blog-main
+          %article.blog-post
+            %header
+              %h1 #{blog.headline}
+            %p
+              =truncate(to_text(blog.body), length: 250) { link_to "Read More", blog }
+            .lead-image
+              .meta.clearfix
+                -#.author
+                  %i.fa.fa-user
+                  %span.data #{Faker::Name.name}
+                .date
+                  %i.fa.fa-calendar
+                  %span.data #{medium_date(blog.created_at)}
+                .comments
+                  %i.fa.fa-comments
+                  %span.data
+                    =link_to pluralize(blog.blog_comments.count, 'Comment'), blog
+                .files
+                  %i.fa.fa-file-text
+                  %span.data
+                    =link_to pluralize(blog.blog_files.count, 'File'), blog

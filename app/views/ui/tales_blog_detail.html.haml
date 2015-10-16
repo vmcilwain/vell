@@ -6,10 +6,11 @@
           %article.blog-post
             %header
               %h1 My Insightful Article
+              %h3 Category: #{Faker::Lorem.words(1).first}
               .lead-image
                 =image_tag('tales/hands-big.png', alt: 'Hands', class: 'img-responsive')
                 .meta.clearfix
-                  .author
+                  -#.author
                     %i.fa.fa-user
                     %span.data Alexander Rechsteiner
                   .date
@@ -18,10 +19,18 @@
                   .comments
                     %i.fa.fa-comments
                     %span.data
-                      %a{:href => "#comments"} 26 Comments
+                      =link_to pluralize(26, 'Comment')
+                  .comments
+                    %i.fa.fa-file-text
+                    %span.data
+                      =pluralize(0, 'File')
+            =link_to 'Listing', blogs_path, class: 'btn btn-default'
+            -if current_user && current_user.has_role?('administrator')
+              =link_to 'Edit', '#', class: 'btn btn-primary'
+              =link_to 'Destroy', '#', method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
             .body
               %header
-                %h1 Attachments
+                %h1 Files
               -3.times do
                 %div
                   #{link_to Faker::Lorem.words(1).first, '#'} - #{Faker::Lorem.words(8).join("\s")}

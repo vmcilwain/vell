@@ -32,9 +32,12 @@
           %article.blog-post
             %header
               %h1 #{Faker::Lorem.words(5).join("\s") }
+            %p
+              =Faker::Lorem.paragraphs(1).join("\s")
+              &nbsp; #{link_to 'Read More', '#'}
             .lead-image
               .meta.clearfix
-                .author
+                -#.author
                   %i.fa.fa-user
                   %span.data #{Faker::Name.name}
                 .date
@@ -48,6 +51,3 @@
                   %i.fa.fa-file-text
                   %span.data
                     =link_to '0 Files', '#'
-            %p
-              =Faker::Lorem.paragraphs(1).join("\s")
-              &nbsp; #{link_to 'Read More', '#'}

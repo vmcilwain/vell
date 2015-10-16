@@ -1,29 +1,53 @@
-.container
-  .page-header
+.widewrapper.main
+  .container
     .row
-      .col-xs-8
-        %h1 #{@blog.headline}
-        %h3 Category:&nbsp;&nbsp;#{@blog.blog_category.name}
-      .col-xs-2
-        %br
-        =link_to 'Listing', blogs_path, class: 'btn btn-default'
-      -if current_user && current_user.has_role?('administrator')
-        .col-xs-1
-          %br
-          =link_to 'Edit', edit_blog_path(@blog), class: 'btn btn-primary'
-        .col-xs-1
-          %br
-          =link_to 'Destroy', blog_path(@blog), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
-  .row
-    -if flash[:success]
-      %div{class: 'alert alert-success'}
-        =flash[:success]
-  -if @blog.blog_files.any?
-    .row.well
-      %h3 Files
-      =render partial: 'blog_files/blog_file', collection: @blog.blog_files
-  .row
-    =raw @blog.body
-  %br
-  =render 'blog_comments/js_form'
-    
+      .col-md-8.blog-main
+        %article.blog-post
+          .page-header
+            .row
+              -if flash[:success]
+                %div{class: 'alert alert-success'}
+                  =flash[:success]
+            %header
+              %h1 #{@blog.headline}
+              %h3 Category: #{@blog.blog_category.name}
+              .lead-image
+                =image_tag('tales/hands-big.png', alt: 'Hands', class: 'img-responsive')
+                .meta.clearfix
+                  -#.author
+                    %i.fa.fa-user
+                    %span.data Alexander Rechsteiner
+                  .date
+                    %i.fa.fa-calendar
+                    %span.data #{medium_date(@blog.created_at)}
+                  .comments
+                    %i.fa.fa-comments
+                    %span.data
+                      =pluralize(@blog.blog_comments.count, 'Comment')
+                  .comments
+                    %i.fa.fa-file-text
+                    %span.data
+                      =pluralize(@blog.blog_files.count, 'File')
+          =link_to 'Listing', blogs_path, class: 'btn btn-default'
+          -if current_user && current_user.has_role?('administrator')
+            =link_to 'Edit', edit_blog_path(@blog), class: 'btn btn-primary'
+            =link_to 'Destroy', blog_path(@blog), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
+          .body
+            -if @blog.blog_files.any?
+              %header
+                %h1 Files
+                .row.well
+                  %h3 Files
+                  =render partial: 'blog_files/blog_file', collection: @blog.blog_files
+            %hr
+            %p #{raw @blog.body}
+        =render 'social_media'
+        #comments_listing
+          %aside#comments.comments
+            %hr
+              %h2
+                %i.fa.fa-comments
+                =pluralize(@blog.blog_comments.count, 'Comment')
+              =render partial: 'blog_comments/blog_comment', collection: @blog.blog_comments
+        =render partial: 'blog_comments/comment_form'
+      =render 'layouts/side_widgets'
