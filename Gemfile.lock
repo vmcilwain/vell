@@ -387,3 +387,6 @@ DEPENDENCIES
   webmock
   will_paginate (~> 3.0.6)
   yard
+
+BUNDLED WITH
+   1.10.1

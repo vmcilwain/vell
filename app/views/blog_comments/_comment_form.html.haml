@@ -4,7 +4,8 @@
       #blog_comment_errors
     %h2
       %i.fa.fa-heart
-      Add Comment
+      = link_to "Add Comment", "#", id: "comment-link"
+
     =form_for BlogComment.new, remote: true, format: :js do |f|
       =f.hidden_field :blog_id, value: @blog.id
       .row
