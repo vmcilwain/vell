@@ -1,11 +1,9 @@
--# -if @blog_comment.errors.any?
--#   $('#blog_comment_errors').html("<div class='alert alert-danger'>#{raw @blog_comment.errors.full_messages.join('<br/>')}</div>");
--# -else
--#   $("#comments_listing").html("#{escape_javascript(render(partial: 'blog_comments/comment_listing', locals: {blog: @blog_comment.blog}))}");
--#   $('#blog_comment_name').val('');
--#   $('#blog_comment_body').val('');
--#   $('#blog_comment_errors').html("<div class='alert alert-success'>Comment added</div>").fadeOut(config[:fade_time]);
+$('#blog_comment_notification').show();
+-if @blog_comment.errors.any?
+  $('#blog_comment_notification').html("<div class='alert alert-danger'>#{raw @blog_comment.errors.full_messages.join('<br/>')}</div>");
+-else
+  $('#comments').append("#{j render @blog_comment}");
+  $('#comment-name').val('');
+  $('#comment-body').val('');
+  $('#blog_comment_notification').html("<div class='alert alert-success'>Comment added</div>").fadeOut(4000);
 
-$('#comments').append("#{j render @blog_comment}")
-$('#comment-name').val('');
-$('#comment-body').val('');
