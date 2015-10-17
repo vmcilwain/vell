@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  mount SimpleAuthEngine::Engine => "/authenticatable"
+  
+  devise_for :users
   
   get 'ui(/:action)', controller: 'ui'
   

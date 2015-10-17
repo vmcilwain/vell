@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
   before_action :blog, only: [:show, :edit, :update, :destroy]
   before_action :blog_categories, only: [:new, :edit, :create, :update]
-  before_action :require_user, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :require_admin, except: [:index, :show]
   
   def index

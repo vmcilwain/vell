@@ -14,7 +14,7 @@
   %header
     .widewrapper.masthead
       .container
-        %a#logo{:href => root_path}
+        %a#logo{:href => main_app.root_path}
           =image_tag('tales/tales-logo.png', alt: 'Tales Logo')
         #mobile-nav-toggle.pull-right
           %a{"data-target" => ".tales-nav .navbar-collapse", "data-toggle" => "collapse", :href => "#"}
@@ -22,19 +22,20 @@
         %nav.pull-right.tales-nav
           .collapse.navbar-collapse
             %ul.nav.nav-pills.navbar-nav
-              -#%li.dropdown.active
-                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => blogs_path}
-                  Blog
-                  %b.caret
-                %ul.dropdown-menu
-                  %li
-                    =link_to :Blog, blogs_path
-                  %li
-                    %a{:href => "blog-detail.html"} Blog Detail
+              -if current_user.admin?
+                %li.dropdown.active
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => main_app.blogs_path}
+                    Admin
+                    %b.caret
+                  %ul.dropdown-menu
+                    %li
+                      =link_to 'Blog Comments', blog_comments_path
+                    %li
+                      =link_to 'Blog Files', blog_files_path
               %li
-                =link_to :Blog, blogs_path
+                =link_to :Blog, main_app.blogs_path
               %li
-                =link_to :About, about_home_index_path
+                =link_to :About, main_app.about_home_index_path
               -#%li
                 =link_to :credit, '#'
     .widewrapper.subheader

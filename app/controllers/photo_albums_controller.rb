@@ -1,6 +1,6 @@
 class PhotoAlbumsController < ApplicationController
   before_action :photo_album, only: [:show, :edit, :update, :destroy]
-  before_action :require_user, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :require_admin, except: [:index, :show]
   
   def index

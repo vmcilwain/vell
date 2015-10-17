@@ -1,6 +1,6 @@
 class BlogCommentsController < ApplicationController
   before_action :blog_comment, only: [:show, :edit, :update, :destroy]
-  before_action :require_user, except: [:new, :create]
+  before_action :authenticate_user!, except: [:new, :create]
   before_action :require_admin, except: [:new, :create]
   def index
     @q = BlogComment.ransack(params[:q])
@@ -16,8 +16,10 @@ class BlogCommentsController < ApplicationController
     @blog_comment = BlogComment.new(blog_comment_params)
     respond_to do|format|
       if @blog_comment.save
-        flash[:success] = 'Blog comment created'
-        format.html{redirect_to @blog_comment}
+        format.html do
+          flash[:success] = 'Blog comment created'
+          redirect_to @blog_comment
+        end
         format.js {}
         Notify.send_new_blog_comment(@blog_comment).deliver_now
       else

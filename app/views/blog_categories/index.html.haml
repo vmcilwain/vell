@@ -6,7 +6,7 @@
     .col-xs-2
       =link_to 'Search Categories', '#', class: 'search_form_link actions btn btn-default'
     .col-xs-2
-      =link_to 'New Category', new_blog_category_path, class: 'btn btn-primary' if current_user && current_user.has_role?("administrator")
+      =link_to 'New Category', new_blog_category_path, class: 'btn btn-primary' if current_user && current_user.admin?
   =render 'search'
 .row
   =will_paginate @blog_categories, class: 'apple_pagination'

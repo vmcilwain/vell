@@ -1,5 +1,5 @@
 class ContactMesController < ApplicationController
-  before_action :require_user, except: [:new, :create]
+  before_action :authenticate_user!, except: [:new, :create]
   before_action :require_admin, except: [:new, :create]
   def index
     @q = ContactMe.ransack(params[:q])

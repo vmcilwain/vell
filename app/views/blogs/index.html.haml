@@ -3,7 +3,7 @@
     .page-header
       %header
         %h1 Blogs
-      =link_to 'New Blog', new_blog_path, class: 'btn btn-default' if current_user && current_user.has_role?('administrator')
+      =link_to 'New Blog', new_blog_path, class: 'btn btn-default' if current_user && current_user.admin?
       =link_to 'Search Posts', '#', class: 'btn btn-default search_form_link'
       =render 'search'
     .row

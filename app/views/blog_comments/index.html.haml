@@ -1,34 +1,33 @@
-.container
-  .row
+.widewrapper.main
+  .container
     .page-header
-      .col-xs-7
-        %h1 Blog Comments Listing
-      .col-xs-3
-        %br
-        =link_to 'Search Comments', '#', class: 'search_form_link btn btn-default'
-      .col-xs-2
-        %br
-        =link_to 'Blog Listing', blogs_path, class: 'btn btn-default'
-      .row
-        .col-xs-12
-        =render 'search'
-      .row
-        .col-xs-12
-        =will_paginate @blog_comments, class: 'apple_pagination'
-  -if flash[:success]
-    %div{class: 'row alert alert-success'}
-      =flash[:success]
-  -@blog_comments.reverse.each do |blog_comment|
+      -if flash[:success]
+        %div{class: 'row alert alert-success'}
+          =flash[:success]
+      %header
+        %h1 Blog Comments
+      =link_to 'Blog Listing', blogs_path, class: 'btn btn-tales-one'
+      =link_to 'Search Comments', '#', class: 'search_form_link btn btn-tales-one'
+      =render 'search'
     .row
-      .col-xs-3
-        =blog_comment.name
-      .col-xs-4
-        =medium_date blog_comment.created_at
-      .col-xs-2
-        =link_to :Edit, edit_blog_comment_path(blog_comment), class: 'btn btn-default'
-      .col-xs-2
-        =link_to :Destroy, blog_comment_path(blog_comment), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
-    .row
-      .col-xs-12
-        =blog_comment.body
-    %hr
+      =will_paginate @blog_comments, class: 'apple_pagination'
+    -@blog_comments.reverse.each do |blog_comment|
+      .row
+        .col-md-8.blog-main
+          %article.blog-post
+            %header
+              %h1 #{link_to blog_comment.blog.headline, blog_comment.blog}
+            .lead-image
+              .meta.clearfix
+                .author
+                  %i.fa.fa-user
+                  %span.data #{blog_comment.name}
+                .date
+                  %i.fa.fa-calendar
+                  %span.data #{medium_date(blog_comment.created_at)}
+                .comments
+                  %i.fa.fa-comments
+                  %span.data
+                    =blog_comment.body
+              =link_to :Edit, edit_blog_comment_path(blog_comment), class: 'btn btn-tales-one'
+              =link_to :Destroy, blog_comment_path(blog_comment), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-tales-two'

@@ -25,7 +25,7 @@
                     %span.data
                       =pluralize(0, 'File')
             =link_to 'Listing', blogs_path, class: 'btn btn-default'
-            -if current_user && current_user.has_role?('administrator')
+            -if current_user && current_user.admin?
               =link_to 'Edit', '#', class: 'btn btn-primary'
               =link_to 'Destroy', '#', method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
             .body

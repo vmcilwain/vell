@@ -40,8 +40,6 @@ group :development do
   gem 'capistrano-rvm'
 end
 
- gem 'simple_auth_engine', git: 'https://github.com/vmcilwain/simple_auth_engine.git', tag: '0.0.2'
-
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
 gem "haml-rails"
@@ -56,6 +54,7 @@ gem 'remotipart', '~> 1.2'
 gem 'will_paginate', '~> 3.0.6'
 gem 'letter_opener', group: [:development]
 gem "font-awesome-rails"
+gem 'devise'
 
 group :test do
   gem "rspec-rails"

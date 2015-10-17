@@ -1,28 +1,20 @@
-.container
-  .page-header
-    .row
-      %h1 Edit Blog
-  .row
-    .col-xs-12
+.widewrapper.main
+  .container
+    .page-header
       -if @blog.errors.any?
         %div{class: 'row alert alert-danger'}
           =flash[:error]
           %ul
             -@blog.errors.full_messages.each do |message|
               %li #{message}
-  .row.well
     =form_for @blog, multipart: true do |f|
       .form-group
         =f.label :blog_category
-        =f.select :blog_category_id, @blog_categories, prompt: true
+        =f.select :blog_category_id, @blog_categories, prompt: true, class: 'form-control'
       .form-group
-        =f.label :headline
-        %br
-        =f.text_field :headline, placeholder: 'Enter Headline', size: 95
+        =f.text_field :headline, placeholder: 'Enter Headline', class: 'form-control'
       .form-group
-        =f.label :body
-        %br
-        =f.text_area :body, placeholder: 'Enter Details', cols: 95, rows: 20, class: 'jqte-textarea'
+        =f.text_area :body, placeholder: 'Enter Details', rows: 20, class: 'jqte-textarea form-control'
       .form-group
-        =f.submit class: 'btn btn-primary'
-        =link_to 'Cancel', @blog, class: 'btn btn-danger'
+        =f.submit class: 'btn btn-tales-one'
+        =link_to 'Cancel', @blog, class: 'btn btn-tales-two'
