@@ -1,24 +1,27 @@
-%div{class: 'container'}
-  %div{class: 'row'}
-    %div{class: '2u'}
-      =link_to 'Search Posts', '#', class: 'search_form_link'
-    %div{class: '3u'}
-      =link_to 'New Blog File', new_blog_file_path
-  %div{class: 'row'}
-    %h1{class: 'title'} Blog File Listing
-  =render 'search'
-  =will_paginate @blog_files, class: 'apple_pagination'
-  %hr
-  -@blog_files.each do |blog_file|
-    %div{class: 'row'}
-      %div{class: '5u'}
-        =image_tag blog_file.doc.url
-      %div{class: '7u'}
-        %div{class: 'row'}
-          =link_to blog_file.blog.headline, blog_file.blog
-        =blog_file.description
-        %div{class: 'row'}
-          %div{class: '2u'}
-            =link_to blog_file.doc_file_name, blog_file.doc.url
-          %div{class: '2u'}
-            =link_to :Delete, blog_file, method: :delete, data: {confirm: 'Are you sure?'}
+.widewrapper.main
+  .container
+    .page-header
+      %header
+        %h1 Blog Files
+      =link_to 'Blog Listing', blogs_path, class: 'btn btn-tales-one'
+      =link_to 'Search Comments', '#', class: 'search_form_link btn btn-tales-two'
+      =render 'search'
+    .row
+      =will_paginate @blog_files, class: 'apple_pagination'
+    -@blog_files.each do |blog_file|
+      .row
+        .col-md-8.blog-main
+          %article.blog-post
+            %header
+              %h1 #{link_to blog_file.blog.headline, blog_file.blog}
+            .lead-image
+              .meta.clearfix
+                .date
+                  %i.fa.fa-calendar
+                  %span.data #{blog_file.created_at}
+                .comments
+                  %i.fa.fa-comments
+                  %span.data
+                    =blog_file.description
+              =link_to blog_file.doc_file_name, blog_file.doc.url, class: 'btn btn-tales-one'
+              =link_to :Delete, blog_file, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-tales-two'

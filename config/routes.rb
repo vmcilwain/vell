@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   
   resources :contact_mes, only: [:index, :new, :show, :create]
   resources :blog_categories, except: [:show]
-  resources :blogs, :blog_comments, :photo_albums, :photos, :photo_comments
+  resources :blogs, :blog_comments#, :photo_albums, :photos, :photo_comments
   
   resources :blog_files do
     collection do
