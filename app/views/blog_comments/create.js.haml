@@ -3,7 +3,7 @@ $('#blog_comment_notification').show();
   $('#blog_comment_notification').html("<div class='alert alert-danger'>#{raw @blog_comment.errors.full_messages.join('<br/>')}</div>");
 -else
   $('#comments').append("#{j render @blog_comment}");
+  $('aside#comments').html("<hr><h2><i class='fa fa-comments'></i>#{j pluralize(BlogComment.where(blog_id: @blog_comment.blog_id).size,'Comment')}</h2>")
   $('#comment-name').val('');
   $('#comment-body').val('');
   $('#blog_comment_notification').html("<div class='alert alert-success'>Comment added</div>").fadeOut(4000);
-
