@@ -10,46 +10,48 @@
     =stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     =javascript_include_tag 'application', 'data-turbolinks-track' => true
     =csrf_meta_tags
-%body{role: 'document'}
-  %header
-    .widewrapper.masthead
-      .container
-        %a#logo{:href => main_app.root_path}
-          =image_tag('tales/tales-logo.png', alt: 'Tales Logo')
-        #mobile-nav-toggle.pull-right
-          %a{"data-target" => ".tales-nav .navbar-collapse", "data-toggle" => "collapse", :href => "#"}
-            %i.fa.fa-bars
-        %nav.pull-right.tales-nav
-          .collapse.navbar-collapse
-            %ul.nav.nav-pills.navbar-nav
-              -if current_user.admin?
-                %li.dropdown.active
-                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => main_app.blogs_path}
-                    Admin
-                    %b.caret
-                  %ul.dropdown-menu
-                    %li
-                      =link_to 'Blog Comments', blog_comments_path
-                    %li
-                      =link_to 'Blog Files', blog_files_path
-              %li
-                =link_to :Blog, main_app.blogs_path
-              %li
-                =link_to :About, main_app.about_home_index_path
-              -#%li
-                =link_to :credit, '#'
-    .widewrapper.subheader
-      .container
-        -#.tales-breadcrumb
-          %a{:href => "#"} Blog
-          %span.separator /
-          %a{:href => "#"} Security
-          %span.separator /
-          %a{:href => "#"} My Insightful Article
-        .tales-searchbox
-          %form{"accept-charset" => "utf-8", :action => "#", :method => "get"}
-            %button.searchbutton{:type => "submit"}
-              %i.fa.fa-search
-            %input#searchbox.searchfield{:placeholder => "Search", :type => "text"}
-  =yield
-  =render 'layouts/footer'
+  %body{role: 'document'}
+    =tinymce_assets
+    =tinymce
+    %header
+      .widewrapper.masthead
+        .container
+          %a#logo{:href => main_app.root_path}
+            =image_tag('vell.jpg', alt: 'Picture of Lovell', width: '100px', class: 'img-responsive img-circle')
+          #mobile-nav-toggle.pull-right
+            %a{"data-target" => ".tales-nav .navbar-collapse", "data-toggle" => "collapse", :href => "#"}
+              %i.fa.fa-bars
+          %nav.pull-right.tales-nav
+            .collapse.navbar-collapse
+              %ul.nav.nav-pills.navbar-nav
+                -if current_user.admin?
+                  %li.dropdown.active
+                    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => main_app.blogs_path}
+                      Admin
+                      %b.caret
+                    %ul.dropdown-menu
+                      %li
+                        =link_to 'Blog Comments', blog_comments_path
+                      %li
+                        =link_to 'Blog Files', blog_files_path
+                %li
+                  =link_to :Blog, main_app.blogs_path
+                %li
+                  =link_to :About, main_app.about_home_index_path
+                -#%li
+                  =link_to :credit, '#'
+      .widewrapper.subheader
+        .container
+          -#.tales-breadcrumb
+            %a{:href => "#"} Blog
+            %span.separator /
+            %a{:href => "#"} Security
+            %span.separator /
+            %a{:href => "#"} My Insightful Article
+          .tales-searchbox
+            %form{"accept-charset" => "utf-8", :action => "#", :method => "get"}
+              %button.searchbutton{:type => "submit"}
+                %i.fa.fa-search
+              %input#searchbox.searchfield{:placeholder => "Search", :type => "text"}
+    =yield
+    =render 'layouts/footer'

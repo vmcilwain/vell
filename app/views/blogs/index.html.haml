@@ -3,15 +3,15 @@
     .page-header
       %header
         %h1 Blogs
-      =link_to 'New Blog', new_blog_path, class: 'btn btn-default' if current_user && current_user.admin?
-      =link_to 'Search Posts', '#', class: 'btn btn-default search_form_link'
+      =link_to 'New Blog', new_blog_path, class: 'btn btn-tales-one' if current_user && current_user.admin?
+      =link_to 'Search Posts', '#', class: 'btn btn-tales-one search_form_link'
       =render 'search'
     .row
       =will_paginate @blogs, class: 'apple_pagination'
-
     -@blogs.each do |blog|
       .row
-        .col-md-8.blog-main
+        / .col-md-8.blog-main
+        .col-md-8
           %article.blog-post
             %header
               %h1 #{blog.headline}
@@ -32,4 +32,4 @@
                 .files
                   %i.fa.fa-file-text
                   %span.data
-                    =link_to pluralize(blog.blog_files.count, 'File'), blog
+                    =link_to pluralize(blog.blog_files.count, 'File'), blog                    

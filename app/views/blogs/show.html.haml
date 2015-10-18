@@ -12,7 +12,8 @@
               %h1 #{@blog.headline}
               %h3 Category: #{@blog.blog_category.name}
               .lead-image
-                =image_tag('tales/hands-big.png', alt: 'Hands', class: 'img-responsive')
+                / =image_tag('tales/hands-big.png', alt: 'Hands', class: 'img-responsive')
+                =image_tag('blog.jpg', alt: 'lovell', class: 'img-responsive')
                 .meta.clearfix
                   -#.author
                     %i.fa.fa-user
@@ -28,10 +29,10 @@
                     %i.fa.fa-file-text
                     %span.data
                       =pluralize(@blog.blog_files.count, 'File')
-          =link_to 'Listing', blogs_path, class: 'btn btn-default'
+          =link_to 'Listing', blogs_path, class: 'btn btn-tales-one'
           -if current_user && current_user.admin?
-            =link_to 'Edit', edit_blog_path(@blog), class: 'btn btn-primary'
-            =link_to 'Destroy', blog_path(@blog), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
+            =link_to 'Edit', edit_blog_path(@blog), class: 'btn btn-tales-one'
+            =link_to 'Destroy', blog_path(@blog), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-tales-two'
           .body
             -if @blog.blog_files.any?
               %header

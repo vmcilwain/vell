@@ -13,7 +13,8 @@
       =will_paginate @blog_comments, class: 'apple_pagination'
     -@blog_comments.reverse.each do |blog_comment|
       .row
-        .col-md-8.blog-main
+        / .col-md-8.blog-main
+        .col-md-8
           %article.blog-post
             %header
               %h1 #{link_to blog_comment.blog.headline, blog_comment.blog}

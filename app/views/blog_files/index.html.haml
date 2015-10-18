@@ -10,7 +10,8 @@
       =will_paginate @blog_files, class: 'apple_pagination'
     -@blog_files.each do |blog_file|
       .row
-        .col-md-8.blog-main
+        / .col-md-8.blog-main
+        .col-md-8
           %article.blog-post
             %header
               %h1 #{link_to blog_file.blog.headline, blog_file.blog}

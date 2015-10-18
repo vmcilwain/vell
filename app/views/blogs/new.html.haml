@@ -21,10 +21,9 @@
       .form-group
         =f.text_field :headline, placeholder: 'Enter Headline',class: 'form-control'
       .form-group
-        =f.text_area :body, placeholder: 'Enter Details',rows: 20, class: 'jqte-textarea form-control'
+        =f.text_area :body, placeholder: 'Enter Details',rows: 40, class: 'form-control tinymce'
       .form-group
         =f.label :to_twitter, 'Tweet it?'
         =f.check_box :to_twitter
         =f.submit class: 'btn btn-tales-one'
         =link_to 'Cancel', blogs_path, class: 'btn btn-tales-two'
-
