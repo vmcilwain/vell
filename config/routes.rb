@@ -3,19 +3,19 @@ Rails.application.routes.draw do
   devise_for :users
   
   get 'ui(/:action)', controller: 'ui'
-  
+  get 'about', to: 'home#about'
+    
   root to: 'home#index'
+  
+  resources :contact_mes, only: [:index, :new, :show, :create]
+  resources :blog_categories, except: [:show]
+  resources :blogs, :blog_comments#, :photo_albums, :photos, :photo_comments
+  
   resources :home, only: [:index] do
     collection do
       get :about
     end
   end
-  
-  get 'about', to: 'home#about'
-  
-  resources :contact_mes, only: [:index, :new, :show, :create]
-  resources :blog_categories, except: [:show]
-  resources :blogs, :blog_comments#, :photo_albums, :photos, :photo_comments
   
   resources :blog_files do
     collection do

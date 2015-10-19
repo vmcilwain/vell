@@ -1,4 +1,7 @@
 class Blog < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+    
   validates :headline, :blog_category_id, :body, presence: true
   
   belongs_to :blog_category
