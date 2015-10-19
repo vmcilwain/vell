@@ -111,11 +111,6 @@ GEM
       elasticsearch-transport (= 1.0.14)
     elasticsearch-api (1.0.14)
       multi_json
-    elasticsearch-model (0.1.8)
-      activesupport (> 3)
-      elasticsearch (> 0.4)
-      hashie
-    elasticsearch-rails (0.1.8)
     elasticsearch-transport (1.0.14)
       faraday
       multi_json
@@ -280,6 +275,10 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    searchkick (0.9.1)
+      activemodel
+      elasticsearch (>= 1)
+      hashie
     selenium-webdriver (2.45.0)
       childprocess (~> 0.5)
       multi_json (~> 1.0)
@@ -363,8 +362,6 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   database_cleaner
   devise
-  elasticsearch-model
-  elasticsearch-rails
   fabrication
   faker
   font-awesome-rails
@@ -386,6 +383,7 @@ DEPENDENCIES
   remotipart (~> 1.2)
   rspec-rails
   sdoc (~> 0.4.0)
+  searchkick
   selenium-webdriver
   shoulda-matchers
   simplecov
