@@ -1,12 +1,13 @@
 require 'rails_helper'
 
 describe ContactMesController do
+  let(:user) {Fabricate :user}
+  
   describe 'GET index' do
-    let(:user) {Fabricate :user}
 
     before do
-      add_user_to_role(user, 'administrator')
-      session[:user_id] = user.id
+      user.update(admin: true)
+      sign_in user
       2.times{Fabricate(:contact_me)}
     end
 
@@ -81,17 +82,15 @@ describe ContactMesController do
   end
 
   describe 'GET show' do
-    let(:user) {Fabricate :user}
-  
+    let(:contact_me) {Fabricate :contact_me}
     before do
-      add_user_to_role(user, 'administrator')
-      session[:user_id] = user.id
+      user.update(admin: true)
+      sign_in user
+      get :show, id: contact_me.id
     end
     after {clear_mailbox}
 
     it 'sets @contact_me' do
-      contact_me = Fabricate :contact_me
-      get :show, id: contact_me.id
       expect(assigns[:contact_me]).to be_instance_of ContactMe
     end
   end
