@@ -4,11 +4,9 @@
       %header
         %h1 Blogs
       =link_to 'New Blog', new_blog_path, class: 'btn btn-tales-one' if current_user && current_user.admin?
-      =link_to 'Search Posts', '#', class: 'btn btn-tales-one search_form_link'
-      =render 'search'
     .row
       =will_paginate @blogs, class: 'apple_pagination'
-    -@blogs.each do |blog|
+    -@blogs.sort_by(&:created_at).reverse.each do |blog|
       .row
         / .col-md-8.blog-main
         .col-md-8

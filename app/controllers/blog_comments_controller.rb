@@ -3,8 +3,7 @@ class BlogCommentsController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create]
   before_action :require_admin, except: [:new, :create]
   def index
-    @q = BlogComment.ransack(params[:q])
-    @blog_comments = @q.result.paginate(:page => params[:page], :per_page => 20)
+    @blog_comments = BlogComment.search(params.fetch(:q, "*"), page: params[:page], per_page: 10) #elasticsearch
   end
   
   def new

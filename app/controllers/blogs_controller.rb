@@ -5,9 +5,7 @@ class BlogsController < ApplicationController
   before_action :require_admin, except: [:index, :show]
   
   def index
-    # @blogs = Blog.search(params.fetch(:q, "*")) #elasticsearch
-    @q = Blog.ransack(params[:q])
-    @blogs = @q.result.order('created_at desc').paginate(:page => params[:page], :per_page => 15)
+    @blogs = Blog.search(params.fetch(:q, "*"), page: params[:page], per_page: 10) #elasticsearch
   end
   
   def new
