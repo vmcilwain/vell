@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe BlogsController do
+  let(:user) {Fabricate :user}
+  
   describe 'GET index' do
     before {blog}
     it 'sets @blogs' do
@@ -17,12 +19,10 @@ describe BlogsController do
     end
   end
   
-  describe 'GET new' do
-    let(:user) {Fabricate :user}
-  
+  describe 'GET new' do  
     before do
-      add_user_to_role(user, 'administrator')
-      session[:user_id] = user.id
+      user.update(admin: true)
+      sign_in user
     end
     
     it 'sets @blog' do
@@ -33,11 +33,10 @@ describe BlogsController do
   
   describe 'POST create', :vcr do
     context 'a successful creation without a file' do
-      let(:user) {Fabricate :user}
       
       before do
-        add_user_to_role(user, 'administrator')
-        session[:user_id] = user.id
+        user.update(admin: true)
+        sign_in user
         post :create, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: Faker::Lorem.words(25).join("\s")}
       end
       
@@ -58,11 +57,10 @@ describe BlogsController do
     
     context 'a successful creation with a file' do
       require 'rack/test'
-      let(:user) {Fabricate :user}
-
+      
       before do
-        add_user_to_role(user, 'administrator')
-        session[:user_id] = user.id
+        user.update(admin: true)
+        sign_in user
         post :create, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: Faker::Lorem.words(25).join("\s"), blog_files: [blog_document: file_to_upload(test_file, 'text/plain')]}
       end
       
@@ -80,10 +78,9 @@ describe BlogsController do
     end
     
     context 'an unsuccessful creation' do
-      let(:user) {Fabricate :user}
       before do
-        add_user_to_role(user, 'administrator')
-        session[:user_id] = user.id
+        user.update(admin: true)
+        sign_in user
         post :create, blog: {blog_category_id: 1, body: Faker::Lorem.words(25).join("\s")}
       end
       
@@ -116,6 +113,7 @@ describe BlogsController do
   
   describe 'GET edit' do
     let(:blog) {Fabricate :blog}
+    
     it 'sets @blog' do
       get :edit, id: blog.id
       expect(assigns[:blog]).to eq blog
@@ -124,11 +122,11 @@ describe BlogsController do
   
   describe 'PUT update' do
     let(:blog) {Fabricate :blog}
-    let(:user) {Fabricate :user}
+
     context 'a succesful update without a file' do
       before do
-        add_user_to_role(user, 'administrator')
-        session[:user_id] = user.id
+        user.update(admin: true)
+        sign_in user
         put :update, id: blog.id, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: Faker::Lorem.words(25).join("\s")}
       end
       
@@ -146,11 +144,9 @@ describe BlogsController do
     end
     
     context 'an unsuccessful update' do
-      let(:user) {Fabricate :user}
-
       before do
-        add_user_to_role(user, 'administrator')
-        session[:user_id] = user.id
+        user.update(admin: true)
+        sign_in user
         put :update, id: blog.id, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: ""}
       end
       
@@ -170,11 +166,10 @@ describe BlogsController do
   
   describe 'DELETE destroy' do
     let(:blog) {Fabricate :blog}
-    let(:user) {Fabricate :user}
     
     before do
-      add_user_to_role(user, 'administrator')
-      session[:user_id] = user.id
+      user.update(admin: true)
+      sign_in user
       delete :destroy, id: blog.id
     end
     
