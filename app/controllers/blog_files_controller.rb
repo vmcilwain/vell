@@ -3,8 +3,7 @@ class BlogFilesController < ApplicationController
   before_action :authenticate_user!
   before_action :require_admin
   def index
-    @q = BlogFile.ransack(params[:q])
-    @blog_files = @q.result.paginate(:page => params[:page], :per_page => 20)
+    @blog_files = BlogFile.search(params.fetch(:q, "*"), page: params[:page], per_page: 10) #elasticsearch
   end
   
   def new

@@ -1,8 +1,7 @@
-Fabricator :user, class_name: 'SimpleAuthEngine::User' do
-  full_name Faker::Name.name
+Fabricator :user do
+  first_name Faker::Name.first_name
+  last_name Faker::Name.last_name
   email Faker::Internet.email
-  password 'P*ssw0rd'
-  password_confirmation 'P*ssw0rd'
-  security_question 'Whats your name?'
-  security_answer 'Daffy Duck'
+  password 'somepassword'
+  password_confirmation 'somepassword'
 end

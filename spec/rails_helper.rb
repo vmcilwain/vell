@@ -7,8 +7,9 @@ require 'simplecov'
 SimpleCov.start
 require 'pry'
 require 'paperclip/matchers'
-
+require 'devise'
 require 'vcr'
+
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/cassettes'
   c.hook_into :webmock
