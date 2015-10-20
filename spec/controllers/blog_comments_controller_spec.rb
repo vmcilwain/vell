@@ -1,33 +1,43 @@
 require 'rails_helper'
 
 describe BlogCommentsController do
-  describe 'GET index' do
-    let(:user) {Fabricate :user}
+  let(:user) {Fabricate :user}
   
+  before do
+    user.update(admin: true)
+  end
+  
+  describe 'GET index' do
+    let(:comments) {[]}
+    
     before do
-      add_user_to_role(user, 'administrator')
-      session[:user_id] = user.id
+      user.update(admin: true)
+      2.times {comments << Fabricate(:blog_comment)}
+      BlogComment.reindex
+      sign_in user
+      get :index
     end
     
     it 'sets @blog_comments' do
-      comment1 = Fabricate :blog_comment
-      comment2 = Fabricate :blog_comment
-      get :index
-      expect(assigns[:blog_comments]).to eq [comment1, comment2]
+      expect(assigns[:blog_comments].results).to eq comments
     end
   end
   
   describe 'GET show' do
     let(:blog_comment) {Fabricate :blog_comment}
+    
+    before {get :show, id: blog_comment.id}
+    
     it 'sets @blog_comment' do
-      get :show, id: blog_comment.id
       expect(assigns[:blog_comment]).to eq blog_comment
     end
   end
   
   describe 'GET new' do
     let(:blog) {Fabricate :blog}
+    
     before {get :new, blog_id: blog.id}
+    
     it 'sets @blog_comment' do
       expect(assigns[:blog_comment]).to be_instance_of BlogComment
     end
@@ -39,8 +49,10 @@ describe BlogCommentsController do
   
   describe 'POST create' do
     after {clear_mailbox}
+    
     context 'a successful http creation' do
       before {post :create, blog_comment: Fabricate.attributes_for(:blog_comment)}
+      
       it 'redirects_to :show' do
         expect(response).to redirect_to BlogComment.first
       end
@@ -60,6 +72,7 @@ describe BlogCommentsController do
     
     context 'a successful xhr creation' do
       before {xhr :post, :create, blog_comment: Fabricate.attributes_for(:blog_comment)}
+      
       it 'sets @blog_comment' do
         expect(assigns[:blog_comment]).to be_instance_of BlogComment
       end
@@ -71,6 +84,7 @@ describe BlogCommentsController do
     
     context 'an unsuccessful creation' do
       let(:blog){Fabricate :blog}
+      
       before {post :create, blog_comment: {blog_id: blog.id, name: nil, body: Faker::Lorem.words(30).join("\s")}}
       
       it 'renders :new' do
@@ -89,11 +103,9 @@ describe BlogCommentsController do
   
   describe 'GET edit' do
     let(:blog_comment) {Fabricate :blog_comment}
-    let(:user) {Fabricate :user}
     
     before do
-      add_user_to_role(user, 'administrator')
-      session[:user_id] = user.id
+      sign_in user
       get :edit, id: blog_comment.id
     end
     it 'sets @blog_comment' do
@@ -106,13 +118,11 @@ describe BlogCommentsController do
   end
   
   describe 'PUT update' do
-    let(:user) {Fabricate :user}
     let(:blog_comment) {Fabricate :blog_comment}
     
     context 'a successful update' do
       before do
-        add_user_to_role(user, 'administrator')
-      session[:user_id] = user.id
+        sign_in user
         put :update, id: blog_comment.id, blog_comment: {body: text(10)}
       end
       it 'redirects to :show' do
@@ -127,11 +137,10 @@ describe BlogCommentsController do
         expect(flash[:success]).to_not be_nil
       end
     end
+    
     context 'an unsuccessful update' do
-      let(:user) {Fabricate :user}
       before do
-        add_user_to_role(user, 'administrator')
-        session[:user_id] = user.id
+        sign_in user
         put :update, id: blog_comment.id, blog_comment: {blog_id: blog_comment.blog.id, body: nil}
       end
       
@@ -151,11 +160,9 @@ describe BlogCommentsController do
   
   describe 'DELETE destroy' do
     let(:blog_comment) {Fabricate :blog_comment}
-    let(:user) {Fabricate :user}
 
     before do
-      add_user_to_role(user, 'administrator')
-      session[:user_id] = user.id
+      sign_in user
       delete :destroy, id: blog_comment.id
     end
     
