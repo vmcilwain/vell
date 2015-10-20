@@ -1,41 +1,42 @@
 require 'rails_helper'
 
 describe BlogFilesController do
+  let(:user) {Fabricate :user}
   after {delete_files}
-  describe 'GET index' do
-    let(:user) {Fabricate :user}
   
+  describe 'GET index' do
+    let(:files) {[]}
     before do
-      add_user_to_role(user, 'administrator')
-      session[:user_id] = user.id
+      2.times {files << Fabricate(:blog_file)}
+      BlogFile.reindex
+      user.update(admin: true)
+      sign_in user
+      get :index
     end
     
     it 'sets @blog_files' do
-      blog_file1 = Fabricate :blog_file
-      blog_file2 = Fabricate :blog_file
-      get :index
-      expect(assigns[:blog_files]).to eq [blog_file1, blog_file2]
+      expect(assigns[:blog_files].results.size).to eq files.size
     end
   end
   
   describe 'GET show', :vcr do
     let(:blog_file) {Fabricate :blog_file}
+    
+    before {get :show, id: blog_file.id}
+    
     it 'sets @blog_file' do
-      get :show, id: blog_file.id
       expect(assigns[:blog_file]).to eq blog_file
     end
   end
   
-  describe 'GET new', :vcr do
-    let(:user) {Fabricate :user}
-  
+  describe 'GET new', :vcr do  
     before do
-      add_user_to_role(user, 'administrator')
-      session[:user_id] = user.id
+      user.update(admin: true)
+      sign_in user
+      get :new
     end
     
     it 'sets @blog_file' do
-      get :new
       expect(assigns[:blog_file]).to be_instance_of BlogFile
     end
   end
@@ -44,10 +45,9 @@ describe BlogFilesController do
     require 'rack/test'
     
     context 'a successful creation' do
-      let(:user) {Fabricate :user}
       before do
-        add_user_to_role(user, 'administrator')
-        session[:user_id] = user.id
+        user.update(admin: true)
+        sign_in user
         post :create, blog_file: {blog_id: 1, doc: file_to_upload(test_file, "text/plain")}
       end
       
@@ -65,10 +65,9 @@ describe BlogFilesController do
     end
     
     context 'an unsuccessful creation' do
-      let(:user) {Fabricate :user}
       before do
-        add_user_to_role(user, 'administrator')
-        session[:user_id] = user.id
+        user.update(admin: true)
+        sign_in user
         post :create, blog_file: {blog_id: 1}
       end
       
@@ -100,11 +99,9 @@ describe BlogFilesController do
     let(:blog_file) {Fabricate :blog_file}
     
     context 'a successful update' do
-      let(:user) {Fabricate :user}
-
       before do
-        add_user_to_role(user, 'administrator')
-        session[:user_id] = user.id
+        user.update(admin: true)
+        sign_in user
         put :update, id: blog_file.id, blog_file: {blog_id: 1, doc: file_to_upload(test_file, "text/plain")}
       end
       
@@ -126,11 +123,10 @@ describe BlogFilesController do
   describe 'DELETE destroy', :vcr do
     let(:blog_file) {Fabricate :blog_file}
     let(:blog) {blog_file.blog}
-    let(:user) {Fabricate :user}
   
     before do
-      add_user_to_role(user, 'administrator')
-      session[:user_id] = user.id
+      user.update(admin: true)
+      sign_in user
       delete :destroy, id: blog_file.id
     end
     

@@ -1,4 +1,6 @@
 class BlogFile < ActiveRecord::Base
+  searchkick
+  
   belongs_to :blog
   
   has_attached_file :doc#, path: "#{Rails.env}/blog_files/:id/:basename.:extension"#, styles: {
