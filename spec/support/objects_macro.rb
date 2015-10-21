@@ -35,3 +35,7 @@ end
 def user
   @user ||= Fabricate :user
 end
+
+def admin_user
+  @admin_user ||= Fabricate :user, admin: true
+end

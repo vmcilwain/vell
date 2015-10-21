@@ -24,7 +24,7 @@
           %nav.pull-right.tales-nav
             .collapse.navbar-collapse
               %ul.nav.nav-pills.navbar-nav
-                -if current_user.admin?
+                -if current_user && current_user.admin?
                   %li.dropdown.active
                     %a.dropdown-toggle{"data-toggle" => "dropdown", :href => main_app.blogs_path}
                       Admin
