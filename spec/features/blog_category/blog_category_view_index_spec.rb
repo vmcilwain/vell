@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-feature 'viewing blog category index' do
+feature 'blog category' do
   scenario 'view list of blog categories' do
-    sign_in
-    click_link 'Blog Categories'
+    visit blog_categories_path
+    sign_in_with(admin_user)
     expect(page).to have_content 'Blog Categories'
   end
 end

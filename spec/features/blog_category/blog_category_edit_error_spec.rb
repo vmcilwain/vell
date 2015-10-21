@@ -1,15 +1,10 @@
 require 'rails_helper'
 
-feature 'blog category errors' do
+feature 'category' do
   scenario 'blog category should present error when invalid' do
     blog_category
-    
-    sign_in
-    click_link 'Blog Categories'
-    
-    expect(page).to have_link 'Edit'
-    
-    click_link 'Edit'
+    visit edit_blog_category_path(blog_category)
+    sign_in_with(admin_user)
     
     fill_in 'blog_category_name', with: ''
     

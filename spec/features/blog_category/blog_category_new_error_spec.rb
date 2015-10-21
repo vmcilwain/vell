@@ -1,12 +1,9 @@
 require 'rails_helper'
 
-feature 'blog category errors' do
+feature 'blog category' do
   scenario 'blog category should present error when invalid' do
-    sign_in
-    click_link 'Blog Categories'
-    click_link 'New Category'
-    expect(page).to have_content 'Create Blog Category'
-
+    visit new_blog_category_path
+    sign_in_with(admin_user)
     click_button 'Create Blog category'
 
     expect(page).to have_content "Name can't be blank"

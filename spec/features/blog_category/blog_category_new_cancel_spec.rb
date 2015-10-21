@@ -1,13 +1,9 @@
 require 'rails_helper'
 
-feature 'cancel creating a new blog category' do
+feature 'blog category' do
   scenario 'cancelling a new blog category' do
-    sign_in
-    click_link 'Blog Categories'
-    click_link 'New Category'
-
-    expect(page).to have_content 'Create Blog Category'
-
+    visit new_blog_category_path
+    sign_in_with(admin_user)
     click_link 'Cancel'
     expect(current_path).to eq blog_categories_path
   end
