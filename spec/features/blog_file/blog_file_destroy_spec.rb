@@ -4,8 +4,8 @@ feature 'blog file index' do
   before {blog_file}
   after {delete_files}
   scenario 'viewing blog file index' do
-    sign_in
     visit blog_files_path
+    sign_in_with(admin_user)
     expect(page).to have_link 'Delete'
     
     click_link 'Delete'

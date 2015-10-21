@@ -3,8 +3,8 @@ require 'rails_helper'
 feature 'edit blog comment' do
   background {blog_comment}
   scenario 'cancel editing a blog comment' do
-    sign_in
-    click_link 'Blog Comments'
+    visit blog_comments_path
+    sign_in_with(admin_user)
     expect(page).to have_content blog_comment.body
     
     click_link 'Edit'

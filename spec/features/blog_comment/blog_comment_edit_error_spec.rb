@@ -3,9 +3,8 @@ require 'rails_helper'
 feature 'edit blog comment' do
   background {blog_comment}
   scenario 'invalid editing a blog comment' do
-    sign_in
-    click_link 'Blog Comments'
-    expect(page).to have_content blog_comment.body
+    visit blog_comment_path(blog_comment)
+    sign_in_with(admin_user)
     
     click_link 'Edit'
     fill_in 'blog_comment_name', with: nil

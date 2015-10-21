@@ -24,6 +24,10 @@
           %nav.pull-right.tales-nav
             .collapse.navbar-collapse
               %ul.nav.nav-pills.navbar-nav
+                -if user_signed_in?
+                  %li #{link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-tales-two'}
+                -else
+                  %li #{link_to 'Login', new_user_session_path, class: 'btn btn-tales-one'}
                 -if current_user && current_user.admin?
                   %li.dropdown.active
                     %a.dropdown-toggle{"data-toggle" => "dropdown", :href => main_app.blogs_path}

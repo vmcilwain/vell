@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   devise_for :users
-  
+    
   get 'ui(/:action)', controller: 'ui'
   get 'about', to: 'home#about'
     
