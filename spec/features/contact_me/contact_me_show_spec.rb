@@ -3,8 +3,10 @@ require 'rails_helper'
 feature 'viewing contact me' do
   scenario "user views a contact me" do
     contact_me = Fabricate(:contact_me, name: 'John Rambo', email: 'jrambo@example.com', body: "this is a new contact me!")
-    sign_in
     visit contact_mes_path
+    
+    sign_in_with(admin_user)
+    
     expect(page).to have_link contact_me.id
     
     click_link contact_me.id
