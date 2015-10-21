@@ -13,7 +13,7 @@ def blog_category
 end
 
 def blog
-  @blog ||= Fabricate :blog
+  @blog ||= Fabricate :blog, body: Faker::Lorem.words(50).join("\s")
 end
 
 def blog_comment

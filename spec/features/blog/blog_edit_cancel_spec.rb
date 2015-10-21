@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'edit blog' do
+feature 'blog' do
   scenario 'canceling a blog edit' do
     blog
     admin_user

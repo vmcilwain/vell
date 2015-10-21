@@ -1,16 +1,10 @@
 require 'rails_helper'
 
-feature 'new blog' do
+feature 'blog' do
   scenario 'creating an invalid blog' do
     blog_category
-     
-    sign_in
-    click_link 'Blog'
-    expect(page).to have_link 'New Blog'
-    
-    click_link 'New Blog'
-    expect(page).to have_content 'Create Blog'
-    
+    visit new_blog_path
+    sign_in_with(admin_user)
     select blog_category.name, from: 'blog_blog_category_id'
     fill_in 'blog_body', with: text(20)
     click_button 'Create Blog'

@@ -1,16 +1,11 @@
 require 'rails_helper'
 
-feature 'new blog' do
+feature 'blog' do
   scenario 'cancel a new blog' do
+    admin_user
     blog_category
-
-    sign_in
-    click_link 'Blog'
-    expect(page).to have_link 'New Blog'
-
-    click_link 'New Blog'
-    expect(page).to have_content 'Create Blog'
-
+    visit new_blog_path
+    sign_in_with(admin_user)
     click_link 'Cancel'
 
     expect(current_path).to eq blogs_path

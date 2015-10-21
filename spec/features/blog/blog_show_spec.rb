@@ -1,15 +1,12 @@
 require 'rails_helper'
 
-feature 'viewing blogs index' do
-  scenario 'view blog listing' do
+feature 'blog' do
+  scenario 'view a blog ' do
     blog
+    Blog.reindex
     
-    visit "/"
-    click_link 'Blog'
-    expect(page).to have_link blog.headline
-    
-    click_link blog.headline
-    
+    visit blogs_path
+    click_link 'Read More'
     expect(page).to have_content blog.body
   end
 end

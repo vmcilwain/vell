@@ -1,11 +1,14 @@
 require 'rails_helper'
 
-feature 'viewing blogs index' do
+feature 'blog' do
   scenario 'view blog listing' do
-    visit "/"
+    blog
+    Blog.reindex
+    
+    visit root_path
     
     click_link 'Blog'
     
-    expect(page).to have_content 'Blog Listing'
+    expect(page).to have_content 'Blogs'
   end
 end
