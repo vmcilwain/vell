@@ -1,6 +1,6 @@
 %article.comment
   %header.clearfix
-    =image_tag('tales/avatar.png', alt: 'A Smart Guy', class: 'avatar')
+    =image_tag('vell.jpg', alt: 'picture of lovell', class: 'avatar', width: '60px') if user_signed_in?
     .meta
       %h3
         =blog_comment.name

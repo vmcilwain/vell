@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020230703) do
+ActiveRecord::Schema.define(version: 20151021235107) do
 
   create_table "blog_categories", force: :cascade do |t|
     t.string  "name",    limit: 255
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20151020230703) do
     t.text     "body",       limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email",      limit: 255
   end
 
   create_table "blog_files", force: :cascade do |t|

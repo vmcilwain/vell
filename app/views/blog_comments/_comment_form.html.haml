@@ -10,8 +10,12 @@
       =f.hidden_field :blog_id, value: @blog.id
       .row
         .col-md-6
-          =f.text_field :name, placeholder: 'Name', id: 'comment-name', class: 'form-control input-lg comment_name'
-        -#.col-md-6
+          -if user_signed_in?
+            =f.text_field :name, placeholder: 'Name', id: 'comment-name', class: 'form-control input-lg comment_name'
+          -else
+            =f.text_field :name, placeholder: 'Name', id: 'comment-name', class: 'form-control input-lg comment_name'
+        .col-md-6
+          =f.text_field :email, placeholder: 'Email (Optional)', class: 'form-control input-lg comment_email'
       %br
         =f.text_area :body, placeholder: 'Your thoughts...', rows: 10, id: 'comment-body', class: 'form-control input-lg comment_body'
         .buttons.clearfix
