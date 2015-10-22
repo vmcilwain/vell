@@ -23,4 +23,3 @@
 .env
 /config/application.yml
 /coverage
-/vagrant/.vagrant
