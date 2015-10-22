@@ -42,8 +42,8 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 # set :running_dir, File.dirname(__FILE__)
-# set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
-# set :whenever_roles, ->{ :app }
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+set :whenever_roles, ->{ :app }
 # set :monit_conf_file, "#{fetch(:running_dir)}/deploy/monit.conf"
 set :rails_env, fetch(:stage)
 # set :default_env, { 'DBPASS' => ENV['PROWEB'] }
@@ -61,6 +61,7 @@ namespace :deploy do
   
   before :finishing, :restart do
     on roles(:app) do
+      execute :sudo, 'service elasticsearch restart'
       invoke 'unicorn:restart'
       invoke 'nginx:restart'
     end

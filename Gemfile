@@ -56,8 +56,8 @@ gem 'letter_opener', group: [:development]
 gem "font-awesome-rails"
 gem 'devise'
 gem 'tinymce-rails'
-# elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml
 gem 'searchkick'
+gem 'whenever', require: false
 
 group :test do
   gem "rspec-rails"
