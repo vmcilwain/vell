@@ -57,7 +57,7 @@ gem "font-awesome-rails"
 gem 'devise'
 gem 'tinymce-rails'
 gem 'searchkick'
-gem 'whenever', require: false
+# gem 'whenever', require: false
 
 group :test do
   gem "rspec-rails"

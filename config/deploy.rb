@@ -4,7 +4,7 @@
 
 # To Dos
 # * Figure out how to get capistrano-bundler to generate unicorn binary
-# * 
+# *
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
@@ -42,14 +42,14 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 # set :running_dir, File.dirname(__FILE__)
-set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
-set :whenever_roles, ->{ :app }
+# set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+# set :whenever_roles, ->{ :app }
 # set :monit_conf_file, "#{fetch(:running_dir)}/deploy/monit.conf"
 set :rails_env, fetch(:stage)
 # set :default_env, { 'DBPASS' => ENV['PROWEB'] }
 set :bundle_binstubs, -> { release_path.join('bin') }
 namespace :deploy do
-  
+
   # after :restart, :clear_cache do
   #   on roles(:app), in: :groups, limit: 3, wait: 10 do
   #     # Here we can do anything such as:
@@ -58,7 +58,7 @@ namespace :deploy do
   #     # end
   #   end
   # end
-  
+
   before :finishing, :restart do
     on roles(:app) do
       execute :sudo, 'service elasticsearch restart'
@@ -66,14 +66,14 @@ namespace :deploy do
       invoke 'nginx:restart'
     end
   end
-  
+
   task :upload_app_yml do
     on roles(:app) do
       info 'Uploading application.yml'
       upload!("#{Dir.pwd}/config/application.yml", "#{release_path}/config")
     end
   end
-  
+
   before :compile_assets, :upload_app_yml
   before :published, 'nginx:create_nginx_config'
   before :published, 'unicorn:create_unicorn_config'

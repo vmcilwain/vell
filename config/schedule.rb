@@ -19,8 +19,8 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 5.minutes do
-  rake "searchkick:reindex CLASS=Blog"
-  rake "searchkick:reindex CLASS=BlogComment"
-  rake "searchkick:reindex CLASS=BlogFile"
-end
+# every 5.minutes do
+#   rake "searchkick:reindex CLASS=Blog"
+#   rake "searchkick:reindex CLASS=BlogComment"
+#   rake "searchkick:reindex CLASS=BlogFile"
+# end

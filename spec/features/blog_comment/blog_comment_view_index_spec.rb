@@ -3,7 +3,6 @@ require 'rails_helper'
 feature 'view blog comment index' do
   background do
     blog_comment
-    BlogComment.reindex
   end
   scenario 'view a listing of blog comments' do
     visit blog_comments_path
