@@ -80,9 +80,9 @@ namespace :deploy do
   task :reindex_application do
     on roles(:app) do
       execute :sudo, "service elasticsearch restart"
-      execute "cd #{current_path} && bin/rails r 'Blog.reindex'"
-      execute "cd #{current_path} && bin/rails r 'BlogComment.reindex'"
-      execute "cd #{current_path} && bin/rails r 'BlogFile.reindex'"
+      # execute "cd #{current_path} && bin/rails r 'Blog.reindex'"
+      # execute "cd #{current_path} && bin/rails r 'BlogComment.reindex'"
+      # execute "cd #{current_path} && bin/rails r 'BlogFile.reindex'"
     end
   end
   
