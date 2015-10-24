@@ -63,13 +63,26 @@ namespace :deploy do
     on roles(:app) do
       invoke 'unicorn:restart'
       invoke 'nginx:restart'
+      invoke :reindex_application
+      
     end
   end
   
+  desc 'upload config/application.yml file to server'
   task :upload_app_yml do
     on roles(:app) do
       info 'Uploading application.yml'
       upload!("#{Dir.pwd}/config/application.yml", "#{release_path}/config")
+    end
+  end
+  
+  desc 'restart elastic search and reindex using searchkick rake task'
+  task :reindex_application do
+    on roles(:app) do
+      execute :sudo, "service elasticsearch restart"
+      execute "cd #{current_path} && rake searchkick:reindex CLASS=Blog"
+      execute "cd #{current_path} && rake searchkick:reindex CLASS=BlogComment"
+      execute "cd #{current_path} && rake searchkick:reindex CLASS=BlogFile"
     end
   end
   
