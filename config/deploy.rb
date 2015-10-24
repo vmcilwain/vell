@@ -63,7 +63,7 @@ namespace :deploy do
     on roles(:app) do
       invoke 'unicorn:restart'
       invoke 'nginx:restart'
-      invoke :reindex_application
+      invoke 'deploy:reindex_application'
       
     end
   end
