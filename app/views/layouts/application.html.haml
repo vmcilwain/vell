@@ -45,10 +45,9 @@
                 -if user_signed_in?
                   %li #{link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-tales-two'}
                 -else
-                  -if Rails.env.production? && request.ssl?
+                  -if request.ssl?
                     %li #{link_to 'Login', new_user_session_path, class: 'btn btn-tales-one'}
-                  -elsif Rails.env.development? || Rails.env.test?
-                    %li #{link_to 'Login', new_user_session_path, class: 'btn btn-tales-one'}
+                  
                 -#%li
                   =link_to :credit, '#'
       .widewrapper.subheader
