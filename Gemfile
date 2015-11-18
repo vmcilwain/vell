@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2'
 
@@ -32,7 +32,7 @@ gem 'spring', '~> 1.4.0',        group: :development
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
-gem 'unicorn'
+gem 'unicorn', '~> 4.9.0'
 
 # Use Capistrano for deployment
 group :development do

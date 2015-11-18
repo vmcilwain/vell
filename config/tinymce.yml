@@ -1,0 +1,17 @@
+menubar: false
+statusbar: false
+encoding: html
+content_css: assets/application.css
+skin: light
+min_height: 500px
+paste_webkit_styles: none
+toolbar:
+ - fontsizeselect | bold | italic | underline | forecolor | backcolor | bullist | numlist | link | unlink | preview
+plugins:
+ - link
+ - paste
+ - autolink
+ - lists
+ - textcolor
+ - colorpicker
+ - preview
