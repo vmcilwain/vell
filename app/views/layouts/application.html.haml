@@ -11,8 +11,7 @@
     =javascript_include_tag 'application', 'data-turbolinks-track' => true
     =csrf_meta_tags
   %body{role: 'document'}
-    =tinymce_assets
-    =tinymce
+    -#tinymce_assets
     %header
       .widewrapper.masthead
         .container
@@ -67,3 +66,4 @@
               =text_field_tag :q, params[:q], class: 'searchbox searchfield form-control', placeholder: 'Search Blogs'
     =yield
     =render 'layouts/footer'
+    =tinymce
