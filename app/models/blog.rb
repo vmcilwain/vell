@@ -14,6 +14,9 @@ class Blog < ActiveRecord::Base
   acts_as_taggable
   acts_as_taggable_on :announcements, :ruby, :rubyonrails, :linux, :General
   
+  extend FriendlyId
+  friendly_id :headline, use: :slugged
+  
   def search_data
     {
       headline: headline,

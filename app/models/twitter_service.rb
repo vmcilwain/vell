@@ -18,7 +18,7 @@ class TwitterService
   private
   
   def blog_url
-    "http://www.lovell.direct/blogs/#{@blog.id}"
+    "http://www.lovell.direct/blogs/#{@blog.slug}"
   end
   
   def tiny_url
