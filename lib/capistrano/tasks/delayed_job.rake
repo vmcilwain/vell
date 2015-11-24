@@ -120,5 +120,3 @@ namespace :delayed_job do
     end
   end
 end
-Status API Training Shop Blog About Pricing
-© 2015 GitHub, Inc. Terms Privacy Security Contact Help
