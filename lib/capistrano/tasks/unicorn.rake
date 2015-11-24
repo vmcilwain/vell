@@ -87,11 +87,11 @@ namespace :unicorn do
     on roles(:app) do
       info 'Restarting unicorn'
       execute :sudo, "/etc/init.d/#{fetch(:application)}_unicorn restart"
-      invoke 'unicorn:autostart'
+      # invoke 'unicorn:autostart'
     end
   end
   
-  desc "Set auto-start of unicorn for #{fetc(:application)}"
+  desc "Set auto-start of unicorn for #{fetch(:application)}"
   task :autostart do
     on roles(:app) do
       info 'Setting unicorn autostart in rc.*'
