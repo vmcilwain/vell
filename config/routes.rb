@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   devise_for :users
-    
+  get 'blog_tags/:tag', to: 'blogs#index', as: :blog_tag
   get 'ui(/:action)', controller: 'ui'
   get 'about', to: 'home#about'
     

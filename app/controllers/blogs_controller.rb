@@ -5,7 +5,11 @@ class BlogsController < ApplicationController
   before_action :require_admin, except: [:index, :show]
   
   def index
-    @blogs = Blog.search(params.fetch(:q, "*"), page: params[:page], per_page: 10) #elasticsearch
+    if params[:tag]
+      @blogs = Blog.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 10)
+    else
+      @blogs = Blog.search(params.fetch(:q, "*"), page: params[:page], per_page: 10) #elasticsearch
+    end
   end
   
   def new
@@ -54,6 +58,6 @@ class BlogsController < ApplicationController
   end
   
   def blog_params
-    params.require(:blog).permit(:blog_category_id, :headline, :body, :to_twitter, blog_files_attributes: [:id, :blog_id, :description, :doc])
+    params.require(:blog).permit(:headline, :body, :to_twitter, :tag_list, blog_files_attributes: [:id, :blog_id, :description, :doc])
   end
 end

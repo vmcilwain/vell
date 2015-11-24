@@ -58,6 +58,7 @@ gem 'devise'
 gem 'tinymce-rails'
 gem 'searchkick'
 # gem 'whenever', require: false
+gem 'acts-as-taggable-on', '~> 3.4'
 
 group :test do
   gem "rspec-rails"

@@ -9,9 +9,6 @@
               %li #{message}
     =form_for @blog, multipart: true do |f|
       .form-group
-        =f.label :blog_category
-        =f.select :blog_category_id, @blog_categories, prompt: true, class: 'form-control'
-      .form-group
         =f.text_field :headline, placeholder: 'Enter Headline', class: 'form-control'
       .form-group
         =f.text_area :body, placeholder: 'Enter Details', rows: 20, class: 'tinymce form-control'

@@ -1,9 +1,7 @@
 class Blog < ActiveRecord::Base
   searchkick
 
-  validates :headline, :blog_category_id, :body, presence: true
-
-  belongs_to :blog_category
+  validates :headline, :body, presence: true
 
   has_many :blog_files
 
@@ -13,6 +11,9 @@ class Blog < ActiveRecord::Base
 
   accepts_nested_attributes_for :blog_files, allow_destroy: true
 
+  acts_as_taggable
+  acts_as_taggable_on :announcements, :ruby, :rubyonrails, :linux, :General
+  
   def search_data
     {
       headline: headline,

@@ -23,6 +23,9 @@
                 .date
                   %i.fa.fa-calendar
                   %span.data #{medium_date(blog.created_at)}
+                .tags
+                  %i.fa.fa-tags
+                  %span.data #{blog_tag_links(blog)}
                 .comments
                   %i.fa.fa-comments
                   %span.data

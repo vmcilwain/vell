@@ -6,7 +6,6 @@ feature 'blog', :vcr do
     visit new_blog_path
     sign_in_with(admin_user)
     
-    select blog_category.name, from: 'blog_blog_category_id'
     fill_in 'blog_headline', with: text
     fill_in 'blog_body', with: text(20)
     click_button 'Create Blog'

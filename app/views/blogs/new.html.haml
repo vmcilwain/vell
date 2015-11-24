@@ -16,8 +16,7 @@
             = builder.file_field :doc
         %br
       .form-group
-        =f.label :blog_category
-        =f.select :blog_category_id, @blog_categories, prompt: true, class: 'form-control'
+        =f.text_field :tag_list, class: 'form-control', placeholder: 'Add Tags (Comma Seperated)'
       .form-group
         =f.text_field :headline, placeholder: 'Enter Headline',class: 'form-control'
       .form-group

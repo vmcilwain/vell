@@ -17,4 +17,8 @@ module ApplicationHelper
   def to_text(text)
     text.gsub(/<\/?[^>]+>/, '')
   end
+  
+  def blog_tag_links(blog)
+    raw blog.tag_list.map { |t| link_to t, blog_tag_path(t) }.join(', ')
+  end
 end

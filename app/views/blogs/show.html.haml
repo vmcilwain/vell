@@ -10,7 +10,7 @@
                   =flash[:success]
             %header
               %h1 #{@blog.headline}
-              %h3 Category: #{@blog.blog_category.name}
+              %h3 Tags: #{blog_tag_links(@blog)}
               .lead-image
                 / =image_tag('tales/hands-big.png', alt: 'Hands', class: 'img-responsive')
                 =image_tag('blog.jpg', alt: 'lovell', class: 'img-responsive')
