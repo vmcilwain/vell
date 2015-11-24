@@ -58,9 +58,9 @@ namespace :nginx do
       info "Creating #{fetch(:application)} nginx.conf"
       invoke 'nginx:generate_nginx_conf'
       invoke 'nginx:upload'
+      invoke 'nginx:remove'
       invoke 'nginx:remove_symlink'
       invoke 'nginx:create_symlink'
-      invoke 'nginx:remove'
     end
   end
 

@@ -2,7 +2,7 @@
 set :home_path, File.expand_path("../../../../config/deploy", __FILE__)
 set :unicorn_conf_file, "#{fetch(:home_path)}/unicorn.rb"
 set :unicorn_init_file, "#{fetch(:home_path)}/unicorn_init.sh"
-set :unicorn_binary, "#{fetch(:home_path)}/../../bin/unicorn"
+
 namespace :unicorn do
 
   desc "generate unicorn.conf for #{fetch(:application)}"
@@ -38,14 +38,6 @@ namespace :unicorn do
       upload!(fetch(:unicorn_init_file), "#{current_path}/config")
     end
   end
-  
-  desc "upload #{fetch(:application)} bin/unicorn"
-  task :upload_unicorn_binary do
-    on roles(:app) do
-      # bundle binstub unicorn must already be run
-      upload!(fetch(:unicorn_binary), "#{current_path}/bin")
-    end
-  end
 
   desc "delete local #{fetch(:application)} unicorn.conf"
   task :remove_unicorn_conf do
@@ -68,7 +60,7 @@ namespace :unicorn do
     on roles(:app) do
       info 'Symlinking unicorn_init.sh'
       execute :sudo, "chmod +x #{current_path}/config/unicorn_init.sh"
-      execute :sudo, "ln -s #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn-#{fetch(:application)}"
+      execute :sudo, "ln -s #{current_path}/config/unicorn_init.sh /etc/init.d/#{fetch(:application)}_unicorn"
     end
   end
 
@@ -77,6 +69,7 @@ namespace :unicorn do
     on roles(:app) do
       info 'Removing unicorn_init.sh symlink'
       execute :sudo, "rm -rf /etc/init.d/unicorn-#{fetch(:application)}"
+      execute :sudo, "rm -rf /etc/init.d/#{fetch(:application)}_unicorn"
     end
   end
 
@@ -86,7 +79,6 @@ namespace :unicorn do
       invoke 'unicorn:generate_unicorn_conf'
       invoke 'unicorn:upload_unicorn_conf'
       invoke 'unicorn:remove_unicorn_conf'
-      # invoke 'unicorn:upload_unicorn_binary'
     end
   end
   
@@ -94,26 +86,37 @@ namespace :unicorn do
   task :restart do
     on roles(:app) do
       info 'Restarting unicorn'
-      execute :sudo, "/etc/init.d/unicorn-#{fetch(:application)} restart"
+      execute :sudo, "/etc/init.d/#{fetch(:application)}_unicorn restart"
+      invoke 'unicorn:autostart'
     end
   end
   
-  # desc "Stop unicorn for #{fetch(:application)}"
-  # task :stop do
-  #   on roles(:app) do
-  #     info 'Stopping unicorn'
-  #     execute :sudo, "kill #{capture(current_path.join('tmp/pids/unicorn.pid'))}"
-  #   end
-  # end
+  desc "Set auto-start of unicorn for #{fetc(:application)}"
+  task :autostart do
+    on roles(:app) do
+      info 'Setting unicorn autostart in rc.*'
+      execute 'sudo update-rc.d online_community_unicorn defaults'
+    end
+  end
+  
+  desc "add unicorn to #{fetch(:application)} monit.conf"
+  task :update_monit_conf do
+    on roles(:app) do
+      info "Adding unicorn config to monit.conf"
+      open(fetch(:monit_conf_file), 'a') do |f|
+        f.puts(ERB.new(File.read(fetch(:home_path) + "/templates/unicorn_monit.conf.erb"), nil, '-').result(binding))
+      end
+    end
+  end
   
   desc "add unicorn init config to #{fetch(:application)}"
   task :create_unicorn_init do
     on roles(:app) do |host|
       invoke 'unicorn:generate_unicorn_init'
       invoke 'unicorn:upload_unicorn_init'
+      invoke 'unicorn:remove_unicorn_init'
       invoke 'unicorn:remove_symlink'
       invoke 'unicorn:create_symlink'
-      invoke 'unicorn:remove_unicorn_init'
     end
   end
 end
