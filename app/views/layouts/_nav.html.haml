@@ -26,4 +26,6 @@
       %li #{link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-danger btn-xs'}
     -else
       %li #{link_to 'Login', new_user_session_path, class: 'btn btn-info btn-xs'}
+      -if Rails.env.development?
+        %li #{link_to :UI, '/ui', class: 'btn btn-default btn-xs'}
 %hr
