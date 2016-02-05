@@ -1,2 +1,0 @@
-$("##{dom_id(@photo, :edit)}").html("#{escape_javascript(render(partial: 'photos/js_edit_form', locals: {photo: @photo}))}")
-$("#edit_photo_#{@photo.id}_link").hide();

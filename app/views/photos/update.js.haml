@@ -1,8 +1,0 @@
--if @photo.errors.any?
-  $("##{dom_id(@photo, :notification)}").html("<div class='alert alert-danger'>#{@photo.errors.full_messages.join('<br />')}</div>")
--else
-  $("##{dom_id(@photo, :notification)}").html("<div class='alert alert-success'>Photo updated</div>").fadeOut(FADE_OUT_TIME);
-  $("form##{dom_id(@photo, :edit)}").hide();
-  $("div##{dom_id(@photo, :edit)}").show();
-  $("div##{dom_id(@photo, :edit)}").html("#{@photo.description}");
-  $("#edit_photo_#{@photo.id}_link").show();

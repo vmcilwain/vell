@@ -1,8 +1,0 @@
-=form_for photo, multipart: true, remote: true do |f|
-  .form-group
-    =f.text_field :description, placeholder: 'Enter Description'
-  .form-group
-    .col-xs-6
-      =f.submit class: 'btn btn-priamry'
-    .col-xs-2
-      =link_to 'Cancel', '#', id: "cancel_#{photo.id}", class: 'btn btn-danger'

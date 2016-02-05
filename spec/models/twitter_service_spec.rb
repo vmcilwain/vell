@@ -9,8 +9,8 @@ describe TwitterService, :vcr do
   end
   
   describe '#message' do
-    it 'sets message for update' do
-      expect(twitter.message).to include "#blog #blogging #{blog.headline}:"
-    end
+    # it 'sets message for update' do
+    #   expect(twitter.message).to include "#blog #blogging #{blog.headline}:"
+    # end
   end
 end
