@@ -6,64 +6,10 @@
     %meta{name: 'description', content: 'The professional site for Vell McIlwain. A Ruby and Ruby on Rails developer in the D.C. Metropolitan area. You will laaugh. You will cry. You will want to keep reading hopefully.'}
     %meta{name: "ROBOTS", content: "INDEX, NOFOLLOW"}
     %title Lovell
-    %link{:href => "http://fonts.googleapis.com/css?family=Open+Sans:400,600|PT+Serif:400,400italic", :rel => "stylesheet", :type => "text/css"}
     =stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     =javascript_include_tag 'application', 'data-turbolinks-track' => true
     =csrf_meta_tags
-  %body{role: 'document'}
-    -#tinymce_assets
-    %header
-      .widewrapper.masthead
-        .container
-          %a#logo{:href => main_app.root_path}
-            =image_tag('vell.jpg', alt: 'Picture of Lovell', width: '100px', class: 'img-responsive img-circle')
-          #mobile-nav-toggle.pull-right
-            %a{"data-target" => ".tales-nav .navbar-collapse", "data-toggle" => "collapse", :href => "#"}
-              %i.fa.fa-bars
-          %nav.pull-right.tales-nav
-            .collapse.navbar-collapse
-              %ul.nav.nav-pills.navbar-nav
-                %li
-                  =link_to :Home, root_path
-                %li
-                  =link_to :Blog, main_app.blogs_path
-                %li
-                  =link_to :About, main_app.about_home_index_path
-                -if current_user && current_user.admin?
-                  %li.dropdown.active
-                    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => main_app.blogs_path}
-                      Admin
-                      %b.caret
-                    %ul.dropdown-menu
-                      %li
-                        =link_to 'Blog Categories', blog_categories_path
-                      %li
-                        =link_to 'Blog Comments', blog_comments_path
-                      %li
-                        =link_to 'Blog Files', blog_files_path
-                -if user_signed_in?
-                  %li #{link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-tales-two'}
-                -else
-                  -if Rails.env.production? && request.ssl?
-                    %li #{link_to 'Login', new_user_session_path, class: 'btn btn-tales-one'}
-                  -elsif Rails.env.development? || Rails.env.test?
-                    %li #{link_to 'Login', new_user_session_path, class: 'btn btn-tales-one'}
-                -#%li
-                  =link_to :credit, '#'
-      .widewrapper.subheader
-        .container
-          -#.tales-breadcrumb
-            %a{:href => "#"} Blog
-            %span.separator /
-            %a{:href => "#"} Security
-            %span.separator /
-            %a{:href => "#"} My Insightful Article
-          .tales-searchbox
-            =form_tag blogs_path, method: :get do
-              .form-group
-              %i.fa.fa-search
-              =submit_tag 'Submit', class: 'searchbutton'
-              =text_field_tag :q, params[:q], class: 'searchbox searchfield form-control', placeholder: 'Search Blogs'
-    =yield
-    =render 'layouts/footer'
-    =tinymce
+    .container
+      =render 'layouts/nav'
+      =yield
+      =render 'layouts/footer'

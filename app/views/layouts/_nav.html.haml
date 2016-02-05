@@ -1,30 +1,29 @@
-%nav{class: "navbar navbar-default navbar-static-top"}
-  .container
-    .navbar-header
-      %button{type: "button", class: "navbar-toggle collapsed", 'data-toggle' => "collapse", 'data-target' => "#navbar", 'aria-expanded' => "false", 'aria-controls' => "navbar"}
-        %span.sr-only
-          Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      =link_to 'Lovell', main_app.root_path, class: 'navbar-brand'
-    %div{id: "navbar", class: "navbar-collapse collapse"}
-      %ul{class: "nav navbar-nav"}
-        / %li #{link_to fa_icon('home', text: 'Home'), main_app.root_path}
-        %li #{link_to fa_icon('eye', text: 'About Me'), main_app.about_path}
-        %li #{link_to fa_icon('envelope', text: 'Contact Me'), main_app.new_contact_me_path}
-        %li #{link_to fa_icon('book', text: 'Blog'), main_app.blogs_path}
-        %li #{link_to fa_icon('camera', text: 'Photo Album'), main_app.photo_albums_path unless Rails.env.production?}
-        -if current_user && current_user.admin?
-          %li #{link_to fa_icon('folder', text: 'Blog Categories'), main_app.blog_categories_path}
-          %li #{link_to fa_icon('comments', text: 'Blog Comments'), main_app.blog_comments_path}
-          %li #{link_to fa_icon('file-image-o', text: 'Photos'), main_app.photos_path}
-          %li #{link_to fa_icon('comments', text: "Photo Comments"), main_app.photo_comments_path}
-      / -if request.ssl?
-      %ul{class: "nav navbar-nav navbar-right"}
-        -if current_user
-          %li #{link_to fa_icon('sign-out', text: current_user.full_name), simple_auth_engine.sign_out_path}
-          %li #{link_to :Admin, simple_auth_engine.admin_path}
-        -else
-          %li
-            =link_to fa_icon('sign-in', text: 'Sign In'), simple_auth_engine.sign_in_path
+#bs-example-navbar-collapse-2.collapse.navbar-collapse
+  .navbar-header
+    =link_to :Lovell, root_path, class: 'navbar-brand'
+    %button.navbar-toggle{"data-target" => "#navbar-main", "data-toggle" => "collapse", :type => "button"}
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+  %ul.nav.navbar-nav
+    %li
+      =link_to :Articles, blogs_path
+    %li
+      =link_to :About, about_home_index_path
+    / -if current_user && current_user.admin?
+    %li
+      =link_to 'Blog Categories', blog_categories_path
+    %li
+      =link_to 'Blog Comments', blog_comments_path
+    %li
+      =link_to 'Blog Files', blog_files_path
+  %form.navbar-form.navbar-left{:role => "search"}
+    .form-group
+      %input.form-control{:placeholder => "Search", :type => "text"}
+    %button.btn.btn-default{:type => "submit"} Submit
+  %ul.nav.navbar-nav.navbar-right
+    -if user_signed_in?
+      %li #{link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-danger btn-xs'}
+    -else
+      %li #{link_to 'Login', new_user_session_path, class: 'btn btn-info btn-xs'}
+%hr
