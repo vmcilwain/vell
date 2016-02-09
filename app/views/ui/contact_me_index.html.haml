@@ -1,3 +1,5 @@
+.page-header
+  %h1.animated.bounceInDown Contact Me
 .row
   .col-xs-3
     Name
@@ -9,7 +11,7 @@
     Created On
 %br
 -10.times.each do
-  .row
+  .row.animated.fadeIn
     .col-xs-3
       =link_to Faker::Name.name
     .col-xs-4
