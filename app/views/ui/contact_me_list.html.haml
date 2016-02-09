@@ -1,0 +1,21 @@
+.row
+  .col-xs-3
+    Name
+  .col-xs-3
+    Email
+  .col-xs-3
+    Body
+  .col-xs-3
+    Created On
+%br
+-10.times.each do
+  .row
+    .col-xs-3
+      =link_to Faker::Name.name
+    .col-xs-4
+      =mail_to Faker::Internet.email
+    .col-xs-2
+      =truncate Faker::Lorem.words(100).join("\s")
+    .col-xs-3
+      =medium_date Date.today
+  %hr

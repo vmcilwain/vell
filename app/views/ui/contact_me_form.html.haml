@@ -1,17 +1,15 @@
-.widewrapper.main
-  .container
-    .page-header
-      %h1 Send Lovell A Message
+.page-header
+  %h1 Send Lovell A Message
 
-    .row
-      .col-xs-12
-        %form.well
-          .form-group
-            =text_field_tag :name, nil, placeholder: 'Enter Name', size: 60, class: 'form-control', autofocus: true
-          .form-group
-            =text_field_tag :email, nil, placeholder: 'Enter Email', size: 60, class: 'form-control'
-          .form-group
-            =text_area_tag :body, nil, placeholder: 'Enter Message', rows: 10, class: 'form-control'
-          .form-group
-            =submit_tag 'Send', class: 'btn btn-primary'
-            =link_to 'Cancel', root_path, class: 'btn btn-danger'
+.row
+  .col-xs-12
+    %form.well
+      .form-group
+        =text_field_tag :name, nil, placeholder: 'Enter Name', size: 60, class: 'form-control', autofocus: true
+      .form-group
+        =text_field_tag :email, nil, placeholder: 'Enter Email', size: 60, class: 'form-control'
+      .form-group
+        =text_area_tag :body, nil, placeholder: 'Enter Message', rows: 10, class: 'form-control'
+      .form-group
+        =submit_tag 'Send', class: 'btn btn-primary'
+        =link_to 'Cancel', root_path, class: 'btn btn-danger'
