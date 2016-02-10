@@ -35,17 +35,17 @@
             =truncate(Faker::Lorem.paragraphs(5).join("\s"), length: 200) { link_to "Read More", "#"}
           .meta.clearfix
             .row
-              .col-xs-4
-                .date
-                  %i.fa.fa-calendar
-                  %span.data 26 July 2013
-              .col-xs-4
-                .comments
-                  %i.fa.fa-comments
-                  %span.data
-                    =link_to '26 Comments', '#'
-              .col-xs-4
-                .files
-                  %i.fa.fa-file-text
-                  %span.data
-                    =link_to '0 Files', '#'
+              .col-md-3
+                %i.fa.fa-calendar
+                %span.data #{short_date Date.today}
+              .col-md-3.hidden-xs
+                %i.fa.fa-tags
+                %span.data Ruby
+              .col-md-3
+                %i.fa.fa-comments
+                %span.data
+                =link_to pluralize([1,2].count, 'Comment')
+              .col-md-3.hidden-xs
+                %i.fa.fa-file-text
+                %span.data
+                  =link_to pluralize([1,2].count, 'File')
