@@ -40,3 +40,26 @@
           Bacon ipsum dolor sit amet esse duis pastrami anim, pancetta fatback capicola officia tenderloin. Meatloaf culpa ut, bacon sed sausage jerky cillum est ham ad laboris ham hock dolore. Venison ut enim, aliqua elit frankfurter et incididunt consequat culpa nostru aliqua elit pancetta.
         .clearfix
           %a.btn.btn-tales-one{:href => "blog-detail.html"} Read more
+          
+.panel.panel-default.animated.fadeIn
+  .panel-heading
+    %h3.panel-title Projects
+  .panel-body
+    .row.text-center
+      .col-xs-3
+        =link_to fa_icon('github', text: 'Authenticatable Engine'), "https://github.com/vmcilwain/authenticatable", target: 'blank'
+      .col-xs-3
+        =link_to fa_icon('github', text: 'Ruby Mysql Web API'), "https://github.com/vmcilwain/ruby_mysql_web_service", target: 'blank'
+      .col-xs-3
+        =link_to fa_icon('github', text: 'Announcements'), "https://github.com/vmcilwain/announcements", target: 'blank'
+.panel.panel-default.animated.fadeIn
+  .panel-heading
+    %h3.panel-title Connect With Me
+  .panel-body
+    .row.text-center
+      .col-xs-3
+        =link_to fa_icon("twitter", text: 'Twitter'), 'https://twitter.com/the_codemonster', target: 'blank'
+      .col-xs-3
+        =link_to fa_icon("linkedin", text: 'LinkedIn'), 'https://www.linkedin.com/pub/lovell-mcilwain/60/92/28/', target: 'blank'
+      .col-xs-3
+        =link_to fa_icon("github", text: 'Github'), 'https://www.github.com/vmcilwain', target: 'blank'
