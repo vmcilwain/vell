@@ -1,6 +1,6 @@
 .page-header
   %h1.animated.bounceInDown Blog Files
-
+  =link_to 'Blog Listing', '#', class: 'btn btn-primary btn-xs'
 
 .search_form.well
   %h1 Search Blog Files
@@ -15,7 +15,8 @@
       =submit_tag :Search, class: 'btn btn-primary btn-xs'
       =link_to :Cancel, '#', class: 'btn btn-danger btn-xs'
 =link_to 'Search Posts', '#', class: 'btn btn-primary btn-xs'
-%hr
+%br/
+%br/
 .row.animated.fadeIn
   .col-xs-3
     File Name
