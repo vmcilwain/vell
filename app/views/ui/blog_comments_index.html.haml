@@ -1,0 +1,42 @@
+.page-header
+  %h1.animated.bounceInDown Blog Comments
+  =link_to 'Blog Listing', '#', class: 'btn btn-primary btn-xs'
+  =link_to 'Search Comments', '#', class: 'search_form_link btn btn-info btn-xs'
+    
+.search_form.well
+  %form
+    %header
+      %h1 Search Blog Comments
+    .form-group
+      =text_field_tag :blog_headline, nil, placeholder: 'Blog Headline', class: 'form-control'
+    .form-group
+      =text_field_tag :content, nil, placeholder: 'Content', class: 'form-control'
+    .form-group
+      =text_field_tag :created_at, nil, placeholder: 'Created On', class: 'form-control'
+    .form-group
+      =submit_tag 'Search', class: 'btn btn-primary btn-xs'
+      =link_to 'Cancel', '#', class: 'cancel_search_form_link btn btn-danger btn-xs'
+
+-10.times do
+  .row.animated.fadeIn
+    .col-xs-12
+      .panel.panel-default
+        .panel-heading
+          %h3 #{link_to Faker::Lorem.words(4).join("\s"), '#'}
+        .panel-body
+          .meta.clearfix
+            .row
+              .col-xs-6
+                .author
+                  %i.fa.fa-user
+                  %span.data #{Faker::Name.name}
+              .col-xs-46
+                .date
+                  %i.fa.fa-calendar
+                  %span.data #{Date.today}
+            .comments
+              %i.fa.fa-comments
+              %span.data
+                =Faker::Lorem.words(5).join("\s")
+          =link_to 'Edit', '#', class: 'btn btn-primary btn-xs'
+          =link_to 'Destroy', '#', class: 'btn btn-danger btn-xs'
