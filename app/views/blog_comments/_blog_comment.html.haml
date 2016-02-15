@@ -1,14 +1,11 @@
-%article.comment
-  %header.clearfix
-    =image_tag('vell.jpg', alt: 'picture of lovell', class: 'avatar', width: '60px') if user_signed_in?
-    .meta
-      %h3
-        =blog_comment.name
-        -#%a{:href => "#"} Willy Wonka
-      %span.date
-        =medium_date(blog_comment.created_at)
-      %span.separator
-        \-
-      %a.reply-link{:href => "#create-comment"} Reply
-  .body
-    =blog_comment.body
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title 
+      .row
+        .col-xs-11
+          #{medium_date2 blog_comment.created_at}, #{blog_comment.name}
+        .col-xs-1
+          %i.fa.fa-user
+  .panel-body
+    %p
+      =blog_comment.body
