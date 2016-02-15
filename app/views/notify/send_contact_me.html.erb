@@ -179,13 +179,11 @@ ol li {
 
 <body bgcolor="#f6f6f6">
 
-<!-- body -->
-<table class="body-wrap" bgcolor="#f6f6f6">
+  <table class="body-wrap" bgcolor="#f6f6f6">
   <tr>
     <td></td>
     <td class="container" bgcolor="#FFFFFF">
 
-      <!-- content -->
       <div class="content">
       <table>
         <tr>
@@ -194,13 +192,12 @@ ol li {
               Hi There!,
             </p>
             <p>
-              <%= @contact_me.name %> has requested you contact him/her at <%= contact_me.email %>.
+              <%= @contact_me.name %> has requested you contact him/her at <%= @contact_me.email %>.
             </p>
             <p>
-              <%= contact_me.body %>
+              <%= @contact_me.body %>
             </p>
 
-            <!-- button -->
             <table class="btn-primary" cellpadding="0" cellspacing="0" border="0">
               <tr>
                 <td>
@@ -208,7 +205,6 @@ ol li {
                 </td>
               </tr>
             </table>
-            <!-- /button -->
             <p></p>
             <p></p>
             <p><a href="https://www.lovell.direct">https://www.lovell.direct</a></p>
@@ -216,21 +212,17 @@ ol li {
         </tr>
       </table>
       </div>
-      <!-- /content -->
       
     </td>
     <td></td>
   </tr>
 </table>
-<!-- /body -->
 
-<!-- footer -->
 <table class="footer-wrap">
   <tr>
     <td></td>
     <td class="container">
       
-      <!-- content -->
       <div class="content">
         <table>
           <tr>
@@ -241,13 +233,11 @@ ol li {
           </tr>
         </table>
       </div>
-      <!-- /content -->
       
     </td>
     <td></td>
   </tr>
 </table>
-<!-- /footer -->
 
 </body>
 </html>

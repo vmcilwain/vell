@@ -16,7 +16,7 @@
       .form-group
         =f.text_field :name, placeholder: 'Name', size: 60, class: 'form-control', autofocus: true
       .form-group
-        =f.text_field :email, placeholder: 'Email', size: 60, class: 'form-control'
+        =f.email_field :email, placeholder: 'Email', size: 60, class: 'form-control', required: true
       .form-group
         =f.text_area :body, placeholder: 'Message', rows: 10, class: 'form-control'
       .form-group
