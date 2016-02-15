@@ -80,7 +80,7 @@ Rails.application.configure do
   
   config.paperclip_defaults = {
     store: :filesystem,
-    path: CONFIG[:attachment_path], 
+    path: "/var/www/files/vell/#{Rails.env}/:class/:id/:basename.:extension", 
     :styles => { 
       :medium => "300x300>", 
       :thumb => "100x100>" 

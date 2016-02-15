@@ -45,10 +45,8 @@ gem 'autoprefixer-rails'
 gem "haml-rails"
 gem "puma"
 gem 'jquery-turbolinks'
-gem "ransack"
 gem 'twitter'
 gem 'paperclip'
-gem 'aws-sdk', '< 2.0'
 gem 'httparty'
 gem 'remotipart', '~> 1.2'
 gem 'will_paginate', '~> 3.0.6'

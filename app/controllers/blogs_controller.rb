@@ -19,10 +19,9 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
     if @blog.save
-      if @blog.to_twitter
-        TwitterService.new(@blog).update unless Rails.env.development?
-      end
+      TwitterService.new(@blog).update if @blog.to_twitter && Rails.env.production?
       flash[:success] = 'Blog created!'
+      flash[:success] << ' & tweeted!' if @blog.to_twitter
       redirect_to @blog
     else
       flash[:error] = 'There has been a problem!'
