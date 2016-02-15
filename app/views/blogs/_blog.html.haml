@@ -1,0 +1,25 @@
+.row.animated.fadeIn
+  .col-xs-12
+    .panel.panel-info
+      .panel-heading
+        %h3.panel-title #{link_to blog.headline, blog}
+      .panel-body
+        %p.text-muted #{medium_date2 blog.created_at}, Lovell McIlwain
+        %p
+          =truncate(to_text(blog.body), length: 250) { link_to "Read More", blog }
+        .meta.clearfix
+          .row
+            -#.col-md-3
+              -#%i.fa.fa-calendar
+              -#%span.data #{medium_date2 blog.created_at}
+            .col-md-3.hidden-xs
+              %i.fa.fa-tags
+              %span.data #{blog_tag_links(blog)}
+            .col-md-3
+              %i.fa.fa-comments
+              %span.data
+              =link_to pluralize(blog.blog_comments.count, 'Comment'), blog
+            .col-md-3.hidden-xs
+              %i.fa.fa-file-text
+              %span.data
+                =link_to pluralize(blog.blog_files.count, 'File'), blog
