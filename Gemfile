@@ -55,11 +55,12 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'letter_opener', group: [:development]
 gem "font-awesome-rails"
 gem 'devise'
-gem 'tinymce-rails'
+#gem 'tinymce-rails'
 gem 'searchkick'
 # gem 'whenever', require: false
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'friendly_id', '~> 5.1.0'
+gem 'trix'
 
 group :test do
   gem "rspec-rails"

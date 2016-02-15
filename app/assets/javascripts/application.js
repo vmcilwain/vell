@@ -4,7 +4,7 @@
 //= require bootstrap-sprockets
 //= require jquery.remotipart
 //= require turbolinks
-//= require tinymce-jquery
+//= require trix
 //= require_tree .
 
 // $(function(){

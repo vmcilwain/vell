@@ -1,6 +1,6 @@
 .page-header
   %h1.animated.bounceInDown Blogs
-  =link_to 'New Blog', new_blog_path, class: 'btn btn-primary' if current_user && current_user.admin?
+  =link_to 'New Blog', new_blog_path, class: 'btn btn-success btn-xs' if current_user && current_user.admin?
   =link_to 'Search Posts', '#', class: 'btn btn-primary btn-xs search_form_link'
 .row
   .col-xs-12

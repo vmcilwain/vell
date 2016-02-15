@@ -1,28 +1,30 @@
-.widewrapper.main
-  .container
-    .page-header
-      -if @blog.errors.any?
-        %div{class: 'row alert alert-danger'}
-          =flash[:error]
-          %ul
-            -@blog.errors.full_messages.each do |message|
-              %li #{message}
-      %header
-        %h1 Post a Blog
-    =form_for @blog, multipart: true do |f|
-      .form-group
-        = f.fields_for :blog_files do |builder|
-          .col-xs-4
-            = builder.file_field :doc
-        %br
-      .form-group
-        =f.text_field :tag_list, class: 'form-control', placeholder: 'Add Tags (Comma Seperated)'
-      .form-group
-        =f.text_field :headline, placeholder: 'Enter Headline',class: 'form-control'
-      .form-group
-        =f.text_area :body, placeholder: 'Enter Details',rows: 40, class: 'tinymce form-control'
-      .form-group
+.page-header
+  -if @blog.errors.any?
+    %div{class: 'row alert alert-danger'}
+      =flash[:error]
+      %ul
+        -@blog.errors.full_messages.each do |message|
+          %li #{message}
+  %h1.animated.bounceInDown Create an article
+=form_for @blog, multipart: true, html: {class: "well animated fadeIn"} do |f|
+  
+  .form-group
+    =f.text_field :headline, placeholder: 'Enter Headline',class: 'form-control'
+  .form-group
+    =f.trix_editor :body, placeholder: 'Share your thoughts'
+  .form-group
+    =f.text_field :tag_list, class: 'form-control', placeholder: 'Add Tags (Comma Seperated)'
+  .form-group
+    .row
+      =f.fields_for :blog_files do |builder|
+        .col-xs-4
+          = builder.file_field :doc
+  .form-group
+    .row
+      .col-xs-12
         =f.label :to_twitter, 'Tweet it?'
         =f.check_box :to_twitter
-        =f.submit class: 'btn btn-tales-one'
-        =link_to 'Cancel', blogs_path, class: 'btn btn-tales-two'
+    .row
+      .col-xs-12
+        =submit_tag 'Submit', class: 'btn btn-primary btn-xs'
+        =link_to 'Cancel', '#', class: 'btn btn-danger btn-xs'

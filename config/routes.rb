@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   root to: 'home#index'
   
   resources :contact_mes, only: [:index, :new, :show, :create]
-  resources :blog_categories, except: [:show]
   resources :blogs, :blog_comments
   
   resources :home, only: [:index] do
