@@ -1,6 +1,5 @@
 class BlogsController < ApplicationController
   before_action :blog, only: [:show, :edit, :update, :destroy]
-  before_action :blog_categories, only: [:new, :edit, :create, :update]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :require_admin, except: [:index, :show]
   
@@ -51,10 +50,6 @@ class BlogsController < ApplicationController
   
   def blog
     @blog = Blog.friendly.find(params[:id])
-  end
-  
-  def blog_categories
-    @blog_categories = BlogCategory.where(enabled: true).collect{|blog_category| [blog_category.name, blog_category.id]}
   end
   
   def blog_params

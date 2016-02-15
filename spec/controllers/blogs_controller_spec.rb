@@ -37,7 +37,7 @@ describe BlogsController do
       before do
         user.update(admin: true)
         sign_in user
-        post :create, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: Faker::Lorem.words(25).join("\s")}
+        post :create, blog: {headline: Faker::Lorem.words(5).join("\s"), body: Faker::Lorem.words(25).join("\s")}
       end
       
       after {delete_files}
@@ -61,7 +61,7 @@ describe BlogsController do
       before do
         user.update(admin: true)
         sign_in user
-        post :create, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: Faker::Lorem.words(25).join("\s"), blog_files: [blog_document: file_to_upload(test_file, 'text/plain')]}
+        post :create, blog: {headline: Faker::Lorem.words(5).join("\s"), body: Faker::Lorem.words(25).join("\s"), blog_files: [blog_document: file_to_upload(test_file, 'text/plain')]}
       end
       
       it 'redirects to :show' do
@@ -81,7 +81,7 @@ describe BlogsController do
       before do
         user.update(admin: true)
         sign_in user
-        post :create, blog: {blog_category_id: 1, body: Faker::Lorem.words(25).join("\s")}
+        post :create, blog: {body: Faker::Lorem.words(25).join("\s")}
       end
       
       it 'renders :new' do
@@ -102,7 +102,7 @@ describe BlogsController do
     #   before do
     #     add_user_to_role(user, 'administrator')
     #     session[:user_id] = user.id
-    #     post :create, blog: {blog_category_id: 1, body: Faker::Lorem.words(25).join("\s"), to_twitter: true}
+    #     post :create, blog: {body: Faker::Lorem.words(25).join("\s"), to_twitter: true}
     #   end
     #
     #   it 'redirects to :show'
@@ -127,7 +127,7 @@ describe BlogsController do
       before do
         user.update(admin: true)
         sign_in user
-        put :update, id: blog.id, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: Faker::Lorem.words(25).join("\s")}
+        put :update, id: blog.id, blog: {headline: Faker::Lorem.words(5).join("\s"), body: Faker::Lorem.words(25).join("\s")}
       end
       
       it 'redirects to :show' do
@@ -147,7 +147,7 @@ describe BlogsController do
       before do
         user.update(admin: true)
         sign_in user
-        put :update, id: blog.id, blog: {headline: Faker::Lorem.words(5).join("\s"), blog_category_id: 1, body: ""}
+        put :update, id: blog.id, blog: {headline: Faker::Lorem.words(5).join("\s"), body: ""}
       end
       
       it 'renders :new' do
