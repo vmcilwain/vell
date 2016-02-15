@@ -1,37 +1,41 @@
 .row.animated.fadeIn
-  .col-xs-6
-    .panel.panel-info
-      .panel-heading
-        %h3.panel-title #{@blogs.last.headline}
-      .panel-body
-        %p.text-muted #{medium_date2 @blogs.last.created_at}, Lovell McIlwain
-        %p
-          =truncate(to_text(@blogs.last.body)) {link_to ' Read More', @blogs.last}
-  .col-xs-6
-    .panel.panel-info
-      .panel-heading
-        %h3.panel-title #{@blogs[2].headline}
-      .panel-body
-        %p.text-muted #{medium_date2 @blogs[2].created_at}, Lovell McIlwain
-        %p
-          =truncate(to_text(@blogs[2].body), length: 100) {link_to ' Read More', @blogs[2]}
+  -if @blogs[3]
+    .col-xs-6
+      .panel.panel-info
+        .panel-heading
+          %h3.panel-title #{@blogs.last.headline}
+        .panel-body
+          %p.text-muted #{medium_date2 @blogs.last.created_at}, Lovell McIlwain
+          %p
+            =truncate(to_text(@blogs.last.body)) {link_to ' Read More', @blogs.last}
+  -if @blogs[2]
+    .col-xs-6
+      .panel.panel-info
+        .panel-heading
+          %h3.panel-title #{@blogs[2].headline}
+        .panel-body
+          %p.text-muted #{medium_date2 @blogs[2].created_at}, Lovell McIlwain
+          %p
+            =truncate(to_text(@blogs[2].body), length: 100) {link_to ' Read More', @blogs[2]}
 .row.animated.fadeIn
-  .col-xs-6
-    .panel.panel-info
-      .panel-heading
-        %h3.panel-title #{@blogs[1].headline}
-      .panel-body
-        %p.text-muted #{medium_date2 @blogs[1].created_at}, Lovell McIlwain
-        %p
-          =truncate(to_text(@blogs[1].body), length: 100) {link_to ' Read More', @blogs[1]}
-  .col-xs-6
-    .panel.panel-info
-      .panel-heading
-        %h3.panel-title #{@blogs.first.headline}
-      .panel-body
-        %p.text-muted #{medium_date2 @blogs.first.created_at}, Lovell McIlwain
-        %p
-          =truncate(to_text(@blogs.first.body), length: 100) {link_to ' Read More', @blogs.first}
+  -if @blogs[1]
+    .col-xs-6
+      .panel.panel-info
+        .panel-heading
+          %h3.panel-title #{@blogs[1].headline}
+        .panel-body
+          %p.text-muted #{medium_date2 @blogs[1].created_at}, Lovell McIlwain
+          %p
+            =truncate(to_text(@blogs[1].body), length: 100) {link_to ' Read More', @blogs[1]}
+  -if @blogs[0]
+    .col-xs-6
+      .panel.panel-info
+        .panel-heading
+          %h3.panel-title #{@blogs.first.headline}
+        .panel-body
+          %p.text-muted #{medium_date2 @blogs.first.created_at}, Lovell McIlwain
+          %p
+            =truncate(to_text(@blogs.first.body), length: 100) {link_to ' Read More', @blogs.first}
           
 .panel.panel-default.animated.fadeIn
   .panel-heading

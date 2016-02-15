@@ -15,5 +15,5 @@
   .form-group
     .row
       .col-xs-12
-        =submit_tag 'Submit', class: 'btn btn-success btn-xs'
-        =link_to 'Cancel', '#', class: 'btn btn-danger btn-xs'
+        =f.submit class: 'btn btn-success btn-xs'
+        =link_to 'Cancel', @blog, class: 'btn btn-danger btn-xs'

@@ -5,9 +5,8 @@ feature 'blog' do
     blog
 
     visit root_path
+    click_link 'Articles'
 
-    click_link 'Blog'
-
-    expect(page).to have_content 'Blogs'
+    expect(current_path).to eq blogs_path
   end
 end
