@@ -6,21 +6,16 @@
         %ul
           -@blog_comment.errors.full_messages.each do |message|
             %li #{message}
-.row.well
-  .col-xs-12
-    =form_for @blog_comment do |f|
-      =f.hidden_field :blog_id, value: @blog.id
-      .form-group
-        =f.label :name
-        %br
-        =f.text_field :name, size: 80
-      .form-group
-        =f.label :body
-        %br
-        =f.text_area :body, cols: 80, rows: 10
-      .form-group
-        =f.submit class: 'btn btn-primary'
-        -if @blog_comment.new_record?
-          =link_to :Cancel, blog_comments_path, class: 'btn btn-danger'
-        -else
-          =link_to :Cancel, @blog_comment, class: 'btn btn-danger'
+.row.well.animated.fadeIn
+  =form_for @blog_comment do |f|
+    =f.hidden_field :blog_id, value: @blog.id
+    .form-group
+      =f.text_field :name, class: 'form-control', placeholder: 'Name'
+    .form-group
+      =f.trix_editor :body
+    .form-group
+      =f.submit class: 'btn btn-success btn-xs'
+      -if @blog_comment.new_record?
+        =link_to :Cancel, blog_comments_path, class: 'btn btn-danger btn-xs'
+      -else
+        =link_to :Cancel, @blog_comment, class: 'btn btn-danger btn-xs'

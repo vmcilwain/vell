@@ -7,5 +7,14 @@
         .col-xs-1
           %i.fa.fa-user
   .panel-body
-    %p
-      =blog_comment.body
+    .row
+      .col-xs-12
+        =blog_comment.body
+    -if current_user && current_user.admin?
+      .row
+        .col-xs-12
+          =link_to blog_comment.blog.headline, blog_comment.blog, class: 'text-muted'
+      .row
+        .col-xs-12
+          =link_to :Edit, edit_blog_comment_path(blog_comment), class: 'btn btn-primary btn-xs'
+          =link_to :Destroy, blog_comment_path(blog_comment), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs'

@@ -1,7 +1,0 @@
-#comments_listing
-  %aside#comments.comments
-    %hr
-      %h2
-        %i.fa.fa-comments
-        =pluralize(blog.blog_comments.count, 'Comment')
-      =render partial: 'blog_comments/blog_comment', collection: blog.blog_comments

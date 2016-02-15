@@ -1,34 +1,13 @@
-.widewrapper.main
-  .container
-    .page-header
-      -if flash[:success]
-        %div{class: 'row alert alert-success'}
-          =flash[:success]
-      %header
-        %h1 Blog Comments
-      =link_to 'Blog Listing', blogs_path, class: 'btn btn-tales-one'
-      =link_to 'Search Comments', '#', class: 'search_form_link btn btn-tales-one'
-      =render 'search'
-    .row
-      =will_paginate @blog_comments, class: 'apple_pagination'
-    -@blog_comments.each do |blog_comment|
-      .row
-        / .col-md-8.blog-main
-        .col-md-8
-          %article.blog-post
-            %header
-              %h1 #{blog_comment.blog.headline}
-            .lead-image
-              .meta.clearfix
-                .author
-                  %i.fa.fa-user
-                  %span.data #{blog_comment.name}
-                .date
-                  %i.fa.fa-calendar
-                  %span.data #{medium_date(blog_comment.created_at)}
-                .comments
-                  %i.fa.fa-comments
-                  %span.data
-                    =truncate(to_text(blog_comment.body), length: 250) { link_to "Read More", blog_comment }
-              =link_to :Edit, edit_blog_comment_path(blog_comment), class: 'btn btn-tales-one'
-              =link_to :Destroy, blog_comment_path(blog_comment), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-tales-two'
+.page-header
+  -if flash[:success]
+    %div{class: 'row alert alert-success'}
+      =flash[:success]
+  
+  %h1.animated.bounceInDown Article Comments
+  =link_to 'Articles Listing', blogs_path, class: 'btn btn-primary btn-xs'
+  =link_to 'Search Comments', '#', class: 'search_form_link btn btn-info btn-xs'
+    
+=render 'search'
+.row
+  =will_paginate @blog_comments, class: 'apple_pagination'
+=render @blog_comments
