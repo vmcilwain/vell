@@ -1,3 +1,7 @@
+-if flash[:success]
+  .alert.alert-success
+    =flash[:success]
+    
 .row.animated.fadeIn
   -if @blogs[3]
     .col-xs-6
