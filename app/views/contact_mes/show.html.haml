@@ -1,6 +1,13 @@
-.container
-  .row.well
-    %p Name: #{@contact_me.name}
-    %p Email: #{mail_to @contact_me.email}
-    %p Created At: #{medium_date @contact_me.created_at}
-    %p #{simple_format @contact_me.body}
+.well
+  .row
+    .col-xs-12
+      =@contact_me.body
+  .row.pull-right
+    .col-xs-6
+      From: #{@contact_me.name}
+    .col-xs-6
+      (#{mail_to @contact_me.email})
+      %br/
+      =medium_date2 Date.today
+  =link_to :Listing, contact_mes_path, class: 'btn btn-primary btn-xs'
+  =link_to :Delete, @contact_me, method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger btn-xs'

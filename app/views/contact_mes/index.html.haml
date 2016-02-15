@@ -1,25 +1,14 @@
-.container
-  .row
-    .col-xs-4
-      %h1.title Contact Me
-    .col-xs-4
-      %br
-      =link_to 'Search Posts', '#', class: 'search_form_link btn btn-default'
-  .row
-    .col-xs-12
-      =render 'search'
-  =will_paginate @contact_mes, class: 'apple_pagination'
-  %hr
-  -@contact_mes.each do |contact_me|
-    .row
-      .col-xs-1
-        =link_to contact_me.id, contact_me
-      .col-xs-3
-        =contact_me.name
-      .col-xs-6
-        =mail_to contact_me.email
-    .row
-      .col-xs-12
-        %br
-        =truncate(contact_me.body, length: 100) { link_to "Read More", contact_me }
-    %hr
+.page-header
+  %h1.animated.bounceInDown Contact Me
+=render 'search'
+.row
+  .col-xs-3
+    Name
+  .col-xs-4
+    Email
+  .col-xs-2
+    Body
+  .col-xs-3
+    Created On
+%br
+=render @contact_mes

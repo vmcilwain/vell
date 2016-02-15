@@ -1,0 +1,9 @@
+.row.animated.fadeIn
+  .col-xs-3
+    =link_to contact_me.name, contact_me
+  .col-xs-4
+    =mail_to contact_me.email
+  .col-xs-2
+    =truncate(contact_me.body, length: 100) { link_to "Read More", contact_me }
+  .col-xs-3
+    =medium_date2 Date.today

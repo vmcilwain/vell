@@ -2,8 +2,7 @@ class ContactMesController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create]
   before_action :require_admin, except: [:new, :create]
   def index
-    @q = ContactMe.ransack(params[:q])
-    @contact_mes = @q.result.paginate(:page => params[:page], :per_page => 30)
+    @contact_mes = ContactMe.search(params.fetch(:q, "*"), page: params[:page], per_page: 10) #elasticsearch
   end
   
   def new

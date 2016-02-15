@@ -1,24 +1,24 @@
-.widewrapper.main
-  .container
-    .page-header
-      .row
-        .col-xs-12
-          -if @contact_me.errors.any?
-            %div{class: 'row alert alert-danger'}
-              =flash[:error]
-              %ul
-                -@contact_me.errors.full_messages.each do |message|
-                  %li #{message}
-      %h1 Contact Lovell
+.page-header
+  .row
+    .col-xs-12
+      -if @contact_me.errors.any?
+        %div{class: 'row alert alert-danger'}
+          =flash[:error]
+          %ul
+            -@contact_me.errors.full_messages.each do |message|
+              %li #{message}
+  
+  %h1 Send Lovell A Message
 
-    .row.col-md-12
-      =form_for @contact_me do |f|
-        .form-group
-          =f.text_field :name, placeholder: 'Enter Name', size: 60, class: 'form-control', autofocus: true
-        .form-group
-          =f.text_field :email, placeholder: 'Enter Email', size: 60, class: 'form-control'
-        .form-group
-          =f.text_area :body, placeholder: 'Enter Message', rows: 10, class: 'form-control'
-        .form-group
-          =f.submit 'Send', class: 'btn btn-primary'
-          =link_to 'Cancel', root_path, class: 'btn btn-danger'
+.row
+  .col-xs-12
+    =form_for @contact_me, html: {class: 'well'} do |f|
+      .form-group
+        =f.text_field :name, placeholder: 'Name', size: 60, class: 'form-control', autofocus: true
+      .form-group
+        =f.text_field :email, placeholder: 'Email', size: 60, class: 'form-control'
+      .form-group
+        =f.text_area :body, placeholder: 'Message', rows: 10, class: 'form-control'
+      .form-group
+        =f.submit 'Send', class: 'btn btn-success btn-xs'
+        =link_to 'Cancel', root_path, class: 'btn btn-danger btn-xs'

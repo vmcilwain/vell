@@ -1,20 +1,8 @@
-.search_form
-  =search_form_for @q do |f|
-    .form-group
-      =f.label :name
-      %br
-      =f.search_field :name_cont, placeholder: 'Enter Name', size: 30
-    .form-group
-      =f.label :email
-      %br
-      =f.search_field :email_cont, placeholder: 'Enter Email', size: 30
-    .form-group
-      =f.label :message
-      %br
-      =f.search_field :body_cont, placeholder: 'Enter Message', size: 68
-    .row
+.well
+  .row
+    =form_tag contact_mes_path, method: :get do
       .form-group
-        .col-xs-2
-          =f.submit 'Search', class: 'btn btn-primary'
-        .col-xs-1
-          =link_to 'Cancel', '#', class: 'cancel_search_form_link btn btn-danger'
+        .col-md-1
+          =submit_tag 'Search', class: 'btn btn-success btn-md'
+        .col-md-11
+          =text_field_tag :q, params[:q], class: 'searchbox searchfield form-control', placeholder: 'Search Contact Mes'
