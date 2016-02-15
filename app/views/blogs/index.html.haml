@@ -1,9 +1,8 @@
 .page-header
   %h1.animated.bounceInDown Articles
-  =link_to 'New Articles', new_blog_path, class: 'btn btn-success btn-xs' if current_user && current_user.admin?
-  =link_to 'Search Articles', '#', class: 'btn btn-primary btn-xs search_form_link'
+  =link_to 'New Article', new_blog_path, class: 'btn btn-success btn-xs' if current_user && current_user.admin?
 .row
   .col-xs-12
     =will_paginate @blogs, class: 'apple_pagination'
-
+=render 'search'
 =render @blogs

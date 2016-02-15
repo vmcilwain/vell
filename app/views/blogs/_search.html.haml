@@ -1,19 +1,8 @@
-.search_form.well
-  %form
-    %header
-      %h1 Search Posts
-    .form-group
-      =text_field_tag :headline, nil, placeholder: 'Blog Headline', class: 'form-control'
-    .form-group
-      =text_field_tag :content, nil, placeholder: 'Content', class: 'form-control'
-    .form-group
-      =text_field_tag :created_at, nil, placeholder: 'Created On', class: 'form-control'
-    .form-group
-      =text_field_tag :commenter, nil, placeholder: 'Commented By', class: 'form-control'
-    .form-group
-      =text_field_tag :comment_content, nil, placeholder: 'Commenter Comment', class: 'form-control'
-    .form-group
-      =text_field_tag :comment_created_at, nil, placeholder: 'Commented Created On', class: 'form-control'
-    .form-group
-      =submit_tag 'Search', class: 'btn btn-primary btn-xs'
-      =link_to 'Cancel', '#', class: 'btn btn-danger btn-xs cancel_search_form_link'
+.well
+  .row
+    =form_tag blogs_path, method: :get do
+      .form-group
+        .col-md-1
+          =submit_tag 'Search', class: 'btn btn-success btn-md'
+        .col-md-11
+          =text_field_tag :q, params[:q], class: 'searchbox searchfield form-control', placeholder: 'Search Articles'
