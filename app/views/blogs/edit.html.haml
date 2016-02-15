@@ -1,17 +1,19 @@
-.widewrapper.main
-  .container
-    .page-header
-      -if @blog.errors.any?
-        %div{class: 'row alert alert-danger'}
-          =flash[:error]
-          %ul
-            -@blog.errors.full_messages.each do |message|
-              %li #{message}
-    =form_for @blog, multipart: true do |f|
-      .form-group
-        =f.text_field :headline, placeholder: 'Enter Headline', class: 'form-control'
-      .form-group
-        =f.text_area :body, placeholder: 'Enter Details', rows: 20, class: 'tinymce form-control'
-      .form-group
-        =f.submit class: 'btn btn-tales-one'
-        =link_to 'Cancel', @blog, class: 'btn btn-tales-two'
+.page-header
+  -if @blog.errors.any?
+    %div{class: 'row alert alert-danger'}
+      =flash[:error]
+      %ul
+        -@blog.errors.full_messages.each do |message|
+          %li #{message}
+  %h1.animated.bounceInDown Update article
+=form_for @blog, multipart: true, html: {class: "well animated fadeIn"} do |f|
+  
+  .form-group
+    =f.text_field :headline, placeholder: 'Enter Headline',class: 'form-control'
+  .form-group
+    =f.trix_editor :body, placeholder: 'Share your thoughts'
+  .form-group
+    .row
+      .col-xs-12
+        =submit_tag 'Submit', class: 'btn btn-success btn-xs'
+        =link_to 'Cancel', '#', class: 'btn btn-danger btn-xs'
