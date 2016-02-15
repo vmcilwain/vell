@@ -7,7 +7,7 @@ feature 'edit blog comment' do
     
     click_link 'Edit'
     fill_in 'blog_comment_name', with: Faker::Name.name
-    fill_in 'blog_comment_body', with: text(25)
+    fill_in_trix_editor("blog_comment_body_trix_input_blog_comment_#{blog_comment.id}", text(20))
     click_button 'Update'
     expect(page).to have_content 'Blog comment updated'
   end
