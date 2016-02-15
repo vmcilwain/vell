@@ -35,7 +35,7 @@
 
   =render 'connections'
 
--if @blog.blog_comments.any?
+#comments
   %h2
     %i.fa.fa-comments
     =pluralize(@blog.blog_comments.count, 'Comment')
