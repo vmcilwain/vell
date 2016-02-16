@@ -1,26 +1,30 @@
-%footer
-  .row
-    .col-xs-6
-      %h3
-        %i.fa.fa-cog>
-        Statistics
-      %span Even I sometimes loose track of how many articles I actually have here.
-      %ul.list-group
-        %li.list-group-item #{Blog.count} Articles
-        %li.list-group-item #{BlogComment.count} Comments
-    .col-xs-6
-      %h3
-        %i.fa.fa-envelope>
-        Contact Me
-      %span I'm happy to hear from my readers. Thoughts, feedback, critique - all welcome! Drop me a line:
-      %span.email
-        =link_to 'Contact Me', main_app.new_contact_me_path
-  .list-group-item
-    .row
-      .col-xs-4
-        &copy; Vell McIlwain 2016. All rights reserved.
-      .col-xs-2
-        Version: #{CONFIG[:version]}.
-      .col-xs-4
-        Designed with #{link_to :Bootswatch, 'http://bootswatch.com'}
-      
+%footer.footer-distributed
+  .footer-left
+    %h3
+      Lovell
+      -#%span logo
+    %p.footer-links
+      =link_to :Home, root_path
+      ·
+      =link_to :Articles, blogs_path
+      ·
+      =link_to :About, about_home_index_path
+      ·
+      =link_to :Contact, '/contact_mes/new'
+    %p.footer-company-name Lovell McIlwain &copy; 2016
+    .footer-icons
+      -#%a{:href => "#"}
+        %i.fa.fa-facebook
+      %a{:href => "https://twitter.com/the_codemonster", target: :blank}
+        %i.fa.fa-twitter
+      %a{:href => "https://www.linkedin.com/pub/lovell-mcilwain/60/92/28/", target: :blank}
+        %i.fa.fa-linkedin
+      %a{:href => "https://www.github.com/vmcilwain", target: :blank}
+        %i.fa.fa-github
+  .footer-right
+    %p Quick Contact Me
+    =form_for ContactMe.new, method: :post do |f|
+      =f.text_field :name, placeholder: 'Name', autofocus: true, required: true
+      =f.email_field :email, placeholder: 'Email', required: true
+      =f.text_area :body, placeholder: 'Message', required: true
+      %button Send

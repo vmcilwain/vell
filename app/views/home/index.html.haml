@@ -1,7 +1,7 @@
 -if flash[:success]
   .alert.alert-success
     =flash[:success]
-    
+%h1 Recent Posts  
 .row.animated.fadeIn
   -if @blogs[3]
     .col-xs-6
@@ -11,7 +11,7 @@
         .panel-body
           %p.text-muted #{medium_date2 @blogs.last.created_at}, Lovell McIlwain
           %p
-            =truncate(to_text(@blogs.last.body)) {link_to ' Read More', @blogs.last}
+            =truncate(to_text(@blogs.last.body), length: 50) {link_to ' Read More', @blogs.last}
   -if @blogs[2]
     .col-xs-6
       .panel.panel-info
@@ -20,7 +20,7 @@
         .panel-body
           %p.text-muted #{medium_date2 @blogs[2].created_at}, Lovell McIlwain
           %p
-            =truncate(to_text(@blogs[2].body), length: 100) {link_to ' Read More', @blogs[2]}
+            =truncate(to_text(@blogs[2].body), length: 50) {link_to ' Read More', @blogs[2]}
 .row.animated.fadeIn
   -if @blogs[1]
     .col-xs-6
@@ -30,7 +30,7 @@
         .panel-body
           %p.text-muted #{medium_date2 @blogs[1].created_at}, Lovell McIlwain
           %p
-            =truncate(to_text(@blogs[1].body), length: 100) {link_to ' Read More', @blogs[1]}
+            =truncate(to_text(@blogs[1].body), length: 50) {link_to ' Read More', @blogs[1]}
   -if @blogs[0]
     .col-xs-6
       .panel.panel-info
@@ -39,9 +39,9 @@
         .panel-body
           %p.text-muted #{medium_date2 @blogs.first.created_at}, Lovell McIlwain
           %p
-            =truncate(to_text(@blogs.first.body), length: 100) {link_to ' Read More', @blogs.first}
+            =truncate(to_text(@blogs.first.body), length: 50) {link_to ' Read More', @blogs.first}
           
-.panel.panel-default.animated.fadeIn
+.panel.panel-info.animated.fadeIn
   .panel-heading
     %h3.panel-title Projects
   .panel-body
@@ -57,14 +57,3 @@
       .col-xs-3
         =link_to fa_icon('github', text: 'Question Poser'), "https://github.com/vmcilwain/question_poser", target: :blank, title: 'A basic AngularJS application posting questions'
         =link_to "[Live]", 'http://vell.x10host.com/question_poser/', target: :blank, title: 'See this application in action'
-.panel.panel-default.animated.fadeIn
-  .panel-heading
-    %h3.panel-title Connect With Me
-  .panel-body
-    .row.text-center
-      .col-xs-3
-        =link_to fa_icon("twitter", text: 'Twitter'), 'https://twitter.com/the_codemonster', target: :blank
-      .col-xs-3
-        =link_to fa_icon("linkedin", text: 'LinkedIn'), 'https://www.linkedin.com/pub/lovell-mcilwain/60/92/28/', target: :blank
-      .col-xs-3
-        =link_to fa_icon("github", text: 'Github'), 'https://www.github.com/vmcilwain', target: :blank
