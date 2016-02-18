@@ -10,7 +10,7 @@ class BlogFilesController < ApplicationController
   before_action :authenticate_user!
   
   # Before action to check users privilege
-  # (see #require_admin)
+  # (see ApplicationController#require_admin)
   before_action :require_admin
   
   # Handles HTTP GET
@@ -88,7 +88,7 @@ class BlogFilesController < ApplicationController
   
   private
   
-  # Find blog file recored and set to an instance variable
+  # Find blog file record and set to an instance variable
   # @param id [Integer] the id of the requested blog file
   # @return [BlogFile] the blog file object found
   def blog_file

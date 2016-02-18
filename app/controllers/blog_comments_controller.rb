@@ -10,7 +10,7 @@ class BlogCommentsController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create]
   
   # Before action to check users privilege
-  # (see #require_admin)
+  # (see ApplicationController#require_admin)
   before_action :require_admin, except: [:new, :create]
   
   # Handles HTTP GET
