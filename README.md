@@ -10,7 +10,7 @@ A ruby on rails application used to house my public professional information. Th
 * An application.yml file in the config directory with all of the environment variables needed for the application to run
 
 ## Features
-* Blog w/ file upload, twitter and tinyurl integration
+* Blog w/ trix editor, file upload, twitter and tinyurl integration
 * Blog comments send an email notification
 * Creating messages send an email notification
 
