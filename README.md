@@ -1,52 +1,47 @@
-#Vextranet Website
+# My personal website
 
-##Summary
-This is my business extranet site that will house content about me as it relates to my web development profession.
+## Summary
+A ruby on rails application used to house my public professional information. This application uses bootstrap with bootswatch theme, coffeescript and sass.
 
-##Current Phase:
-Phase  | Status
-------------- | -------------
-Design  | Done
-Coding  | In Progress
-Released | Not Yet
+## Dependencies
+* Rails 4.2.x
+* Ruby 2.2.2
+* Twitter developer account to post updates
+* An application.yml file in the config directory with all of the environment variables needed for the application to run
 
-###Processes:
-No processes yet
+## Features
+* Blog w/ trix editor, file upload, twitter and tinyurl integration
+* Blog comments with email notification
+* Creating messages with email notification
+
+## How to Run
+### Development
+Clone this repo
+```
+https://github.com/vmcilwain/vell.git
+```
+
+Cd into the application directory
+```
+cd vell
+```
+
+Run the rails server
+```ruby
+rails s
+```
+
+### Production
+Uses capistrano
+```ruby
+cap [environment] deploy
+```
+
+# Testing
+```ruby
+rspec
+```
+Code coverage is done by SimpleCov. After running rspec view the coverage/index.html file to see test coverage.
 
 ##Data Model:
 View the erd.pdf file in the root directory
-
-##Using the Application:
-###Development
-```
-rails s
-```
-from the root directory
-
-###Testing
-```
-rspec
-```
-from the root directory
-
-###Production
-Production will be deployed on Heroku.
-
-###Technical Stuff:  
-* Ruby Version: 2.0.0
-* Rails Version: 4.2.0
-* Dependencies:
- * Twitter
- * Google URL Shortner
-* Confirguration: 
- * Development and Test Database: mysql
- * Production Database: Postgres
- * Twitter Gem environment variables:
-  * CONSUMER_KEY
-  * CONSUMER_SECRET
-  * ACCESS_TOKEN
-  * ACCESS_SECRET
- * Google URL shortner environment variable
-  * GOOGLE_API_KEY
-* Testing: RSpec Suite
-* Service: This site does not provide any services
