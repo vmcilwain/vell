@@ -11,8 +11,8 @@ A ruby on rails application used to house my public professional information. Th
 
 ## Features
 * Blog w/ trix editor, file upload, twitter and tinyurl integration
-* Blog comments send an email notification
-* Creating messages send an email notification
+* Blog comments with email notification
+* Creating messages with email notification
 
 ## How to Run
 ### Development
