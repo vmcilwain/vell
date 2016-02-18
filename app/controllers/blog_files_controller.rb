@@ -3,16 +3,19 @@ class BlogFilesController < ApplicationController
   before_action :authenticate_user!
   before_action :require_admin
   def index
+    authorize BlogFile
     @blog_files = BlogFile.search(params.fetch(:q, "*"), page: params[:page], per_page: 10) #elasticsearch
   end
   
   def new
     @blog_file = BlogFile.new
+    authorize @blog_file
   end
   
   def create
-    @blog_file = BlogFile.new(blog_file_params)
     
+    @blog_file = BlogFile.new(blog_file_params)
+    authorize @blog_file
     if @blog_file.save
       flash[:success] = 'Blog file created'
       redirect_to @blog_file
@@ -23,6 +26,7 @@ class BlogFilesController < ApplicationController
   end
   
   def update
+    authorize @blog_file
     if @blog_file.update(blog_file_params)
       flash[:success] = 'Blog file updated'
       redirect_to @blog_file
@@ -33,6 +37,7 @@ class BlogFilesController < ApplicationController
   end
   
   def destroy
+    authorize @blog_file
     blog = @blog_file.blog
     @blog_file.destroy
 

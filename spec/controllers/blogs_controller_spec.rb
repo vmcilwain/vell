@@ -32,7 +32,7 @@ describe BlogsController do
   end
   
   describe 'POST create', :vcr do
-    context 'a successful creation without a file' do
+    context 'a successful creation without a file without posting to twitter' do
       
       before do
         user.update(admin: true)
@@ -54,9 +54,16 @@ describe BlogsController do
         expect(flash[:success]).to_not be_nil
       end
       
+      it 'does not set @status' do
+        expect(assigns[:status]).to be_nil
+      end
+      
+      it 'does not set @message' do
+        expect(assigns[:message]).to be_nil
+      end
     end
     
-    context 'a successful creation with a file' do
+    context 'a successful creation with a file without posting to twitter' do
       require 'rack/test'
       
       before do
@@ -75,6 +82,14 @@ describe BlogsController do
       
       it 'sets flash[:success]' do
         expect(flash[:success]).to_not be_nil
+      end
+      
+      it 'does not set @status' do
+        expect(assigns[:status]).to be_nil
+      end
+      
+      it 'does not set @message' do
+        expect(assigns[:message]).to be_nil
       end
     end
     
@@ -96,21 +111,56 @@ describe BlogsController do
       it 'sets flash[:error]' do
         expect(flash[:error]).to_not be_nil
       end
+      
+      it 'does not set @status' do
+        expect(assigns[:status]).to be_nil
+      end
+      
+      it 'does not set @message' do
+        expect(assigns[:message]).to be_nil
+      end
     end
     
-    context 'an successful creation' do
+    context 'a successful creation without posting to twitter' do
       before do
         user.update(admin: true)
         sign_in user
         post :create, blog: {headline: Faker::Lorem.words(10).join("\s"), body: Faker::Lorem.words(25).join("\s")}
       end
       
-      it 'renders :new' do
+      it 'renders :show' do
         expect(response).to redirect_to Blog.last
       end
       
       it "sets @blog" do
         expect(assigns[:blog]).to eq Blog.last
+      end
+      
+      it 'sets flash[:success]' do
+        expect(flash[:success]).to_not be_nil
+      end
+    end
+    
+    context 'a successful creation posting to twitter' do
+      before do
+        user.update(admin: true)
+        sign_in user
+        post :create, blog: Fabricate.attributes_for(:blog, to_twitter: true)
+      end
+      
+      it 'renders :show' do
+        expect(response).to redirect_to assigns[:blog]
+      end
+      
+      it 'sets @blog' do
+        expect(assigns[:blog]).to eq Blog.last
+      end
+      
+      it 'sets @status' do
+        expect(assigns[:status]).to_not be_nil
+      end
+      it 'sets @message' do
+        expect(assigns[:message]).to_not be_nil
       end
       
       it 'sets flash[:success]' do

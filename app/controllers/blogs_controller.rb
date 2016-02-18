@@ -13,13 +13,15 @@ class BlogsController < ApplicationController
   
   def new
     @blog = Blog.new
+    authorize @blog
     3.times {@blog.blog_files.build}
   end
   
   def create
     @blog = Blog.new(blog_params)
+    authorize @blog
     if @blog.save
-      TwitterService.new(@blog).update if @blog.to_twitter && Rails.env.production?
+      @status, @message = TwitterService.new(@blog).update if @blog.to_twitter
       flash[:success] = 'Blog created!'
       flash[:success] << ' & tweeted!' if @blog.to_twitter
       redirect_to @blog
@@ -29,7 +31,12 @@ class BlogsController < ApplicationController
     end
   end
   
+  def edit
+    authorize @blog
+  end
+  
   def update
+    authorize @blog
     if @blog.update(blog_params)
       flash[:success] = 'Blog updated!'
       redirect_to @blog
@@ -40,6 +47,7 @@ class BlogsController < ApplicationController
   end
   
   def destroy
+    authorize @blog
     @blog.destroy
     flash[:success] = 'Blog deleted!'
     redirect_to blogs_path

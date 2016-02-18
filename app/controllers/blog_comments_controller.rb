@@ -3,6 +3,7 @@ class BlogCommentsController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create]
   before_action :require_admin, except: [:new, :create]
   def index
+    authorize BlogComment
     @blog_comments = BlogComment.search(params.fetch(:q, "*"), page: params[:page], per_page: 10) #elasticsearch
   end
   
@@ -31,10 +32,12 @@ class BlogCommentsController < ApplicationController
   end
   
   def edit
+    authorize @blog_comment
     @blog = @blog_comment.blog
   end
   
   def update
+    authorize @blog_comment
     if @blog_comment.update(blog_comment_params)
       flash[:success] = 'Blog comment updated'
       redirect_to @blog_comment
@@ -46,6 +49,7 @@ class BlogCommentsController < ApplicationController
   end
   
   def destroy
+    authorize @blog_comment
     @blog_comment.destroy
     flash[:success] = 'Blog comment destroyed'
     redirect_to blog_comments_path

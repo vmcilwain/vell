@@ -12,7 +12,9 @@ class TwitterService
   end
   
   def update
-    $twitter.update(message)
+    if $twitter.update(message)
+      status, message = 'complete', 'Posted to twitter'
+    end
   end
   
   private

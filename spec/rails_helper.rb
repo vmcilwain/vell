@@ -10,11 +10,15 @@ require 'paperclip/matchers'
 require 'devise'
 require 'vcr'
 
+
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/cassettes'
   c.hook_into :webmock
   c.configure_rspec_metadata!
   c.ignore_localhost = true
+  # c.ignore_request do |request|
+  #   URI(request.uri) =~ 'http://tinyurl.com/api-create.php'
+  # end
 end
 # Add additional requires below this line. Rails is not loaded until this point!
 

@@ -2,6 +2,7 @@ class ContactMesController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create]
   before_action :require_admin, except: [:new, :create]
   def index
+    authorize ContactMe
     @contact_mes = ContactMe.search(params.fetch(:q, "*"), page: params[:page], per_page: 10) #elasticsearch
   end
   
@@ -29,6 +30,7 @@ class ContactMesController < ApplicationController
   
   def show
     @contact_me = ContactMe.find(params[:id])
+    authorize @contact_me
   end
   
   private
