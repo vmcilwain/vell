@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe ContactMesController do
   let(:user) {Fabricate :user}
-  
+
   describe 'GET index' do
 
     before do
@@ -18,7 +18,7 @@ describe ContactMesController do
       expect(assigns[:contact_mes].size).to eq 2
     end
   end
-  
+
   describe 'GET new' do
     it 'sets @contact_me' do
       get :new
@@ -62,11 +62,11 @@ describe ContactMesController do
         it 'sets flash[:error]' do
           expect(flash[:error]).to_not be_nil
         end
-        
+
         it 'sets @contact_me' do
           expect(assigns[:contact_me]).to be_instance_of ContactMe
         end
-        
+
         it 'renders :new' do
           expect(response).to render_template :new
         end
