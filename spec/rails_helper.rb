@@ -16,9 +16,11 @@ VCR.configure do |c|
   c.hook_into :webmock
   c.configure_rspec_metadata!
   c.ignore_localhost = true
-  # c.ignore_request do |request|
-  #   URI(request.uri) =~ 'http://tinyurl.com/api-create.php'
-  # end
+  # ignore parameters passed to base URI
+  c.default_cassette_options = {
+    :match_requests_on => [:method,
+      VCR.request_matchers.uri_without_param(:url)]
+  }
 end
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -67,7 +69,7 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
-  
+
   # => database cleaner configs
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
