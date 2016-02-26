@@ -13,8 +13,6 @@
       =link_to :Contact, '/contact_mes/new'
     %p.footer-company-name Lovell McIlwain &copy; 2016
     .footer-icons
-      -#%a{:href => "#"}
-        %i.fa.fa-facebook
       %a{:href => "https://twitter.com/the_codemonster", target: :blank}
         %i.fa.fa-twitter
       %a{:href => "https://www.linkedin.com/pub/lovell-mcilwain/60/92/28/", target: :blank}
@@ -23,8 +21,13 @@
         %i.fa.fa-github
   .footer-right
     %p Quick Contact Me
-    =form_for ContactMe.new, method: :post do |f|
+    =form_for ContactMe.new, method: :post, remote: true do |f|
       =f.text_field :name, placeholder: 'Name', autofocus: true, required: true
       =f.email_field :email, placeholder: 'Email', required: true
       =f.text_area :body, placeholder: 'Message', required: true
-      %button Send
+      .row
+        .col-xs-10
+          %br/
+          .notice
+        .col-xs-2
+          %button Send
