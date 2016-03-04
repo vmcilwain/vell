@@ -81,16 +81,18 @@ namespace :unicorn do
       invoke 'unicorn:remove_unicorn_conf'
     end
   end
-  
+
   desc "restart unicorn for #{fetch(:application)}"
   task :restart do
     on roles(:app) do
       info 'Restarting unicorn'
-      execute :sudo, "/etc/init.d/#{fetch(:application)}_unicorn restart"
+      execute :sudo, "/etc/init.d/#{fetch(:application)}_unicorn stop"
+      sleep 3
+      execute :sudo, "/etc/init.d/#{fetch(:application)}_unicorn start"
       # invoke 'unicorn:autostart'
     end
   end
-  
+
   desc "Set auto-start of unicorn for #{fetch(:application)}"
   task :autostart do
     on roles(:app) do
@@ -98,7 +100,7 @@ namespace :unicorn do
       execute 'sudo update-rc.d online_community_unicorn defaults'
     end
   end
-  
+
   desc "add unicorn to #{fetch(:application)} monit.conf"
   task :update_monit_conf do
     on roles(:app) do
@@ -108,7 +110,7 @@ namespace :unicorn do
       end
     end
   end
-  
+
   desc "add unicorn init config to #{fetch(:application)}"
   task :create_unicorn_init do
     on roles(:app) do |host|
