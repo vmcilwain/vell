@@ -23,4 +23,4 @@
 .env
 /config/application.yml
 /coverage
-salted_rails_server/default/init.sls
+salted_rails_server/pillars/default/init.sls
