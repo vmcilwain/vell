@@ -19,13 +19,6 @@ test: &test
   password: <%= ENV['DBPASS'] %>
   socket: /tmp/mysql.sock
 
-# production:
-#   adapter: postgressql
-#   encoding: unicode
-#   database: vextranet_production
-#   pool: 5
-#   password:
-
  #Only to precompile assets if you can't get it to work with postgres
 production:
   adapter: mysql2

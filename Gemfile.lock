@@ -276,6 +276,7 @@ GEM
       sexp_processor (~> 4.1)
     rubyzip (1.1.7)
     safe_yaml (1.0.4)
+    salted_rails_server (0.1.0)
     sass (3.4.21)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -398,6 +399,7 @@ DEPENDENCIES
   rails-erd
   remotipart (~> 1.2)
   rspec-rails
+  salted_rails_server
   sass-rails
   sdoc (~> 0.4.0)
   searchkick

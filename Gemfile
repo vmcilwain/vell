@@ -58,6 +58,7 @@ gem 'acts-as-taggable-on', '~> 3.4'
 gem 'friendly_id', '~> 5.1.0'
 gem 'trix'
 gem 'pundit'
+gem 'salted_rails_server'
 
 group :test do
   gem "rspec-rails"

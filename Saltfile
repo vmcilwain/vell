@@ -1,0 +1,4 @@
+salt-ssh:
+  config_dir: /Users/vmcilwain/rails/vell
+  roster_file: /Users/vmcilwain/rails/vell/roster
+  log_file: /Users/vmcilwain/rails/vell/saltlog.txt

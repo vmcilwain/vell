@@ -1,0 +1,7 @@
+file_roots:
+  base:
+    - /Users/vmcilwain/rails/vell/salted_rails_server/states
+
+pillar_roots:
+  base:
+  - /Users/vmcilwain/rails/vell/salted_rails_server/pillars
