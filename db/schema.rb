@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124162224) do
+ActiveRecord::Schema.define(version: 20160310005525) do
 
   create_table "blog_categories", force: :cascade do |t|
     t.string  "name",    limit: 255
@@ -105,6 +105,12 @@ ActiveRecord::Schema.define(version: 20151124162224) do
     t.string   "document_content_type", limit: 255
     t.integer  "document_file_size",    limit: 4
     t.datetime "document_updated_at"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "repo_url",    limit: 255
+    t.string "live_url",    limit: 255
+    t.string "description", limit: 255
   end
 
   create_table "taggings", force: :cascade do |t|
