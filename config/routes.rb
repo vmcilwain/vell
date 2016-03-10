@@ -1,27 +1,27 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users
   get 'blog_tags/:tag', to: 'blogs#index', as: :blog_tag
   get 'ui(/:action)', controller: 'ui'
   get 'about', to: 'home#about'
-    
+
   root to: 'home#index'
-  
+
   resources :contact_mes, only: [:index, :new, :show, :create]
-  resources :blogs, :blog_comments
-  
+  resources :blogs, :blog_comments, :projects
+
   resources :home, only: [:index] do
     collection do
       get :about
     end
   end
-  
+
   resources :blog_files do
     collection do
       get :download
     end
   end
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
