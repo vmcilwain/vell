@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
-  before_action :project, only: [:show]
+  before_action :authenticate_user!, except: [:show, :index]
+  before_action :project, only: [:show, :edit, :update]
 
   def new
     @project = Project.new
@@ -15,6 +15,20 @@ class ProjectsController < ApplicationController
     else
       flash[:error] = error_message
       render :new
+    end
+  end
+
+  def index
+    @projects = Project.all
+  end
+
+  def update
+    if @project.update(project_params)
+      flash[:success] = 'Project updated'
+      redirect_to @project
+    else
+      flash[:error] = error_message
+      render :edit
     end
   end
 
