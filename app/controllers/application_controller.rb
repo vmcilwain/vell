@@ -7,12 +7,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   private
-  
+
   # Redirects visitors to root path if user is not an administrator
   def require_admin
     unless current_user.admin?
       redirect_to root_path
       flash[:error] = 'You are not authorized!'
     end
+  end
+
+  def error_message
+    "There were errors!"
   end
 end
