@@ -19,6 +19,10 @@ describe ProjectsController do
       get :new
     end
 
+    it_behaves_like 'requires sign in' do
+      let(:action) {get :new}
+    end
+
     it 'sets @project' do
       expect(assigns[:project]).to be_a_new Project
     end
@@ -28,6 +32,10 @@ describe ProjectsController do
     before {sign_in user}
     context 'a successful project creation' do
       before {post :create, project: Fabricate.attributes_for(:project)}
+
+      it_behaves_like 'requires sign in' do
+        let(:action) {post :create, project: Fabricate.attributes_for(:project)}
+      end
 
       it 'redirects_to :show' do
         expect(response).to redirect_to Project.last
@@ -44,6 +52,10 @@ describe ProjectsController do
 
     context 'an unsuccessful project creation' do
       before {post :create, project: Fabricate.attributes_for(:project, repo_url: nil)}
+
+      it_behaves_like 'requires sign in' do
+        let(:action) {post :create, project: Fabricate.attributes_for(:project, repo_url: nil)}
+      end
 
       it 'renders :new' do
         expect(response).to render_template :new
@@ -76,6 +88,10 @@ describe ProjectsController do
       get :edit, id: project.id
     end
 
+    it_behaves_like 'requires sign in' do
+      let(:action) {get :edit, id: project.id}
+    end
+
     it 'sets @project' do
       expect(assigns[:project]).to eq project
     end
@@ -85,6 +101,10 @@ describe ProjectsController do
     before {sign_in user}
     context 'a successful project update' do
       before {put :update, id: project.id, project: Fabricate.attributes_for(:project)}
+
+      it_behaves_like 'requires sign in' do
+        let(:action) {put :update, id: project.id, project: Fabricate.attributes_for(:project)}
+      end
 
       it 'redirects_to :show' do
         expect(response).to redirect_to project
@@ -102,6 +122,10 @@ describe ProjectsController do
     context 'an unsuccessful project update' do
       before {put :update, id: project.id, project: Fabricate.attributes_for(:project, description: nil)}
 
+      it_behaves_like 'requires sign in' do
+        let(:action) {put :update, id: project.id, project: Fabricate.attributes_for(:project, description: nil)}
+      end
+
       it 'renders :edit' do
         expect(response).to render_template :edit
       end
@@ -115,5 +139,31 @@ describe ProjectsController do
       end
     end
   end
-  describe 'DELETE destroy'
+
+  describe 'DELETE destroy' do
+    before do
+      sign_in user
+      delete :destroy, id: project.id
+    end
+
+    it_behaves_like 'requires sign in' do
+      let(:action) {delete :destroy, id: project.id}
+    end
+
+    it 'redirects_to :index' do
+      expect(response).to redirect_to projects_path
+    end
+
+    it 'sets @project' do
+      expect(assigns[:project]).to eq project
+    end
+
+    it 'destroys @project' do
+      expect(Project.where(id: project.id)).to eq []
+    end
+
+    it 'sets flash[:success]' do
+      expect(flash[:success]).to_not be_nil
+    end
+  end
 end

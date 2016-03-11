@@ -1,9 +1,10 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :project, only: [:show, :edit, :update]
+  before_action :project, only: [:show, :edit, :update, :destroy]
 
   def new
     @project = Project.new
+    authorize @project
   end
 
   def create
@@ -30,6 +31,12 @@ class ProjectsController < ApplicationController
       flash[:error] = error_message
       render :edit
     end
+  end
+
+  def destroy
+    @project.destroy
+    flash[:success] = 'Project destroyed'
+    redirect_to projects_path
   end
 
   private
