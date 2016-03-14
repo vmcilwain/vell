@@ -28,6 +28,10 @@ def photo
   @photo ||= Fabricate :photo
 end
 
+def project
+  @project ||= Fabricate :project
+end
+
 def user
   @user ||= Fabricate :user
 end

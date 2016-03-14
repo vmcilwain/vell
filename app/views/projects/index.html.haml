@@ -1,0 +1,9 @@
+%ul.list-unstyled
+  -@projects.each do |project|
+    %li
+      =link_to project.repo_url
+      - if project.live_url
+        =link_to :Live, project.live_url
+      %br/
+      %p
+        =project.description
