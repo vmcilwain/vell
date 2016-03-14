@@ -2,7 +2,7 @@
   -@projects.each do |project|
     %li
       =link_to project.repo_url
-      - if project.live_url
+      - if project.live_url.present?
         =link_to :Live, project.live_url
       %br/
       %p
