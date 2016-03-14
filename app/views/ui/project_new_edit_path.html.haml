@@ -1,0 +1,14 @@
+.well
+  %h1 New / Edit Project Url
+  .form-group
+    =label_tag :repo_url
+    =text_field_tag :repo_url, nil, class: 'form-control'
+  .form-group
+    =label_tag :live_url
+    =text_field_tag :live_url, nil, class: 'form-control'
+  .form-group
+    =label_tag :description
+    =text_field_tag :description, nil, class: 'form-control'
+  .form-group
+    =submit_tag :submit
+    =link_to 'Cancel', '#', class: 'btn btn-danger btn-xs'

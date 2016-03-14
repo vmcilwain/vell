@@ -1,0 +1,34 @@
+%ul.nav.nav-tabs
+  %li.active
+    %a{"data-toggle" => "tab", :href => "#rails"} Ruby on Rails
+  %li
+    %a{"data-toggle" => "tab", :href => "#ruby"} Ruby
+  %li
+    %a{"data-toggle" => "tab", :href => "#angular"} angular
+
+#myTabContent.tab-content
+  #rails.tab-pane.fade.active.in
+    %ul.list-unstyled
+      -10.times do
+        %li
+          #{link_to Faker::Lorem.words(5).join("\s")} - #{link_to :Live, Faker::Lorem.words(5).join("\s")}
+          %br/
+          %p
+            =Faker::Lorem.paragraphs(2).join("\s")
+  #ruby.tab-pane.fade
+    %ul.list-unstyled
+      -10.times do
+        %li
+          =link_to Faker::Lorem.words(5).join("\s")
+          %br/
+          %p
+            =Faker::Lorem.paragraphs(2).join("\s")
+  #angular.tab-pane.fade
+    %ul.list-unstyled
+      -10.times do
+        %li
+          =link_to Faker::Lorem.words(5).join("\s")
+          %br/
+          %p
+            =Faker::Lorem.paragraphs(2).join("\s")
+#source-button.btn.btn-primary.btn-xs{:style => "display: none;"} &lt; &gt;
