@@ -2,20 +2,9 @@ class BlogFilePolicy < ApplicationPolicy
   def index?
     user.admin?
   end
-  
-  def new?
-    user.admin?
-  end
-  
-  def create?
-    user.admin?
-  end
-  
-  def update?
-    user.admin?
-  end
-  
-  def destroy?
-    user.admin?
-  end
+
+  alias_method :new?, :index?
+  alias_method :create?, :index?
+  alias_method :update?, :index?
+  alias_method :destroy?, :index?
 end
