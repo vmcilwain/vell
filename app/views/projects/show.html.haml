@@ -4,10 +4,12 @@
 -if user_signed_in? && current_user.admin?
   =link_to :Edit, edit_project_path(@project), class: 'btn btn-info btn-xs'
   =link_to :Delete, @project, method: :delete, class: 'btn btn-danger btn-xs', data: {confirm: 'Are you sure?'}
-
-%p
-  Repository URL: #{link_to @project.repo_url, @project.repo_url, target: :blank}
-%p
-  Live URL: #{link_to @project.live_url, @project.live_url, target: :blank}
-%p
-  =@project.description
+%br/
+%br/
+.well
+  %p
+    Repository URL: #{link_to @project.repo_url, @project.repo_url, target: :blank}
+  %p
+    Live URL: #{link_to @project.live_url, @project.live_url, target: :blank}
+  %p
+    =@project.description

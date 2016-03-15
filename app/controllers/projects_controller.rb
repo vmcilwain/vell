@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @projects = Project.all
+    @projects = Project.search(params.fetch(:q, "*"), page: params[:page], per_page: 10)
   end
 
   def update

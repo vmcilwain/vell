@@ -1,0 +1,8 @@
+.well
+  .row
+    =form_tag projects_path, method: :get do
+      .form-group
+        .col-md-1
+          =submit_tag 'Search', class: 'btn btn-success btn-md'
+        .col-md-11
+          =text_field_tag :q, params[:q], class: 'searchbox searchfield form-control', placeholder: 'Search Projects'
