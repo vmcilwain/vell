@@ -2,20 +2,9 @@ class BlogPolicy < ApplicationPolicy
   def new?
     user.admin?
   end
-  
-  def create?
-    user.admin?
-  end
-  
-  def edit?
-    user.admin?
-  end
-  
-  def update?
-    user.admin?
-  end
-  
-  def destroy?
-    user.admin?
-  end
+
+  alias_method :create?, :new?
+  alias_method :edit?, :new?
+  alias_method :update?, :new?
+  alias_method :destroy?, :new?
 end
