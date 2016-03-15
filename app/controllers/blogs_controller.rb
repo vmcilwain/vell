@@ -4,15 +4,11 @@ class BlogsController < ApplicationController
   # Before action to load a blog
   # (see #blog)
   before_action :blog, only: [:show, :edit, :update, :destroy]
-  
+
   # Before action to prompt for authentication
   # @note uses devise gem
   before_action :authenticate_user!, except: [:index, :show]
-  
-  # Before action to check users privilege
-  # (see ApplicationController#require_admin)
-  before_action :require_admin, except: [:index, :show]
-  
+
   # Handles HTTP GET
   #
   # @param tag [String] the tag name to search for
@@ -24,7 +20,7 @@ class BlogsController < ApplicationController
       @blogs = Blog.search(params.fetch(:q, "*"), page: params[:page], per_page: 10) #elasticsearch
     end
   end
-  
+
   # Handles HTTP GET
   #
   # @return [Blog] a new blog object
@@ -34,7 +30,7 @@ class BlogsController < ApplicationController
     authorize @blog
     3.times {@blog.blog_files.build}
   end
-  
+
   # Handles HTTP POST
   #
   # @param blog [Hash] the submitted attributes
@@ -55,11 +51,11 @@ class BlogsController < ApplicationController
       render :new
     end
   end
-  
+
   def edit
     authorize @blog
   end
-  
+
   # Handles HTTP PUT/PATCH
   #
   # @param blog [Hash] the updated attributes
@@ -78,7 +74,7 @@ class BlogsController < ApplicationController
       render :new
     end
   end
-  
+
   # Handles HTTP DELETE
   #
   # @param id [Integer] the id of the blog requested
@@ -91,16 +87,16 @@ class BlogsController < ApplicationController
     flash[:success] = 'Blog deleted!'
     redirect_to blogs_path
   end
-  
+
   private
-  
+
   # Find blog record and set to an instance variable
   # @param id [Integer] the id of the requested blog
   # @return [Blog] the blog object found
   def blog
     @blog = Blog.friendly.find(params[:id])
   end
-  
+
   # The whitelist of attributes allwed to be submitted to blog
   def blog_params
     params.require(:blog).permit(:headline, :body, :to_twitter, :tag_list, blog_files_attributes: [:id, :blog_id, :description, :doc])

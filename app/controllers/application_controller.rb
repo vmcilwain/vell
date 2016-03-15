@@ -8,14 +8,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-  # Redirects visitors to root path if user is not an administrator
-  def require_admin
-    unless current_user.admin?
-      redirect_to root_path
-      flash[:error] = 'You are not authorized!'
-    end
-  end
-
   def error_message
     "There were errors!"
   end

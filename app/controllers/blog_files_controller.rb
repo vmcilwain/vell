@@ -4,15 +4,11 @@ class BlogFilesController < ApplicationController
   # Before action to load blog file
   # (see #blog_file)
   before_action :blog_file, only: [:show, :edit, :update, :destroy, :download]
-  
+
   # Before action to prompt for authentication
   # @note uses devise gem
   before_action :authenticate_user!
-  
-  # Before action to check users privilege
-  # (see ApplicationController#require_admin)
-  before_action :require_admin
-  
+
   # Handles HTTP GET
   #
   # @return [Array] the list of blog files found
@@ -20,7 +16,7 @@ class BlogFilesController < ApplicationController
     authorize BlogFile
     @blog_files = BlogFile.search(params.fetch(:q, "*"), page: params[:page], per_page: 10) #elasticsearch
   end
-  
+
   # Handles HTTP GET
   #
   # @return [BlogFile] a new blog file object
@@ -28,7 +24,7 @@ class BlogFilesController < ApplicationController
     @blog_file = BlogFile.new
     authorize @blog_file
   end
-  
+
   # Handles HTTP POST
   #
   # @param blog_file [Hash] the submitted attributes
@@ -36,7 +32,7 @@ class BlogFilesController < ApplicationController
   # @return [BlogFile] the created blog file
   # @return [Hash] the flash notice
   def create
-    
+
     @blog_file = BlogFile.new(blog_file_params)
     authorize @blog_file
     if @blog_file.save
@@ -47,7 +43,7 @@ class BlogFilesController < ApplicationController
       render :new
     end
   end
-  
+
   # Handles HTTP PUT/PATCH
   #
   # @param blog_file [Hash] the updated attributes
@@ -66,7 +62,7 @@ class BlogFilesController < ApplicationController
       render :edit
     end
   end
-  
+
   # Handles HTTP DELETE
   #
   # @param id [Integer] the id of the blog file requested
@@ -81,7 +77,7 @@ class BlogFilesController < ApplicationController
     flash[:success] = 'Blog file deleted'
     redirect_to blog
   end
-  
+
   # Handles HTTP GET
   #
   # @param id [Integer] the blog file to be downloaded
@@ -90,16 +86,16 @@ class BlogFilesController < ApplicationController
   def download
     send_file(@blog_file.doc.path, type: @blog_file.doc_content_type, x_sendfile: true) if File.exists? @blog_file.doc.path
   end
-  
+
   private
-  
+
   # Find blog file record and set to an instance variable
   # @param id [Integer] the id of the requested blog file
   # @return [BlogFile] the blog file object found
   def blog_file
     @blog_file = BlogFile.find(params[:id])
   end
-  
+
   # The whitelist of attributes allwed to be submitted to blog file
   def blog_file_params
     params.require(:blog_file).permit(:blog_id, :doc, :blog_description, :created_by, :updated_by)

@@ -4,23 +4,19 @@ class BlogCommentsController < ApplicationController
   # Before action to load blog comment
   # (see #blog_comment)
   before_action :blog_comment, only: [:show, :edit, :update, :destroy]
-  
+
   # Before action to prompt for authentication
   # @note uses devise gem
   before_action :authenticate_user!, except: [:new, :create]
-  
-  # Before action to check users privilege
-  # (see ApplicationController#require_admin)
-  before_action :require_admin, except: [:new, :create]
-  
+
   # Handles HTTP GET
   #
-  # @return [Array] the list of blog comments 
+  # @return [Array] the list of blog comments
   def index
     authorize BlogComment
     @blog_comments = BlogComment.search(params.fetch(:q, "*"), page: params[:page], per_page: 10) #elasticsearch
   end
-  
+
   # Handles HTTP GET
   #
   # @param blog_id [Integer] the id of the blog requested
@@ -30,7 +26,7 @@ class BlogCommentsController < ApplicationController
     @blog = Blog.find(params[:blog_id])
     @blog_comment = BlogComment.new
   end
-  
+
   # Handles HTTP & JS POST
   #
   # @param blog_comment [Hash] the submitted attributes
@@ -56,7 +52,7 @@ class BlogCommentsController < ApplicationController
       end
     end
   end
-  
+
   # Handles HTTP GET
   #
   # @param id [Integer] the id of the requested blog comment
@@ -65,7 +61,7 @@ class BlogCommentsController < ApplicationController
     authorize @blog_comment
     @blog = @blog_comment.blog
   end
-  
+
   # Handles HTTP PUT/PATCH
   #
   # @param id [Integer] the id of the requested blog comment
@@ -82,7 +78,7 @@ class BlogCommentsController < ApplicationController
       render :edit
     end
   end
-  
+
   # Handles HTTP DELETE
   #
   # @param id [Integer] the id of the requested blog comment
@@ -94,15 +90,15 @@ class BlogCommentsController < ApplicationController
     flash[:success] = 'Blog comment destroyed'
     redirect_to blog_comments_path
   end
-  
+
   private
-  
+
   # Finds [BlogComment] and sents it to and instance variable
   # @param id [Integer] the id of the requested blog comment
   def blog_comment
     @blog_comment = BlogComment.find(params[:id])
   end
-  
+
   # The whitelist of attributes allowed to be submitted to a blog comment
   def blog_comment_params
     params.require(:blog_comment).permit(:blog_id, :name, :body, :email)
