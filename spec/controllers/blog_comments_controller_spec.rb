@@ -17,6 +17,10 @@ describe BlogCommentsController do
       get :index
     end
 
+    it_behaves_like 'requires sign in' do
+      let(:action) {get :index}
+    end
+
     it 'sets @blog_comments' do
       expect(assigns[:blog_comments].results).to eq comments
     end
@@ -26,6 +30,10 @@ describe BlogCommentsController do
     let(:blog_comment) {Fabricate :blog_comment}
 
     before {get :show, id: blog_comment.id}
+
+    it_behaves_like 'requires sign in' do
+      let(:action) {get :show, id: blog_comment.id}
+    end
 
     it 'sets @blog_comment' do
       expect(assigns[:blog_comment]).to eq blog_comment
@@ -107,6 +115,11 @@ describe BlogCommentsController do
       sign_in user
       get :edit, id: blog_comment.id
     end
+
+    it_behaves_like 'requires sign in' do
+      let(:action) {get :edit, id: blog_comment.id}
+    end
+
     it 'sets @blog_comment' do
       expect(assigns[:blog_comment]).to eq blog_comment
     end
@@ -124,6 +137,11 @@ describe BlogCommentsController do
         sign_in user
         put :update, id: blog_comment.id, blog_comment: {body: text(10)}
       end
+
+      it_behaves_like 'requires sign in' do
+        let(:action) {put :update, id: blog_comment.id, body: text(10)}
+      end
+
       it 'redirects to :show' do
         expect(response).to redirect_to blog_comment
       end
@@ -141,6 +159,10 @@ describe BlogCommentsController do
       before do
         sign_in user
         put :update, id: blog_comment.id, blog_comment: {blog_id: blog_comment.blog.id, body: nil}
+      end
+
+      it_behaves_like 'requires sign in' do
+        let(:action) {put :update, id: blog_comment.id, blog_comment: {blog_id: blog_comment.blog.id, body: nil}}
       end
 
       it 'renders :edit' do
@@ -164,6 +186,11 @@ describe BlogCommentsController do
       sign_in user
       delete :destroy, id: blog_comment.id
     end
+
+    # have to figure out how to test this, object gets deleted before test can run
+    # it_behaves_like 'requires sign in' do
+    #   let(:action) {delete :destroy, id: blog_comment.id}
+    # end
 
     it 'redirects to :index' do
       expect(response).to redirect_to blog_comments_path
