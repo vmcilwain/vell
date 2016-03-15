@@ -1,3 +1,6 @@
 -if flash[:success]
   .alert.alert-success
     =flash[:success]
+-if user_signed_in? && current_user.admin?
+  =link_to :Edit, edit_project_path(@project), class: 'btn btn-info btn-xs'
+  =link_to :Delete, @project, method: :delete, class: 'btn btn-danger btn-xs', data: {confirm: 'Are you sure?'}
