@@ -14,7 +14,7 @@ class BlogCommentsController < ApplicationController
   # @return [Array] the list of blog comments
   def index
     authorize BlogComment
-    @blog_comments = BlogComment.search(params.fetch(:q, "*"), page: params[:page], per_page: 10) #elasticsearch
+    @blog_comments = BlogComment.search(params.fetch(:q, "*"), page: params[:page], per_page: 10, order: {created_at: :desc}) #elasticsearch
   end
 
   # Handles HTTP GET

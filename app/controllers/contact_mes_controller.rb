@@ -10,7 +10,7 @@ class ContactMesController < ApplicationController
   # @return [Array] the list of contact mes found
   def index
     authorize ContactMe
-    @contact_mes = ContactMe.search(params.fetch(:q, "*"), page: params[:page], per_page: 10) #elasticsearch
+    @contact_mes = ContactMe.search(params.fetch(:q, "*"), page: params[:page], per_page: 10, order: {created_at: :desc}) #elasticsearch
   end
 
   # Handles HTTP GET

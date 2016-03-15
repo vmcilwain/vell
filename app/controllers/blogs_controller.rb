@@ -15,9 +15,9 @@ class BlogsController < ApplicationController
   # @return [Array] the list of blogs found
   def index
     if params[:tag]
-      @blogs = Blog.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 10)
+      @blogs = Blog.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 10, order: {created_at: :desc})
     else
-      @blogs = Blog.search(params.fetch(:q, "*"), page: params[:page], per_page: 10) #elasticsearch
+      @blogs = Blog.search(params.fetch(:q, "*"), page: params[:page], per_page: 10, order: {created_at: :desc}) #elasticsearch
     end
   end
 
