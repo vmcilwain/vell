@@ -1,7 +1,7 @@
-.row
+.row.well
   =form_tag blog_files_path, method: :get do
     .form-group
       .col-md-1
-        =submit_tag 'Submit', class: 'searchbutton btn-tales-two'
+        =submit_tag 'Submit', class: 'btn btn-success btn-xs'
       .col-md-11
-        =text_field_tag :q, params[:q], class: 'searchbox searchfield form-control', placeholder: 'Search Files'
+        =text_field_tag :q, params[:q], class: 'searchbox searchfield form-control', placeholder: 'Search Article Files'

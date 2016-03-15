@@ -78,7 +78,7 @@ describe ProjectsController do
     end
 
     it 'sets @projects' do
-      expect(assigns[:projects]).to eq projects
+      expect(assigns[:projects].size).to eq projects.size
     end
   end
 

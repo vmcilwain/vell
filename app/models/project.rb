@@ -9,7 +9,7 @@ class Project < ActiveRecord::Base
 
   #ActiveRecord Callback
   # (see #reindex_project)
-  after_save :reindex_blog
+  after_save :reindex_project
 
   # Searchkick index fields
   def search_data

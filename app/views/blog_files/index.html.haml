@@ -1,28 +1,29 @@
-.widewrapper.main
-  .container
-    .page-header
-      %header
-        %h1 Blog Files
-      =link_to 'Blog Listing', blogs_path, class: 'btn btn-tales-one'
-      =link_to 'Search Comments', '#', class: 'search_form_link btn btn-tales-two'
-      =render 'search'
-    .row
+.container
+  .page-header
+    %header
+      %h1.animated.bounceInDown Article Files
+    =link_to 'Blog Listing', blogs_path, class: 'btn btn-success btn-xs'
+
+  .row
+    .col-xs-12
       =will_paginate @blog_files, class: 'apple_pagination'
-    -@blog_files.each do |blog_file|
-      .row
-        / .col-md-8.blog-main
-        .col-md-8
-          %article.blog-post
-            %header
-              %h1 #{link_to blog_file.blog.headline, blog_file.blog}
-            .lead-image
-              .meta.clearfix
-                .date
-                  %i.fa.fa-calendar
-                  %span.data #{blog_file.created_at}
-                .comments
-                  %i.fa.fa-comments
-                  %span.data
-                    =blog_file.description
-              =link_to blog_file.doc_file_name, blog_file.doc.url, class: 'btn btn-tales-one'
-              =link_to :Delete, blog_file, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-tales-two'
+      =render 'search'
+  =render @blog_files
+  -@blog_files.each do |blog_file|
+    .row
+      / .col-md-8.blog-main
+      .col-md-8
+        %article.blog-post
+          %header
+            %h1 #{link_to blog_file.blog.headline, blog_file.blog}
+          .lead-image
+            .meta.clearfix
+              .date
+                %i.fa.fa-calendar
+                %span.data #{blog_file.created_at}
+              .comments
+                %i.fa.fa-comments
+                %span.data
+                  =blog_file.description
+            =link_to blog_file.doc_file_name, blog_file.doc.url, class: 'btn btn-info btn-xs'
+            =link_to :Delete, blog_file, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs'
