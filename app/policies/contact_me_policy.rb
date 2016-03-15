@@ -3,7 +3,5 @@ class ContactMePolicy < ApplicationPolicy
     user.admin?
   end
 
-  def show?
-    user.admin?
-  end
+  alias_method :show?, :index?
 end
