@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'creating a project' do
-  scenario 'a person can create a project if they have authenticated' do
+  scenario 'a person can edit a project if they have authenticated' do
     project
 
     visit root_path
@@ -12,7 +12,7 @@ feature 'creating a project' do
     click_button 'Log in'
 
     click_link 'Projects'
-    click_link project.repo_url
+    click_link project.id
 
     click_link 'Edit'
 

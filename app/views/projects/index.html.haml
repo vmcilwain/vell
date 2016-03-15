@@ -1,11 +1,13 @@
 =link_to 'New Project', new_project_path, class: 'btn btn-info btn-xs' if user_signed_in? && current_user.admin?
-%ul.list-unstyled
-  -@projects.each do |project|
-    %li
-      =link_to project.repo_url, project
-      - if project.live_url.present?
-        |
-        =link_to :Live, project.live_url
-      %br/
-      %p
-        =project.description
+
+.row
+  .col-xs-3
+    ID
+  .col-xs-3
+    Repository URL
+  .col-xs-3
+    Live URL
+  .col-xs-3
+    Description
+    
+=render @projects
