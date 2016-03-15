@@ -4,7 +4,7 @@
 -elsif flash[:error]
   .alert.alert-danger
     =flash[:error]
-%h1 Recent Posts  
+%h1 Recent Posts
 .row.animated.fadeIn
   -if @blogs[3]
     .col-xs-6
@@ -43,20 +43,51 @@
           %p.text-muted #{medium_date2 @blogs.first.created_at}, Lovell McIlwain
           %p
             =truncate(to_text(@blogs.first.body), length: 50) {link_to ' Read More', @blogs.first}
-          
-.panel.panel-info.animated.fadeIn
-  .panel-heading
-    %h3.panel-title Projects
-  .panel-body
-    .row.text-center
-      .col-xs-3
-        =link_to fa_icon('github', text: 'Vellify Generator'), "https://github.com/vmcilwain/vellify-generator", target: :blank, title: 'My First Ruby on Rails Generator'
-      .col-xs-3
-        =link_to fa_icon('github', text: 'Simple Checklist'), "https://github.com/vmcilwain/checklist", target: :blank, title: 'Basic checklist application written in Rails'
-        =link_to "[Live]", 'http://checklist-notes.herokuapp.com', target: :blank, title: 'See this application in action'
-      .col-xs-3
-        =link_to fa_icon('github', text: 'OWM'), "https://github.com/vmcilwain/openweathermap", target: :blank, title: 'A basic AngularJS application for retrieving weather from Open Weather Map'
-        =link_to "[Live]", 'http://vell.x10host.com/openweathermap/', target: :blank, title: 'See this application in action'
-      .col-xs-3
-        =link_to fa_icon('github', text: 'Question Poser'), "https://github.com/vmcilwain/question_poser", target: :blank, title: 'A basic AngularJS application posting questions'
-        =link_to "[Live]", 'http://vell.x10host.com/question_poser/', target: :blank, title: 'See this application in action'
+
+%h1 Recent Projects
+.row.animated.fadeIn
+  -if @projects[3]
+    .col-xs-6
+      .panel.panel-info
+        .panel-heading
+          %h3.panel-title
+            =link_to fa_icon(:github, text: @projects.last.repo_url), @projects.last.repo_url, target: :blank
+        .panel-body
+          %p
+            =@projects.last.description
+          %p
+            =link_to fa_icon(:globe, text: @projects.last.live_url), @projects.last.live_url, target: :blank
+  -if @projects[2]
+    .col-xs-6
+      .panel.panel-info
+        .panel-heading
+          %h3.panel-title
+            =link_to fa_icon(:github, text: @projects[2].repo_url), @projects[2].repo_url, target: :blank
+        .panel-body
+          %p
+            =@projects[2].description
+          %p
+            =link_to fa_icon(:globe, text: @projects[2].live_url), @projects[2].live_url, target: :blank
+.row.animated.fadeIn
+  -if @projects[1]
+    .col-xs-6
+      .panel.panel-info
+        .panel-heading
+          %h3.panel-title
+            =link_to fa_icon(:github, text: @projects[1].repo_url), @projects[1].repo_url, target: :blank
+        .panel-body
+          %p
+            =@projects[1].description
+          %p
+            =link_to fa_icon(:globe, text: @projects[1].live_url), @projects[1].live_url, target: :blank
+  -if @projects[0]
+    .col-xs-6
+      .panel.panel-info
+        .panel-heading
+          %h3.panel-title
+            =link_to fa_icon(:github, text: @projects.first.repo_url), @projects.first.repo_url, target: :blank
+        .panel-body
+          %p
+            =@projects.first.description
+          %p
+            =link_to fa_icon(:globe, text: @projects.first.live_url), @projects.first.live_url, target: :blank
