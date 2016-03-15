@@ -13,6 +13,10 @@ describe ContactMesController do
 
     after {clear_mailbox}
 
+    it_behaves_like 'requires sign in' do
+      let(:action) {get :index}
+    end
+
     it 'sets @contact_mes' do
       get :index
       expect(assigns[:contact_mes].size).to eq 2
@@ -20,8 +24,9 @@ describe ContactMesController do
   end
 
   describe 'GET new' do
+    before {get :new}
+
     it 'sets @contact_me' do
-      get :new
       expect(assigns[:contact_me]).to be_instance_of ContactMe
     end
   end
@@ -88,7 +93,12 @@ describe ContactMesController do
       sign_in user
       get :show, id: contact_me.id
     end
+
     after {clear_mailbox}
+
+    it_behaves_like 'requires sign in' do
+      let(:action) {get :show, id: contact_me.id}
+    end
 
     it 'sets @contact_me' do
       expect(assigns[:contact_me]).to be_instance_of ContactMe
