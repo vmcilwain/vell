@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @projects = Project.search(params.fetch(:q, "*"), page: params[:page], per_page: 10, order: {created_at: :desc})
+    @projects = Project.search(params.fetch(:q, "*"), page: params[:page], per_page: 10, order: {id: :desc})
   end
 
   def update
