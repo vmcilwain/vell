@@ -12,7 +12,7 @@ describe BlogCommentsController do
 
     before do
       user.update(admin: true)
-      2.times {comments << Fabricate(:blog_comment)}
+      comments << Fabricate(:blog_comment)
       sign_in user
       get :index
     end
@@ -29,10 +29,10 @@ describe BlogCommentsController do
   describe 'GET show' do
     let(:blog_comment) {Fabricate :blog_comment}
 
-    before {get :show, id: blog_comment.id}
+    before {get :show, params: {id: blog_comment.id}}
 
     it_behaves_like 'requires sign in' do
-      let(:action) {get :show, id: blog_comment.id}
+      let(:action) {get :show, params: {id: blog_comment.id}}
     end
 
     it 'sets @blog_comment' do
@@ -43,7 +43,7 @@ describe BlogCommentsController do
   describe 'GET new' do
     let(:blog) {Fabricate :blog}
 
-    before {get :new, blog_id: blog.id}
+    before {get :new, params: {blog_id: blog.id}}
 
     it 'sets @blog_comment' do
       expect(assigns[:blog_comment]).to be_instance_of BlogComment
@@ -58,7 +58,7 @@ describe BlogCommentsController do
     after {clear_mailbox}
 
     context 'a successful http creation' do
-      before {post :create, blog_comment: Fabricate.attributes_for(:blog_comment)}
+      before {post :create, params: {blog_comment: Fabricate.attributes_for(:blog_comment)}}
 
       it 'redirects_to :show' do
         expect(response).to redirect_to BlogComment.first
@@ -78,7 +78,7 @@ describe BlogCommentsController do
     end
 
     context 'a successful xhr creation' do
-      before {xhr :post, :create, blog_comment: Fabricate.attributes_for(:blog_comment)}
+      before {post :create, xhr: true, params: {blog_comment: Fabricate.attributes_for(:blog_comment)}}
 
       it 'sets @blog_comment' do
         expect(assigns[:blog_comment]).to be_instance_of BlogComment
@@ -92,7 +92,7 @@ describe BlogCommentsController do
     context 'an unsuccessful creation' do
       let(:blog){Fabricate :blog}
 
-      before {post :create, blog_comment: {blog_id: blog.id, name: nil, body: Faker::Lorem.words(30).join("\s")}}
+      before {post :create, params: {blog_comment: {blog_id: blog.id, name: nil, body: Faker::Lorem.words(30).join("\s")}}}
 
       it 'renders :new' do
         expect(response).to render_template :new
@@ -113,11 +113,11 @@ describe BlogCommentsController do
 
     before do
       sign_in user
-      get :edit, id: blog_comment.id
+      get :edit, params: {id: blog_comment.id}
     end
 
     it_behaves_like 'requires sign in' do
-      let(:action) {get :edit, id: blog_comment.id}
+      let(:action) {get :edit, params: {id: blog_comment.id}}
     end
 
     it 'sets @blog_comment' do
@@ -135,11 +135,11 @@ describe BlogCommentsController do
     context 'a successful update' do
       before do
         sign_in user
-        put :update, id: blog_comment.id, blog_comment: {body: text(10)}
+        put :update, params: {id: blog_comment.id, blog_comment: {body: text(10)}}
       end
 
       it_behaves_like 'requires sign in' do
-        let(:action) {put :update, id: blog_comment.id, body: text(10)}
+        let(:action) {put :update, params: {id: blog_comment.id, body: text(10)}}
       end
 
       it 'redirects to :show' do
@@ -158,11 +158,11 @@ describe BlogCommentsController do
     context 'an unsuccessful update' do
       before do
         sign_in user
-        put :update, id: blog_comment.id, blog_comment: {blog_id: blog_comment.blog.id, body: nil}
+        put :update, params: {id: blog_comment.id, blog_comment: {blog_id: blog_comment.blog.id, body: nil}}
       end
 
       it_behaves_like 'requires sign in' do
-        let(:action) {put :update, id: blog_comment.id, blog_comment: {blog_id: blog_comment.blog.id, body: nil}}
+        let(:action) {put :update, params: {id: blog_comment.id, blog_comment: {blog_id: blog_comment.blog.id, body: nil}}}
       end
 
       it 'renders :edit' do
@@ -184,7 +184,7 @@ describe BlogCommentsController do
 
     before do
       sign_in user
-      delete :destroy, id: blog_comment.id
+      delete :destroy, params: {id: blog_comment.id}
     end
 
     # have to figure out how to test this, object gets deleted before test can run

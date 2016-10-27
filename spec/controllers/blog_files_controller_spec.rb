@@ -21,7 +21,7 @@ describe BlogFilesController do
   describe 'GET show', :vcr do
     let(:blog_file) {Fabricate :blog_file}
 
-    before {get :show, id: blog_file.id}
+    before {get :show, params: {id: blog_file.id}}
 
     it 'sets @blog_file' do
       expect(assigns[:blog_file]).to eq blog_file
@@ -47,7 +47,7 @@ describe BlogFilesController do
       before do
         user.update(admin: true)
         sign_in user
-        post :create, blog_file: {blog_id: 1, doc: file_to_upload(test_file, "text/plain")}
+        post :create, params: {blog_file: {blog_id: 1, doc: file_to_upload(test_file, "text/plain")}}
       end
 
       it 'redirects_to :show' do
@@ -67,7 +67,7 @@ describe BlogFilesController do
       before do
         user.update(admin: true)
         sign_in user
-        post :create, blog_file: {blog_id: 1}
+        post :create, params: {blog_file: {blog_id: 1}}
       end
 
       it 'renders :new' do
@@ -88,7 +88,7 @@ describe BlogFilesController do
     let(:blog_file) {Fabricate :blog_file}
 
     it 'sets @blog_file' do |variable|
-      get :edit, id: blog_file.id
+      get :edit, params: {id: blog_file.id}
       expect(assigns[:blog_file]).to eq blog_file
     end
   end
@@ -101,7 +101,7 @@ describe BlogFilesController do
       before do
         user.update(admin: true)
         sign_in user
-        put :update, id: blog_file.id, blog_file: {blog_id: 1, doc: file_to_upload(test_file, "text/plain")}
+        put :update, params: {id: blog_file.id, blog_file: {blog_id: 1, doc: file_to_upload(test_file, "text/plain")}}
       end
 
       it 'redirects_to :show' do
@@ -126,7 +126,7 @@ describe BlogFilesController do
     before do
       user.update(admin: true)
       sign_in user
-      delete :destroy, id: blog_file.id
+      delete :destroy, params: {id: blog_file.id}
     end
 
     it 'sets @blog_file' do
