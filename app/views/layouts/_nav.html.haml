@@ -25,7 +25,7 @@
     -else
       %li #{link_to 'Login', new_user_session_path, class: 'btn btn-info btn-xs'}
       -if Rails.env.development?
-        %li #{link_to :UI, '/ui', class: 'btn btn-default btn-xs'}
+        %li #{link_to :UI, '/ui/index', class: 'btn btn-default btn-xs'}
 -if current_page?(root_path)
   .row
     .col-xs-12.well
