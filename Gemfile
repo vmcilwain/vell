@@ -57,7 +57,7 @@ gem 'trix'
 gem 'pundit'
 gem 'salted_rails_server'
 gem 'node'
-
+gem 'record_tag_helper'
 group :test do
   gem "rspec-rails"
   gem "rails-erd"
