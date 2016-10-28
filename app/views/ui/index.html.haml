@@ -1,7 +1,7 @@
 %section.ui-index
-  %ul.list-group
+  %ul.list-unstyled
     - Dir.glob('app/views/ui/*.html.haml').sort.each do |file|
       - wireframe = File.basename(file,'.html.haml')
       -  unless wireframe == 'index' || wireframe.match(/^_/)
-        %li.list-group-item 
+        %li
           =link_to wireframe.titleize, action: wireframe unless wireframe == 'index'
