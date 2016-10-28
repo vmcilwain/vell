@@ -1,90 +1,59 @@
-.panel.panel-info
-  .panel-heading
-    .row
-      .col-xs-9
-        %h1.panel-title #{Faker::Lorem.words(5).join("\s")}
-      .col-xs-3
-        =link_to 'Listing', blogs_path, class: 'btn btn-default btn-xs'
-        -if current_user && current_user.admin?
-          =link_to 'Edit', '#', class: 'btn btn-primary btn-xs'
-          =link_to 'Destroy', '#', method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs'
-  .panel-body
-    %p.text-muted 24 July 2013, Alexander Rechsteiner
-    .meta.clearfix
-      .row
-        .col-md-3
-          %i.fa.fa-calendar
-          %span.data #{short_date Date.today}
-        .col-md-3.hidden-xs
-          %i.fa.fa-tags
-          %span.data Ruby
-        .col-md-3
-          %i.fa.fa-comments
-          %span.data
-          =link_to pluralize([1,2].count, 'Comment')
-      .row
-        .col-md-12
-          %h4 Attachments
-          %ul.list-unstyled
-            -3.times do
-              %li #{link_to Faker::Lorem.words(1).first, '#'} - #{Faker::Lorem.words(8).join("\s")}
-    %p
-      %hr
-      %p Bacon ipsum dolor sit amet esse duis pastrami anim, pancetta fatback capicola officia tenderloin. Meatloaf culpa ut, bacon sed sausage jerky cillum est ham ad laboris ham hock dolore. Venison ut enim, aliqua elit frankfurter et incididunt consequat culpa nostrud in. Ground round venison commodo do capicola. Id commodo laborum proident nostrud cillum duis shoulder. Shank spare ribs pastrami, jowl jerky eiusmod proident tongue occaecat enim doner pancetta capicola t-bone.
-      %p Id est labore, frankfurter sausage ex do dolore adipisicing aliquip shankle deserunt. Dolore culpa flank ad. Shankle pork loin chuck dolore short loin, pork sunt aliqua eiusmod brisket deserunt ut id. Id commodo laborum proident nostrud cillum duis shoulder. Shank spare ribs pastrami, jowl jerky eiusmod proident tongue occaecat enim doner pancetta capicola t-bone.
-      %p Cillum beef ribs ullamco incididunt pork belly nostrud tail et reprehenderit mollit tempor shoulder. Leberkas brisket elit, short ribs ham beef ribs enim nostrud sunt sirloin. Do esse capicola shoulder, nostrud pig non officia ribeye in cillum. Nisi ham hock ex nulla laborum minim tempor beef, frankfurter velit. Ex spare ribs eiusmod do dolore adipisicing jowl beef ut. Aute proident pork chop capicola. Enim fatback meatball kielbasa esse. Id commodo laborum proident nostrud cillum duis shoulder. Shank spare ribs pastrami, jowl jerky eiusmod proident tongue occaecat enim doner pancetta capicola t-bone. Id commodo laborum proident nostrud cillum duis shoulder. Shank spare ribs pastrami, jowl jerky eiusmod proident tongue occaecat enim doner pancetta capicola t-bone.
-      %p Capicola chuck in filet mignon prosciutto turkey. Ut tri-tip eiusmod pariatur. Ball tip drumstick fugiat bacon, ribeye reprehenderit dolore sausage beef kielbasa. Ex beef magna culpa labore swine venison pancetta eu irure meatball bresaola frankfurter exercitation.
-      %p Aliqua fatback tenderloin ex biltong laborum minim ut swine bresaola exercitation. Beef corned beef short loin ea. Nulla ullamco eiusmod ball tip enim, ut turkey officia tail ut tenderloin id anim. Tri-tip chuck ham hock beef pancetta pork loin. Sint ham hock aliquip sausage. Excepteur incididunt ea, eu tongue filet mignon hamburger. Ut ea nostrud short loin.
-      %p Does your lorem ipsum text long for something a little meatier? Give our generator a try… it’s tasty!
 
-  .row.text-center
-    .col-xs-3.h1
-      %a.social-icon.color-one{:href => "#"}
-        .inner-circle
-        %i.fa.fa-twitter
-    .col-xs-3.h1
-      %a.social-icon.color-two{:href => "#"}
-        .inner-circle
-        %i.fa.fa-google-plus
-    .col-xs-3.h1
-      %a.social-icon.color-three{:href => "#"}
-        .inner-circle
-        %i.fa.fa-linkedin
-    .col-xs-3.h1
-      %a.social-icon.color-three{:href => "#"}
-        .inner-circle
-        %i.fa.fa-envelope
-
+%h1 Blog Post Title
+%p.lead
+  by
+  %a{:href => "#"} Start Bootstrap
+%hr/
+%p
+  %span.glyphicon.glyphicon-time
+  Posted on August 24, 2013 at 9:00 PM
+.row
+  .col-md-2
+    %i.fa.fa-tags
+    %span.data Ruby
+  .col-md-3
+    %i.fa.fa-comments
+    %span.data
+    =link_to pluralize([1,2].count, 'Comment')
+.row
+  .col-md-12
+    %h4 Attachments
+    %ul.list-unstyled
+      -3.times do
+        %li #{link_to Faker::Lorem.words(1).first, '#'} - #{Faker::Lorem.words(8).join("\s")}
+%hr/
+%img.img-responsive{:alt => "", :src => "http://placehold.it/900x300"}/
+%hr/
+%p.lead Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?
+%p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.
+%p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!
+%p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?
+%p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!
+%hr/
+.well
+  %h4 Leave a Comment:
+  %form{"accept-charset" => "utf-8", :action => "#", :method => "get"}
+    .form-group
+      %input#comment-name.form-control.input-lg{:name => "name", :placeholder => "Name", :type => "text"}
+    .form-group
+      %input#comment-email.form-control.input-lg{:name => "email", :placeholder => "Email", :type => "email"}
+    .form-group
+      %input#comment-url.form-control.input-lg{:name => "name", :placeholder => "Website", :type => "url"}
+    .form-group
+      %textarea#comment-body.form-control.input-lg{:name => "message", :placeholder => "Your thoughts...", :rows => "3"}
+    .form-group
+      %button.btn.btn-primary{:type => "submit"} Submit
+      %button.btn.btn-danger Cancel
+%hr/
 %h2
   %i.fa.fa-comments
   24 Comments
--5.times do
-  .panel.panel-default
-    .panel-heading
-      %h3.panel-title 
-        .row
-          .col-xs-9
-            %i.fa.fa-user 
-            #{Faker::Name.name}
-          .col-xs-3
-            24 July 2013
-    .panel-body
-      %p.text-muted 24 July 2013, Alexander Rechsteiner
-      %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut  liquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-
-.panel.panel-default
-  .panel-heading
-    %h2.panel-title
-      %i.fa.fa-heart
-      Add Comment
-%form{"accept-charset" => "utf-8", :action => "#", :method => "get"}
-  .row
-    .col-md-6
-      %input#comment-name.form-control.input-lg{:name => "name", :placeholder => "Name", :type => "text"}
-    .col-md-6
-      %input#comment-email.form-control.input-lg{:name => "email", :placeholder => "Email", :type => "email"}
-  %input#comment-url.form-control.input-lg{:name => "name", :placeholder => "Website", :type => "url"}
-    %textarea#comment-body.form-control.input-lg{:name => "message", :placeholder => "Your thoughts...", :rows => "10"}
-    .form-group
-      %button.btn.btn-success.btn-xs{:type => "submit"} Submit
-      %button.btn.btn-danger.btn-xs Cancel
+-3.times do
+  .media
+    %i.fa.fa-user
+    #{Faker::Name.name}
+    .media-body
+      %h4.media-heading
+        Start Bootstrap
+        %small August 25, 2014 at 9:30 PM
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
