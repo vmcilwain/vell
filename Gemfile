@@ -75,8 +75,7 @@ end
 
 group :development, :test do
   gem "faker"
-  gem "pry"
-  gem "pry-nav"
+  gem "byebug"
   gem "better_errors"
   gem "yard"
   gem "binding_of_caller"

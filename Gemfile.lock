@@ -58,6 +58,7 @@ GEM
       sass (>= 3.3.4)
     buftok (0.2.0)
     builder (3.2.2)
+    byebug (9.0.6)
     capistrano (3.6.1)
       airbrussh (>= 1.0.0)
       capistrano-harrow
@@ -213,12 +214,6 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
-    pry (0.10.4)
-      coderay (~> 1.1.0)
-      method_source (~> 0.8.1)
-      slop (~> 3.4)
-    pry-nav (0.2.4)
-      pry (>= 0.9.10, < 0.11.0)
     puma (3.6.0)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
@@ -316,7 +311,6 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
-    slop (3.6.0)
     spring (1.4.4)
     sprockets (3.7.0)
       concurrent-ruby (~> 1.0)
@@ -383,6 +377,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass (~> 3.3.6)
+  byebug
   capistrano-rails
   capistrano-rvm
   capybara
@@ -403,8 +398,6 @@ DEPENDENCIES
   mysql2 (~> 0.3.20)
   node
   paperclip
-  pry
-  pry-nav
   puma
   pundit
   rails (= 5.0.0.1)
