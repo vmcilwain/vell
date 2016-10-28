@@ -24,3 +24,4 @@
 /config/application.yml
 /coverage
 salted_rails_server/pillars/default/init.sls
+.byebug_history
