@@ -1,42 +1,25 @@
 .page-header
   %h1.animated.bounceInDown Blog Comments
-  =link_to 'Blog Listing', '#', class: 'btn btn-primary btn-xs'
-  =link_to 'Search Comments', '#', class: 'search_form_link btn btn-info btn-xs'
-    
+  #{link_to 'Blog Listing'} |  #{link_to 'Search Comments'}
+
 .search_form.well
   %form
     %header
       %h1 Search Blog Comments
     .form-group
-      =text_field_tag :blog_headline, nil, placeholder: 'Blog Headline', class: 'form-control'
-    .form-group
-      =text_field_tag :content, nil, placeholder: 'Content', class: 'form-control'
-    .form-group
-      =text_field_tag :created_at, nil, placeholder: 'Created On', class: 'form-control'
+      =text_field_tag :blog_comment_blog_headline_or_content_or_created_at_contains, nil, placeholder: 'Search blog headline or comment or comment date', class: 'form-control'
     .form-group
       =submit_tag 'Search', class: 'btn btn-primary btn-xs'
       =link_to 'Cancel', '#', class: 'cancel_search_form_link btn btn-danger btn-xs'
 
--10.times do
-  .row.animated.fadeIn
-    .col-xs-12
-      .panel.panel-default
-        .panel-heading
-          %h3 #{link_to Faker::Lorem.words(4).join("\s"), '#'}
-        .panel-body
-          .meta.clearfix
-            .row
-              .col-xs-6
-                .author
-                  %i.fa.fa-user
-                  %span.data #{Faker::Name.name}
-              .col-xs-46
-                .date
-                  %i.fa.fa-calendar
-                  %span.data #{Date.today}
-            .comments
-              %i.fa.fa-comments
-              %span.data
-                =Faker::Lorem.words(5).join("\s")
-          =link_to 'Edit', '#', class: 'btn btn-primary btn-xs'
-          =link_to 'Destroy', '#', class: 'btn btn-danger btn-xs'
+-5.times do
+  .media
+    %i.fa.fa-user
+    #{Faker::Name.name}
+    .media-body
+      %h4.media-heading
+        =link_to Faker::Lorem.words(4).join("\s")
+        %small August 25, 2014 at 9:30 PM
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    #{link_to 'Edit'} | #{link_to 'Destroy'}
+    %hr

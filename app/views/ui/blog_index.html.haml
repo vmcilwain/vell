@@ -1,50 +1,66 @@
 .page-header
   %h1.animated.bounceInDown Blogs
-  =link_to 'New Blog', '#', class: 'btn btn-primary btn-xs'
-  =link_to 'Search Posts', '#', class: 'btn btn-primary btn-xs search_form_link'
+  #{link_to 'New Blog'} | #{link_to 'Search Posts'}
 .search_form.well
   %form
     %header
       %h1 Search Posts
     .form-group
-      =text_field_tag :headline, nil, placeholder: 'Blog Headline', class: 'form-control'
-    .form-group
-      =text_field_tag :content, nil, placeholder: 'Content', class: 'form-control'
-    .form-group
-      =text_field_tag :created_at, nil, placeholder: 'Created On', class: 'form-control'
-    .form-group
-      =text_field_tag :commenter, nil, placeholder: 'Commented By', class: 'form-control'
-    .form-group
-      =text_field_tag :comment_content, nil, placeholder: 'Commenter Comment', class: 'form-control'
-    .form-group
-      =text_field_tag :comment_created_at, nil, placeholder: 'Commented Created On', class: 'form-control'
+      =text_field_tag :headline_or_content_or_created_at_or_commenter_or_comment_content_or_content_created_at_contains, nil, placeholder: 'Search', class: 'form-control'
     .form-group
       =submit_tag 'Search', class: 'btn btn-primary btn-xs'
       =link_to 'Cancel', '#', class: 'btn btn-danger btn-xs cancel_search_form_link'
 %hr
--8.times do
-  .row.animated.fadeIn
-    .col-xs-12
-      .panel.panel-info
-        .panel-heading
-          %h3.panel-title #{Faker::Lorem.words(5).join("\s")}
-        .panel-body
-          %p.text-muted 24 July 2013, Alexander Rechsteiner
-          %p
-            =truncate(Faker::Lorem.paragraphs(5).join("\s"), length: 200) { link_to "Read More", "#"}
-          .meta.clearfix
-            .row
-              .col-md-3
-                %i.fa.fa-calendar
-                %span.data #{short_date Date.today}
-              .col-md-3.hidden-xs
-                %i.fa.fa-tags
-                %span.data Ruby
-              .col-md-3
-                %i.fa.fa-comments
-                %span.data
-                =link_to pluralize([1,2].count, 'Comment')
-              .col-md-3.hidden-xs
-                %i.fa.fa-file-text
-                %span.data
-                  =link_to pluralize([1,2].count, 'File')
+-5.times do
+  %h2
+    %a{:href => "#"} Blog Post Title
+  %p.lead
+    by
+    %a{:href => "index.php"} Start Bootstrap
+  %p
+    %span.glyphicon.glyphicon-time
+    Posted on August 28, 2013 at 10:00 PM
+  %hr/
+  .row
+    .col-md-3
+      %i.fa.fa-tags
+      %span.data Ruby
+    .col-md-3
+      %i.fa.fa-comments
+      %span.data
+      =link_to pluralize([1,2].count, 'Comment')
+    .col-md-3
+      %i.fa.fa-files-o
+      =link_to pluralize([1,2].count, 'File')
+  %hr/
+  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.
+  %a.btn.btn-primary{:href => "#"}
+    Read More
+    %span.glyphicon.glyphicon-chevron-right
+  %hr/
+
+  -# .row.animated.fadeIn
+  -#   .col-xs-12
+  -#     .panel.panel-info
+  -#       .panel-heading
+  -#         %h3.panel-title #{Faker::Lorem.words(5).join("\s")}
+  -#       .panel-body
+  -#         %p.text-muted 24 July 2013, Alexander Rechsteiner
+  -#         %p
+  -#           =truncate(Faker::Lorem.paragraphs(5).join("\s"), length: 200) { link_to "Read More", "#"}
+  -#         .meta.clearfix
+  -#           .row
+  -#             .col-md-3
+  -#               %i.fa.fa-calendar
+  -#               %span.data #{short_date Date.today}
+  -#             .col-md-3.hidden-xs
+  -#               %i.fa.fa-tags
+  -#               %span.data Ruby
+  -#             .col-md-3
+  -#               %i.fa.fa-comments
+  -#               %span.data
+  -#               =link_to pluralize([1,2].count, 'Comment')
+  -#             .col-md-3.hidden-xs
+  -#               %i.fa.fa-file-text
+  -#               %span.data
+  -#                 =link_to pluralize([1,2].count, 'File')
