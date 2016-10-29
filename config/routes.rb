@@ -9,7 +9,6 @@ Rails.application.routes.draw do
 
   get 'blog_tags/:tag', to: 'blogs#index', as: :blog_tag
   get 'about', to: 'home#about'
-  get 'tags/:tag', to: 'blogs#index', as: :tag
   root to: 'home#index'
 
   resources :contact_mes, only: [:index, :new, :show, :create]
