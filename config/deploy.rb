@@ -6,11 +6,10 @@
 # * Figure out how to get capistrano-bundler to generate unicorn binary
 # *
 # config valid only for current version of Capistrano
-lock '3.4.0'
+lock '3.6.1'
 
 set :application, 'vell'
 set :repo_url, 'git@github.com:vmcilwain/vell.git'
-# set :repo_url, 'git@bitbucket.org:vmcilwain/lovell.git'
 
 # Default branch is :master
 ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -18,38 +17,16 @@ ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/var/www/#{fetch(:application)}"
 
-# Default value for :scm is :git
-# set :scm, :git
-
-# Default value for :format is :pretty
-# set :format, :pretty
-
-# Default value for :log_level is :debug
-# set :log_level, :debug
-
-# Default value for :pty is false
-# set :pty, true
-
-# Default value for :linked_files is []
-# set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
 # Default value for linked_dirs is []
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
-# Default value for default_env is {}
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
-
-# Default value for keep_releases is 5
-# set :keep_releases, 5
-# set :running_dir, File.dirname(__FILE__)
 # set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 # set :whenever_roles, ->{ :app }
 # set :monit_conf_file, "#{fetch(:running_dir)}/deploy/monit.conf"
 set :rails_env, fetch(:stage)
-# set :default_env, { 'DBPASS' => ENV['PROWEB'] }
 set :bundle_binstubs, -> { release_path.join('bin') }
 namespace :deploy do
-
   # after :restart, :clear_cache do
   #   on roles(:app), in: :groups, limit: 3, wait: 10 do
   #     # Here we can do anything such as:
