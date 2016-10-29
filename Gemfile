@@ -2,19 +2,16 @@ source 'https://rubygems.org'
 ruby '2.2.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '5.0.0.1'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2', '~> 0.3.20'
 
 # Use SCSS for stylesheets
-gem 'sass-rails'
+gem 'sass-rails', '>= 5.0.6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer',  platforms: :ruby, group: [:development, :test]
-gem 'node', group: :production
+gem 'coffee-rails', '~> 4.2.1'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -54,12 +51,13 @@ gem 'letter_opener', group: [:development]
 gem "font-awesome-rails"
 gem 'devise'
 gem 'searchkick'
-gem 'acts-as-taggable-on', '~> 3.4'
+gem 'acts-as-taggable-on', '~> 4.0.0'
 gem 'friendly_id', '~> 5.1.0'
 gem 'trix'
 gem 'pundit'
 gem 'salted_rails_server'
-
+gem 'node'
+gem 'record_tag_helper'
 group :test do
   gem "rspec-rails"
   gem "rails-erd"
@@ -71,12 +69,13 @@ group :test do
   gem "vcr"
   gem "webmock"
   gem 'selenium-webdriver'
+  gem "codeclimate-test-reporter", require: nil
+  gem 'rails-controller-testing'
 end
 
 group :development, :test do
   gem "faker"
-  gem "pry"
-  gem "pry-nav"
+  gem "byebug"
   gem "better_errors"
   gem "yard"
   gem "binding_of_caller"

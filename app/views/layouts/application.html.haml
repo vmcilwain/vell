@@ -9,9 +9,12 @@
     =stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     =javascript_include_tag 'application', 'data-turbolinks-track' => true
     =csrf_meta_tags
+    =render 'layouts/nav'
     .container
-      =render 'layouts/nav'
-      =yield
+      .row
+        .col-md-8
+          =yield
+        =render 'layouts/widgets'
       .div
         &nbsp;
         %br

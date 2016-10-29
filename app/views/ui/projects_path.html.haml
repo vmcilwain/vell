@@ -5,30 +5,36 @@
     %a{"data-toggle" => "tab", :href => "#ruby"} Ruby
   %li
     %a{"data-toggle" => "tab", :href => "#angular"} angular
-
+%br/
 #myTabContent.tab-content
   #rails.tab-pane.fade.active.in
     %ul.list-unstyled
-      -10.times do
-        %li
-          #{link_to Faker::Lorem.words(5).join("\s")} - #{link_to :Live, Faker::Lorem.words(5).join("\s")}
-          %br/
-          %p
-            =Faker::Lorem.paragraphs(2).join("\s")
+      -5.times do
+        %h2
+          #{link_to Faker::Lorem.words(5).join("\s")}
+        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.
+        %a.btn.btn-primary{:href => "#"}
+          Live
+          %span.glyphicon.glyphicon-chevron-right
+        %hr/
   #ruby.tab-pane.fade
     %ul.list-unstyled
-      -10.times do
-        %li
-          =link_to Faker::Lorem.words(5).join("\s")
-          %br/
-          %p
-            =Faker::Lorem.paragraphs(2).join("\s")
+      -5.times do
+        %h2
+          #{link_to Faker::Lorem.words(5).join("\s")}
+        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.
+        %a.btn.btn-primary{:href => "#"}
+          Live
+          %span.glyphicon.glyphicon-chevron-right
+        %hr/
   #angular.tab-pane.fade
     %ul.list-unstyled
-      -10.times do
-        %li
-          =link_to Faker::Lorem.words(5).join("\s")
-          %br/
-          %p
-            =Faker::Lorem.paragraphs(2).join("\s")
+      -5.times do
+        %h2
+          #{link_to Faker::Lorem.words(5).join("\s")}
+        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.
+        %a.btn.btn-primary{:href => "#"}
+          Live
+          %span.glyphicon.glyphicon-chevron-right
+        %hr/
 #source-button.btn.btn-primary.btn-xs{:style => "display: none;"} &lt; &gt;

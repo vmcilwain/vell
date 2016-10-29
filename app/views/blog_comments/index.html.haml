@@ -2,12 +2,13 @@
   -if flash[:success]
     %div{class: 'row alert alert-success'}
       =flash[:success]
-  
+
   %h1.animated.bounceInDown Article Comments
   =link_to 'Articles Listing', blogs_path, class: 'btn btn-primary btn-xs'
   =link_to 'Search Comments', '#', class: 'search_form_link btn btn-info btn-xs'
-    
+
 =render 'search'
 .row
-  =will_paginate @blog_comments, class: 'apple_pagination'
+  .col-md-12
+    =will_paginate @blog_comments, class: 'apple_pagination'
 =render @blog_comments

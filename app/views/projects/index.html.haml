@@ -1,18 +1,9 @@
 .page-header
   %h1.animated.bounceInDown Projects
-  =link_to 'New Project', new_project_path, class: 'btn btn-success btn-xs' if user_signed_in? && current_user.admin?
+  =link_to 'New Project', new_project_path if user_signed_in? && current_user.admin?
 =render 'search'
 .row
   .col-xs-12
     =will_paginate @projects, class: 'apple_pagination'
-.row
-  .col-xs-3
-    ID
-  .col-xs-3
-    Repository URL
-  .col-xs-3
-    Live URL
-  .col-xs-3
-    Description
 
 =render @projects

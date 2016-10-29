@@ -1,0 +1,30 @@
+.col-md-4
+  .well
+    %h4 Blog Search
+    =form_tag blogs_path, method: :get, html: {role: 'search'} do
+      .input-group
+        =text_field_tag :q, params[:q], class: 'form-control', placeholder: 'Search Blogs'
+        %span.input-group-btn
+          %button.btn.btn-default{:type => "button"}
+            %span.glyphicon.glyphicon-search
+  -# .well
+  -#   %h4 Tag Cloud
+  -#   -tag_cloud Blog.tag_counts, %w[s m l] do |tag, css_class|
+  -#     =link_to tag.name, blog_tag_path(tag.name), class: css_class
+  .well
+    %h4 Motto
+    %p I may not know it today, but you can be sure I will find out.
+  .well
+    .row.text-center
+      .col-xs-3.h1
+        %a.social-icon.color-one{href: "https://www.twitter.com/the_codemonster", target: :blank}
+          .inner-circle
+          %i.fa.fa-twitter
+      .col-xs-3.h1
+        %a.social-icon.color-three{href: "https://www.linkedin.com/in/vmcilwain", target: :blank}
+          .inner-circle
+          %i.fa.fa-linkedin
+      .col-xs-3.h1
+        %a.social-icon.color-three{href: "/contact_mes/new"}
+          .inner-circle
+          %i.fa.fa-envelope

@@ -10,7 +10,7 @@ module ApplicationHelper
   def medium_date(date)
     date.strftime("%Y-%m-%d - %H:%M %p")
   end
-  
+
   #Produces -> 18 October 2015
   def medium_date2(date)
     date.strftime("%d %B %Y")
@@ -20,12 +20,12 @@ module ApplicationHelper
   def short_date(date)
     date.strftime("%Y-%m-%d") rescue ''
   end
-  
+
   # Strips html tags from text
   def to_text(text)
     text.gsub(/<\/?[^>]+>/, '')
   end
-  
+
   # create searchable links for blog tags
   def blog_tag_links(blog)
     raw blog.tag_list.map { |t| link_to t, blog_tag_path(t) }.join(', ')

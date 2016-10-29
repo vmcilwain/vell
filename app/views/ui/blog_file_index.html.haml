@@ -1,20 +1,15 @@
 .page-header
   %h1.animated.bounceInDown Blog Files
-  =link_to 'Blog Listing', '#', class: 'btn btn-primary btn-xs'
-
+  =link_to 'Blog Listing'
 .search_form.well
   %h1 Search Blog Files
   %form
     .form-group
-      =text_field_tag 'blog_document', nil, placeholder: 'Blog Document', class: 'form-control'
-    .form-group
-      =text_field_tag 'description', nil, placeholder: 'Blog Description', class: 'form-control'
-    .form-group
-      =text_field_tag 'created_at', nil, placeholder: 'Blog Created On', class: 'form-control'
+      =text_field_tag :blog_document_or_description_or_created_at_contains, nil, placeholder: 'Search document name or description or created at', class: 'form-control'
     .form-group
       =submit_tag :Search, class: 'btn btn-primary btn-xs'
       =link_to :Cancel, '#', class: 'btn btn-danger btn-xs'
-=link_to 'Search Posts', '#', class: 'btn btn-primary btn-xs'
+=link_to 'Search Posts'
 %br/
 %br/
 .row.animated.fadeIn

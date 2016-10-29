@@ -6,7 +6,7 @@ describe ProjectsController do
   let(:projects) {[]}
 
   describe 'GET show' do
-    before {get :show, id: project.id}
+    before {get :show, params: {id: project.id}}
 
     it 'sets @project' do
       expect(assigns[:project]).to eq project
@@ -31,10 +31,10 @@ describe ProjectsController do
   describe 'POST create' do
     before {sign_in user}
     context 'a successful project creation' do
-      before {post :create, project: Fabricate.attributes_for(:project)}
+      before {post :create, params: {project: Fabricate.attributes_for(:project)}}
 
       it_behaves_like 'requires sign in' do
-        let(:action) {post :create, project: Fabricate.attributes_for(:project)}
+        let(:action) {post :create, params: {project: Fabricate.attributes_for(:project)}}
       end
 
       it 'redirects_to :show' do
@@ -51,10 +51,10 @@ describe ProjectsController do
     end
 
     context 'an unsuccessful project creation' do
-      before {post :create, project: Fabricate.attributes_for(:project, repo_url: nil)}
+      before {post :create, params: {project: Fabricate.attributes_for(:project, repo_url: nil)}}
 
       it_behaves_like 'requires sign in' do
-        let(:action) {post :create, project: Fabricate.attributes_for(:project, repo_url: nil)}
+        let(:action) {post :create, params: {project: Fabricate.attributes_for(:project, repo_url: nil)}}
       end
 
       it 'renders :new' do
@@ -85,11 +85,11 @@ describe ProjectsController do
   describe 'GET edit' do
     before do
       sign_in user
-      get :edit, id: project.id
+      get :edit, params: {id: project.id}
     end
 
     it_behaves_like 'requires sign in' do
-      let(:action) {get :edit, id: project.id}
+      let(:action) {get :edit, params: {id: project.id}}
     end
 
     it 'sets @project' do
@@ -100,10 +100,10 @@ describe ProjectsController do
   describe 'PUT update' do
     before {sign_in user}
     context 'a successful project update' do
-      before {put :update, id: project.id, project: Fabricate.attributes_for(:project)}
+      before {put :update, params: {id: project.id, project: Fabricate.attributes_for(:project)}}
 
       it_behaves_like 'requires sign in' do
-        let(:action) {put :update, id: project.id, project: Fabricate.attributes_for(:project)}
+        let(:action) {put :update, params: {id: project.id, project: Fabricate.attributes_for(:project)}}
       end
 
       it 'redirects_to :show' do
@@ -120,10 +120,10 @@ describe ProjectsController do
     end
 
     context 'an unsuccessful project update' do
-      before {put :update, id: project.id, project: Fabricate.attributes_for(:project, description: nil)}
+      before {put :update, params: {id: project.id, project: Fabricate.attributes_for(:project, description: nil)}}
 
       it_behaves_like 'requires sign in' do
-        let(:action) {put :update, id: project.id, project: Fabricate.attributes_for(:project, description: nil)}
+        let(:action) {put :update, params: {id: project.id, project: Fabricate.attributes_for(:project, description: nil)}}
       end
 
       it 'renders :edit' do
@@ -143,11 +143,11 @@ describe ProjectsController do
   describe 'DELETE destroy' do
     before do
       sign_in user
-      delete :destroy, id: project.id
+      delete :destroy, params: {id: project.id}
     end
 
     it_behaves_like 'requires sign in' do
-      let(:action) {delete :destroy, id: project.id}
+      let(:action) {delete :destroy, params: {id: project.id}}
     end
 
     it 'redirects_to :index' do

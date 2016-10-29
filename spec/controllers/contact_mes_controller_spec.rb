@@ -36,13 +36,13 @@ describe ContactMesController do
       after {clear_mailbox}
 
       it 'sets @contact_me' do
-        post :create, contact_me: {email: Faker::Internet.email, name: Faker::Name.name, body: Faker::Lorem.words(5).join("\s")}
+        post :create, params: {contact_me: {email: Faker::Internet.email, name: Faker::Name.name, body: Faker::Lorem.words(5).join("\s")}}
         expect(assigns[:contact_me]).to be_instance_of ContactMe
       end
 
       describe 'successfully created contact me' do
 
-        before {post :create, contact_me: {email: Faker::Internet.email, name: Faker::Name.name, body: Faker::Lorem.words(5).join("\s")}}
+        before {post :create, params: {contact_me: {email: Faker::Internet.email, name: Faker::Name.name, body: Faker::Lorem.words(5).join("\s")}}}
 
         after {clear_mailbox}
 
@@ -60,7 +60,7 @@ describe ContactMesController do
       end
 
       describe 'unsuccessfully created contact me' do
-        before {post :create, contact_me: {name: Faker::Name.name, body: Faker::Lorem.words(5).join("\s")}
+        before {post :create, params: {contact_me: {name: Faker::Name.name, body: Faker::Lorem.words(5).join("\s")}}
   }
         after {clear_mailbox}
 
@@ -80,7 +80,7 @@ describe ContactMesController do
 
     context 'xhr request', js: true do
       it 'sets @contact_me' do
-        xhr :post, :create, contact_me: {email: Faker::Internet.email, name: Faker::Name.name, body: Faker::Lorem.words(5).join("\s")}
+        post :create, xhr: true, params: {contact_me: {email: Faker::Internet.email, name: Faker::Name.name, body: Faker::Lorem.words(5).join("\s")}}
         expect(assigns[:contact_me]).to be_instance_of ContactMe
       end
     end
@@ -91,13 +91,13 @@ describe ContactMesController do
     before do
       user.update(admin: true)
       sign_in user
-      get :show, id: contact_me.id
+      get :show, params: {id: contact_me.id}
     end
 
     after {clear_mailbox}
 
     it_behaves_like 'requires sign in' do
-      let(:action) {get :show, id: contact_me.id}
+      let(:action) {get :show, params: {id: contact_me.id}}
     end
 
     it 'sets @contact_me' do

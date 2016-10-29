@@ -1,37 +1,32 @@
-#bs-example-navbar-collapse-2.collapse.navbar-collapse
-  .navbar-header
-    =link_to :Lovell, root_path, class: 'navbar-brand'
-    %button.navbar-toggle{"data-target" => "#navbar-main", "data-toggle" => "collapse", :type => "button"}
-      %span.icon-bar
-      %span.icon-bar
-      %span.icon-bar
-  %ul.nav.navbar-nav
-    %li
-      =link_to :About, about_home_index_path
-    %li
-      =link_to :Articles, blogs_path
-    %li
-      =link_to 'Projects', projects_path
-    -if current_user && current_user.admin?
-      %li
-        =link_to 'Article Comments', blog_comments_path
-      %li
-        =link_to 'Article Files', blog_files_path
-      %li
-        =link_to 'Contact Mes', contact_mes_path
-  %ul.nav.navbar-nav.navbar-right
-    -if user_signed_in?
-      %li #{link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-danger btn-xs'}
-    -else
-      %li #{link_to 'Login', new_user_session_path, class: 'btn btn-info btn-xs'}
-      -if Rails.env.development?
-        %li #{link_to :UI, '/ui', class: 'btn btn-default btn-xs'}
--if current_page?(root_path)
-  .row
-    .col-xs-12.well
-      =form_tag blogs_path, method: :get, html: {role: 'search'} do
-        .form-group
-          .col-xs-11
-            =text_field_tag :q, params[:q], class: 'form-control', placeholder: 'Search Blogs'
-        =submit_tag 'Submit', class: 'btn btn-info'
-%hr
+%nav.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
+  .container
+    .navbar-header
+      %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      =link_to :Lovell, root_path, class: 'navbar-brand'
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li
+          =link_to :About, about_home_index_path
+        %li
+          =link_to :Articles, blogs_path
+        %li
+          =link_to 'Projects', projects_path
+        -if current_user && current_user.admin?
+          %li
+            =link_to 'Article Comments', blog_comments_path
+          %li
+            =link_to 'Article Files', blog_files_path
+          %li
+            =link_to 'Contact Mes', contact_mes_path
+      %ul.nav.navbar-nav.navbar-right
+        -if user_signed_in?
+          %li #{link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-danger btn-xs'}
+        -else
+          %li #{link_to 'Login', new_user_session_path, class: 'btn btn-info btn-xs'}
+          -if Rails.env.development?
+            %li #{link_to :UI, '/ui/index', class: 'btn btn-default btn-xs'}
+%br/

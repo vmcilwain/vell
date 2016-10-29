@@ -1,16 +1,16 @@
 # @author Lovell McIlwain
 # Handles business logic for contact me
-class ContactMe < ActiveRecord::Base
+class ContactMe < ApplicationRecord
   # Used with elasticsearch
   searchkick
-  
+
   # ActiveRecord Validation to ensure name, email and body are present on submission
   validates :name, :email, :body, presence: true
-  
+
   # ActiveRecord Callback
   # (see #reindex_blog)
   after_save :reindex_blog
-  
+
   # Searchkick index fields
   def search_data
     {
@@ -22,7 +22,7 @@ class ContactMe < ActiveRecord::Base
   end
 
   private
-  
+
   # Rebuild search index
   def reindex_blog
     ContactMe.reindex # or reindex_async

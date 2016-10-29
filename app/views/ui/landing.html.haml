@@ -1,62 +1,30 @@
-.row.animated.fadeIn
-  .col-xs-6
-    .panel.panel-info
-      .panel-heading
-        %h3.panel-title #{Faker::Lorem.words(10).join("\s")}
-      .panel-body
-        %p.text-muted #{medium_date2 Faker::Date.backward(10)}, Lovell McIlwain
-        %p
-          =truncate(Faker::Lorem.words(50).join("\s"), length: 100) {link_to ' Read More'}
-  .col-xs-6
-    .panel.panel-info
-      .panel-heading
-        %h3.panel-title #{Faker::Lorem.words(10).join("\s")}
-      .panel-body
-        %p.text-muted #{medium_date2 Faker::Date.backward(10)}, Lovell McIlwain
-        %p
-          =truncate(Faker::Lorem.words(5).join("\s"), length: 100) {link_to ' Read More'}
-.row.animated.fadeIn
-  .col-xs-6
-    .panel.panel-info
-      .panel-heading
-        %h3.panel-title #{Faker::Lorem.words(10).join("\s")}
-      .panel-body
-        %p.text-muted #{medium_date2 Faker::Date.backward(10)}, Lovell McIlwain
-        %p
-          =truncate(Faker::Lorem.words(50).join("\s"), length: 100) {link_to ' Read More'}
-  .col-xs-6
-    .panel.panel-info
-      .panel-heading
-        %h3.panel-title #{Faker::Lorem.words(10).join("\s")}
-      .panel-body
-        %p.text-muted #{medium_date2 Faker::Date.backward(10)}, Lovell McIlwain
-        %p
-          =truncate(Faker::Lorem.words(10).join("\s"), length: 100) {link_to ' Read More'}
-          
-.panel.panel-default.animated.fadeIn
-  .panel-heading
-    %h3.panel-title Projects
-  .panel-body
-    .row.text-center
-      .col-xs-3
-        =link_to fa_icon('github', text: 'Vellify Generator'), "https://github.com/vmcilwain/vellify-generator", target: :blank, title: 'My First Ruby on Rails Generator'
-      .col-xs-3
-        =link_to fa_icon('github', text: 'Simple Checklist'), "https://github.com/vmcilwain/checklist", target: :blank, title: 'Basic checklist application written in Rails'
-        =link_to "[Live]", 'http://checklist-notes.herokuapp.com', target: :blank, title: 'See this application in action'
-      .col-xs-3
-        =link_to fa_icon('github', text: 'OWM'), "https://github.com/vmcilwain/openweathermap", target: :blank, title: 'A basic AngularJS application for retrieving weather from Open Weather Map'
-        =link_to "[Live]", 'http://vell.x10host.com/openweathermap/', target: :blank, title: 'See this application in action'
-      .col-xs-3
-        =link_to fa_icon('github', text: 'Question Poser'), "https://github.com/vmcilwain/question_poser", target: :blank, title: 'A basic AngularJS application posting questions'
-        =link_to "[Live]", 'http://vell.x10host.com/question_poser/', target: :blank, title: 'See this application in action'
-.panel.panel-default.animated.fadeIn
-  .panel-heading
-    %h3.panel-title Connect With Me
-  .panel-body
-    .row.text-center
-      .col-xs-3
-        =link_to fa_icon("twitter", text: 'Twitter'), 'https://twitter.com/the_codemonster', target: :blank
-      .col-xs-3
-        =link_to fa_icon("linkedin", text: 'LinkedIn'), 'https://www.linkedin.com/pub/lovell-mcilwain/60/92/28/', target: :blank
-      .col-xs-3
-        =link_to fa_icon("github", text: 'Github'), 'https://www.github.com/vmcilwain', target: :blank
+-3.times do
+  %h1.page-header
+    Page Heading
+    %small Secondary Text
+  %h2
+    %a{:href => "#"} Blog Post Title
+  %p.lead
+    by
+    %a{:href => "index.php"} Start Bootstrap
+  %p
+    %span.glyphicon.glyphicon-time
+    Posted on August 28, 2013 at 10:00 PM
+  %hr/
+  .row
+    .col-md-3
+      %i.fa.fa-tags
+      %span.data Ruby
+    .col-md-3
+      %i.fa.fa-comments
+      %span.data
+      =link_to pluralize([1,2].count, 'Comment')
+    .col-md-3
+      %i.fa.fa-files-o
+      =link_to pluralize([1,2].count, 'File')
+  %hr/
+  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.
+  %a.btn.btn-primary{:href => "#"}
+    Read More
+    %span.glyphicon.glyphicon-chevron-right
+  %hr/

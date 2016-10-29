@@ -13,7 +13,7 @@ describe BlogsController do
   end
 
   describe 'GET show' do
-    before {get :show, id: blog.id}
+    before {get :show, params: {id: blog.id}}
 
     it 'sets @blog' do
       expect(assigns[:blog]).to eq blog
@@ -38,7 +38,7 @@ describe BlogsController do
       before do
         user.update(admin: true)
         sign_in user
-        post :create, blog: {headline: Faker::Lorem.words(5).join("\s"), body: Faker::Lorem.words(25).join("\s")}
+        post :create, params: {blog: {headline: Faker::Lorem.words(5).join("\s"), body: Faker::Lorem.words(25).join("\s")}}
       end
 
       after {delete_files}
@@ -70,7 +70,7 @@ describe BlogsController do
       before do
         user.update(admin: true)
         sign_in user
-        post :create, blog: {headline: Faker::Lorem.words(5).join("\s"), body: Faker::Lorem.words(25).join("\s"), blog_files: [blog_document: file_to_upload(test_file, 'text/plain')]}
+        post :create, params: {blog: {headline: Faker::Lorem.words(5).join("\s"), body: Faker::Lorem.words(25).join("\s"), blog_files: [blog_document: file_to_upload(test_file, 'text/plain')]}}
       end
 
       it 'redirects to :show' do
@@ -98,7 +98,7 @@ describe BlogsController do
       before do
         user.update(admin: true)
         sign_in user
-        post :create, blog: {body: Faker::Lorem.words(25).join("\s")}
+        post :create, params: {blog: {body: Faker::Lorem.words(25).join("\s")}}
       end
 
       it 'renders :new' do
@@ -126,7 +126,7 @@ describe BlogsController do
       before do
         user.update(admin: true)
         sign_in user
-        post :create, blog: {headline: Faker::Lorem.words(10).join("\s"), body: Faker::Lorem.words(25).join("\s")}
+        post :create, params: {blog: {headline: Faker::Lorem.words(10).join("\s"), body: Faker::Lorem.words(25).join("\s")}}
       end
 
       it 'renders :show' do
@@ -146,7 +146,7 @@ describe BlogsController do
       before do
         user.update(admin: true)
         sign_in user
-        post :create, blog: Fabricate.attributes_for(:blog, to_twitter: true)
+        post :create, params: {blog: Fabricate.attributes_for(:blog, to_twitter: true)}
       end
 
       it 'renders :show' do
@@ -174,7 +174,7 @@ describe BlogsController do
     let(:blog) {Fabricate :blog}
 
     it 'sets @blog' do
-      get :edit, id: blog.id
+      get :edit, params: {id: blog.id}
       expect(assigns[:blog]).to eq blog
     end
   end
@@ -186,7 +186,7 @@ describe BlogsController do
       before do
         user.update(admin: true)
         sign_in user
-        put :update, id: blog.id, blog: {headline: Faker::Lorem.words(5).join("\s"), body: Faker::Lorem.words(25).join("\s")}
+        put :update, params: {id: blog.id, blog: {headline: Faker::Lorem.words(5).join("\s"), body: Faker::Lorem.words(25).join("\s")}}
       end
 
       it 'redirects to :show' do
@@ -206,7 +206,7 @@ describe BlogsController do
       before do
         user.update(admin: true)
         sign_in user
-        put :update, id: blog.id, blog: {headline: Faker::Lorem.words(5).join("\s"), body: ""}
+        put :update, params: {id: blog.id, blog: {headline: Faker::Lorem.words(5).join("\s"), body: nil}}
       end
 
       it 'renders :new' do
@@ -229,7 +229,7 @@ describe BlogsController do
     before do
       user.update(admin: true)
       sign_in user
-      delete :destroy, id: blog.id
+      delete :destroy, params: {id: blog.id}
     end
 
     it 'sets @blog' do

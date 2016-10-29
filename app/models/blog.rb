@@ -1,6 +1,6 @@
 # @author Lovell McIlwain
 # Handles business logic for blog
-class Blog < ActiveRecord::Base
+class Blog < ApplicationRecord
   # Used with elasticsearch
   searchkick
 

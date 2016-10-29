@@ -1,6 +1,6 @@
 # @author Lovell McIlwain
 # Handles business logic for project
-class Project < ActiveRecord::Base
+class Project < ApplicationRecord
   # Used with elasticsearch
   searchkick
 

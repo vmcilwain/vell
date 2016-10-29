@@ -1,11 +1,13 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+require "codeclimate-test-reporter"
+ENV['CODECLIMATE_REPO_TOKEN'] = ENV['VELL_CC']
+CodeClimate::TestReporter.start
 ENV["RAILS_ENV"] ||= 'test'
 require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'simplecov'
 SimpleCov.start
-require 'pry'
 require 'paperclip/matchers'
 require 'devise'
 require 'vcr'
@@ -21,6 +23,12 @@ VCR.configure do |c|
     :match_requests_on => [:method,
       VCR.request_matchers.uri_without_param(:url)]
   }
+  # Unblock hosts for for external connect
+  c.ignore_hosts 'codeclimate.com'
+end
+
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :chrome)
 end
 # Add additional requires below this line. Rails is not loaded until this point!
 
