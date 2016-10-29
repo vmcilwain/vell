@@ -2,30 +2,4 @@
   Lovell McIlwain
   %small Never backwards. Always forward.
 =render 'layouts/success_message'
--@blogs.each do |blog|
-  %h2
-    =link_to blog.headline, blog
-  %p.lead
-    by Lovell McIlwain
-  %p
-    %span.glyphicon.glyphicon-time
-    Posted on #{short_date blog.created_at}
-  %hr/
-  .row
-    .col-md-3
-      %i.fa.fa-tags
-      %span.data #{blog_tag_links(blog)}
-    .col-md-3
-      %i.fa.fa-comments
-      %span.data
-      =link_to pluralize(blog.blog_comments.count, 'Comment')
-    .col-md-3
-      %i.fa.fa-files-o
-      =link_to pluralize(blog.blog_files.count, 'File')
-  %hr/
-  %p
-    =truncate(to_text(@blogs.last.body), length: 50) {link_to ' Read More', @blogs.last}
-  %a.btn.btn-primary{:href => "#{blog_path(blog)}"}
-    Read More
-    %span.glyphicon.glyphicon-chevron-right
-  %hr/
+=render @blogs

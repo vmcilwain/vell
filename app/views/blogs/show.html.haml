@@ -13,10 +13,10 @@
   .col-md-3
     %i.fa.fa-comments
     %span.data
-    =link_to pluralize(@blog.blog_comments.count, 'Comment')
+    =pluralize(@blog.blog_comments.count, 'Comment')
   .col-md-3
     %i.fa.fa-files-o
-    =link_to pluralize(@blog.blog_files.count, 'File')
+    =pluralize(@blog.blog_files.count, 'File')
 -if @blog.blog_files.any?
   .row
     .col-md-12

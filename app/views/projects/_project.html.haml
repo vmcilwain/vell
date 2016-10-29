@@ -1,10 +1,9 @@
 =div_for project do
-  .row
-    .col-xs-3
-      =link_to project.id, project
-    .col-xs-3
-      =link_to project.repo_url, project.repo_url, target: :blank
-    .col-xs-3
-      =link_to :Live, project.live_url, target: :blank
-    .col-xs-3
-      =project.description
+  %h2
+    =link_to project.repo_url, project.repo_url, target: :blank
+  %p
+    =project.description
+  %a.btn.btn-primary{href: "#{project.live_url}", target: :blank}
+    Live
+    %span.glyphicon.glyphicon-chevron-right
+  %hr/
