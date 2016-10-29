@@ -1,11 +1,10 @@
-.container
-  .page-header
-    %header
-      %h1.animated.bounceInDown Article Files
-    =link_to 'Blog Listing', blogs_path, class: 'btn btn-success btn-xs'
+.page-header
+  %header
+    %h1 Article Files
+  =link_to 'Blog Listing', blogs_path
 
-  .row
-    .col-xs-12
-      =will_paginate @blog_files, class: 'apple_pagination'
-      =render 'search'
+.row
+  .col-md-12
+    =will_paginate @blog_files, class: 'apple_pagination'
+    =render 'search'
   =render @blog_files

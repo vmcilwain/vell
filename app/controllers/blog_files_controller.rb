@@ -14,7 +14,7 @@ class BlogFilesController < ApplicationController
   # @return [Array] the list of blog files found
   def index
     authorize BlogFile
-    @blog_files = BlogFile.search(params.fetch(:q, "*"), page: params[:page], per_page: 10, order: {created_at: :desc}) #elasticsearch
+    @blog_files = BlogFile.search(params.fetch(:q, "*"), page: params[:page], per_page: 10) #elasticsearch
   end
 
   # Handles HTTP GET
