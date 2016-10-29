@@ -1,93 +1,31 @@
--if flash[:success]
-  .alert.alert-success
-    =flash[:success]
--elsif flash[:error]
-  .alert.alert-danger
-    =flash[:error]
-%h1 Recent Posts
-.row.animated.fadeIn
-  -if @blogs[3]
-    .col-xs-6
-      .panel.panel-info
-        .panel-heading
-          %h3.panel-title #{@blogs.last.headline}
-        .panel-body
-          %p.text-muted #{medium_date2 @blogs.last.created_at}, Lovell McIlwain
-          %p
-            =truncate(to_text(@blogs.last.body), length: 50) {link_to ' Read More', @blogs.last}
-  -if @blogs[2]
-    .col-xs-6
-      .panel.panel-info
-        .panel-heading
-          %h3.panel-title #{@blogs[2].headline}
-        .panel-body
-          %p.text-muted #{medium_date2 @blogs[2].created_at}, Lovell McIlwain
-          %p
-            =truncate(to_text(@blogs[2].body), length: 50) {link_to ' Read More', @blogs[2]}
-.row.animated.fadeIn
-  -if @blogs[1]
-    .col-xs-6
-      .panel.panel-info
-        .panel-heading
-          %h3.panel-title #{@blogs[1].headline}
-        .panel-body
-          %p.text-muted #{medium_date2 @blogs[1].created_at}, Lovell McIlwain
-          %p
-            =truncate(to_text(@blogs[1].body), length: 50) {link_to ' Read More', @blogs[1]}
-  -if @blogs[0]
-    .col-xs-6
-      .panel.panel-info
-        .panel-heading
-          %h3.panel-title #{@blogs.first.headline}
-        .panel-body
-          %p.text-muted #{medium_date2 @blogs.first.created_at}, Lovell McIlwain
-          %p
-            =truncate(to_text(@blogs.first.body), length: 50) {link_to ' Read More', @blogs.first}
-
-%h1 Recent Projects
-.row.animated.fadeIn
-  -if @projects[3]
-    .col-xs-6
-      .panel.panel-info
-        .panel-heading
-          %h3.panel-title
-            =link_to fa_icon(:github, text: @projects.last.repo_url), @projects.last.repo_url, target: :blank
-        .panel-body
-          %p
-            =@projects.last.description
-          %p
-            =link_to fa_icon(:globe, text: @projects.last.live_url), @projects.last.live_url, target: :blank
-  -if @projects[2]
-    .col-xs-6
-      .panel.panel-info
-        .panel-heading
-          %h3.panel-title
-            =link_to fa_icon(:github, text: @projects[2].repo_url), @projects[2].repo_url, target: :blank
-        .panel-body
-          %p
-            =@projects[2].description
-          %p
-            =link_to fa_icon(:globe, text: @projects[2].live_url), @projects[2].live_url, target: :blank
-.row.animated.fadeIn
-  -if @projects[1]
-    .col-xs-6
-      .panel.panel-info
-        .panel-heading
-          %h3.panel-title
-            =link_to fa_icon(:github, text: @projects[1].repo_url), @projects[1].repo_url, target: :blank
-        .panel-body
-          %p
-            =@projects[1].description
-          %p
-            =link_to fa_icon(:globe, text: @projects[1].live_url), @projects[1].live_url, target: :blank
-  -if @projects[0]
-    .col-xs-6
-      .panel.panel-info
-        .panel-heading
-          %h3.panel-title
-            =link_to fa_icon(:github, text: @projects.first.repo_url), @projects.first.repo_url, target: :blank
-        .panel-body
-          %p
-            =@projects.first.description
-          %p
-            =link_to fa_icon(:globe, text: @projects.first.live_url), @projects.first.live_url, target: :blank
+%h1.page-header
+  Lovell McIlwain
+  %small Never backwards. Always forward.
+=render 'layouts/success_message'
+-@blogs.each do |blog|
+  %h2
+    =link_to blog.headline, blog
+  %p.lead
+    by Lovell McIlwain
+  %p
+    %span.glyphicon.glyphicon-time
+    Posted on #{short_date blog.created_at}
+  %hr/
+  .row
+    .col-md-3
+      %i.fa.fa-tags
+      %span.data #{blog_tag_links(blog)}
+    .col-md-3
+      %i.fa.fa-comments
+      %span.data
+      =link_to pluralize(blog.blog_comments.count, 'Comment')
+    .col-md-3
+      %i.fa.fa-files-o
+      =link_to pluralize(blog.blog_files.count, 'File')
+  %hr/
+  %p
+    =truncate(to_text(@blogs.last.body), length: 50) {link_to ' Read More', @blogs.last}
+  %a.btn.btn-primary{:href => "#{blog_path(blog)}"}
+    Read More
+    %span.glyphicon.glyphicon-chevron-right
+  %hr/

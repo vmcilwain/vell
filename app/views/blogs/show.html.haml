@@ -1,47 +1,37 @@
--if flash[:success]
-  .alert.alert-success
-    =flash[:success]
-.panel.panel-info
-  .panel-heading
-    .row
-      .col-xs-9
-        %h1.panel-title #{@blog.headline}
-      .col-xs-3
-        =link_to 'Listing', blogs_path, class: 'btn btn-default btn-xs'
-        -if user_signed_in? && current_user.admin?
-          =link_to 'Edit', edit_blog_path(@blog), class: 'btn btn-primary btn-xs'
-          =link_to 'Destroy', @blog, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs'
-  .panel-body
-    %p.text-muted #{medium_date2 @blog.created_at}, Lovell McIlwain
-    .meta.clearfix
-      .row
-        -#.col-md-3
-          -#%i.fa.fa-calendar
-          -#%span.data #{short_date Date.today}
-        .col-md-3.hidden-xs
-          %i.fa.fa-tags
-          %span.data #{blog_tag_links(@blog)}
-        .col-md-3
-          %i.fa.fa-comments
-          %span.data
-          =pluralize(@blog.blog_comments.count, 'Comment')
-      -if @blog.blog_files.any?
-        .row
-          .col-md-12
-            %h4 Attachments
-            %ul.list-unstyled
-              -@blog.blog_files.each do |file|
-                %li #{link_to file.doc_file_name, '#'} - #{file.description}
-    %hr
-    %p
-      =raw @blog.body
-
-  =render 'connections'
-
+=render 'layouts/success_message'
+.page-header
+  %h1 #{@blog.headline}
+  %p.lead
+    by Lovell McIlwain
+%p
+  %span.glyphicon.glyphicon-time
+  Posted on #{short_date @blog.created_at}
+.row
+  .col-md-2
+    %i.fa.fa-tags
+    %span.data #{blog_tag_links(@blog)}
+  .col-md-3
+    %i.fa.fa-comments
+    %span.data
+    =link_to pluralize(@blog.blog_comments.count, 'Comment')
+  .col-md-3
+    %i.fa.fa-files-o
+    =link_to pluralize(@blog.blog_files.count, 'File')
+-if @blog.blog_files.any?
+  .row
+    .col-md-12
+      %h4 Attachments
+      %ul.list-unstyled
+        -@blog.blog_files.each do |file|
+          %li #{link_to file.doc_file_name, '#'} - #{file.description}
+%hr/
+%p
+  =raw @blog.body
+%hr/
+=render 'blog_comments/comment_form'
+%hr/
 #comments
   %h2
     %i.fa.fa-comments
     =pluralize(@blog.blog_comments.count, 'Comment')
   =render @blog.blog_comments
-
-=render 'blog_comments/comment_form'
