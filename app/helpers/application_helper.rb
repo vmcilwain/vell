@@ -6,6 +6,11 @@ module ApplicationHelper
     raw blog.tag_list.map { |t| link_to t, blog_tag_path(t) }.join(', ')
   end
 
+  # Unified view pagination
+  def paginate(collection)
+    will_paginate collection, class: 'apple_pagination'
+  end
+
   # Create object presenter for use in views.
   #
   # @param object [Object], the object that has a presenter class

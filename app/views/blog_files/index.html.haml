@@ -5,6 +5,6 @@
 
 .row
   .col-md-12
-    =will_paginate @blog_files, class: 'apple_pagination'
+    =paginate @blog_files
     =render 'search'
   =render @blog_files
