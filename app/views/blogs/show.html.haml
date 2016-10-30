@@ -1,37 +1,38 @@
 =render 'layouts/success_message'
-.page-header
-  %h1 #{@blog.headline}
-  %p.lead
-    by Lovell McIlwain
-%p
-  %span.glyphicon.glyphicon-time
-  Posted on #{short_date @blog.created_at}
-.row
-  .col-md-2
-    %i.fa.fa-tags
-    %span.data #{blog_tag_links(@blog)}
-  .col-md-3
-    %i.fa.fa-comments
-    %span.data
-    =pluralize(@blog.blog_comments.count, 'Comment')
-  .col-md-3
-    %i.fa.fa-files-o
-    =pluralize(@blog.blog_files.count, 'File')
--if @blog.blog_files.any?
+-present(@blog) do |blog_presenter|
+  .page-header
+    %h1 #{blog_presenter.headline}
+    %p.lead
+      by Lovell McIlwain
+  %p
+    %span.glyphicon.glyphicon-time
+    Posted on #{blog_presenter.short_created_at}
   .row
-    .col-md-12
-      %h4 Attachments
-      %ul.list-unstyled
-        -@blog.blog_files.each do |file|
-          %li #{link_to file.doc_file_name, '#'} - #{file.description}
-%hr/
-%p
-  =raw @blog.body
-%hr/
-=render 'blog_comments/comment_form'
-%hr/
-#comments
-  %h2
-    %i.fa.fa-comments
-    =pluralize(@blog.blog_comments.count, 'Comment')
+    .col-md-2
+      %i.fa.fa-tags
+      %span.data #{blog_tag_links(@blog)}
+    .col-md-3
+      %i.fa.fa-comments
+      %span.data
+      =blog_presenter.comments_count
+    .col-md-3
+      %i.fa.fa-files-o
+      =blog_presenter.files_count
+  -if @blog.blog_files.any?
+    .row
+      .col-md-12
+        %h4 Attachments
+        %ul.list-unstyled
+          -@blog.blog_files.each do |file|
+            %li #{link_to file.doc_file_name, '#'} - #{file.description}
+  %hr/
+  %p
+    =blog_presenter.raw_body
+  %hr/
+  =render 'blog_comments/comment_form'
+  %hr/
+  #comments
+    %h2
+      %i.fa.fa-comments
+      =blog_presenter.comments_count
   =render @blog.blog_comments

@@ -1,11 +1,12 @@
-=div_for(blog_file, class: 'row') do
-  .col-xs-3
-    -if ALLOWABLE_IMAGES.include?(blog_file.doc_content_type)
-      =link_to image_tag(blog_file.doc.url, width: '150px'), download_blog_files_path(id: blog_file.id)
-    -else
-      =link_to blog_file.doc_file_name, download_blog_files_path(id: blog_file.id)
-  .col-xs-4
-    =link_to :Delete, blog_file, method: :delete, data: {confirm: 'Are you sure?'} if current_user && current_user.admin?
-  .row
+-present(blog_file) do |blog_file_presenter|
+  =div_for(blog_file, class: 'row') do
+    .col-xs-3
+      -if ALLOWABLE_IMAGES.include?(blog_file.doc_content_type)
+        =blog_file_presenter.image_download_path
+      -else
+        =blog_file_presenter.download_path
+    .col-xs-4
+      =blog_file_presenter.delete_link if current_user && current_user.admin?
     .row
-      =blog_file.description
+      .row
+        =blog_file_presenter.description

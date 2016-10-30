@@ -1,11 +1,12 @@
-.row.animated.fadeIn
-  .col-xs-1
-    =contact_me.id
-  .col-xs-2
-    =link_to contact_me.name, contact_me
-  .col-xs-4
-    =mail_to contact_me.email
-  .col-xs-2
-    =truncate(contact_me.body, length: 100) { link_to "Read More", contact_me }
-  .col-xs-3
-    =medium_date2 contact_me.created_at
+-present(contact_me) do |contact_me_presenter|
+  .row.animated.fadeIn
+    .col-xs-1
+      =contact_me_presenter.id
+    .col-xs-2
+      =contact_me_presenter.name_link
+    .col-xs-4
+      =contact_me_presenter.email_link
+    .col-xs-2
+      =contact_me_presenter.truncated_body
+    .col-xs-3
+      =contact_me_presenter.medium_created_at
