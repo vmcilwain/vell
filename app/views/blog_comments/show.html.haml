@@ -1,23 +1,22 @@
-.page-header
+-present(@blog_comment) do |blog_comment_presenter|
+  .page-header
+    .row
+      .col-xs-12
+        =render 'layouts/success_message'
+    %h1 #{blog_comment_presenter.name} wrote
+  .row
+    .col-xs-2
+      Created At:
+    .col-xs-3
+      =blog_comment_presenter.medium_created_at
+    .col-xs-2
+      Updated At:
+    .col-xs-3
+      =blog_comment_presenter.medium_updated_at
   .row
     .col-xs-12
-      -if flash[:success]
-        %div{class: 'alert alert-success'}
-          =flash[:success]
-  %h1 #{@blog_comment.name} wrote
-.row
-  .col-xs-2
-    Created At:
-  .col-xs-3
-    =medium_date2 @blog_comment.created_at
-  .col-xs-2
-    Updated At:
-  .col-xs-3
-    =medium_date2 @blog_comment.updated_at
-.row
-  .col-xs-12
-    =@blog_comment.body
-.row
-  .col-xs-4
-    =link_to :Edit, edit_blog_comment_path(@blog_comment), class: 'btn btn-primary btn-xs'
-    =link_to :Listing, blog_comments_path, class: 'btn btn-danger btn-xs'
+      =blog_comment_presenter.body
+  .row
+    .col-xs-4
+      =blog_comment_presenter.edit_button
+      =link_to :Listing, blog_comments_path, class: 'btn btn-danger btn-xs'

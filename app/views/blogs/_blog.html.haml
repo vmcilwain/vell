@@ -1,26 +1,27 @@
-%h2
-  =link_to blog.headline, blog
-%p.lead
-  by Lovell McIlwain
-%p
-  %span.glyphicon.glyphicon-time
-  Posted on #{short_date blog.created_at}
-%hr/
-.row
-  .col-md-3
-    %i.fa.fa-tags
-    %span.data #{blog_tag_links(blog)}
-  .col-md-3
-    %i.fa.fa-comments
-    %span.data
-    =link_to pluralize(blog.blog_comments.count, 'Comment'), blog
-  .col-md-3
-    %i.fa.fa-files-o
-    =link_to pluralize(blog.blog_files.count, 'File'), blog
-%hr/
-%p
-  =truncate(to_text(blog.body), length: 50) {link_to ' Read More', blog}
-%a.btn.btn-primary{:href => "#{blog_path(blog)}"}
-  Read More
-  %span.glyphicon.glyphicon-chevron-right
-%hr/
+-present(blog) do |blog_presenter|
+  %h2
+    =blog_presenter.headline_link
+  %p.lead
+    by Lovell McIlwain
+  %p
+    %span.glyphicon.glyphicon-time
+    Posted on #{blog_presenter.short_created_at}
+  %hr/
+  .row
+    .col-md-3
+      %i.fa.fa-tags
+      %span.data #{blog_tag_links(blog)}
+    .col-md-3
+      %i.fa.fa-comments
+      %span.data
+      =blog_presenter.comments_count_link
+    .col-md-3
+      %i.fa.fa-files-o
+      =blog_presenter.files_count_link
+  %hr/
+  %p
+    =blog_presenter.truncated_body
+  %a.btn.btn-primary{href: "#{blog_path(blog)}"}
+    Read More
+    %span.glyphicon.glyphicon-chevron-right
+  %hr/

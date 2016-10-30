@@ -1,7 +1,5 @@
 .page-header
-  -if flash[:success]
-    %div{class: 'row alert alert-success'}
-      =flash[:success]
+  =render 'layouts/success_message'
 
   %h1.animated.bounceInDown Article Comments
   =link_to 'Articles Listing', blogs_path, class: 'btn btn-primary btn-xs'
