@@ -1,14 +1,13 @@
 .page-header
   %h1.animated.bounceInDown Contact Me
 =render 'search'
-.row
-  .col-xs-3
-    Name
-  .col-xs-4
-    Email
-  .col-xs-2
-    Body
-  .col-xs-3
-    Created On
-%br
-=render @contact_mes
+%table.table.table-striped
+  %thead
+    %tr
+      %th ID
+      %th Name
+      %th Email
+      %th Body
+      %th Created
+  %tbody
+    =render @contact_mes

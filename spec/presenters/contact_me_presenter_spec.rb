@@ -19,8 +19,8 @@ describe ContactMePresenter do
     expect(presenter.truncated_body).to eq truncate(contact_me.body, length: 100) { link_to "Read More", contact_me }
   end
 
-  it "returns medium created at date" do
-    expect(presenter.medium_created_at).to eq contact_me.created_at.strftime("%d %B %Y")
+  it "returns short created at date" do
+    expect(presenter.short_created_at).to eq contact_me.created_at.strftime("%Y-%m-%d")
   end
 
   it "returns destroy path as a button" do

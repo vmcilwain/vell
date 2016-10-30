@@ -25,8 +25,8 @@ class ContactMePresenter < BasePresenter
   end
 
   # Returns medium created at
-  def medium_created_at
-    medium_date2 contact_me.created_at
+  def short_created_at
+    short_date contact_me.created_at
   end
 
   # Returns destroy path as a button

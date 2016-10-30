@@ -1,12 +1,12 @@
 -present(contact_me) do |contact_me_presenter|
-  .row.animated.fadeIn
-    .col-xs-1
+  %tr
+    %th
       =contact_me_presenter.id
-    .col-xs-2
+    %td
       =contact_me_presenter.name_link
-    .col-xs-4
+    %td
       =contact_me_presenter.email_link
-    .col-xs-2
+    %td
       =contact_me_presenter.truncated_body
-    .col-xs-3
-      =contact_me_presenter.medium_created_at
+    %td
+      =contact_me_presenter.short_created_at
