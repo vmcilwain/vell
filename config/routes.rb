@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :blog_files do
+  resources :blog_files, only: [:index, :new, :create, :edit, :update, :destroy] do
     collection do
       get :download
     end

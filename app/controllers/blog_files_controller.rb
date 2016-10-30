@@ -3,7 +3,7 @@
 class BlogFilesController < ApplicationController
   # Before action to load blog file
   # (see #blog_file)
-  before_action :blog_file, only: [:show, :edit, :update, :destroy, :download]
+  before_action :blog_file, only: [:edit, :update, :destroy, :download]
 
   # Before action to prompt for authentication
   # @note uses devise gem

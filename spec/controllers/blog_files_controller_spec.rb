@@ -18,16 +18,6 @@ describe BlogFilesController do
     end
   end
 
-  describe 'GET show', :vcr do
-    let(:blog_file) {Fabricate :blog_file}
-
-    before {get :show, params: {id: blog_file.id}}
-
-    it 'sets @blog_file' do
-      expect(assigns[:blog_file]).to eq blog_file
-    end
-  end
-
   describe 'GET new', :vcr do
     before do
       user.update(admin: true)

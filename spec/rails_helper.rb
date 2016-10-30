@@ -1,7 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require "codeclimate-test-reporter"
 ENV['CODECLIMATE_REPO_TOKEN'] = ENV['VELL_CC']
-# CodeClimate::TestReporter.start
+CodeClimate::TestReporter.start
 ENV["RAILS_ENV"] ||= 'test'
 require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
