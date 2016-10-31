@@ -1,6 +1,6 @@
 class BlogCommentPolicy < ApplicationPolicy
   def index?
-    user.admin?
+    user && user.admin?
   end
 
   def new?; true; end

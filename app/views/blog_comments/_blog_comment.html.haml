@@ -6,7 +6,7 @@
       %h4.media-heading
         %small #blog_comment_presenter.medium_created_at}
       =blog_comment_presenter.body
-  -if current_user && current_user.admin?
+  -if policy(blog_comment).edit?
     .row
       .col-xs-12
         =blog_comment_presenter.muted_headline_link
