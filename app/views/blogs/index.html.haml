@@ -1,6 +1,6 @@
 .page-header
   %h1.animated.bounceInDown Articles
-  =link_to 'New Article', new_blog_path if user_signed_in? && current_user.admin?
+  =link_to 'New Article', new_blog_path if policy(Blog).new?
 .row
   .col-xs-12
     =paginate @blogs

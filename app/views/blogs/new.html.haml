@@ -1,13 +1,8 @@
 .page-header
-  -if @blog.errors.any?
-    %div{class: 'row alert alert-danger'}
-      =flash[:error]
-      %ul
-        -@blog.errors.full_messages.each do |message|
-          %li #{message}
+=render partial: 'layouts/error_messages', locals: {obj: @blog}
   %h1.animated.bounceInDown Create an article
 =form_for @blog, multipart: true, html: {class: "well animated fadeIn"} do |f|
-  
+
   .form-group
     =f.text_field :headline, placeholder: 'Enter Headline',class: 'form-control'
   .form-group

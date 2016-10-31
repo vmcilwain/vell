@@ -14,6 +14,7 @@ class BlogsController < ApplicationController
   # @param tag [String] the tag name to search for
   # @return [Array] the list of blogs found
   def index
+    authorize Blog
     if params[:tag]
       @blogs = Blog.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 5, order: {created_at: :desc})
     else
@@ -26,8 +27,8 @@ class BlogsController < ApplicationController
   # @return [Blog] a new blog object
   # @note returns 3 associated blog file builds for nested attributes
   def new
+    authorize Blog
     @blog = Blog.new
-    authorize @blog
     3.times {@blog.blog_files.build}
   end
 
@@ -39,8 +40,8 @@ class BlogsController < ApplicationController
   # @return [Hash] the flash notice
   # @note updates twitter account if to_twitter is set to true
   def create
+    authorize Blog
     @blog = Blog.new(blog_params)
-    authorize @blog
     if @blog.save
       @status, @message = TwitterService.new(@blog).update if @blog.to_twitter
       flash[:success] = 'Blog created!'
