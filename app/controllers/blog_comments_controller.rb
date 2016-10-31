@@ -23,6 +23,7 @@ class BlogCommentsController < ApplicationController
   # @return [Blog] the blog object requested
   # @return [BlogComment] a new blog comment object
   def new
+    authorize BlogComment
     @blog = Blog.find(params[:blog_id])
     @blog_comment = BlogComment.new
   end
@@ -35,6 +36,7 @@ class BlogCommentsController < ApplicationController
   # @return [Hash] the flash notification
   # @note sends email notification on submission
   def create
+    authorize BlogComment
     @blog_comment = BlogComment.new(blog_comment_params)
     respond_to do|format|
       if @blog_comment.save
