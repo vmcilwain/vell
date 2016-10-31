@@ -3,11 +3,12 @@ class ProjectsController < ApplicationController
   before_action :project, only: [:show, :edit, :update, :destroy]
 
   def new
+    authorize Project
     @project = Project.new
-    authorize @project
   end
 
   def create
+    authorize Project
     @project = Project.new(project_params)
 
     if @project.save
@@ -20,10 +21,12 @@ class ProjectsController < ApplicationController
   end
 
   def index
+    authorize Project
     @projects = Project.search(params.fetch(:q, "*"), page: params[:page], per_page: 10, order: {id: :desc})
   end
 
   def update
+    authorize @project
     if @project.update(project_params)
       flash[:success] = 'Project updated'
       redirect_to @project
@@ -34,6 +37,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+    authorize @project
     @project.destroy
     flash[:success] = 'Project destroyed'
     redirect_to projects_path
