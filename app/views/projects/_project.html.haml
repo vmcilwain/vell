@@ -1,9 +1,10 @@
-=div_for project do
-  %h2
-    =link_to project.repo_url, project.repo_url, target: :blank
-  %p
-    =project.description
-  %a.btn.btn-primary{href: "#{project.live_url}", target: :blank}
-    Live
-    %span.glyphicon.glyphicon-chevron-right
-  %hr/
+-present(project) do |project_presenter|
+  =div_for project do
+    %h2
+      =project_presenter.repo_link
+    %p
+      =project.description
+    %a.btn.btn-primary{href: "#{project_presenter.live_url}", target: :blank}
+      Live
+      %span.glyphicon.glyphicon-chevron-right
+    %hr/

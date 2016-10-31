@@ -4,6 +4,5 @@
 =render 'search'
 .row
   .col-xs-12
-    =will_paginate @projects, class: 'apple_pagination'
-
+    =paginate @projects
 =render @projects

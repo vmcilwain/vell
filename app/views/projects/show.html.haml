@@ -1,15 +1,13 @@
--if flash[:success]
-  .alert.alert-success
-    =flash[:success]
--if user_signed_in? && current_user.admin?
-  =link_to :Edit, edit_project_path(@project), class: 'btn btn-info btn-xs'
-  =link_to :Delete, @project, method: :delete, class: 'btn btn-danger btn-xs', data: {confirm: 'Are you sure?'}
-%br/
-%br/
-.well
-  %p
-    Repository URL: #{link_to @project.repo_url, @project.repo_url, target: :blank}
-  %p
-    Live URL: #{link_to @project.live_url, @project.live_url, target: :blank}
-  %p
-    =@project.description
+=render 'layouts/success_message'
+-present(@project) do |project_presenter|
+  -if user_signed_in? && current_user.admin?
+    #{project_presenter.edit_link} | #{project_presenter.delete_link}
+  %br/
+  %br/
+  .well
+    %p
+      Repository URL: #{project_presenter.repo_link}
+    %p
+      Live URL: #{project_presenter.live_link}
+    %p
+      =project_presenter.description
