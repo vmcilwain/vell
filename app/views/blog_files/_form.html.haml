@@ -1,9 +1,4 @@
-%div{class: 'row'}
-  -if @blog_file.errors.any?
-    =flash[:error]
-    %ul
-      -@blog_file.errors.full_messages.each do |err|
-        %li #{err}
+=render partial: 'layouts/error_messages', locals: {obj: @blog_file}
 =form_for @blog_file do |f|
   %div{class: 'row'}
     %div{class: '2u'}

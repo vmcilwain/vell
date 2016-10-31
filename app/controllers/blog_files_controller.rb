@@ -21,6 +21,7 @@ class BlogFilesController < ApplicationController
   #
   # @return [BlogFile] a new blog file object
   def new
+    authorize BlogFile
     @blog_file = BlogFile.new
     authorize @blog_file
   end
@@ -32,9 +33,8 @@ class BlogFilesController < ApplicationController
   # @return [BlogFile] the created blog file
   # @return [Hash] the flash notice
   def create
-
+    authorize BlogFile
     @blog_file = BlogFile.new(blog_file_params)
-    authorize @blog_file
     if @blog_file.save
       flash[:success] = 'Blog file created'
       redirect_to @blog_file
@@ -84,6 +84,7 @@ class BlogFilesController < ApplicationController
   # (see #blog_file)
   # @return [BlogFile] the blog file object requested
   def download
+    authorize @blog_file
     send_file(@blog_file.doc.path, type: @blog_file.doc_content_type, x_sendfile: true) if File.exists? @blog_file.doc.path
   end
 
