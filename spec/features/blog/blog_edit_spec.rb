@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'blog' do
+feature 'blog', js: true do
   scenario 'successful edit of a blog' do
     admin_user
     blog

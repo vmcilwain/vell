@@ -4,3 +4,6 @@ module JavascriptHelper
     find(:xpath, "//*[@id='#{id}']", visible: false).set(value)
   end
 end
+
+# wait.until { driver.find_element(:css => "#HPSearchInput > form > input.ch-  btn.searchBtn").displayed? }
+# driver.find_element(:css => "#HPSearchInput > form > input.ch-  btn.searchBtn").
