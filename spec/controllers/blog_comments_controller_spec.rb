@@ -1,23 +1,22 @@
 require 'rails_helper'
 
 describe BlogCommentsController do
-  let(:user) {Fabricate :user}
-
-  before do
-    user.update(admin: true)
-  end
+  let(:user) {Fabricate :user, admin: true}
 
   describe 'GET index' do
     let(:comments) {[]}
 
     before do
-      user.update(admin: true)
       comments << Fabricate(:blog_comment)
       sign_in user
       get :index
     end
 
     it_behaves_like 'requires sign in' do
+      let(:action) {get :index}
+    end
+
+    it_behaves_like 'unauthorized user' do
       let(:action) {get :index}
     end
 
@@ -34,6 +33,10 @@ describe BlogCommentsController do
     it_behaves_like 'requires sign in' do
       let(:action) {get :show, params: {id: blog_comment.id}}
     end
+
+    # it_behaves_like 'unauthorized user' do
+    #   let(:action) {get :show, params: {id: blog_comment.id}}
+    # end
 
     it 'sets @blog_comment' do
       expect(assigns[:blog_comment]).to eq blog_comment
