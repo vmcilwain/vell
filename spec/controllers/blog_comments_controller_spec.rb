@@ -16,10 +16,6 @@ describe BlogCommentsController do
       let(:action) {get :index}
     end
 
-    it_behaves_like 'unauthorized user' do
-      let(:action) {get :index}
-    end
-
     it 'sets @blog_comments' do
       expect(assigns[:blog_comments].results).to eq comments
     end
@@ -33,10 +29,6 @@ describe BlogCommentsController do
     it_behaves_like 'requires sign in' do
       let(:action) {get :show, params: {id: blog_comment.id}}
     end
-
-    # it_behaves_like 'unauthorized user' do
-    #   let(:action) {get :show, params: {id: blog_comment.id}}
-    # end
 
     it 'sets @blog_comment' do
       expect(assigns[:blog_comment]).to eq blog_comment

@@ -70,6 +70,7 @@ group :test do
   gem "vcr"
   gem "webmock"
   gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
   gem "codeclimate-test-reporter", require: nil
   gem 'rails-controller-testing'
   gem 'pundit-matchers'
