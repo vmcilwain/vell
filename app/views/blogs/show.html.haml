@@ -1,5 +1,7 @@
 =render 'layouts/success_message'
 -present(@blog) do |blog_presenter|
+  =content_for :head do
+    %meta{name: 'description', content: @blog.headline}
   .page-header
     %h1 #{blog_presenter.headline}
     %p.lead
