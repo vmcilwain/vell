@@ -4,7 +4,7 @@
     =blog_comment_presenter.name
     .media-body
       %h4.media-heading
-        %small #blog_comment_presenter.medium_created_at}
+        %small=blog_comment_presenter.medium_created_at
       =blog_comment_presenter.body
   -if policy(blog_comment).edit?
     .row
