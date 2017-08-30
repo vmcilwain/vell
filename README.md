@@ -42,6 +42,10 @@ cap [environment] deploy
 ```
 
 # Testing
+Project uses RSpec for its tests. Minimum requirement is to have an elasticsearch server installed and started before running the specs.
+
+To run the specs, type the following in the root directory:
+
 ```ruby
 rspec
 ```

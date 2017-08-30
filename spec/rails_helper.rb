@@ -1,7 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require "codeclimate-test-reporter"
 ENV['CODECLIMATE_REPO_TOKEN'] = ENV['VELL_CC']
-CodeClimate::TestReporter.start
+# CodeClimate::TestReporter.start
 ENV["RAILS_ENV"] ||= 'test'
 require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
@@ -30,6 +30,7 @@ end
 Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, :browser => :chrome)
 end
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

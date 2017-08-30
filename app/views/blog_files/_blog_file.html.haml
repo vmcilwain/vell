@@ -5,8 +5,9 @@
         =blog_file_presenter.image_download_path
       -else
         =blog_file_presenter.download_path
-    .col-xs-4
-      =blog_file_presenter.delete_link if current_user && current_user.admin?
+    -if policy(blog_file).destroy?
+      .col-xs-4
+        =blog_file_presenter.delete_link
     .row
       .row
         =blog_file_presenter.description

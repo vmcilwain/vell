@@ -58,6 +58,7 @@ gem 'pundit'
 gem 'salted_rails_server'
 gem 'node'
 gem 'record_tag_helper'
+
 group :test do
   gem "rspec-rails"
   gem "rails-erd"
@@ -69,8 +70,10 @@ group :test do
   gem "vcr"
   gem "webmock"
   gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
   gem "codeclimate-test-reporter", require: nil
   gem 'rails-controller-testing'
+  gem 'pundit-matchers'
 end
 
 group :development, :test do

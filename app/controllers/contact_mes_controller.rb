@@ -17,6 +17,7 @@ class ContactMesController < ApplicationController
   #
   # @return [ContactMe] a new contact me object
   def new
+    authorize ContactMe
     @contact_me = ContactMe.new
   end
 
@@ -28,6 +29,7 @@ class ContactMesController < ApplicationController
   # @return [Hash] the flash notice
   # @note sends email notification upon submission
   def create
+    authorize ContactMe
     @contact_me = ContactMe.new(contact_me_params)
     respond_to do |format|
       if @contact_me.save

@@ -4,6 +4,7 @@
     %h1 #{blog_presenter.headline}
     %p.lead
       by Lovell McIlwain
+    #{blog_presenter.edit_link} | #{blog_presenter.delete_link}
   %p
     %span.glyphicon.glyphicon-time
     Posted on #{blog_presenter.short_created_at}
