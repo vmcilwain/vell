@@ -23,9 +23,11 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 
 # set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 # set :whenever_roles, ->{ :app }
-# set :monit_conf_file, "#{fetch(:running_dir)}/deploy/monit.conf"
+
 set :rails_env, fetch(:stage)
+
 set :bundle_binstubs, -> { release_path.join('bin') }
+
 namespace :deploy do
   # after :restart, :clear_cache do
   #   on roles(:app), in: :groups, limit: 3, wait: 10 do
@@ -51,9 +53,21 @@ namespace :deploy do
     end
   end
 
+  task :rebuild_indexes do
+    on roles(:app) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :rake, 'fix_method:rebuild_indexes'
+        end
+      end
+    end
+  end
+  before :starting, 'monit:stop'
   before :compile_assets, :upload_app_yml
   before :published, 'nginx:create_nginx_config'
   before :published, 'unicorn:create_unicorn_config'
   before :published,'unicorn:create_unicorn_init'
   after :restart, 'monit:create_monit_conf'
+  after :restart, :rebuild_indexes
+  after :finished, 'monit:start'
 end
