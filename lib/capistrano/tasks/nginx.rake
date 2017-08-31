@@ -1,6 +1,6 @@
 # Capistrano file for setting up nginx during application deployment
-set :home_path, File.expand_path("../../../../config/deploy", __FILE__)
-set :nginx_conf_file, "#{fetch(:home_path)}/nginx.conf"
+set :nginx_template, 'config/deploy/templates/nginx.conf.erb'
+set :nginx_conf, "tmp/nginx.conf"
 
 namespace :nginx do
   desc 'restart nginx'
@@ -15,8 +15,8 @@ namespace :nginx do
   task :generate_nginx_conf do
     on roles(:app) do
       info "Generating #{fetch(:application)} nginx.conf file"
-      open(fetch(:nginx_conf_file), 'w') do |f|
-        f.puts(ERB.new(File.read(fetch(:home_path) + "/templates/nginx.conf.erb")).result(binding))
+      open(fetch(:nginx_conf), 'w') do |f|
+        f.puts(ERB.new(File.read(fetch(:nginx_template))).result(binding))
       end
     end
   end
@@ -24,7 +24,7 @@ namespace :nginx do
   desc "upload #{fetch(:application)} nginx.conf"
   task :upload do
     on roles(:app) do
-      upload!(fetch(:nginx_conf_file), "#{current_path}/config")
+      upload!(fetch(:nginx_conf), "#{current_path}/config")
     end
   end
 
@@ -32,7 +32,7 @@ namespace :nginx do
   task :remove do
     on roles(:app) do
       info 'Removing local nginx.conf'
-      FileUtils.rm(fetch(:nginx_conf_file))
+      FileUtils.rm(fetch(:nginx_conf))
     end
   end
 
@@ -43,7 +43,7 @@ namespace :nginx do
       execute :sudo, "ln -s #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{fetch(:application)}"
     end
   end
-  
+
   desc "remove symlink for #{fetch(:application)} nginx.conf"
   task :remove_symlink do
     on roles(:app) do
@@ -63,5 +63,4 @@ namespace :nginx do
       invoke 'nginx:create_symlink'
     end
   end
-
 end

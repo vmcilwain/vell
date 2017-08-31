@@ -1,6 +1,6 @@
 # Monit file for setting up monit during application deployment
-set :home_path, File.expand_path("../../../../config/deploy", __FILE__)
-set :monit_conf_file, "#{fetch(:home_path)}/monit.conf"
+set :template, "config/deploy/templates/monit.conf.erb"
+set :monit_conf, "tmp/monit.conf"
 
 namespace :monit do
 
@@ -8,30 +8,47 @@ namespace :monit do
   task :write_monit_conf do
     on roles(:app) do
       info "Creating monit config"
-      `touch #{fetch(:monit_conf_file)}`
-      invoke 'unicorn:update_monit_conf'
+      open(fetch(:monit_conf), 'a') do |f|
+        f.puts(ERB.new(File.read("#{fetch(:template)}"), nil, '-').result(binding))
+      end
     end
   end
 
-  desc 'restart monit appliation'
+  desc 'restart monit application'
   task :reload do
     on roles(:app) do
       info 'Reloading initialize monit'
-      execute 'sudo monit reload' # re-read /etc/monitrc
+      execute :sudo, 'monit reload' # re-read /etc/monit/monitrc
+    end
+  end
+
+  desc 'stop monit application'
+  task :stop do
+    on roles(:app) do
+      info 'Stopping initialize monit'
+      execute :sudo, 'monit stop'
+    end
+  end
+
+  desc 'start monit application'
+  task :start do
+    on roles(:app) do
+      info 'Starting initialize monit'
+      execute :sudo, 'monit start'
     end
   end
 
   desc 'upload monit config to app'
   task :upload do
     on roles(:app) do
-      upload!(fetch(:monit_conf_file), "#{current_path}/config")
+      upload!(fetch(:monit_conf), "#{current_path}/config")
     end
   end
 
   desc 'remove temp file'
   task :remove do
     on roles(:app) do
-      FileUtils.rm(fetch(:monit_conf_file))
+      FileUtils.rm(fetch(:monit_conf))
     end
   end
 

@@ -1,16 +1,17 @@
 # Capistrano file for setting up unicorn during application deployment
-set :home_path, File.expand_path("../../../../config/deploy", __FILE__)
-set :unicorn_conf_file, "#{fetch(:home_path)}/unicorn.rb"
-set :unicorn_init_file, "#{fetch(:home_path)}/unicorn_init.sh"
+set :template_path, 'config/deploy/templates'
+set :unicorn_conf_template, "#{fetch(:template_path)}/unicorn.rb.erb"
+set :unicorn_init_template, "#{fetch(:template_path)}/unicorn_init.sh.erb"
+set :unicorn_conf, "tmp/unicorn.rb"
+set :unicorn_init, "tmp/unicorn_init.sh"
 
 namespace :unicorn do
-
   desc "generate unicorn.conf for #{fetch(:application)}"
   task :generate_unicorn_conf do
      on roles(:app) do
       info "generating #{fetch(:application)} unicorn.conf file"
-      open(fetch(:unicorn_conf_file), 'w') do |f|
-        f.puts(ERB.new(File.read(fetch(:home_path) + "/templates/unicorn.rb.erb")).result(binding))
+      open(fetch(:unicorn_conf), 'w') do |f|
+        f.puts(ERB.new(File.read(fetch(:unicorn_conf_template))).result(binding))
       end
     end
   end
@@ -19,8 +20,8 @@ namespace :unicorn do
   task :generate_unicorn_init do
      on roles(:app) do
      info "generating #{fetch(:application)} unicorn_init.sh file"
-      open(fetch(:unicorn_init_file), 'w') do |f|
-        f.puts(ERB.new(File.read(fetch(:home_path) + "/templates/unicorn_init.sh.erb")).result(binding))
+      open(fetch(:unicorn_init), 'w') do |f|
+        f.puts(ERB.new(File.read(fetch(:unicorn_init_template))).result(binding))
       end
     end
   end
@@ -28,14 +29,14 @@ namespace :unicorn do
   desc "upload #{fetch(:application)} unicorn.conf"
   task :upload_unicorn_conf do
     on roles(:app) do
-      upload!(fetch(:unicorn_conf_file), "#{current_path}/config")
+      upload!(fetch(:unicorn_conf), "#{current_path}/config")
     end
   end
 
   desc "upload #{fetch(:application)} unicorn_init.sh"
   task :upload_unicorn_init do
     on roles(:app) do
-      upload!(fetch(:unicorn_init_file), "#{current_path}/config")
+      upload!(fetch(:unicorn_init), "#{current_path}/config")
     end
   end
 
@@ -43,7 +44,7 @@ namespace :unicorn do
   task :remove_unicorn_conf do
     on roles(:app) do
       info 'Deleting local unicorn.conf'
-      FileUtils.rm(fetch(:unicorn_conf_file))
+      FileUtils.rm(fetch(:unicorn_conf))
     end
   end
 
@@ -51,7 +52,7 @@ namespace :unicorn do
   task :remove_unicorn_init do
     on roles(:app) do
       info 'Deleting local unicorn_init.sh'
-      FileUtils.rm(fetch(:unicorn_init_file))
+      FileUtils.rm(fetch(:unicorn_init))
     end
   end
 
@@ -89,7 +90,6 @@ namespace :unicorn do
       execute :sudo, "/etc/init.d/#{fetch(:application)}_unicorn stop"
       sleep 3
       execute :sudo, "/etc/init.d/#{fetch(:application)}_unicorn start"
-      # invoke 'unicorn:autostart'
     end
   end
 
@@ -97,17 +97,7 @@ namespace :unicorn do
   task :autostart do
     on roles(:app) do
       info 'Setting unicorn autostart in rc.*'
-      execute 'sudo update-rc.d online_community_unicorn defaults'
-    end
-  end
-
-  desc "add unicorn to #{fetch(:application)} monit.conf"
-  task :update_monit_conf do
-    on roles(:app) do
-      info "Adding unicorn config to monit.conf"
-      open(fetch(:monit_conf_file), 'a') do |f|
-        f.puts(ERB.new(File.read(fetch(:home_path) + "/templates/unicorn_monit.conf.erb"), nil, '-').result(binding))
-      end
+      execute :sudo, 'update-rc.d online_community_unicorn defaults'
     end
   end
 
