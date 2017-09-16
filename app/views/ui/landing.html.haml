@@ -1,30 +1,100 @@
--3.times do
-  %h1.page-header
-    Page Heading
-    %small Secondary Text
-  %h2
-    %a{:href => "#"} Blog Post Title
-  %p.lead
-    by
-    %a{:href => "index.php"} Start Bootstrap
-  %p
-    %span.glyphicon.glyphicon-time
-    Posted on August 28, 2013 at 10:00 PM
-  %hr/
-  .row
-    .col-md-3
-      %i.fa.fa-tags
-      %span.data Ruby
-    .col-md-3
-      %i.fa.fa-comments
-      %span.data
-      =link_to pluralize([1,2].count, 'Comment')
-    .col-md-3
-      %i.fa.fa-files-o
-      =link_to pluralize([1,2].count, 'File')
-  %hr/
-  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.
-  %a.btn.btn-primary{:href => "#"}
-    Read More
-    %span.glyphicon.glyphicon-chevron-right
-  %hr/
+/ Main
+#main
+  / Intro
+  %section#top.one.dark.cover
+    .container
+      %header
+        %h2.alt
+          Hi! I'm
+          = succeed "," do
+            %strong Prologue
+          %a{:href => "http://html5up.net/license"} free
+          responsive
+          %br/
+          site template designed by
+          = succeed "." do
+            %a{:href => "http://html5up.net"} HTML5 UP
+        %p
+          Ligula scelerisque justo sem accumsan diam quis
+          %br/
+          vitae natoque dictum sollicitudin elementum.
+      %footer
+        %a.button.scrolly{:href => "#portfolio"} Magna Aliquam
+  / Portfolio
+  %section#portfolio.two
+    .container
+      %header
+        %h2 Portfolio
+      %p
+        Vitae natoque dictum etiam semper magnis enim feugiat convallis convallis
+        egestas rhoncus ridiculus in quis risus amet curabitur tempor orci penatibus.
+        Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis
+        fusce hendrerit lacus ridiculus.
+      .row
+        .4u{:class => "12u$(mobile)"}
+          %article.item
+            %a.image.fit{:href => "#"}
+              =image_tag 'pic02.jpg'
+            %header
+              %h3 Ipsum Feugiat
+          %article.item
+            %a.image.fit{:href => "#"}
+              =image_tag 'pic03.jpg'
+            %header
+              %h3 Rhoncus Semper
+        .4u{:class => "12u$(mobile)"}
+          %article.item
+            %a.image.fit{:href => "#"}
+              =image_tag 'pic04.jpg'
+            %header
+              %h3 Magna Nullam
+          %article.item
+            %a.image.fit{:href => "#"}
+              =image_tag 'pic05.jpg'
+            %header
+              %h3 Natoque Vitae
+        %div{:class => "4u$ 12u$(mobile)"}
+          %article.item
+            %a.image.fit{:href => "#"}
+              =image_tag 'pic06.jpg'
+            %header
+              %h3 Dolor Penatibus
+          %article.item
+            %a.image.fit{:href => "#"}
+              =image_tag 'pic07.jpg'
+            %header
+              %h3 Orci Convallis
+  / About Me
+  %section#about.three
+    .container
+      %header
+        %h2 About Me
+      %a.image.featured{:href => "#"}
+        =image_tag 'pic08.jpg'
+      %p
+        Tincidunt eu elit diam magnis pretium accumsan etiam id urna. Ridiculus
+        ultricies curae quis et rhoncus velit. Lobortis elementum aliquet nec vitae
+        laoreet eget cubilia quam non etiam odio tincidunt montes. Elementum sem
+        parturient nulla quam placerat viverra mauris non cum elit tempus ullamcorper
+        dolor. Libero rutrum ut lacinia donec curae mus vel quisque sociis nec
+        ornare iaculis.
+  / Contact
+  %section#contact.four
+    .container
+      %header
+        %h2 Contact
+      %p
+        Elementum sem parturient nulla quam placerat viverra
+        mauris non cum elit tempus ullamcorper dolor. Libero rutrum ut lacinia
+        donec curae mus. Eleifend id porttitor ac ultricies lobortis sem nunc
+        orci ridiculus faucibus a consectetur. Porttitor curae mauris urna mi dolor.
+      %form{:action => "#", :method => "post"}
+        .row
+          .6u{:class => "12u$(mobile)"}
+            %input{:name => "name", :placeholder => "Name", :type => "text"}/
+          %div{:class => "6u$ 12u$(mobile)"}
+            %input{:name => "email", :placeholder => "Email", :type => "text"}/
+          %div{:class => "12u$"}
+            %textarea{:name => "message", :placeholder => "Message"}
+          %div{:class => "12u$"}
+            %input{:type => "submit", :value => "Send Message"}/

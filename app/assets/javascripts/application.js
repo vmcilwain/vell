@@ -1,7 +1,10 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require bootstrap-sprockets
+//= require jquery.scrolly.min
+//= require jquery.scrollzer.min
+//= require skel.min
+//= require util.js
 //= require jquery.remotipart
 //= require turbolinks
 //= require trix
