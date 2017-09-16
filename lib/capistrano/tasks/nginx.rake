@@ -7,7 +7,9 @@ namespace :nginx do
   task :restart do
     on roles(:app) do
       info 'Restarting nginx'
-      execute :sudo, "service nginx restart"
+      # execute :sudo, "fuser -k 80/tcp"
+      execute :sudo, 'service nginx stop'
+      execute :sudo, "service nginx start"
     end
   end
 
