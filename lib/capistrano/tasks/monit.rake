@@ -18,7 +18,7 @@ namespace :monit do
   task :reload do
     on roles(:app) do
       info 'Reloading initialize monit'
-      execute :sudo, 'monit reload' # re-read /etc/monit/monitrc
+      execute :sudo, 'service monit reload' # re-read /etc/monit/monitrc
     end
   end
 
@@ -26,7 +26,7 @@ namespace :monit do
   task :stop do
     on roles(:app) do
       info 'Stopping initialize monit'
-      execute :sudo, 'monit stop'
+      execute :sudo, 'service monit stop'
     end
   end
 
@@ -34,7 +34,7 @@ namespace :monit do
   task :start do
     on roles(:app) do
       info 'Starting initialize monit'
-      execute :sudo, 'monit start'
+      execute :sudo, 'service monit start'
     end
   end
 
