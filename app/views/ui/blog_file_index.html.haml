@@ -1,35 +1,30 @@
-.page-header
-  %h1.animated.bounceInDown Blog Files
-  =link_to 'Blog Listing'
-.search_form.well
-  %h1 Search Blog Files
-  %form
-    .form-group
-      =text_field_tag :blog_document_or_description_or_created_at_contains, nil, placeholder: 'Search document name or description or created at', class: 'form-control'
-    .form-group
-      =submit_tag :Search, class: 'btn btn-primary btn-xs'
-      =link_to :Cancel, '#', class: 'btn btn-danger btn-xs'
-=link_to 'Search Posts'
-%br/
-%br/
-.row.animated.fadeIn
-  .col-xs-3
-    File Name
-  .col-xs-4
-    Description
-  .col-xs-2
-    Blog
-  .col-xs-3
-    Created On
-%br
--8.times do
-  .row.animated.fadeIn
-    .col-xs-3
-      =link_to Faker::Lorem.words(3).join("\s"), '#'
-    .col-xs-4
-      =truncate Faker::Lorem.paragraphs(10).join("\s")
-    .col-xs-2
-      =link_to :View
-    .col-xs-3
-      =medium_date Date.today
-  %hr
+#main
+  .page-header
+    %h1 Article Files
+    =link_to 'Blog Listing', blogs_path, class: 'small-text'
+  .search_form
+    %form
+      .col-md-8
+        .form-group
+          =text_field_tag :blog_document_or_description_or_created_at_contains, nil, placeholder: 'Search document name or description or created at', class: 'form-control'
+      .col-md-4
+        .form-group
+          =submit_tag :Search, class: 'btn btn-primary btn-xs'
+          =#link_to :Cancel, '#', class: 'btn btn-danger btn-xs'
+  =#link_to 'Search Posts'
+
+  %table.table.table-striped
+    %thead
+      %tr
+        %th File name
+        %th description
+        %th Created On
+    %tbody
+      -5.times do
+        %tr
+          %td
+            =link_to Faker::Lorem.words(3).join("\s"), '#'
+          %td
+            =truncate(Faker::Lorem.paragraphs(10).join("\s"), length: 80){link_to :Article, nil, title: Faker::Lorem.paragraph}
+          %td
+            =medium_date Date.today

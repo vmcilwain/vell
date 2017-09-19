@@ -1,25 +1,28 @@
-.page-header
-  %h1.animated.bounceInDown Blog Comments
-  #{link_to 'Blog Listing'} |  #{link_to 'Search Comments'}
+#main
+  .page-header
+    %h1 Article Comments
+    #{link_to 'Blog Listing', blog_comments_path, class: 'small-text'} |  #{link_to 'Search Comments', nil, class: 'small-text'}
 
-.search_form.well
-  %form
-    %header
-      %h1 Search Blog Comments
-    .form-group
-      =text_field_tag :blog_comment_blog_headline_or_content_or_created_at_contains, nil, placeholder: 'Search blog headline or comment or comment date', class: 'form-control'
-    .form-group
-      =submit_tag 'Search', class: 'btn btn-primary btn-xs'
-      =link_to 'Cancel', '#', class: 'cancel_search_form_link btn btn-danger btn-xs'
+  .search_form
+    %form
+      .row
+        .col-md-8
+          .form-group
+            =text_field_tag :blog_comment_blog_headline_or_content_or_created_at_contains, nil, placeholder: 'Search blog headline or comment or comment date', class: 'form-control'
+        .col-md-4
+          .form-group
+            =submit_tag 'Search', class: 'btn btn-primary btn-xs'
+            =#link_to 'Cancel', '#', class: 'cancel_search_form_link btn btn-danger btn-xs'
 
--5.times do
-  .media
-    %i.fa.fa-user
-    #{Faker::Name.name}
-    .media-body
-      %h4.media-heading
-        =link_to Faker::Lorem.words(4).join("\s")
-        %small August 25, 2014 at 9:30 PM
-      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-    #{link_to 'Edit'} | #{link_to 'Destroy'}
+  -5.times do
+    .row
+      .col-md-2
+        =short_date Date.today
+      .col-md-8
+        =Faker::Name.name
+        .text-muted.small-text
+          =Faker::Lorem.paragraph
+        =link_to :Article, nil, class: 'small-text'
+        =link_to :Edit, nil, class: 'small-text'
+        =link_to :Destroy, nil, class: 'small-text'
     %hr
