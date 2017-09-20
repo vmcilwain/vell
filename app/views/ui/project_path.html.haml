@@ -1,4 +1,9 @@
-#{link_to Faker::Lorem.words(5).join("\s")} - #{link_to :Live, Faker::Lorem.words(5).join("\s")}
-%br/
-%p
-  =Faker::Lorem.paragraphs(2).join("\s")
+#main
+  .row
+    .col-md-5
+      #{link_to Faker::Lorem.words(5).join("\s")} -
+    .col-md-1
+      #{link_to :Live, Faker::Lorem.words(5).join("\s")}
+  %br/
+  %p
+    =Faker::Lorem.paragraphs(2).join("\s")

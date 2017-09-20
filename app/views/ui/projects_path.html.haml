@@ -1,40 +1,11 @@
-%ul.nav.nav-tabs
-  %li.active
-    %a{"data-toggle" => "tab", :href => "#rails"} Ruby on Rails
-  %li
-    %a{"data-toggle" => "tab", :href => "#ruby"} Ruby
-  %li
-    %a{"data-toggle" => "tab", :href => "#angular"} angular
-%br/
-#myTabContent.tab-content
-  #rails.tab-pane.fade.active.in
-    %ul.list-unstyled
-      -5.times do
-        %h2
-          #{link_to Faker::Lorem.words(5).join("\s")}
-        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.
-        %a.btn.btn-primary{:href => "#"}
-          Live
-          %span.glyphicon.glyphicon-chevron-right
-        %hr/
-  #ruby.tab-pane.fade
-    %ul.list-unstyled
-      -5.times do
-        %h2
-          #{link_to Faker::Lorem.words(5).join("\s")}
-        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.
-        %a.btn.btn-primary{:href => "#"}
-          Live
-          %span.glyphicon.glyphicon-chevron-right
-        %hr/
-  #angular.tab-pane.fade
-    %ul.list-unstyled
-      -5.times do
-        %h2
-          #{link_to Faker::Lorem.words(5).join("\s")}
-        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.
-        %a.btn.btn-primary{:href => "#"}
-          Live
-          %span.glyphicon.glyphicon-chevron-right
-        %hr/
-#source-button.btn.btn-primary.btn-xs{:style => "display: none;"} &lt; &gt;
+#main
+  .page-header
+    %h1 Projects
+  -5.times do
+    %h2
+      #{link_to Faker::Lorem.words(5).join("\s")}
+    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.
+    %a.btn.btn-primary{:href => "#"}
+      Live
+      %span.glyphicon.glyphicon-chevron-right
+    %hr/
