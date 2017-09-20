@@ -1,11 +1,16 @@
+.page-header
+  .row
+    .col-md-3
+      =medium_date Date.today
+    .col-md-1
+      =link_to :Listing, '#', class: 'btn btn-primary btn-xs'
+    .col-md-1
+      =link_to :Delete, '#', class: 'btn btn-danger btn-xs'
+  .row
+    .col-md-12
+      From: #{Faker::Name.name} (#{mail_to Faker::Internet.email})
 .well
   %p
     =Faker::Lorem.paragraphs(5).join("\s")
   %p
     =Faker::Lorem.paragraphs(5).join("\s")
-  %p.pull-right
-    From: #{Faker::Name.name} (#{mail_to Faker::Internet.email})
-    %br/
-    =medium_date Date.today
-  =link_to :Listing, '#', class: 'btn btn-primary btn-xs'
-  =link_to :Delete, '#', class: 'btn btn-danger btn-xs'

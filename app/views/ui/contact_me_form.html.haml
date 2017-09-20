@@ -1,6 +1,5 @@
 .page-header
-  %h1 Send Lovell A Message
-
+  %h1 Send Me A Message
 .row
   .col-xs-12
     %form.well
@@ -11,5 +10,5 @@
       .form-group
         =text_area_tag :body, nil, placeholder: 'Enter Message', rows: 10, class: 'form-control'
       .form-group
-        =submit_tag 'Send', class: 'btn btn-primary'
+        =submit_tag 'Send', class: 'btn btn-primary btn-xs'
         =link_to 'Cancel', root_path, class: 'btn btn-danger'
