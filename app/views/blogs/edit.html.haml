@@ -1,5 +1,5 @@
 .page-header
-  %h1.animated.bounceInDown Update article
+  %h1 Update article
 =render partial: 'layouts/error_messages', locals: {obj: @blog}
 =form_for @blog, multipart: true, html: {class: "well animated fadeIn"} do |f|
   .form-group

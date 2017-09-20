@@ -1,42 +1,77 @@
-=render 'layouts/success_message'
--present(@blog) do |blog_presenter|
-  =content_for :head do
-    %meta{name: 'description', content: blog_presenter.headline}
-  .page-header
-    %h1 #{blog_presenter.headline}
-    %p.lead
-      by Lovell McIlwain
-    -if policy(@blog).update?
-      #{blog_presenter.edit_link} | #{blog_presenter.delete_link}
-  %p
-    %span.glyphicon.glyphicon-time
-    Posted on #{blog_presenter.short_created_at}
-  .row
-    .col-md-2
-      %i.fa.fa-tags
-      %span.data #{blog_tag_links(@blog)}
-    .col-md-3
-      %i.fa.fa-comments
-      %span.data
-      =blog_presenter.comments_count
-    .col-md-3
-      %i.fa.fa-files-o
-      =blog_presenter.files_count
-  -if @blog.blog_files.any?
-    .row
-      .col-md-12
-        %h4 Attachments
-        %ul.list-unstyled
-          -@blog.blog_files.each do |file|
-            %li #{link_to file.doc_file_name, '#'} - #{file.description}
-  %hr/
-  %p
+#main
+  =render 'layouts/success_message'
+  -present(@blog) do |blog_presenter|
+    =content_for :head do
+      %meta{name: 'description', content: blog_presenter.headline}
+    .page-header
+      .row
+        .col-md-12
+          %h1=blog_presenter.headline.humanize
+          %p.lead
+            by Lovell McIlwain
+      .row
+        .col-md-3
+          %i.fa.fa-tags
+          %span.data=blog_tag_links(@blog)
+        .col-md-3
+          %i.fa.fa-comments
+          %span.data
+          =blog_presenter.comments_count
+        .col-md-5
+          %span.glyphicon.glyphicon-time
+          Posted on #{blog_presenter.short_created_at}
+    -if @blog.blog_files.any?
+      .row.well
+        .col-md-12
+          %h4 blog_presenter.files_count
+          %ul.list-unstyled
+            -@blog.blog_files.each do |file|
+              %li #{link_to file.doc_file_name, '#'} - #{file.description}
+    %br/
     =blog_presenter.raw_body
-  %hr/
-  =render 'blog_comments/comment_form'
-  %hr/
-  #comments
-    %h2
-      %i.fa.fa-comments
-      =blog_presenter.comments_count
-  =render @blog.blog_comments
+    %hr/
+    =render 'blog_comments/comment_form'
+    #comments
+      %h4
+        %i.fa.fa-comments
+        =blog_presenter.comments_count
+    =render @blog.blog_comments
+
+  -# .page-header
+  -#   %h1 #{blog_presenter.headline}
+  -#   %p.lead
+  -#     by Lovell McIlwain
+  -#   -if policy(@blog).update?
+  -#     #{blog_presenter.edit_link} | #{blog_presenter.delete_link}
+  -# %p
+  -#   %span.glyphicon.glyphicon-time
+  -#   Posted on #{blog_presenter.short_created_at}
+  -# .row
+  -#   .col-md-2
+  -#     %i.fa.fa-tags
+  -#     %span.data #{blog_tag_links(@blog)}
+  -#   .col-md-3
+  -#     %i.fa.fa-comments
+  -#     %span.data
+  -#     =blog_presenter.comments_count
+  -#   .col-md-3
+  -#     %i.fa.fa-files-o
+  -#     =blog_presenter.files_count
+  -# -if @blog.blog_files.any?
+  -#   .row
+  -#     .col-md-12
+  -#       %h4 Attachments
+  -#       %ul.list-unstyled
+  -#         -@blog.blog_files.each do |file|
+  -#           %li #{link_to file.doc_file_name, '#'} - #{file.description}
+  -# %hr/
+  -# %p
+  -#   =blog_presenter.raw_body
+  -# %hr/
+  -# =render 'blog_comments/comment_form'
+  -# %hr/
+  -# #comments
+  -#   %h2
+  -#     %i.fa.fa-comments
+  -#     =blog_presenter.comments_count
+  -# =render @blog.blog_comments
