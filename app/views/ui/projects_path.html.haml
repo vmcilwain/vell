@@ -3,7 +3,7 @@
     %h1 Projects
   -5.times do
     %h2
-      #{link_to Faker::Lorem.words(5).join("\s")}
+      #{link_to Faker::Lorem.words(5).join("\s"), nil, class: 'small-text'}
     %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.
     %a.btn.btn-primary{:href => "#"}
       Live
