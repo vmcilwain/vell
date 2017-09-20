@@ -7,17 +7,3 @@
       %small=blog_comment_presenter.medium_created_at
     .col-md-9
       =blog_comment_presenter.body
-  -# .media
-  -#   %i.fa.fa-user
-  -#   =blog_comment_presenter.name
-  -#   .media-body
-  -#     %h4.media-heading
-  -#       %small=blog_comment_presenter.medium_created_at
-  -#     =blog_comment_presenter.body
-  -# -if policy(blog_comment).edit?
-  -#   .row
-  -#     .col-xs-12
-  -#       =blog_comment_presenter.muted_headline_link
-  -#   .row
-  -#     .col-xs-12
-  -#       #{blog_comment_presenter.edit_link} | #{blog_comment_presenter.delete_link} | #{blog_comment_presenter.headline_link}

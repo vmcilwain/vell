@@ -1,0 +1,8 @@
+-present(blog_file) do |blog_file_presenter|
+  %tr
+    %td
+      =link_to Faker::Lorem.words(3).join("\s"), '#'
+    %td
+      =truncate(Faker::Lorem.paragraphs(10).join("\s"), length: 80){link_to :Article, nil, title: Faker::Lorem.paragraph}
+    %td
+      =medium_date Date.today
