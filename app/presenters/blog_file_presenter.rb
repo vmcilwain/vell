@@ -6,7 +6,7 @@ class BlogFilePresenter < BasePresenter
   presents :blog_file
 
   delegate :description, to: :blog_file, allow_nil: true
-
+  delegate :created_at, to: :blog_file, allow_nil: true
   # Return image as a download path
   def image_download_path
     link_to image_tag(blog_file.doc.url, width: '150px'), download_blog_files_path(id: blog_file.id)
@@ -30,5 +30,9 @@ class BlogFilePresenter < BasePresenter
   # Returns download link based on allowable images
   def download_link
     ALLOWABLE_IMAGES.include?(blog_file.doc_content_type) ? image_download_link : download_link
+  end
+
+  def blog_file_link
+    link_to :Article, blog_file.blog, title: blog_file.blog.headline
   end
 end
