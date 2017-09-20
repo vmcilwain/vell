@@ -1,12 +1,13 @@
-.page-header
-  =render 'layouts/success_message'
+#main
+  .page-header
+    =render 'layouts/success_message'
 
-  %h1.animated.bounceInDown Article Comments
-  =link_to 'Articles Listing', blogs_path, class: 'btn btn-primary btn-xs'
-  =link_to 'Search Comments', '#', class: 'search_form_link btn btn-info btn-xs'
+    %h1 Article Comments
+    =link_to 'Articles Listing', blogs_path, class: 'btn btn-primary btn-xs'
+    =link_to 'Search Comments', '#', class: 'search_form_link btn btn-info btn-xs'
 
-=render 'search'
-.row
-  .col-md-12
-    =paginate @blog_comments
-=render @blog_comments
+  =render 'search'
+  .row
+    .col-md-12
+      =paginate @blog_comments
+  =render partial: 'blog_comments/admin_blog_comment', collection: @blog_comments, as: :blog_comment

@@ -1,0 +1,12 @@
+-present(blog_comment) do |blog_comment_presenter|
+  .row
+    .col-md-2
+      =blog_comment_presenter.medium_created_at
+    .col-md-8
+      =blog_comment_presenter.name
+      .text-muted.small-text
+        =blog_comment_presenter.body
+      =blog_comment_presenter.blog_link
+      =blog_comment_presenter.edit_link
+      =blog_comment_presenter.delete_link
+  %hr
