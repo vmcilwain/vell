@@ -1,32 +1,31 @@
-#main
-  .page-header
-    %h1 Articles
-    #{link_to 'New Blog', nil, class: 'small-text'} | #{link_to 'Search Posts', nil, class: 'small-text'}
-  .search_form
-    %form
-      .row
-        .col-md-8
-          .form-group
-            =text_field_tag :headline_or_content_or_created_at_or_commenter_or_comment_content_or_content_created_at_contains, nil, placeholder: 'Search', class: 'form-control'
-        .col-md-4
-          .form-group
-            =submit_tag 'Search', class: 'btn btn-primary btn-xs'
-            =#link_to 'Cancel', '#', class: 'btn btn-danger btn-xs cancel_search_form_link'
-  -5.times do
+.page-header
+  %h1 Articles
+  #{link_to 'New Blog', nil, class: 'small-text'} | #{link_to 'Search Posts', nil, class: 'small-text'}
+.search_form
+  %form
     .row
-      .col-md-2
-        =short_date Date.today
-      .col-md-6
-        =link_to Faker::Lorem.words(4).join("\s")
-        .text-muted.small-text
-          =truncate(Faker::Lorem.paragraph, length: 100) {link_to 'Read More'}
-        %i.fa.fa-tags
-        %span.data=blog_tag_links(Blog.new)
-      .col-md-2
-        %i.fa.fa-comments
-        %span.data
-        =link_to pluralize([1,2].count, 'Comment')
-      .col-md-2
-        %i.fa.fa-files-o
-        =link_to pluralize([1,2].count, 'File')
-    %hr
+      .col-md-8
+        .form-group
+          =text_field_tag :headline_or_content_or_created_at_or_commenter_or_comment_content_or_content_created_at_contains, nil, placeholder: 'Search', class: 'form-control'
+      .col-md-4
+        .form-group
+          =submit_tag 'Search', class: 'btn btn-primary btn-xs'
+          =#link_to 'Cancel', '#', class: 'btn btn-danger btn-xs cancel_search_form_link'
+-5.times do
+  .row
+    .col-md-2
+      =short_date Date.today
+    .col-md-6
+      =link_to Faker::Lorem.words(4).join("\s")
+      .text-muted.small-text
+        =truncate(Faker::Lorem.paragraph, length: 100) {link_to 'Read More'}
+      %i.fa.fa-tags
+      %span.data=blog_tag_links(Blog.new)
+    .col-md-2
+      %i.fa.fa-comments
+      %span.data
+      =link_to pluralize([1,2].count, 'Comment')
+    .col-md-2
+      %i.fa.fa-files-o
+      =link_to pluralize([1,2].count, 'File')
+  %hr

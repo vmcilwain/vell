@@ -1,61 +1,60 @@
-#main
-  .page-header
-    .row
-      .col-md-12
-        %h1=Faker::Lorem.words(5).join("\s").humanize
-        %p.lead
-          by
-          =Faker::Name.name
-    .row
-      .col-md-3
-        %i.fa.fa-tags
-        %span.data Ruby
-      .col-md-3
-        %i.fa.fa-comments
-        %span.data
-        =link_to pluralize([1,2].count, 'Comment')
-      .col-md-5
-        %span.glyphicon.glyphicon-time
-        Posted on August 24, 2013 at 9:00 PM
-  .row.well
+.page-header
+  .row
     .col-md-12
-      %h4 Attachments
-      %ul.list-unstyled
-        -3.times do
-          %li #{link_to Faker::Lorem.words(1).first, '#'} - #{Faker::Lorem.words(8).join("\s")}
-  %br/
-  %img.img-responsive.center-block{:alt => "", :src => "http://placehold.it/900x300"}/
-  %br/
-  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?
-  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.
-  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!
-  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?
-  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!
-  %hr/
-  .well
-    %h4 Leave a Comment:
-    %form{"accept-charset" => "utf-8", :action => "#", :method => "get"}
-      .form-group
-        %input#comment-name.form-control.input-lg{:name => "name", :placeholder => "Name", :type => "text"}
-      .form-group
-        %input#comment-email.form-control.input-lg{:name => "email", :placeholder => "Email", :type => "email"}
-      .form-group
-        %input#comment-url.form-control.input-lg{:name => "name", :placeholder => "Website", :type => "url"}
-      .form-group
-        %textarea#comment-body.form-control.input-lg{:name => "message", :placeholder => "Your thoughts...", :rows => "3"}
-      .form-group
-        %button.btn.btn-primary{:type => "submit"} Submit
-        %button.btn.btn-danger Cancel
-  %hr/
-  %h4
-    %i.fa.fa-comments
-    24 Comments
-  -3.times do
-    .row
-      .col-md-3
-        %i.fa.fa-user
-        #{Faker::Name.name}
-        %br/
-        August 25, 2014 at 9:30 PM
-      .col-md-9
-        =Faker::Lorem.paragraph
+      %h1=Faker::Lorem.words(5).join("\s").humanize
+      %p.lead
+        by
+        =Faker::Name.name
+  .row
+    .col-md-3
+      %i.fa.fa-tags
+      %span.data Ruby
+    .col-md-3
+      %i.fa.fa-comments
+      %span.data
+      =link_to pluralize([1,2].count, 'Comment')
+    .col-md-5
+      %span.glyphicon.glyphicon-time
+      Posted on August 24, 2013 at 9:00 PM
+.row.well
+  .col-md-12
+    %h4 Attachments
+    %ul.list-unstyled
+      -3.times do
+        %li #{link_to Faker::Lorem.words(1).first, '#'} - #{Faker::Lorem.words(8).join("\s")}
+%br/
+%img.img-responsive.center-block{:alt => "", :src => "http://placehold.it/900x300"}/
+%br/
+%p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?
+%p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.
+%p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!
+%p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?
+%p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!
+%hr/
+.well
+  %h4 Leave a Comment:
+  %form{"accept-charset" => "utf-8", :action => "#", :method => "get"}
+    .form-group
+      %input#comment-name.form-control.input-lg{:name => "name", :placeholder => "Name", :type => "text"}
+    .form-group
+      %input#comment-email.form-control.input-lg{:name => "email", :placeholder => "Email", :type => "email"}
+    .form-group
+      %input#comment-url.form-control.input-lg{:name => "name", :placeholder => "Website", :type => "url"}
+    .form-group
+      %textarea#comment-body.form-control.input-lg{:name => "message", :placeholder => "Your thoughts...", :rows => "3"}
+    .form-group
+      %button.btn.btn-primary{:type => "submit"} Submit
+      %button.btn.btn-danger Cancel
+%hr/
+%h4
+  %i.fa.fa-comments
+  24 Comments
+-3.times do
+  .row
+    .col-md-3
+      %i.fa.fa-user
+      #{Faker::Name.name}
+      %br/
+      August 25, 2014 at 9:30 PM
+    .col-md-9
+      =Faker::Lorem.paragraph
