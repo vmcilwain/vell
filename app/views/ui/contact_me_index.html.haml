@@ -1,20 +1,21 @@
-.page-header
-  %h1 Contact Me
-%table.table.table-striped
-  %thead
-    %tr
-      %th Name
-      %th Email
-      %th Body
-      %th Created At
-  %tbody
-    -10.times.each do
+#main
+  .page-header
+    %h1 Contact Me
+  %table.table.table-striped
+    %thead
       %tr
-        %td
-          =link_to Faker::Name.name
-        %td
-          =mail_to Faker::Internet.email
-        %td
-          =truncate Faker::Lorem.words(100).join("\s")
-        %td
-          =medium_date Date.today
+        %th Name
+        %th Email
+        %th Body
+        %th Created At
+    %tbody
+      -10.times.each do
+        %tr
+          %td
+            =link_to Faker::Name.name
+          %td
+            =mail_to Faker::Internet.email
+          %td
+            =truncate Faker::Lorem.words(100).join("\s")
+          %td
+            =medium_date Date.today
