@@ -1,6 +1,7 @@
 # @author Lovell McIlwain
 # Handles HTTP actions for contact mes
 class ContactMesController < ApplicationController
+  layout 'layout2'
   # Before action to prompt for authentication
   # @note uses devise gem
   before_action :authenticate_user!, except: [:new, :create]

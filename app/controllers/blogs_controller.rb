@@ -1,6 +1,7 @@
 # @author Lovell McIlwain
 # Handles HTTP actions for blog
 class BlogsController < ApplicationController
+  layout 'layout2'
   # Before action to load a blog
   # (see #blog)
   before_action :blog, only: [:show, :edit, :update, :destroy]

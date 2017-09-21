@@ -1,6 +1,7 @@
 # @author Lovell McIlwain
 # Handles HTTP actions for blog commeents
 class BlogCommentsController < ApplicationController
+  layout 'layout2'
   # Before action to load blog comment
   # (see #blog_comment)
   before_action :blog_comment, only: [:show, :edit, :update, :destroy]

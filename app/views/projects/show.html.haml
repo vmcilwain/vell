@@ -1,13 +1,14 @@
-=render 'layouts/success_message'
--present(@project) do |project_presenter|
-  -if user_signed_in? && current_user.admin?
-    #{project_presenter.edit_link} | #{project_presenter.delete_link}
-  %br/
-  %br/
-  .well
-    %p
-      Repository URL: #{project_presenter.repo_link}
-    %p
-      Live URL: #{project_presenter.live_link}
-    %p
-      =project_presenter.description
+.container
+  =render 'layouts/success_message'
+  -present(@project) do |project_presenter|
+    -if user_signed_in? && current_user.admin?
+      #{project_presenter.edit_link} | #{project_presenter.delete_link}
+    %br/
+    %br/
+    .well
+      %p
+        Repository URL: #{project_presenter.repo_link}
+      %p
+        Live URL: #{project_presenter.live_link}
+      %p
+        =project_presenter.description

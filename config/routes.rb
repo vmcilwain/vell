@@ -7,23 +7,23 @@ Rails.application.routes.draw do
      get "ui/#{action}", controller: 'ui', action: action
    end
 
-  get 'blog_tags/:tag', to: 'blogs#index', as: :blog_tag
-  get 'about', to: 'home#about'
+#  get 'blog_tags/:tag', to: 'blogs#index', as: :blog_tag
+#  get 'about', to: 'home#about'
   root to: 'home#index'
 
   resources :contact_mes, only: [:index, :new, :show, :create]
-  resources :blogs, :blog_comments, :projects
+#  resources :blogs, :blog_comments, :projects
 
   resources :home, only: [:index] do
-    collection do
-      get :about
-    end
+#    collection do
+#      get :about
+#    end
   end
 
-  resources :blog_files, only: [:index, :new, :create, :edit, :update, :destroy] do
-    collection do
-      get :download
-    end
-  end
+#  resources :blog_files, only: [:index, :new, :create, :edit, :update, :destroy] do
+#    collection do
+#      get :download
+#    end
+#  end
 
 end

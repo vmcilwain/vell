@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  layout 'layout2'
   before_action :authenticate_user!, except: [:show, :index]
   before_action :project, only: [:show, :edit, :update, :destroy]
 

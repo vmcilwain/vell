@@ -1,6 +1,7 @@
 # @author Lovell McIlwain
 # Handles HTTP actions for blog files
 class BlogFilesController < ApplicationController
+  layout 'layout2'
   # Before action to load blog file
   # (see #blog_file)
   before_action :blog_file, only: [:edit, :update, :destroy, :download]

@@ -1,8 +1,9 @@
-.page-header
-  %h1.animated.bounceInDown Projects
-  =link_to 'New Project', new_project_path if user_signed_in? && current_user.admin?
-=render 'search'
-.row
-  .col-xs-12
-    =paginate @projects
-=render @projects
+.container
+  .page-header
+    %h1.animated.bounceInDown Projects
+    =link_to 'New Project', new_project_path if user_signed_in? && current_user.admin?
+  =render 'search'
+  .row
+    .col-xs-12
+      =paginate @projects
+  =render @projects

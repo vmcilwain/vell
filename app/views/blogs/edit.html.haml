@@ -1,13 +1,14 @@
-.page-header
-  %h1 Update article
-=render partial: 'layouts/error_messages', locals: {obj: @blog}
-=form_for @blog, multipart: true, html: {class: "well animated fadeIn"} do |f|
-  .form-group
-    =f.text_field :headline, placeholder: 'Enter Headline', class: 'form-control'
-  .form-group
-    =f.trix_editor :body, placeholder: 'Share your thoughts'
-  .form-group
-    .row
-      .col-xs-12
-        =f.submit class: 'btn btn-success btn-xs'
-        =link_to 'Cancel', @blog, class: 'btn btn-danger btn-xs'
+.container
+  .page-header
+    %h1 Update article
+  =render partial: 'layouts/error_messages', locals: {obj: @blog}
+  =form_for @blog, multipart: true, html: {class: "well animated fadeIn"} do |f|
+    .form-group
+      =f.text_field :headline, placeholder: 'Enter Headline', class: 'form-control'
+    .form-group
+      =f.trix_editor :body, placeholder: 'Share your thoughts'
+    .form-group
+      .row
+        .col-xs-12
+          =f.submit class: 'btn btn-success btn-xs'
+          =link_to 'Cancel', @blog, class: 'btn btn-danger btn-xs'

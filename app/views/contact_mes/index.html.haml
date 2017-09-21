@@ -1,14 +1,15 @@
-.page-header
-  %h1.animated.bounceInDown Contact Me
-=render 'search'
-=paginate @contact_mes
-%table.table.table-striped
-  %thead
-    %tr
-      %th ID
-      %th Name
-      %th Email
-      %th Body
-      %th Created
-  %tbody
-    =render @contact_mes
+.container
+  .page-header
+    %h1 Contact Me
+  =render 'search'
+  =paginate @contact_mes
+  %table.table.table-striped
+    %thead
+      %tr
+        %th ID
+        %th Name
+        %th Email
+        %th Body
+        %th Created
+    %tbody
+      =render @contact_mes
