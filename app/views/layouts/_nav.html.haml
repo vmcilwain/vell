@@ -4,18 +4,18 @@
     / Logo
     #logo
       %span.image.avatar48
-        =image_tag('avatar.jpg')
+        =image_tag('vell-small.jpg')
       %h1#title Lovell McIlwain
       %p Web Application Developer
       %p I may not know it today, but you can be sure I will find out.
     / Nav
     %nav#nav
       %ul
-        -if user_signed_in?
+        -#if user_signed_in?
           %li
             = link_to destroy_user_session_path, method: :delete, class: 'top-link skel-layers-ignoreHref' do
               %span.icon.fa-user Logout
-        -else
+        -#else
           %li
             = link_to new_user_session_path, class: 'top-link skel-layers-ignoreHref' do
               %span.icon.fa-user Login
