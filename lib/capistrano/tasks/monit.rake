@@ -59,7 +59,7 @@ namespace :monit do
       invoke 'monit:write_monit_conf'
       invoke 'monit:upload'
       invoke 'monit:remove'
-      invoke 'monit:reload'
+      # invoke 'monit:reload'
     end
   end
 end
