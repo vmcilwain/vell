@@ -1,33 +1,57 @@
-%footer.footer-distributed
-  .footer-left
-    %h3
-      Lovell McIlwain
-      -#%span logo
-    %p.footer-links
-      =link_to :Home, root_path
-      ·
-      =link_to :Articles, blogs_path
-      ·
-      =link_to :About, about_home_index_path
-      ·
-      =link_to :Contact, '/contact_mes/new'
-    %p.footer-company-name Lovell McIlwain &copy; 2016
-    .footer-icons
-      %a{:href => "https://twitter.com/the_codemonster", target: :blank}
+%footer.page-footer
+  .container
+    .row
+      .col.l6.s12
+        %h5.white-text Lovell McIlwain
+        %p.grey-text.text-lighten-4 You can use rows and columns here to organize your footer content.
+      .col.l4.offset-l2.s12
+        %h5.white-text Links
+        %ul
+          %li
+            %a.grey-text.text-lighten-3{href: root_path} Home
+          %li
+            %a.grey-text.text-lighten-3{href: blogs_path} Articles
+          %li
+            %a.grey-text.text-lighten-3{href: new_contact_me_path} Contact Me
+  .footer-copyright
+    .container
+      © 2017 Copyright lovell mcilwain
+      %a.grey-text.text-lighten-4.right{href: "https://twitter.com/the_codemonster", target: :blank}
         %i.fa.fa-twitter
-      %a{:href => "https://www.linkedin.com/pub/lovell-mcilwain/60/92/28/", target: :blank}
+      %a.grey-text.text-lighten-4.right{href: "https://www.linkedin.com/pub/lovell-mcilwain/60/92/28/", target: :blank}
         %i.fa.fa-linkedin
-      %a{:href => "https://www.github.com/vmcilwain", target: :blank}
+      %a.grey-text.text-lighten-4.right{href: "https://www.github.com/vmcilwain", target: :blank}
         %i.fa.fa-github
-  .footer-right
-    %p Quick Contact Me
-    =form_for ContactMe.new, method: :post, remote: true do |f|
-      =f.text_field :name, placeholder: 'Name', autofocus: true, required: true
-      =f.email_field :email, placeholder: 'Email', required: true
-      =f.text_area :body, placeholder: 'Message', required: true
-      .row
-        .col-xs-10
-          %br/
-          .notice
-        .col-xs-2
-          %button Send
+-# %footer.footer-distributed
+-#   .footer-left
+-#     %h3
+-#       Lovell McIlwain
+-#       -#%span logo
+-#     %p.footer-links
+-#       =link_to :Home, root_path
+-#       ·
+-#       =link_to :Articles, blogs_path
+-#       ·
+-#       =link_to :About, about_home_index_path
+-#       ·
+-#       =link_to :Contact, '/contact_mes/new'
+-#     %p.footer-company-name Lovell McIlwain &copy; 2016
+-#     .footer-icons
+-#       %a{:href => "https://twitter.com/the_codemonster", target: :blank}
+-#         %i.fa.fa-twitter
+-#       %a{:href => "https://www.linkedin.com/pub/lovell-mcilwain/60/92/28/", target: :blank}
+-#         %i.fa.fa-linkedin
+-#       %a{:href => "https://www.github.com/vmcilwain", target: :blank}
+-#         %i.fa.fa-github
+-#   .footer-right
+-#     %p Quick Contact Me
+-#     =form_for ContactMe.new, method: :post, remote: true do |f|
+-#       =f.text_field :name, placeholder: 'Name', autofocus: true, required: true
+-#       =f.email_field :email, placeholder: 'Email', required: true
+-#       =f.text_area :body, placeholder: 'Message', required: true
+-#       .row
+-#         .col-xs-10
+-#           %br/
+-#           .notice
+-#         .col-xs-2
+-#           %button Send
