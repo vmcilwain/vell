@@ -18,7 +18,7 @@ Rails.application.configure do
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
-      'Cache-Control' => 'public, max-age=172800'
+      'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"
     }
   else
     config.action_controller.perform_caching = false
@@ -50,7 +50,7 @@ Rails.application.configure do
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
-  # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.paperclip_defaults = {
     storage: :filesystem,
     path: "#{Rails.root}/tmp/:class/:id/:basename.:extension",
@@ -64,6 +64,7 @@ Rails.application.configure do
   #   :access_key_id => ENV['S3_KEY'],
   #   :secret_access_key => ENV['S3_SECRET']
   # }
-}
-config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  }
+  config.action_mailer.default_url_options = { host: ENV['DEFAULT_HOST'] }
+  config.action_controller.default_url_options = { host: ENV['DEFAULT_HOST'] }
 end

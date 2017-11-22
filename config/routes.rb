@@ -25,5 +25,4 @@ Rails.application.routes.draw do
       get :download
     end
   end
-
 end

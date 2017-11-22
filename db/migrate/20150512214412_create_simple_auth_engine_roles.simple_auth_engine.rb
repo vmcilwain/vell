@@ -1,5 +1,5 @@
 # This migration comes from simple_auth_engine (originally 20150404164424)
-class CreateSimpleAuthEngineRoles < ActiveRecord::Migration
+class CreateSimpleAuthEngineRoles < ActiveRecord::Migration[5.1]
   def change
     create_table :simple_auth_engine_roles do |t|
       t.string :name, :description

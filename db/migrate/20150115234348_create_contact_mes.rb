@@ -1,4 +1,4 @@
-class CreateContactMes < ActiveRecord::Migration
+class CreateContactMes < ActiveRecord::Migration[5.1]
   def change
     create_table :contact_mes do |t|
       t.string :name, :email

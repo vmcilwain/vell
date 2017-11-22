@@ -1,4 +1,4 @@
-class AddDocToBlogs < ActiveRecord::Migration
+class AddDocToBlogs < ActiveRecord::Migration[5.1]
   def self.up
     add_attachment :blog_files, :doc
   end

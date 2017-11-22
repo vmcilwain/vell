@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby '2.2.3'
+ruby '2.4.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.0.0.1'
+gem 'rails', '5.1.4'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2', '~> 0.3.20'
 
@@ -35,8 +35,9 @@ gem 'unicorn', '~> 4.9.0'
 group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
+  gem 'listen'
 end
-
+gem 'figaro'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'autoprefixer-rails'
 gem "haml-rails"
@@ -56,7 +57,6 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'trix'
 gem 'pundit'
 gem 'salted_rails_server'
-gem 'node'
 gem 'record_tag_helper'
 
 group :test do

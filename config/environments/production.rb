@@ -14,16 +14,22 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  # Attempt to read encrypted secrets from `config/secrets.yml.enc`.
+  # Requires an encryption key in `ENV["RAILS_MASTER_KEY"]` or
+  # `config/secrets.yml.key`.
+  config.read_encrypted_secrets = true
+
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = true
-  config.serve_static_assets = true
+  config.assets.compile = false # this was set to true in old config
+  # config.serve_static_assets = true # this existed in the old config
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
@@ -78,7 +84,7 @@ Rails.application.configure do
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
-    config.logger = ActiveSupport::TaggedLogging.new(logger)
+    config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
   # Do not dump schema after migrations.
@@ -98,15 +104,15 @@ Rails.application.configure do
   #     :secret_access_key => CONFIG[:s3_secret_access_key]
     # }
   }
-  config.action_mailer.default_url_options = { host: CONFIG[:action_mailer_host] }
-  config.action_controller.default_url_options = { host: CONFIG[:action_controller_host] }
+  config.action_mailer.default_url_options = { host: ENV['DEFAULT_HOST'] }
+  config.action_controller.default_url_options = { host: ENV['DEFAULT_HOST'] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.sendgrid.net',
     port: '587',
     authentication: :plain,
-    user_name: CONFIG[:sendgrid_username],
-    password: CONFIG[:sendgrid_password],
+    user_name: ENV['SENDGRID_USER'],
+    password: ENV['SENDGRID_PASS'],
     domain: 'heroku.com',
     enable_starttls_auto: true
   }
