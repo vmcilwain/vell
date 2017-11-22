@@ -37,6 +37,7 @@ group :development do
   gem 'capistrano-rvm'
   gem 'listen'
 end
+gem 'materialize-sass'
 gem 'figaro'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'autoprefixer-rails'
