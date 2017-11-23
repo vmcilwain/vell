@@ -1,17 +1,18 @@
 
-.page-header
+.section
   %h1 Blog Post Title
-  %p.lead
+  %p
     by
-    %a{:href => "#"} Start Bootstrap
+    %a{href: about_home_index_path} Lovell McIlwain
+.divider
 %p
-  %span.glyphicon.glyphicon-time
-  Posted on August 24, 2013 at 9:00 PM
+  %i.fa.fa-clock-o
+    Posted on August 24, 2013 at 9:00 PM
 .row
-  .col-md-2
+  .col.s2
     %i.fa.fa-tags
     %span.data Ruby
-  .col-md-3
+  .col-s2
     %i.fa.fa-comments
     %span.data
     =link_to pluralize([1,2].count, 'Comment')
