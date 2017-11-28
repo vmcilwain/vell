@@ -1,30 +1,27 @@
--3.times do
-  %h1.page-header
-    Page Heading
-    %small Secondary Text
-  %h2
-    %a{:href => "#"} Blog Post Title
-  %p.lead
-    by
-    %a{:href => "index.php"} Start Bootstrap
-  %p
-    %span.glyphicon.glyphicon-time
-    Posted on August 28, 2013 at 10:00 PM
-  %hr/
+.page-header
+  %h1 Lovell.Direct
+=form_tag blogs_path, {class: :well} do
+  .row.form-group.form-inline
+    .col-md-12
+      =select_tag :klass, options_for_select(["Articles", "Projects"]), {class: 'form-control'}
+      =text_field_tag :headline_or_content_or_created_at_or_commenter_or_comment_content_or_content_created_at_contains, nil, class: 'form-control', size: 105, placeholder: :Search
   .row
-    .col-md-3
-      %i.fa.fa-tags
-      %span.data Ruby
-    .col-md-3
-      %i.fa.fa-comments
-      %span.data
-      =link_to pluralize([1,2].count, 'Comment')
-    .col-md-3
-      %i.fa.fa-files-o
-      =link_to pluralize([1,2].count, 'File')
-  %hr/
-  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.
-  %a.btn.btn-primary{:href => "#"}
-    Read More
-    %span.glyphicon.glyphicon-chevron-right
-  %hr/
+    .col-md-12
+      .form-group
+        =submit_tag 'Search', class: 'btn btn-primary'
+        =link_to 'Cancel', '#', class: 'btn btn-default'
+-5.times do
+  .row
+    .col-lg-8.col-md-10.mx-auto
+      .post-preview
+        %a{href: '#'}
+          %h2.post-title
+            =Faker::Lorem.words(5).join("\s")
+          %h3.post-subtitle
+            =truncate Faker::Lorem.paragraph, length: 80
+        %p.post-meta
+          Posted by
+          %a{href: about_path} Lovell McIlwain
+          on #{short_date Date.today}
+.clearfix
+  %a.btn.btn-primary.float-right{:href => "#"} More Posts →

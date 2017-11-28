@@ -8,11 +8,9 @@
 -#           %h1 Clean Blog
 -#           %span.subheading A Blog Theme by Start Bootstrap
 / Main Content
-.container
-  =render 'layouts/success_message'
-  =render @blogs
-  %hr/
-  / Pager
-  .clearfix
-    %a.btn.btn-primary.float-right{:href => "#"} Older Posts →
-%hr/
+
+=render 'layouts/success_message'
+=render @blogs
+/ Pager
+.clearfix
+  %a.btn.btn-primary.float-right{:href => "#"} More Posts →

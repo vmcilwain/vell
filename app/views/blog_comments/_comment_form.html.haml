@@ -20,5 +20,5 @@
     %br
       =f.text_area :body, placeholder: 'Your thoughts...', rows: 10, id: 'comment-body', class: 'form-control input-lg comment_body'
     .form-group
-      =f.submit 'Post', class: 'btn btn-success'
-      =link_to 'Cancel', '#', id: 'blog_comment_cancel_link', class: 'btn btn-danger', remote: true
+      =f.submit 'Post', class: 'btn btn-primary btn-xs'
+      =link_to 'Cancel', '#', id: 'blog_comment_cancel_link', class: 'btn btn-default btn-xs', remote: true

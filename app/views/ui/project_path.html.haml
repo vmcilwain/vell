@@ -1,4 +1,7 @@
-#{link_to Faker::Lorem.words(5).join("\s")} - #{link_to :Live, Faker::Lorem.words(5).join("\s")}
-%br/
-%p
+.page-header
+  %h1=Faker::Lorem.words(5).join("\s")
+  =link_to :Repo
+  |
+  =link_to :Live
+.well
   =Faker::Lorem.paragraphs(2).join("\s")

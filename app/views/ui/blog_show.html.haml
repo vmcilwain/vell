@@ -1,58 +1,75 @@
+.modal.fade.file-list-modal-sm{"aria-labelledby" => "mySmallModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-sm{:role => "document"}
+    .modal-content
+      .row
+        .col-md-12
+          .page-header
+            %h4 Files
+          %ul
+            -3.times do
+              %li #{link_to Faker::Lorem.word, '#'} - #{Faker::Lorem.words(5).join("\s")}
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+=content_for :head do
+  %meta{name: 'description', content: "#{Faker::Lorem.words(5).join("\s")}"}
+%header.masthead{:style => "background-image: url('/assets/post-bg.jpg')"}
+  .overlay
+  .container
+    .row
+      .col-lg-8.col-md-10.mx-auto
+        .post-heading
+          %h1=Faker::Lorem.words(5).join("\s")
+          -# %h2.subheading Problems look mighty small from 150 miles up
+          %span.meta
+            Posted by
+            %a{href: about_home_index_path} Lovell McIlwain
+            on August 24, 2017
 
-.page-header
-  %h1 Blog Post Title
-  %p.lead
-    by
-    %a{:href => "#"} Start Bootstrap
-%p
-  %span.glyphicon.glyphicon-time
-  Posted on August 24, 2013 at 9:00 PM
-.row
-  .col-md-2
+.row.well
+  .col-md-4
     %i.fa.fa-tags
-    %span.data Ruby
-  .col-md-3
+    %span.data #{blog_tag_links(Blog.new)}
+  .col-md-4
     %i.fa.fa-comments
     %span.data
-    =link_to pluralize([1,2].count, 'Comment')
-.row
-  .col-md-12
-    %h4 Attachments
-    %ul.list-unstyled
-      -3.times do
-        %li #{link_to Faker::Lorem.words(1).first, '#'} - #{Faker::Lorem.words(8).join("\s")}
-%hr/
-%img.img-responsive{:alt => "", :src => "http://placehold.it/900x300"}/
-%hr/
-%p.lead Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?
-%p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.
-%p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!
-%p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?
-%p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!
-%hr/
-.well
-  %h4 Leave a Comment:
-  %form{"accept-charset" => "utf-8", :action => "#", :method => "get"}
-    .form-group
-      %input#comment-name.form-control.input-lg{:name => "name", :placeholder => "Name", :type => "text"}
-    .form-group
-      %input#comment-email.form-control.input-lg{:name => "email", :placeholder => "Email", :type => "email"}
-    .form-group
-      %input#comment-url.form-control.input-lg{:name => "name", :placeholder => "Website", :type => "url"}
-    .form-group
-      %textarea#comment-body.form-control.input-lg{:name => "message", :placeholder => "Your thoughts...", :rows => "3"}
-    .form-group
-      %button.btn.btn-primary{:type => "submit"} Submit
-      %button.btn.btn-danger Cancel
+      comments count
+  -# -if @blog.blog_files.empty?
+  .col-md-4
+    %button.btn.btn-primary{"data-target" => ".file-list-modal-sm", "data-toggle" => "modal", :type => "button"} #{fa_icon 'files-o', text: 'files count'}
+%p
+  =Faker::Lorem.paragraph
+
+
+-# %hr/
+
+=form_tag nil, {class: 'well'} do
+  =hidden_field_tag :blog_id, value: 1
+  .row
+    .col-md-6
+      -if user_signed_in?
+        =text_field_tag :name, nil, placeholder: 'Name', id: 'comment-name', class: 'form-control input-lg comment_name', value: 'Lovell McIlwain'
+      -else
+        =text_field_tag :name, nil, placeholder: 'Name', id: 'comment-name', class: 'form-control input-lg comment_name'
+    .col-md-6
+      =email_field_tag :email, nil, placeholder: 'Email (Optional)', class: 'form-control input-lg comment_email'
+  %br
+    =text_area_tag :body, nil, placeholder: 'Your thoughts...', rows: 10, id: 'comment-body', class: 'form-control input-lg comment_body'
+  .form-group
+    =submit_tag 'Post', class: 'btn btn-primary'
+    =link_to 'Cancel', '#', id: 'blog_comment_cancel_link', class: 'btn btn-default', remote: true
+
 %hr/
 %h2
   %i.fa.fa-comments
   24 Comments
 -3.times do
-  .media
-    %i.fa.fa-user
-    #{Faker::Name.name}
-    .media-body
-      %h4.media-heading
-        %small August 25, 2014 at 9:30 PM
-      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+  %section
+    .row
+      .col-md-12
+        .well
+          .section
+            %p Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            %p
+              =Faker::Name.name
+              %br/
+              %small August 25, 2014 at 9:30 PM

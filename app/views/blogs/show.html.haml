@@ -1,19 +1,19 @@
-.modal.fade.bs-example-modal-sm{"aria-labelledby" => "mySmallModalLabel", :role => "dialog", :tabindex => "-1"}
+.modal.fade.file-list-modal-sm{"aria-labelledby" => "mySmallModalLabel", :role => "dialog", :tabindex => "-1"}
   .modal-dialog.modal-sm{:role => "document"}
     .modal-content
       .row
         .col-md-12
-          %h4 Attachments
+          %h4 Files
           %ul.list-unstyled
             -@blog.blog_files.each do |file|
               %li #{link_to file.doc_file_name, '#'} - #{file.description}
-
-
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
 =render 'layouts/success_message'
 -present(@blog) do |blog_presenter|
   =content_for :head do
     %meta{name: 'description', content: blog_presenter.headline}
-  %header.masthead{:style => "background-image: url('img/post-bg.jpg')"}
+  %header.masthead{:style => "background-image: url('/assets/post-bg.jpg')"}
     .overlay
     .container
       .row
@@ -26,18 +26,16 @@
               %a{href: about_home_index_path} Lovell McIlwain
               on #{blog_presenter.short_created_at} August 24, 2017
   .row
-    .col-md-3
+    .col-md-4
       %i.fa.fa-tags
       %span.data #{blog_tag_links(@blog)}
-    .col-md-3
+    .col-md-4
       %i.fa.fa-comments
       %span.data
       =blog_presenter.comments_count
     -if @blog.blog_files.empty?
-      .col-md-3
-        %button.btn.btn-primary{"data-target" => ".bs-example-modal-sm", "data-toggle" => "modal", :type => "button"} #{fa_icon 'files-o', text: blog_presenter.files_count}
-
-
+      .col-md-4
+        %button.btn.btn-primary{"data-target" => ".file-list-modal-sm", "data-toggle" => "modal", :type => "button"} #{fa_icon 'files-o', text: blog_presenter.files_count}
   %hr/
   %p
     =blog_presenter.raw_body

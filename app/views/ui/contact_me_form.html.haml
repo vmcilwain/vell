@@ -1,15 +1,29 @@
-.page-header
-  %h1 Send Lovell A Message
-
 .row
-  .col-xs-12
-    %form.well
+  .col-lg-8.col-md-10.mx-auto
+    %p Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!
+    =form_tag nil, {id: :contactForm} do
+      .control-group
+        .form-group.floating-label-form-group.controls
+          =label_tag :name
+          =text_field_tag :name, nil, class: 'form-control', placeholder: 'Name', required: true, data: {"validation-required-message" => "Please enter your name."}
+          %p.help-block.text-danger
+      .control-group
+        .form-group.floating-label-form-group.controls
+          =label_tag :email_address, 'Email Address'
+          =email_field_tag :email, nil, class: 'form-control', placeholder: 'Email Address', required: true, data: {"validation-required-message" => "Please enter your email address."}
+          %p.help-block.text-danger
+      .control-group
+        .form-group.floating-label-form-group.controls
+          =label_tag :phone_number, 'Phone Number'
+          =phone_field_tag :phone, nil, class: 'form-control', placeholder: 'Phone Number', data: {"validation-required-message" => "Please enter your phone number."}
+          %p.help-block.text-danger
+      .control-group
+        .form-group.floating-label-form-group.controls
+          =label_tag :message
+          =text_area_tag :body, nil, class: 'form-control', placeholder: 'Message', required: true, rows: '5', data: {"validation-required-message" => "Please enter a message."}
+          %p.help-block.text-danger
+      %br/
+      #success
       .form-group
-        =text_field_tag :name, nil, placeholder: 'Enter Name', size: 60, class: 'form-control', autofocus: true
-      .form-group
-        =text_field_tag :email, nil, placeholder: 'Enter Email', size: 60, class: 'form-control'
-      .form-group
-        =text_area_tag :body, nil, placeholder: 'Enter Message', rows: 10, class: 'form-control'
-      .form-group
-        =submit_tag 'Send', class: 'btn btn-primary'
-        =link_to 'Cancel', root_path, class: 'btn btn-danger'
+        =submit_tag :Send, class: 'btn btn-primary', id: :MessageButton
+        =link_to 'Cancel', root_path, class: 'btn btn-default'

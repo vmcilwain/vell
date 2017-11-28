@@ -1,23 +1,20 @@
 .page-header
-  %h1.animated.bounceInDown Contact Me
-.row
-  .col-xs-3
-    Name
-  .col-xs-3
-    Email
-  .col-xs-3
-    Body
-  .col-xs-3
-    Created On
-%br
--10.times.each do
-  .row.animated.fadeIn
-    .col-xs-3
-      =link_to Faker::Name.name
-    .col-xs-4
-      =mail_to Faker::Internet.email
-    .col-xs-2
-      =truncate Faker::Lorem.words(100).join("\s")
-    .col-xs-3
-      =medium_date Date.today
-  %hr
+  %h1 Contact Me
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th Body
+      %th Created
+  %tbody
+    -5.times do
+      %tr
+        %td
+          =link_to Faker::Name.name
+        %td
+          =mail_to Faker::Internet.email
+        %td
+          =truncate Faker::Lorem.words(100).join("\s")
+        %td
+          =medium_date Date.today

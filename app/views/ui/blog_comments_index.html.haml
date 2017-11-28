@@ -1,25 +1,33 @@
 .page-header
-  %h1.animated.bounceInDown Blog Comments
-  #{link_to 'Blog Listing'} |  #{link_to 'Search Comments'}
+  %h1 Blog Comments
+  =link_to 'Blog Listing', blogs_path
 
-.search_form.well
-  %form
-    %header
-      %h1 Search Blog Comments
-    .form-group
-      =text_field_tag :blog_comment_blog_headline_or_content_or_created_at_contains, nil, placeholder: 'Search blog headline or comment or comment date', class: 'form-control'
-    .form-group
-      =submit_tag 'Search', class: 'btn btn-primary btn-xs'
-      =link_to 'Cancel', '#', class: 'cancel_search_form_link btn btn-danger btn-xs'
-
+=form_tag blog_comments_path,{class: :well} do
+  .row
+    .col-md-12
+      .form-group
+        =text_field_tag :blog_comment_blog_headline_or_content_or_created_at_contains, nil, placeholder: 'Search blog headline or comment or comment date', class: 'form-control'
+  .row
+    .col-md-4
+      .form-group
+        =submit_tag 'Search', class: 'btn btn-primary'
+        =link_to 'Cancel', '#', class: 'cancel_search_form_link btn btn-default'
 -5.times do
-  .media
-    %i.fa.fa-user
-    #{Faker::Name.name}
-    .media-body
-      %h4.media-heading
-        =link_to Faker::Lorem.words(4).join("\s")
+  .row
+    .col-md-12
+      .well
+        .section
+          %p Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+  .row
+    .col-md-6
+      .section
+        #{link_to 'Edit'} | #{link_to 'Destroy'}
+    .col-md-6
+      .section.pull-right
+        =Faker::Name.name
+        %br/
         %small August 25, 2014 at 9:30 PM
-      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-    #{link_to 'Edit'} | #{link_to 'Destroy'}
-    %hr
+        %br/
+        %i=link_to Faker::Lorem.words(4).join("\s")
+
+  %hr
