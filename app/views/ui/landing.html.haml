@@ -24,4 +24,4 @@
           %a{href: about_path} Lovell McIlwain
           on #{short_date Date.today}
 .clearfix
-  %a.btn.btn-primary.float-right{:href => "#"} More Posts →
+  =link_to 'More Posts →', blogs_path, class: 'btn btn-primary float-right'
