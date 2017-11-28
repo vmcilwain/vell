@@ -1,0 +1,5 @@
+=form_tag blogs_path, {class: :well} do
+  .row.form-group.form-inline
+    .col-md-12
+      =select_tag :klass, options_for_select({Articles: :article, Projects: :project}), {class: 'form-control'}
+      =text_field_tag :q, nil, class: 'form-control', size: 105, placeholder: :Search

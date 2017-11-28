@@ -10,7 +10,9 @@
 / Main Content
 
 =render 'layouts/success_message'
+.page-header
+  %h1 Lovell.Direct
+=render 'search'
 =render @blogs
-/ Pager
 .clearfix
-  %a.btn.btn-primary.float-right{:href => "#"} More Posts →
+  =link_to 'More Posts →', blogs_path, class: 'btn btn-primary float-right'

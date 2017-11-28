@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :contact_mes, only: [:index, :new, :show, :create]
   resources :blogs, :blog_comments, :projects
-
+  resources :searches, only: :index
   resources :home, only: [:index] do
     collection do
       get :about
