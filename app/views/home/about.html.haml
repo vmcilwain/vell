@@ -1,10 +1,10 @@
 .page-header
   %h1 About Me
 .row
-  .col-md-12.center-block.text-center.animated.fadeIn
+  .col-md-12.center-block.text-center
     =image_tag 'vell.jpg', width: '350px', class: 'img-circle'
 .row
-  .col-md-12.animated.fadeIn
+  .col-md-12
     %p I'm a web developer with a systems / database administration background. I currently work with Ruby and Ruby on Rails but I am happily at home doing Systems Administration, Database Administrator or DevOps tasks.
 
     %p My career started as a low level helpdesk engineer. I basically sat around doing menial tasks such as filing CDs & Floppys, recording software licenses and assigning trouble tickets to other team members. Through hard work and a knack for catching on to things quickly, I was promoted to Systems Administrator.
@@ -18,47 +18,44 @@
     %p The value I provide as a Ruby and Ruby on Rails developer is the ability to turn around a well tested product in a respectable amount of time. This allows for early feedback and collaboration between the stakeholders and myself. Thats a good thing! In addition to that, my previous years of knowledge as a Systems and Database administrator in the corporate environment gives me a level of understanding of how applications and systems work together.
 
     %p I pride myself on learning new technologies when it makes sense and when I have the time. Here is a brief list of the technologies I work with:
-  .row.animated.fadeIn
-    .col-md-12
-      %ul.list-group
-        .col-md-3.list-group-item
-          =link_to :Ruby, 'https://www.ruby-lang.org/en/', target: :blank
-        .col-md-3.list-group-item
-          =link_to 'Ruby On Rails', 'http://rubyonrails.org/', target: :blank
-        .col-md-3.list-group-item
-          =link_to :Bootstrap, 'http://getbootstrap.com/', taget: :blank
-        .col-md-3.list-group-item
-          =link_to :JQuery, 'http://jquery.com/', target: :blank
-  .row.animated.fadeIn
-    .col-md-12
-      %ul.list-group
-        .col-md-3.list-group-item
-          =link_to :MySQL, 'http://www.mysql.com/', target: :blank
-        .col-md-3.list-group-item
-          =link_to :RVM, 'https://rvm.io/', target: :blank
-        .col-md-3.list-group-item
-          =link_to 'Mac OS X', 'http://www.apple.com/osx/', target: :blank
-        .col-md-3.list-group-item
-          =link_to :Linux, 'http://en.wikipedia.org/wiki/Linux', target: :blank
-  .row.animated.fadeIn
-    .col-md-12
-      %ul.list-group
-        .col-md-3.list-group-item
-          =link_to 'Amazon Web Service', 'http://aws.amazon.com/', target: :blank
-        .col-md-3.list-group-item
-          =link_to :ReactJS, 'https://facebook.github.io/react/', target: :blank
-        .col-md-3.list-group-item
-          =link_to :CoffeeScript, 'http://coffeescript.org/', target: :blank
-        .col-md-3.list-group-item
-          =link_to :HAML, 'http://haml.info/', target: :blank
-  .row.animated.fadeIn
-    .col-md-12
-      %ul.list-group
-        .col-md-3.list-group-item
-          =link_to :Monit, 'https://mmonit.com/monit/', target: :blank
-        .col-md-3.list-group-item
-          =link_to :Backup, 'http://backup.github.io/backup/v4/', target: :blank
-        .col-md-3.list-group-item
-          =link_to :Capistrano, 'http://capistranorb.com/', target: :blank
-        .col-md-3.list-group-item
-          =link_to :Letsencyrpt, 'https://letsencrypt.org/', target: :blank
+.row
+  .col-md-3
+    %ul.list-unstyled
+      %li
+        =link_to :Ruby, 'https://www.ruby-lang.org/en/', target: :blank
+      %li
+        =link_to 'Ruby On Rails', 'http://rubyonrails.org/', target: :blank
+      %li
+        =link_to :Bootstrap, 'http://getbootstrap.com/', taget: :blank
+      %li
+        =link_to :JQuery, 'http://jquery.com/', target: :blank
+  .col-md-3
+    %ul.list-unstyled
+      %li
+        =link_to :MySQL, 'http://www.mysql.com/', target: :blank
+      %li
+        =link_to :RVM, 'https://rvm.io/', target: :blank
+      %li
+        =link_to 'Mac OS X', 'http://www.apple.com/osx/', target: :blank
+      %li
+        =link_to :Linux, 'http://en.wikipedia.org/wiki/Linux', target: :blank
+  .col-md-3
+    %ul.list-unstyled
+      %li
+        =link_to 'Amazon Web Service', 'http://aws.amazon.com/', target: :blank
+      %li
+        =link_to :ReactJS, 'https://facebook.github.io/react/', target: :blank
+      %li
+        =link_to :CoffeeScript, 'http://coffeescript.org/', target: :blank
+      %li
+        =link_to :HAML, 'http://haml.info/', target: :blank
+  .col-md-3
+    %ul.list-unstyled
+      %li
+        =link_to :Monit, 'https://mmonit.com/monit/', target: :blank
+      %li
+        =link_to :Backup, 'http://backup.github.io/backup/v4/', target: :blank
+      %li
+        =link_to :Capistrano, 'http://capistranorb.com/', target: :blank
+      %li
+        =link_to :Letsencyrpt, 'https://letsencrypt.org/', target: :blank
