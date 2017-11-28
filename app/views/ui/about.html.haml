@@ -1,62 +1,50 @@
 .row
-  .col.s12.m8
-    .center-align
-      =image_tag('vell.jpg', width: '20%', class: 'responsive-image')
-.row
-  .col.s12.m8
-    .section
-      %p.flow-text My career started as a low level helpdesk engineer. I basically sat around doing menial task such as filing CDs & Floppys, recording licenses and assigning trouble tickets to other staff members. Through hard work and a knack for catching on to things quickly, I was promoted to systems administrator.
-    .section
-      %p.flow-text I received my BS in Information Technology in 2012; graduating with a 3.78 GP. By the time I finished getting my BA, I was in the middle of a successful career in Information Technology. The reason for my success prior to getting my BA (and even after) was my ability to take on any challenge and adapt to changes while remaining humble to new experiences. These abilities allowed for me to be the "go to" guy for important task that helped move the business forward.
-    .section
-      %p.flow-text After the organization I was working with got bought out by another, it was time for me to move on and become a web developer full time. I moved on to a non-profit organization to get myself started. I chose non-profit because it is a slower pace. It would allow me to find my own style and get used to the new career I chose a little bit easier. While working with the non-profit organization, I help to convert applications from Cold Fusion to Ruby on Rails. I built their Ruby on Rails environment from the ground up using AWS (EC2/RDS) and deploying with Capistrano. After 2 years with the this organization it was time for me to move on.
-    .section
-      %p.flow-text Right now I work as a contractor for the D.C. Government. I am viewed as a leader, working with a knowledgeable team of developers (of different skill levels) to help move some health care projects along. In this case, it means helping to get them back to TDD and writing exceptional code as well as offering my thoughts and ideas.
-    .section
-      %p.flow-text Right now I work as a contractor for the D.C. Government. I am viewed as a leader, working with a knowledgeable team of developers (of different skill levels) to help move some health care projects along. In this case, it means helping to get them back to TDD and writing exceptional code as well as offering my thoughts and ideas.
-    .section
-      %p.flow-text I pride myself on learning new technologies when it makes sense and when I have the time. Here is a brief list of the technologies that I work with:
-.row
-  .center-align
-    .col.s4.m2
-      %ul.collection
-        %li.collection-item
-          %div
-            =link_to :Ruby, 'https://www.ruby-lang.org/en/', target: :blank
-        %li.collection-item
-          %div
-            =link_to 'Ruby On Rails', 'http://rubyonrails.org/', target: :blank
-        %li.collection-item
-          %div
-            =link_to :Bootstrap, 'http://getbootstrap.com/', taget: :blank
-        %li.collection-item
-          %div
-            =link_to :JQuery, 'http://jquery.com/', target: :blank
-    .col.s4.m2
-      %ul.collection
-        %li.collection-item
-          %div
-            =link_to :MySQL, 'http://www.mysql.com/', target: :blank
-        %li.collection-item
-          %div
-            =link_to :RVM, 'https://rvm.io/', target: :blank
-        %li.collection-item
-          %div
-            =link_to 'Mac OS X', 'http://www.apple.com/osx/', target: :blank
-        %li.collection-item
-          %div
-            =link_to :Linux, 'http://en.wikipedia.org/wiki/Linux', target: :blank
-    .col.s4.m2
-      %ul.collection
-        %li.collection-item
-          %div
-            =link_to 'Amazon Web Service', 'http://aws.amazon.com/', target: :blank
-        %li.collection-item
-          %div
-            =link_to 'AngularJS', 'https://angularjs.org/', target: :blank
-        %li.collection-item
-          %div
-            =link_to 'CoffeeScript', 'http://coffeescript.org/', target: :blank
-        %li.collection-item
-          %div
-            =link_to 'HAML', 'http://haml.info/', target: :blank
+  .page-header
+    %h1.animated.bounceInDown About Me
+.col-xs-4.animated.fadeIn
+  =image_tag 'vell.jpg', width: '350px', class: 'img-circle'
+.col-xs-8.animated.fadeIn
+  .row
+    %p I'm a web developer with a systems / database administration background. I currently work with Ruby and Ruby on Rails but I am happily at home doing systems and database administration tasks.
+    
+    %p My career started as a low level helpdesk engineer. I basically sat around doing menial task such as filing CDs & Floppys, recording licenses and assigning trouble tickets to other staff members. Through hard work and a knack for catching on to things quickly, I was promoted to systems administrator. 
+    
+    %p I received my BS in Information Technology in 2012; graduating with a 3.78 GP. By the time I finished getting my BA, I was in the middle of a successful career in Information Technology. The reason for my success prior to getting my BA (and even after) was my ability to take on any challenge and adapt to changes while remaining humble to new experiences. These abilities allowed for me to be the "go to" guy for important task that helped move the business forward.
+     
+    %p After the organization I was working with got bought out by another, it was time for me to move on and become a web developer full time. I moved on to a non-profit organization to get myself started. I chose non-profit because it is a slower pace. It would allow me to find my own style and get used to the new career I chose a little bit easier. While working with the non-profit organization, I help to convert applications from Cold Fusion to Ruby on Rails. I built their Ruby on Rails environment from the ground up using AWS (EC2/RDS) and deploying with Capistrano. After 2 years with the this organization it was time for me to move on.
+    
+    %p Right now I work as a contractor for the D.C. Government. I am viewed as a leader, working with a knowledgeable team of developers (of different skill levels) to help move some health care projects along. In this case, it means helping to get them back to TDD and writing exceptional code as well as offering my thoughts and ideas.
+ 
+    %p The value I provide as a Ruby and Ruby on Rails developer is the ability to turn around a well tested product in a respectable amount of time. This allows for early feedback and collaboration between the stakeholders and myself. Thats a good thing! In addition to that, my previous years of knowledge as a Systems and Database administrator in the corporate environment gives me a level of understanding of how applications and systems work together.
+  
+    %p I pride myself on learning new technologies when it makes sense and when I have the time. Here is a brief list of the technologies that I work with:
+  .row.animated.fadeIn
+    %ul.list-group
+      .col-xs-3.list-group-item
+        =link_to :Ruby, 'https://www.ruby-lang.org/en/', target: :blank
+      .col-xs-3.list-group-item
+        =link_to 'Ruby On Rails', 'http://rubyonrails.org/', target: :blank
+      .col-xs-3.list-group-item
+        =link_to :Bootstrap, 'http://getbootstrap.com/', taget: :blank
+      .col-xs-3.list-group-item
+        =link_to :JQuery, 'http://jquery.com/', target: :blank
+  .row.animated.fadeIn
+    %ul.list-group
+      .col-xs-3.list-group-item
+        =link_to :MySQL, 'http://www.mysql.com/', target: :blank
+      .col-xs-3.list-group-item
+        =link_to :RVM, 'https://rvm.io/', target: :blank
+      .col-xs-3.list-group-item
+        =link_to 'Mac OS X', 'http://www.apple.com/osx/', target: :blank
+      .col-xs-3.list-group-item
+        =link_to :Linux, 'http://en.wikipedia.org/wiki/Linux', target: :blank
+  .row.animated.fadeIn
+    %ul.list-group
+      .col-xs-3.list-group-item
+        =link_to 'Amazon Web Service', 'http://aws.amazon.com/', target: :blank
+      .col-xs-3.list-group-item
+        =link_to 'AngularJS', 'https://angularjs.org/', target: :blank
+      .col-xs-3.list-group-item
+        =link_to 'CoffeeScript', 'http://coffeescript.org/', target: :blank
+      .col-xs-3.list-group-item
+        =link_to 'HAML', 'http://haml.info/', target: :blank

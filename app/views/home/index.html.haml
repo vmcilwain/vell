@@ -1,5 +1,18 @@
-%h1.page-header
-  Lovell McIlwain
-  %small Never backwards. Always forward.
-=render 'layouts/success_message'
-=render @blogs
+/ Page Header
+-# %header.masthead{:style => "background-image: url('/assets/home-bg.jpg')"}
+-#   .overlay
+-#   .container
+-#     .row
+-#       .col-lg-8.col-md-10.mx-auto
+-#         .site-heading
+-#           %h1 Clean Blog
+-#           %span.subheading A Blog Theme by Start Bootstrap
+/ Main Content
+.container
+  =render 'layouts/success_message'
+  =render @blogs
+  %hr/
+  / Pager
+  .clearfix
+    %a.btn.btn-primary.float-right{:href => "#"} Older Posts →
+%hr/

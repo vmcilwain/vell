@@ -39,7 +39,6 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-
   config.paperclip_defaults = {
     storage: :filesystem,
     path: "#{Rails.root}/tmp/:class/:id/:basename.:extension",
@@ -48,8 +47,7 @@ Rails.application.configure do
       :thumb => "100x100>"
     }
   }
-
-  # config.active_record.raise_in_transactional_callbacks = true
-  config.action_dispatch.show_exceptions = true
+  # config.action_dispatch.show_exceptions = true #this was enabled in old file
   config.action_mailer.default_url_options = { host: ENV['DEFAULT_HOST'] }
+  config.action_controller.default_url_options = { host: ENV['DEFAULT_HOST'] }
 end

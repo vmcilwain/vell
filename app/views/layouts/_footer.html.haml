@@ -1,27 +1,24 @@
-%footer.page-footer
+%footer
   .container
     .row
-      .col.l6.s12
-        %h5.white-text Lovell McIlwain
-        %p.grey-text.text-lighten-4 You can use rows and columns here to organize your footer content.
-      .col.l4.offset-l2.s12
-        %h5.white-text Links
-        %ul
-          %li
-            %a.grey-text.text-lighten-3{href: root_path} Home
-          %li
-            %a.grey-text.text-lighten-3{href: blogs_path} Articles
-          %li
-            %a.grey-text.text-lighten-3{href: new_contact_me_path} Contact Me
-  .footer-copyright
-    .container
-      © 2017 Copyright lovell mcilwain
-      %a.grey-text.text-lighten-4.right{href: "https://twitter.com/the_codemonster", target: :blank}
-        %i.fa.fa-twitter
-      %a.grey-text.text-lighten-4.right{href: "https://www.linkedin.com/pub/lovell-mcilwain/60/92/28/", target: :blank}
-        %i.fa.fa-linkedin
-      %a.grey-text.text-lighten-4.right{href: "https://www.github.com/vmcilwain", target: :blank}
-        %i.fa.fa-github
+      .col-lg-8.col-md-10.mx-auto
+        %ul.list-inline.text-center
+          %li.list-inline-item
+            %a{:href => "#"}
+              %span.fa-stack.fa-lg
+                %i.fa.fa-circle.fa-stack-2x
+                %i.fa.fa-twitter.fa-stack-1x.fa-inverse
+          %li.list-inline-item
+            %a{:href => "#"}
+              %span.fa-stack.fa-lg
+                %i.fa.fa-circle.fa-stack-2x
+                %i.fa.fa-facebook.fa-stack-1x.fa-inverse
+          %li.list-inline-item
+            %a{:href => "#"}
+              %span.fa-stack.fa-lg
+                %i.fa.fa-circle.fa-stack-2x
+                %i.fa.fa-github.fa-stack-1x.fa-inverse
+        %p.copyright.text-muted Copyright © Your Website 2017
 -# %footer.footer-distributed
 -#   .footer-left
 -#     %h3

@@ -1,26 +1,43 @@
-%ul#dropdown1.dropdown-content
-  %li=link_to 'Article Comments', blog_comments_path
-  %li=link_to 'Article Files', blog_files_path
-  %li=link_to 'Contact Mes', contact_mes_path
-  %li.divider
-  %li
-    %a{:href => "#!"} three
-%nav
-  .nav-wrapper.container
-    =link_to 'Lovell.Direct', root_path, class: 'brand-logo'
-    %ul.right.hide-on-med-and-down
-      %li=link_to :About, about_home_index_path
-      %li=link_to :Articles, blogs_path
-      %li=link_to :Projects, projects_path
-      / Dropdown Trigger
-      - if current_user && current_user.admin?
-        %li
-          %a.dropdown-button{"data-activates" => "dropdown1", :href => "#!"}
-            Admin
-            -# %i.material-icons.right arrow_drop_down
-      -if user_signed_in?
-        %li=link_to 'Logout', destroy_user_session_path, method: :delete
-      -else
-        %li=link_to 'Login', new_user_session_path
-      -if Rails.env.development?
-        %li=link_to :UI, '/ui/index'
+/ Navigation
+-# %nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
+-#   .container
+-#     %a.navbar-brand{:href => "index.html"} Start Bootstrap
+-#     %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "navbarResponsive", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarResponsive", "data-toggle" => "collapse", :type => "button"}
+-#       Menu
+-#       %i.fa.fa-bars
+-#     #navbarResponsive.collapse.navbar-collapse
+-#       %ul.navbar-nav.ml-auto
+-#         %li.nav-item
+-#           %a.nav-link{:href => "index.html"} Home
+-#         %li.nav-item
+-#           %a.nav-link{:href => "about.html"} About
+-#         %li.nav-item
+-#           %a.nav-link{:href => "post.html"} Sample Post
+-#         %li.nav-item
+-#           %a.nav-link{:href => "contact.html"} Contact
+%nav.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
+  .container
+    .navbar-header
+      %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li=link_to 'lovell.direct', root_path, class: 'navbar-brand'
+        %li=link_to :About, about_home_index_path
+        %li=link_to :Articles, blogs_path
+        %li=link_to 'Projects', projects_path
+        -if current_user && current_user.admin?
+          %li=link_to 'Article Comments', blog_comments_path
+          %li=link_to 'Article Files', blog_files_path
+          %li=link_to 'Contact Mes', contact_mes_path
+      %ul.nav.navbar-nav.navbar-right
+        -if user_signed_in?
+          %li=link_to 'Logout', destroy_user_session_path, method: :delete
+        -else
+          %li=link_to 'Login', new_user_session_path
+          -if Rails.env.development?
+            %li=link_to :UI, '/ui/index'
+%br/

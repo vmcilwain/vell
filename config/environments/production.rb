@@ -28,9 +28,8 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false # this was set to true in old config
-  # config.serve_static_assets = true # this existed in the old config
-
+  config.assets.compile = false #this was turned on.
+  config.serve_static_assets = true #this was in the old file
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
@@ -113,7 +112,7 @@ Rails.application.configure do
     authentication: :plain,
     user_name: ENV['SENDGRID_USER'],
     password: ENV['SENDGRID_PASS'],
-    domain: 'heroku.com',
+    domain: 'lovell.direct',
     enable_starttls_auto: true
   }
 end
