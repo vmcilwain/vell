@@ -1,14 +1,4 @@
-.modal.fade.file-list-modal-sm{"aria-labelledby" => "mySmallModalLabel", :role => "dialog", :tabindex => "-1"}
-  .modal-dialog.modal-sm{:role => "document"}
-    .modal-content
-      .row
-        .col-md-12
-          %h4 Files
-          %ul.list-unstyled
-            -@blog.blog_files.each do |file|
-              %li #{link_to file.doc_file_name, '#'} - #{file.description}
-      .modal-footer
-        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+=render 'file_modal'
 =render 'layouts/success_message'
 -present(@blog) do |blog_presenter|
   =content_for :head do
@@ -23,8 +13,14 @@
             -# %h2.subheading Problems look mighty small from 150 miles up
             %span.meta
               Posted by
-              %a{href: about_home_index_path} Lovell McIlwain
-              on #{blog_presenter.short_created_at} August 24, 2017
+              =link_to 'Lovell McIlwain', about_home_index_path
+              on #{blog_presenter.short_created_at}
+  -if policy(@blog).edit?
+    .row
+      .col-md-12
+        =blog_presenter.edit_link
+        |
+        =blog_presenter.delete_link
   .row
     .col-md-4
       %i.fa.fa-tags
@@ -33,13 +29,11 @@
       %i.fa.fa-comments
       %span.data
       =blog_presenter.comments_count
-    -if @blog.blog_files.empty?
+    -if @blog.blog_files.any?
       .col-md-4
         %button.btn.btn-primary{"data-target" => ".file-list-modal-sm", "data-toggle" => "modal", :type => "button"} #{fa_icon 'files-o', text: blog_presenter.files_count}
-  %hr/
   %p
     =blog_presenter.raw_body
-  %hr/
   =render 'blog_comments/comment_form'
   %hr/
   #comments

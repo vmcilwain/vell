@@ -1,13 +1,13 @@
 # @author Lovell McIlwain
 # Handles HTTP actions for blog
 class BlogsController < ApplicationController
-  # Before action to load a blog
-  # (see #blog)
-  before_action :blog, only: [:show, :edit, :update, :destroy]
-
   # Before action to prompt for authentication
   # @note uses devise gem
   before_action :authenticate_user!, except: [:index, :show]
+
+  # Before action to load a blog
+  # (see #blog)
+  before_action :blog, only: [:show, :edit, :update, :destroy]
 
   # Handles HTTP GET
   #

@@ -1,19 +1,18 @@
 .page-header
-  %h1.animated.bounceInDown Create an article
+  %h1 Whats On Your Mind Today?
 =render partial: 'layouts/error_messages', locals: {obj: @blog}
-=form_for @blog, multipart: true, html: {class: "well animated fadeIn"} do |f|
-
+=form_for @blog, multipart: true, html: {class: :well} do |f|
   .form-group
-    =f.text_field :headline, placeholder: 'Enter Headline',class: 'form-control'
+    =f.text_field :headline, placeholder: 'Headline (Make it good!!!)',class: 'form-control'
   .form-group
-    =f.trix_editor :body, placeholder: 'Share your thoughts'
-  .form-group
-    =f.text_field :tag_list, class: 'form-control', placeholder: 'Add Tags (Comma Seperated)'
+    =f.trix_editor :body, placeholder: 'What would you like to write about?'
   .form-group
     .row
       =f.fields_for :blog_files do |builder|
         .col-xs-4
           = builder.file_field :doc
+  .form-group
+    =f.text_field :tag_list, class: 'form-control', placeholder: 'Add Tags (Comma Seperated)'
   .form-group
     .row
       .col-xs-12
@@ -21,5 +20,5 @@
         =f.check_box :to_twitter
     .row
       .col-xs-12
-        =f.submit class: 'btn btn-success btn-xs'
-        =link_to 'Cancel', blogs_path, class: 'btn btn-danger btn-xs'
+        =f.submit class: 'btn btn-primary'
+        =link_to 'Cancel', blogs_path, class: 'btn btn-default'

@@ -1,0 +1,11 @@
+.modal.fade.file-list-modal-sm{"aria-labelledby" => "mySmallModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-sm{:role => "document"}
+    .modal-content
+      .row
+        .col-md-12
+          %h4 Files
+          %ul.list-unstyled
+            -@blog.blog_files.each do |file|
+              %li #{link_to file.doc_file_name, '#'} - #{file.description}
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close

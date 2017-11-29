@@ -1,14 +1,13 @@
 -present(blog) do |blog_presenter|
   .row
-    .col-lg-8.col-md-10.mx-auto
+    .col-lg-10.col-md-12.mx-auto
       .post-preview
         %a{href: blog_path(blog)}
           %h2.post-title
             =blog_presenter.headline
           %h3.post-subtitle
-            =truncate blog_presenter.body
+            =truncate strip_tags(blog_presenter.body), length: 80
         %p.post-meta
           Posted by
-          %a{href: about_path} Lovell McIlwain
+          =link_to 'Lovell McIlwain', about_path
           on #{blog_presenter.short_created_at}
-      %hr/

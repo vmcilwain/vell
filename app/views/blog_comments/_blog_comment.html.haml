@@ -1,11 +1,13 @@
 -present(blog_comment) do |blog_comment_presenter|
-  .media
-    %i.fa.fa-user
-    =blog_comment_presenter.name
-    .media-body
-      %h4.media-heading
-        %small=blog_comment_presenter.medium_created_at
-      =blog_comment_presenter.body
+  %section
+    .row
+      .col-md-12
+        .well
+          .section
+            %p=strip_tags(blog_comment_presenter.body)
+            %p=blog_comment_presenter.name
+              %br/
+              %small=blog_comment_presenter.medium_created_at
   -if policy(blog_comment).edit?
     .row
       .col-xs-12

@@ -1,0 +1,9 @@
+=form_tag blogs_path, {class: :well, method: :get} do
+  .row
+    .col-md-12
+      .form-group.form-group-lg
+        =text_field_tag :q, nil, placeholder: 'Search', class: 'form-control', value: params[:q]
+  .row
+    .col-md-12
+      .form-group
+        =submit_tag 'Search', class: 'btn btn-primary'
