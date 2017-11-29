@@ -1,5 +1,5 @@
 .page-header
-  %h1.animated.bounceInDown Projects
+  %h1 Projects
   =link_to 'New Project', new_project_path if user_signed_in? && current_user.admin?
 =render 'search'
 .row

@@ -1,12 +1,6 @@
-.page-header
-  -if @project.errors.any?
-    %div{class: 'row alert alert-danger'}
-      =flash[:error]
-      %ul
-        -@project.errors.full_messages.each do |message|
-          %li #{message}
+=render partial: 'layouts/error_messages', locals: {obj: @project}
 
-=form_for @project do |f|
+=form_for @project, html: {class: :well} do |f|
   .form-group
     =f.label :repo_url
     =f.text_field :repo_url, class: 'form-control'
@@ -17,8 +11,8 @@
     =f.label :description
     =f.text_field :description, class: 'form-control'
   .form-group
-    =f.submit class: 'btn btn-success btn-xs'
+    =f.submit class: 'btn btn-primary'
     -if @project.new_record?
-      =link_to 'Cancel', projects_path, class: 'btn btn-danger btn-xs'
+      =link_to 'Cancel', projects_path, class: 'btn btn-default'
     -else
-      =link_to 'Cancel', @project, class: 'btn btn-danger btn-xs'
+      =link_to 'Cancel', @project, class: 'btn btn-default'

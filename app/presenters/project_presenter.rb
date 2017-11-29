@@ -16,12 +16,12 @@ class ProjectPresenter < BasePresenter
 
   # Return edit path
   def edit_link
-    link_to :Edit, edit_project_path(project)
+    link_to :Edit, edit_project_path(project), class: 'btn btn-default'
   end
 
   # Return destroy path
   def delete_link
-    link_to :Delete, project, method: :delete, data: {confirm: 'Are you sure?'}
+    link_to :Delete, project, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-default'
   end
 
   # Return an external path to live code

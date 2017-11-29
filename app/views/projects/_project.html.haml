@@ -4,7 +4,8 @@
       =project_presenter.repo_link
     %p
       =project.description
-    %a.btn.btn-primary{href: "#{project_presenter.live_url}", target: :blank}
+    %a.btn.btn-primary{href: project_presenter.live_url, target: :blank}
       Live
       %span.glyphicon.glyphicon-chevron-right
+    =link_to project_presenter.edit_link if policy(project).edit?
     %hr/
