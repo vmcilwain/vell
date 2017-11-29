@@ -1,6 +1,5 @@
-.well
-  =form_tag blog_files_path, method: :get do
-    .form-group
-      =text_field_tag :q, params[:q], class: 'searchbox searchfield form-control', placeholder: 'Search Article Files'
-    .form-group
-      =submit_tag 'Submit', class: 'btn btn-success btn-xs'
+=form_tag blog_files_path, {method: :get, class: :well} do
+  .form-group.form-group-lg
+    =text_field_tag :q, params[:q], class: 'searchbox searchfield form-control', placeholder: 'Search Article Files'
+  .form-group
+    =submit_tag 'Submit', class: 'btn btn-primary'

@@ -1,8 +1,9 @@
-.well
+=form_tag blog_comments_path, {method: :get, class: :well} do
   .row
-    =form_tag blog_comments_path, method: :get do
+    .col-md-12
+      .form-group.form-group-lg
+        =text_field_tag :q, params[:q], class: 'searchbox searchfield form-control', placeholder: 'Search Comments'
+  .row
+    .col-md-12
       .form-group
-        .col-md-1
-          =submit_tag 'Search', class: 'btn btn-success btn-md'
-        .col-md-11
-          =text_field_tag :q, params[:q], class: 'searchbox searchfield form-control', placeholder: 'Search Comments'
+        =submit_tag 'Search', class: 'btn btn-primary'

@@ -1,13 +1,15 @@
 -present(blog_file) do |blog_file_presenter|
-  =div_for(blog_file, class: 'row') do
-    .col-xs-3
+  %tr
+    %td
       -if ALLOWABLE_IMAGES.include?(blog_file.doc_content_type)
         =blog_file_presenter.image_download_path
       -else
         =blog_file_presenter.download_path
-    -if policy(blog_file).destroy?
-      .col-xs-4
-        =blog_file_presenter.delete_link
-    .row
-      .row
-        =blog_file_presenter.description
+    %td
+      =truncate blog_file_presenter.description, length: 50
+    %td
+      -if policy(blog_file).destroy?
+        .col-xs-4
+          =blog_file_presenter.delete_link
+    %td
+      =blog_file_presenter.created_at

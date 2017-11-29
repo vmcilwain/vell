@@ -1,17 +1,14 @@
 -present(@contact_me) do |contact_me_presenter|
-  .well
-    .row
-      .col-md-4
-        From: #{contact_me_presenter.name}
-      .col-md-4
-        (#{contact_me_presenter.email_link})
-      .col-md-4
-        =contact_me_presenter.short_created_at
-      %hr/
-    .row
-      .col-md-12
-        =contact_me_presenter.body
-    .row
-      .col-md-12
-    =link_to :Listing, contact_mes_path, class: 'btn btn-primary btn-xs'
-    =contact_me_presenter.delete_button
+  .page-header
+    %p
+      From: #{contact_me_presenter.name} (#{contact_me_presenter.email_link})
+      %br/
+      To: Lovell McIlwain
+      %br/
+      Date: #{contact_me_presenter.short_created_at}
+    .well
+      %section
+        %p=contact_me_presenter.body
+    %section
+      =link_to :Listing, contact_mes_path, class: 'btn btn-primary'
+      =contact_me_presenter.delete_button

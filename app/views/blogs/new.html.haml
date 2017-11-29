@@ -7,9 +7,9 @@
   .form-group
     =f.trix_editor :body, placeholder: 'What would you like to write about?'
   .form-group
-    .row
-      =f.fields_for :blog_files do |builder|
-        .col-xs-4
+    =f.fields_for :blog_files do |builder|
+      .row
+        .col-md-4
           = builder.file_field :doc
   .form-group
     =f.text_field :tag_list, class: 'form-control', placeholder: 'Add Tags (Comma Seperated)'

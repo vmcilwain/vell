@@ -31,9 +31,14 @@
         %li=link_to 'Projects', projects_path
         %li=link_to 'Contact Me', new_contact_me_path
         -if current_user && current_user.admin?
-          %li=link_to 'Article Comments', blog_comments_path
-          %li=link_to 'Article Files', blog_files_path
-          %li=link_to 'Contact Mes', contact_mes_path
+          %li.dropdown
+            %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              Administration
+              %span.caret
+            %ul.dropdown-menu
+              %li=link_to 'Article Comments', blog_comments_path
+              %li=link_to 'Article Files', blog_files_path
+              %li=link_to 'Contact Mes', contact_mes_path
       %ul.nav.navbar-nav.navbar-right
         -if user_signed_in?
           %li=link_to 'Logout', destroy_user_session_path, method: :delete
