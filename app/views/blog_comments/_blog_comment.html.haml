@@ -5,7 +5,8 @@
         .well
           .section
             %p=strip_tags(blog_comment_presenter.body)
-            %p=blog_comment_presenter.name
+            %p
+              %small=blog_comment_presenter.name
               %br/
               %small=blog_comment_presenter.medium_created_at
   -if policy(blog_comment).edit?

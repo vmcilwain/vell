@@ -1,19 +1,30 @@
-.page-header
-  .row
-    .col-xs-12
-      =render partial: 'layouts/error_messages', locals: {obj: @contact_me}
-
-  %h1 Send Lovell A Message
-
 .row
-  .col-xs-12
-    =form_for @contact_me, html: {class: 'well'} do |f|
+  .col-lg-8.col-md-10.mx-auto
+    %p Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!
+    =render partial: 'layouts/error_messages', locals: {obj: @contact_me}
+    =form_for @contact_me do |f|
+      .control-group
+        .form-group.floating-label-form-group.controls
+          =f.label :name
+          =f.text_field :name, class: 'form-control', placeholder: 'Name', required: true, data: {"validation-required-message" => "Please enter your name."}
+          %p.help-block.text-danger
+      .control-group
+        .form-group.floating-label-form-group.controls
+          =f.label :email_address, 'Email Address'
+          =f.email_field :email, class: 'form-control', placeholder: 'Email Address', required: true, data: {"validation-required-message" => "Please enter your email address."}
+          %p.help-block.text-danger
+      .control-group
+        .form-group.floating-label-form-group.controls
+          =f.label :phone_number, 'Phone Number'
+          =f.phone_field :phone, class: 'form-control', placeholder: 'Phone Number', data: {"validation-required-message" => "Please enter your phone number."}
+          %p.help-block.text-danger
+      .control-group
+        .form-group.floating-label-form-group.controls
+          =f.label :message
+          =f.text_area :body, class: 'form-control', placeholder: 'Message', required: true, rows: '5', data: {"validation-required-message" => "Please enter a message."}
+          %p.help-block.text-danger
+      %br/
+      #success
       .form-group
-        =f.text_field :name, placeholder: 'Name', size: 60, class: 'form-control', autofocus: true
-      .form-group
-        =f.email_field :email, placeholder: 'Email', size: 60, class: 'form-control', required: true
-      .form-group
-        =f.text_area :body, placeholder: 'Message', rows: 10, class: 'form-control'
-      .form-group
-        =f.submit 'Send', class: 'btn btn-success btn-xs'
-        =link_to 'Cancel', root_path, class: 'btn btn-danger btn-xs'
+        =f.submit :Send, class: 'btn btn-primary'
+        =link_to 'Cancel', root_path, class: 'btn btn-default'
