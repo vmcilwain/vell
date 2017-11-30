@@ -74,6 +74,7 @@ group :test do
   gem "codeclimate-test-reporter", require: nil
   gem 'rails-controller-testing'
   gem 'pundit-matchers'
+  gem 'rack-test'
 end
 
 group :development, :test do
