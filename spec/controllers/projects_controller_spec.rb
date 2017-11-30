@@ -6,7 +6,10 @@ describe ProjectsController do
   let(:projects) {[]}
 
   describe 'GET show' do
-    before {get :show, params: {id: project.id}}
+    before do
+      sign_in user
+      get :show, params: {id: project.id}
+    end
 
     it 'sets @project' do
       expect(assigns[:project]).to eq project
