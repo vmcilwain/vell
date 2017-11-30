@@ -12,11 +12,11 @@ describe ProjectPresenter do
   end
 
   it 'returns edit path' do
-    expect(presenter.edit_link).to eq link_to :Edit, edit_project_path(project)
+    expect(presenter.edit_link).to eq link_to :Edit, edit_project_path(project), class: 'btn btn-default'
   end
 
   it "returns destroy path" do
-    expect(presenter.delete_link).to eq link_to :Delete, project, method: :delete, data: {confirm: 'Are you sure?'}
+    expect(presenter.delete_link).to eq link_to :Delete, project, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-default'
   end
 
   it "returns the link to live code" do
