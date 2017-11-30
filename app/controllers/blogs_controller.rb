@@ -43,7 +43,7 @@ class BlogsController < ApplicationController
     authorize Blog
     @blog = Blog.new(blog_params)
     if @blog.save
-      @status, @message = TwitterService.new(@blog).update if @blog.to_twitter
+      # @status, @message = TwitterService.new(@blog).update if @blog.to_twitter
       flash[:success] = 'Blog created!'
       flash[:success] << ' & tweeted!' if @blog.to_twitter
       redirect_to @blog
