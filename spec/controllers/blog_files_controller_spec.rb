@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe BlogFilesController do
   let(:user) {Fabricate :user}
+  let(:blog) {Fabricate :blog}
   after {delete_files}
 
   describe 'GET index' do
@@ -37,11 +38,11 @@ describe BlogFilesController do
       before do
         user.update(admin: true)
         sign_in user
-        post :create, params: {blog_file: {blog_id: 1, doc: file_to_upload(test_file, "text/plain")}}
+        post :create, params: {blog_file: {blog_id: blog.id, doc: file_to_upload(web_test_file, "text/plain")}}
       end
 
       it 'redirects_to :show' do
-        expect(response).to redirect_to BlogFile.first
+        expect(response).to redirect_to BlogFile.last
       end
 
       it 'sets @blog_file' do
@@ -57,7 +58,7 @@ describe BlogFilesController do
       before do
         user.update(admin: true)
         sign_in user
-        post :create, params: {blog_file: {blog_id: 1}}
+        post :create, params: {blog_file: {blog_id: blog.id}}
       end
 
       it 'renders :new' do
@@ -91,7 +92,7 @@ describe BlogFilesController do
       before do
         user.update(admin: true)
         sign_in user
-        put :update, params: {id: blog_file.id, blog_file: {blog_id: 1, doc: file_to_upload(test_file, "text/plain")}}
+        put :update, params: {id: blog_file.id, blog_file: {blog_id: blog_file.blog.id, doc: file_to_upload(web_test_file, "text/plain")}}
       end
 
       it 'redirects_to :show' do
