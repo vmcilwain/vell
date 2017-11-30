@@ -1,5 +1,3 @@
-ATTACHMENT_ROOT = Rails.root.to_s + "/spec/support/files"
-
 def blog_file
   @blog_file ||= Fabricate :blog_file
 end
